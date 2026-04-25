@@ -1,44 +1,60 @@
-# Running the Angular App with Sample Data
+---
+name: how-to-run-app-with-sample-data
+description: Bring up the Taiga AngularJS front-end locally with a fully seeded backend (5 sample projects, ~14 users, milestones, issues) using the dockerized stack in `taiga-docker/`. Use this when the user asks to "run the app", "run the angular app", "see the UI", "start taiga", or "load sample data". Includes Docker setup steps for sandboxed VMs (e.g. Cursor Cloud Agents) where Docker is not preinstalled, systemd is absent, overlayfs cannot be mounted, or nftables NAT is unsupported.
+---
 
-A short guide for getting the Taiga AngularJS front-end running locally with a database that already contains demo projects, users, sprints, and issues.
+# How to run the Angular app with sample data
 
-You'll end up with the app at <http://localhost:9000> and an admin login of `admin` / `adminpass`.
+End state: the Taiga AngularJS app served at <http://localhost:9000>, backed by
+a Postgres database that already contains demo projects, users, sprints, and
+issues. Default admin login is `admin` / `adminpass`.
 
-## Requirements
+## When to use this skill
 
-- Docker Engine 19.03+ with the `docker compose` plugin
-- Free port `9000` on the host
+Use this skill whenever the user asks to:
 
-If you're on a sandboxed VM (e.g. a Cursor Cloud Agent) where Docker isn't
-preinstalled, see [Setting up Docker in a sandboxed VM](#setting-up-docker-in-a-sandboxed-vm)
-below first.
+- "run the angular app", "run taiga", "start the app", "see the UI"
+- "load sample data", "seed the db", "set up demo data"
+- "bring up the stack", "docker compose up taiga"
+
+## Preflight: is Docker available?
+
+Run this first. If it succeeds, skip to [Quick start](#quick-start).
+
+```bash
+docker version >/dev/null 2>&1 && docker info >/dev/null 2>&1 \
+  && echo "docker OK" \
+  || echo "docker NOT ready — see 'Setting up Docker in a sandboxed VM' below"
+```
+
+If Docker is not available, do [Setting up Docker in a sandboxed VM](#setting-up-docker-in-a-sandboxed-vm)
+**first**, then come back here.
 
 ## Quick start
 
-From the repository root:
+From the repo root:
 
 ```bash
-# 1. Bring up the full Taiga stack (db, back, events, front, gateway, rabbitmq...)
+# 1. Bring up the full Taiga stack (db, back, events, front, gateway, rabbitmq, ...)
 npm run taiga-up
 
-# 2. Wait until the API is reachable (usually ~15-30s after step 1)
+# 2. Wait until the API is reachable (~15-30s after step 1; 502s during warmup are normal)
 until curl -fsS http://localhost:9000/api/v1/ >/dev/null; do sleep 2; done
 
 # 3. Create the admin superuser (admin / adminpass)
 npm run taiga-superuser
 
-# 4. Load the sample data (5 projects, ~14 users, milestones, issues...)
+# 4. Load the sample data (5 projects, ~14 users, milestones, issues, ...)
 npm run taiga-sample-data
 ```
 
-Then open <http://localhost:9000> in your browser and log in as **`admin` / `adminpass`**.
-
-The sample-data users are `user1` … `user14` with the default password `123123`.
+Open <http://localhost:9000> and log in as **`admin` / `adminpass`**.
+Sample-data users are `user1` … `user14` with default password `123123`.
 
 ## What the npm scripts do
 
-The scripts above are defined in [`package.json`](./package.json) and wrap the
-`docker compose` invocations against [`taiga-docker/`](./taiga-docker/):
+Defined in [`package.json`](../../../package.json), wrapping the
+`docker compose` files in [`taiga-docker/`](../../../taiga-docker/):
 
 | Script | What it does |
 | --- | --- |
@@ -56,12 +72,11 @@ curl -s http://localhost:9000/api/v1/projects | python3 -c \
   'import json,sys; d=json.load(sys.stdin); print(f"{len(d)} projects"); [print(" -", p["slug"], p["name"]) for p in d]'
 ```
 
-You should see 5 projects (`project-1`, `project-2`, `project-4`, `project-6`, `project-7`).
+Expected: 5 projects (`project-1`, `project-2`, `project-4`, `project-6`, `project-7`).
 
 ## Resetting the database
 
-`sample_data` is destructive but can be re-run. To completely wipe state and
-start over:
+`sample_data` is destructive but can be re-run. To wipe state and start over:
 
 ```bash
 npm run taiga-down
@@ -75,11 +90,10 @@ npm run taiga-up
 
 ## Setting up Docker in a sandboxed VM
 
-These steps are only needed if `docker --version` returns
-`command not found`, or `dockerd` won't start with the default settings. They
-were verified on a Cursor Cloud Agent (Ubuntu 24.04) sandbox where there is no
-`systemd`, no `overlayfs` mount support, and the kernel's nftables `nat` table
-is not available.
+Only needed if `docker --version` returns `command not found`, or `dockerd`
+won't start with the default settings. Verified on a Cursor Cloud Agent
+(Ubuntu 24.04) sandbox where there is no `systemd`, no `overlayfs` mount
+support, and the kernel's nftables `nat` table is not available.
 
 ```bash
 # 1. Install the engine and the compose plugin
@@ -110,40 +124,40 @@ docker version
 docker run --rm hello-world
 ```
 
-After that, you can run the [Quick start](#quick-start) above as normal.
+After that, return to [Quick start](#quick-start).
 
 > **Caveats of `--storage-driver=vfs`** — slower than `overlay2` and uses more
 > disk because layers are copied rather than stacked. Fine for development; do
 > not use for production.
 >
-> **State is ephemeral** — `dockerd` and the `/var/lib/docker` directory live on
-> the VM's local disk, so a fresh VM means re-running these steps. To avoid
-> repeating this every session, consider configuring an env-setup agent at
-> [cursor.com/onboard](https://cursor.com/onboard) so new Cloud Agent VMs come
-> up with Docker already installed and `dockerd` already running.
+> **State is ephemeral** — `dockerd` and `/var/lib/docker` live on the VM's
+> local disk, so a fresh VM means re-running these steps. To make Docker
+> available out of the box on every new Cloud Agent VM, configure an env-setup
+> agent at [cursor.com/onboard](https://cursor.com/onboard).
 
 ## Troubleshooting
 
 - **Front returns `502 Bad Gateway` for a few seconds after `taiga-up`** — normal; `taiga-back` is still booting. Re-try after ~20s.
-- **`docker compose` not found** — install the compose plugin: on Debian/Ubuntu, `sudo apt-get install docker-compose-v2`.
+- **`docker compose` not found** — install the compose plugin: `sudo apt-get install docker-compose-v2`.
 - **`docker: command not found` or `dockerd` won't start** — see [Setting up Docker in a sandboxed VM](#setting-up-docker-in-a-sandboxed-vm).
 - **`Cannot connect to the Docker daemon at unix:///var/run/docker.sock`** — `dockerd` isn't running. Re-attach to the tmux session with `tmux attach -t dockerd` to see why, or restart it with the command in step 4 above.
 - **`iptables ... TABLE_ADD failed (Operation not supported): table nat`** — you're on `iptables-nft` in an environment that doesn't support nftables NAT. Switch to legacy iptables (step 2 above) and restart `dockerd`.
 - **`failed to mount ... overlay ... invalid argument`** — overlayfs isn't available. Restart `dockerd` with `--storage-driver=vfs` (step 4 above).
+- **Port 9000 already in use** — stop whatever is on it, or run `npm run taiga-down` first.
 
 ## Developing the Angular front-end against this stack
 
-The steps above run the **prebuilt** `taigaio/taiga-front` image. If you want to
-edit the AngularJS code in `app/` and see changes live, run the gulp dev server
-locally and point it at the dockerized backend:
+The steps above run the **prebuilt** `taigaio/taiga-front` image. If you want
+to edit the AngularJS code in `app/` and see changes live, run the gulp dev
+server locally and point it at the dockerized backend:
 
 ```bash
-nvm use            # picks up the version pinned in .nvmrc (v16.19.1)
+nvm use            # uses the version pinned in .nvmrc (v16.19.1)
 npm install
 npm start          # gulp dev server on http://localhost:9001 with livereload
 ```
 
-Make sure `conf/conf.json` (copied from `conf/conf.example.json`) has:
+Make sure `conf/conf.json` (copy `conf/conf.example.json`) has:
 
 ```json
 {
