@@ -24,7 +24,8 @@
     "taiga-up": "(cd taiga-docker && ./launch-taiga.sh)",
     "taiga-down": "(cd taiga-docker && docker compose down)",
     "taiga-superuser": "(cd taiga-docker && docker compose -f docker-compose.yml -f docker-compose-inits.yml run --rm -e DJANGO_SUPERUSER_USERNAME=admin -e DJANGO_SUPERUSER_EMAIL=admin@example.com -e DJANGO_SUPERUSER_PASSWORD=adminpass taiga-manage createsuperuser --noinput)",
-    "taiga-seed": "(cd taiga-docker && docker compose exec taiga-back python manage.py sample_data)",
+    "taiga-sample-data": "(cd taiga-docker && docker compose -f docker-compose.yml -f docker-compose-inits.yml run --rm taiga-manage sample_data)",
+    "taiga-seed": "node scripts/taiga-seed.mjs",
     "taiga-logs": "(cd taiga-docker && docker compose logs -f taiga-back taiga-events)",
     "react": "npm --prefix web-react run dev -- --host 0.0.0.0 --port 5173"
   },
