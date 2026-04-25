@@ -8,7 +8,7 @@
   ],
   "start": "true",
   "terminals": [
-    { "name": "taiga", "command": "npm run taiga-up && (npm run taiga-superuser || true) && npm run taiga-logs" },
+    { "name": "taiga", "command": "npm run taiga-up && (npm run taiga-superuser || true) && (npm run taiga-seed || true) && npm run taiga-logs" },
     { "name": "react", "command": "npm run react" }
   ]
 }
