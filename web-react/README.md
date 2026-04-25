@@ -34,13 +34,17 @@ Routes the gateway exposes (and that this Vite dev server proxies in `vite.confi
 
 So during `npm run dev` (or root `npm run react`), the React app runs on `http://localhost:5173` and any of those paths transparently round-trip to the gateway.
 
-## Seeded login
+## Seeded login + sample data
 
-The root `taiga-superuser` script creates:
+The root `taiga-seed` script (run automatically by the `taiga` terminal) creates:
 
 - **username:** `admin`
 - **password:** `adminpass`
 - **email:** `admin@example.com`
+
+…and, on a fresh DB only, runs `taiga-manage sample_data` to populate **7 example projects + ~10 example users with stories, tasks, issues, and wiki pages**. The fixture lives in the prebuilt `taigaio/taiga-back` image (`taiga/projects/management/commands/sample_data.py`), so no extra repos are needed. The script no-ops on warm boots (it skips `sample_data` whenever `/api/v1/projects` already returns a non-empty list).
+
+Sample users are `user1` … `userN` (typically up to ~`user10`), all with password `123123` (hard-coded in `sample_data.py`).
 
 Smoke-test login round-trip through the Vite proxy:
 
@@ -76,9 +80,11 @@ npm run preview  # serve dist/
 From the repo root:
 
 ```sh
-npm run taiga-up         # start the 8-container reference stack
-npm run taiga-superuser  # seed admin/adminpass (safe to fail if it exists)
-npm run taiga-logs       # tail back-end + events
-npm run taiga-down       # stop the stack
-npm run react            # this app (proxies to gateway)
+npm run taiga-up           # start the 8-container reference stack
+npm run taiga-seed         # idempotent: superuser + sample_data on a fresh db
+npm run taiga-superuser    # just the admin (safe to fail if it exists)
+npm run taiga-sample-data  # just sample_data (re-runs unconditionally)
+npm run taiga-logs         # tail back-end + events
+npm run taiga-down         # stop the stack
+npm run react              # this app (proxies to gateway)
 ```
