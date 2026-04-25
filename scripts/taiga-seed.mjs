@@ -11,6 +11,8 @@
 // Safe to run on every cold boot. Fast no-op on warm boots.
 
 import { spawn } from 'node:child_process';
+import http from 'node:http';
+import https from 'node:https';
 import { setTimeout as wait } from 'node:timers/promises';
 
 const GATEWAY = process.env.TAIGA_GATEWAY || 'http://localhost:9000';
@@ -19,6 +21,35 @@ const ADMIN_PASS = process.env.TAIGA_ADMIN_PASS || 'adminpass';
 const ADMIN_EMAIL = process.env.TAIGA_ADMIN_EMAIL || 'admin@example.com';
 
 function log(msg) { console.log(`[taiga-seed] ${msg}`); }
+
+function requestJson(url, { method = 'GET', headers = {}, body } = {}) {
+  return new Promise((resolve, reject) => {
+    const data = body === undefined ? undefined : JSON.stringify(body);
+    const target = new URL(url);
+    const client = target.protocol === 'https:' ? https : http;
+    const req = client.request(target, {
+      method,
+      headers: {
+        ...headers,
+        ...(data ? { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) } : {}),
+      },
+    }, (res) => {
+      let raw = '';
+      res.setEncoding('utf8');
+      res.on('data', (chunk) => { raw += chunk; });
+      res.on('end', () => {
+        let json = null;
+        if (raw) {
+          try { json = JSON.parse(raw); } catch {}
+        }
+        resolve({ ok: res.statusCode >= 200 && res.statusCode < 300, status: res.statusCode, json });
+      });
+    });
+    req.on('error', reject);
+    if (data) req.write(data);
+    req.end();
+  });
+}
 
 function run(cmd, args, opts = {}) {
   return new Promise((resolve) => {
@@ -37,10 +68,10 @@ function runCapture(cmd, args, opts = {}) {
   });
 }
 
-async function pollOk(url, { tries = 60, delayMs = 2000 } = {}) {
+async function pollOk(url, { tries = 180, delayMs = 2000 } = {}) {
   for (let i = 0; i < tries; i++) {
     try {
-      const r = await fetch(url);
+      const r = await requestJson(url);
       if (r.ok) return true;
     } catch {}
     await wait(delayMs);
@@ -49,17 +80,15 @@ async function pollOk(url, { tries = 60, delayMs = 2000 } = {}) {
 }
 
 async function getAdminToken() {
-  const r = await fetch(`${GATEWAY}/api/v1/auth`, {
+  const r = await requestJson(`${GATEWAY}/api/v1/auth`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ type: 'normal', username: ADMIN_USER, password: ADMIN_PASS }),
+    body: { type: 'normal', username: ADMIN_USER, password: ADMIN_PASS },
   });
   if (!r.ok) return null;
-  const d = await r.json();
-  return d.auth_token || null;
+  return r.json?.auth_token || null;
 }
 
-async function pollAdminLogin({ tries = 30, delayMs = 2000 } = {}) {
+async function pollAdminLogin({ tries = 90, delayMs = 2000 } = {}) {
   for (let i = 0; i < tries; i++) {
     const t = await getAdminToken();
     if (t) return t;
@@ -99,10 +128,10 @@ async function pollAdminLogin({ tries = 30, delayMs = 2000 } = {}) {
   }
   log('admin login ok.');
 
-  const r = await fetch(`${GATEWAY}/api/v1/projects`, {
+  const r = await requestJson(`${GATEWAY}/api/v1/projects`, {
     headers: { Authorization: `Bearer ${token}` },
   });
-  const projects = r.ok ? await r.json() : [];
+  const projects = r.ok && Array.isArray(r.json) ? r.json : [];
   log(`existing projects: ${projects.length}`);
   if (projects.length > 0) {
     log('skipping sample_data (db already has projects).');
