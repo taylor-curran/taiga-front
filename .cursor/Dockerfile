@@ -7,12 +7,13 @@ RUN install -m 0755 -d /etc/apt/keyrings && \
     chmod a+r /etc/apt/keyrings/docker.gpg && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" > /etc/apt/sources.list.d/docker.list && \
     apt-get update && \
+    compose_version="$(apt-cache madison docker-compose-plugin | awk '{print $3}' | grep '^2\.' | head -n 1)" && \
     apt-get install -y --no-install-recommends \
       containerd.io \
       docker-buildx-plugin \
       docker-ce \
       docker-ce-cli \
-      docker-compose-plugin \
+      docker-compose-plugin="$compose_version" \
       fuse-overlayfs \
       iptables \
       uidmap && \
