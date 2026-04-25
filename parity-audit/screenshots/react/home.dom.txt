@@ -1,0 +1,318 @@
+URL: http://localhost:5173/
+TITLE: Taiga (React port)
+
+body.bg-slate-50.text-slate-800.antialiased 
+div#root 
+div.flex.min-h-screen.flex-col 
+header.sticky.top-0.z-40.flex.h-14.items-center.justify-between.border-b.border-slate-2 
+div.flex.items-center.gap-6 
+a.flex.items-center.gap-2.font-bold.text-taiga-700 
+svg 
+path 
+span › Taiga
+nav.flex.items-center.gap-4.text-sm 
+a.text-taiga-700.font-semibold › Home
+a.text-slate-600.hover:text-taiga-700 › Discover
+a.text-slate-600.hover:text-taiga-700 › My Projects
+div.flex.items-center.gap-3 
+a.rounded.p-2.text-slate-500.hover:bg-slate-100 
+svg 
+path 
+button.flex.items-center.gap-2.rounded.p-1.hover:bg-slate-100 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+span.hidden.text-sm.font-medium.text-slate-700.md:inline › admin
+div.mx-auto.grid.max-w-6xl.gap-6.p-6.lg:grid-cols-3 
+section.lg:col-span-2 
+div.card.p-5 
+h2.mb-4.text-lg.font-semibold.text-slate-800 › Working on
+div.grid.gap-3.sm:grid-cols-2 
+a.rounded.border.border-slate-200.p-3.hover:border-taiga-400.hover:shadow-sm 
+div.flex.items-center.gap-3 
+div.flex.h-10.w-10.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.f › P
+div.min-w-0 
+div.truncate.text-sm.font-semibold.text-slate-800 › Project Example 1
+div.truncate.text-xs.text-slate-500 › Public
+a.rounded.border.border-slate-200.p-3.hover:border-taiga-400.hover:shadow-sm 
+div.flex.items-center.gap-3 
+div.flex.h-10.w-10.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.f › P
+div.min-w-0 
+div.truncate.text-sm.font-semibold.text-slate-800 › Project Example 2
+div.truncate.text-xs.text-slate-500 › Public
+a.rounded.border.border-slate-200.p-3.hover:border-taiga-400.hover:shadow-sm 
+div.flex.items-center.gap-3 
+div.flex.h-10.w-10.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.f › P
+div.min-w-0 
+div.truncate.text-sm.font-semibold.text-slate-800 › Project Example 3
+div.truncate.text-xs.text-slate-500 › Private
+a.rounded.border.border-slate-200.p-3.hover:border-taiga-400.hover:shadow-sm 
+div.flex.items-center.gap-3 
+div.flex.h-10.w-10.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.f › P
+div.min-w-0 
+div.truncate.text-sm.font-semibold.text-slate-800 › Project Example 5
+div.truncate.text-xs.text-slate-500 › Private
+a.rounded.border.border-slate-200.p-3.hover:border-taiga-400.hover:shadow-sm 
+div.flex.items-center.gap-3 
+div.flex.h-10.w-10.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.f › P
+div.min-w-0 
+div.truncate.text-sm.font-semibold.text-slate-800 › Project Example 6
+div.truncate.text-xs.text-slate-500 › Public
+a.rounded.border.border-slate-200.p-3.hover:border-taiga-400.hover:shadow-sm 
+div.flex.items-center.gap-3 
+div.flex.h-10.w-10.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.f › P
+div.min-w-0 
+div.truncate.text-sm.font-semibold.text-slate-800 › Project Example 7
+div.truncate.text-xs.text-slate-500 › Public
+div.mt-4 
+a.text-sm.text-taiga-700.hover:underline › See all projects →
+div.mt-6.card.p-5 
+h2.mb-4.text-lg.font-semibold.text-slate-800 › Activity
+ul.space-y-3 
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › FG
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Francisco Gil
+span.text-slate-500 › change epics
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 4m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › MM
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Miguel Molina
+span.text-slate-500 › change epics
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 4m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › MM
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Miguel Molina
+span.text-slate-500 › change epics
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 4m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › MM
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Miguel Molina
+span.text-slate-500 › create epics
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 4m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › AP
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Angela Perez
+span.text-slate-500 › change epics
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 4m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › AP
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Angela Perez
+span.text-slate-500 › change epics
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 4m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › AP
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Angela Perez
+span.text-slate-500 › create epics
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 4m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › change wiki
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › create wiki
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › change wiki
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › create wiki
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › BF
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Begoña Flores
+span.text-slate-500 › change issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › BF
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Begoña Flores
+span.text-slate-500 › create issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › change issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › create issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › EC
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Enrique Crespo
+span.text-slate-500 › change issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › EC
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Enrique Crespo
+span.text-slate-500 › create issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › change issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › create issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › change issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › create issues
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › CF
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Catalina Fernandez
+span.text-slate-500 › change userstories
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › CF
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Catalina Fernandez
+span.text-slate-500 › create userstories
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › change userstories
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › create userstories
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › MM
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Miguel Molina
+span.text-slate-500 › change tasks
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › MM
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Miguel Molina
+span.text-slate-500 › create tasks
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › change tasks
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › admin
+span.text-slate-500 › create tasks
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+li.flex.gap-3.rounded.border.border-slate-100.bg-slate-50.p-3.text-sm 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › EC
+div.min-w-0.flex-1 
+div.text-slate-700 
+strong › Enrique Crespo
+span.text-slate-500 › change userstories
+a.font-semibold.text-taiga-700.hover:underline › Project Example 7
+div.text-xs.text-slate-400 › 5m ago
+aside.card.p-5 
+div.flex.flex-col.items-center.text-center 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+h3.mt-3.text-base.font-semibold.text-slate-800 › admin
+p.text-sm.text-slate-500 › @admin
+a.btn-secondary.mt-4.w-full › View profile
+a.btn-primary.mt-2.w-full › Create new project
+div.pointer-events-none.fixed.right-4.top-4.z-50.flex.w-80.flex-col.gap-2 
+script 

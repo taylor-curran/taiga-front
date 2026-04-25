@@ -1,0 +1,1503 @@
+URL: http://localhost:9000/project/project-1/backlog
+TITLE: Backlog - Project Example 1
+
+body 
+tg-legacy 
+div 
+nav.navbar 
+div.nav-left 
+a.logo 
+svg#logo-svg 
+style › #logo-svg path {}
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+div.topnav-dropdown-wrapper 
+div.dropdown-project-list.active 
+a.dropdown-project-list-projects 
+tg-svg.icon-folder 
+svg 
+use 
+span › Projects
+div.navbar-dropdown 
+div 
+ul.dropdown-project-list-ul 
+li 
+a.dropdown-project-list-link.secondary.blocked-project 
+img 
+span › Project Example 7
+tg-svg 
+svg 
+use 
+title › PROJECT.BLOCKED_PROJECT.BLOCKED
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 6
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 5
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 3
+a.see-more-projects-btn › View all projects
+div.create-options 
+a.create-project-btn.button-primary 
+tg-svg 
+svg 
+use 
+span › New project
+div.nav-right 
+a 
+tg-svg 
+svg 
+use 
+div.topnav-dropdown-wrapper.nav-bar-support 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.navigation-help 
+ul 
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Taiga Community
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Ask a question
+div.topnav-dropdown-wrapper 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown-notifications.ng-hide 
+div.header 
+a.action.disabled › Dismiss all
+div.notifications-wrapper 
+div.empty 
+span › No new events
+tg-notifications-list#my-notifications.dropdown-notifications-list 
+section.notifications-list 
+div 
+div.notifications-bottom 
+a.action › View all notifications
+div 
+div.dropdown-user-inner 
+div.dropdown-user-navbar 
+a.user-avatar 
+img 
+button.chevron 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.dropdown-user 
+div.dropdown-user-profile 
+a.profile-link.avatar 
+img 
+div.dropdown-user-data 
+a.profile-link.full-name › admin
+div.profile-link.email › admin@example.com
+p 
+a.edit-profile › Edit profile
+ul 
+li.user-profile-option 
+a.secondary › Account settings
+li.user-profile-option 
+a.secondary › Notifications
+li.user-profile-option 
+a › Logout
+div 
+div.master 
+div.wrapper 
+tg-project-menu 
+div.sticky-project-menu 
+tg-legacy-loader 
+main.main.scrum 
+section.backlog 
+header 
+h1 
+span › Scrum
+div.backlog-summary 
+div.summary 
+div.summary-progress-bar 
+div.defined-points 
+div.project-points-progress 
+div.closed-points-progress 
+div.data 
+span.number › 5%
+div.summary-stats 
+span.number › 392
+span.description 
+br 
+div.summary-stats 
+span.number › 392.5
+span.description 
+br 
+div.summary-stats 
+span.number › 21
+span.description 
+br 
+div.summary-stats 
+span.number › 0
+span.description 
+br 
+div.stats.js-toggle-burndown-visibility-button.active 
+tg-svg 
+svg 
+use 
+div.graphics-container.js-burndown-graph.shown 
+div.burndown 
+canvas.flot-base 
+div.flot-text 
+div.flot-y-axis.flot-y1-axis.yAxis.y1Axis 
+div.flot-tick-label.tickLabel › 0
+div.flot-tick-label.tickLabel › 100
+div.flot-tick-label.tickLabel › 200
+div.flot-tick-label.tickLabel › 300
+div.flot-tick-label.tickLabel › 400
+canvas.flot-overlay 
+div.backlog-table 
+div.backlog-top 
+div.backlog-menu 
+div.backlog-header 
+div.backlog-header-title 
+h2 › Backlog
+span.backlog-stories-number › 11 user stories
+div.backlog-header-options 
+div.new-us 
+button.btn-small 
+tg-svg 
+svg 
+use 
+span.text › user story
+button.btn-icon 
+tg-svg 
+svg 
+use 
+div.backlog-table-options 
+div.backlog-table-options-start 
+button#show-filters-button.btn-filter.ng-animate-disabled 
+tg-svg 
+svg 
+use 
+span.text › Filters
+tg-input-search 
+input.ng-pristine.ng-untouched.ng-valid.ng-empty 
+tg-svg 
+svg 
+use 
+div#show-tags.display-tags-button 
+div.check.js-check.active 
+input#show-tags-input.ng-pristine.ng-untouched.ng-valid.ng-not-empty 
+div 
+label › tags
+div.backlog-table-options-end 
+button#move-to-latest-sprint.btn-filter.move-to-latest-sprint.move-to-sprint. 
+span.text › Move to latest Sprint
+tg-svg 
+svg 
+use 
+div.backlog-manager.expanded 
+section.backlog-table 
+div.backlog-table-header 
+div.row.backlog-table-title 
+div.draggable-us-column 
+div.input 
+div.user-stories › User Story
+div.status › Status
+div.points 
+div.inner 
+span.header-points › Points
+tg-svg 
+svg 
+use 
+ul.popover.pop-role 
+li 
+a.clear-selection.active-popover › All points
+li 
+a.role 
+span.item-text › UX
+li 
+a.role 
+span.item-text › Design
+li 
+a.role 
+span.item-text › Front
+li 
+a.role 
+span.item-text › Back
+div.us-header-options 
+div.backlog-table-body.show-tags 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-12.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #12
+span.user-story-name › Support for bulk actions
+div.tag.last › vel
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › New
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 50
+div.us-option 
+button.us-option-popup-button.js-popup-button.first 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-13.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #13
+span.user-story-name › Feature/improved image admin
+div.tag › quia
+div.tag.last › molestiae
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › New
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 19
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-14.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #14
+span.user-story-name › Added file copying and processing of images (resizing)
+div.tag › officia
+div.tag.last › velit
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › Ready for test
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 16.5
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-15.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #15
+span.user-story-name › Add setting to allow regular users to create folders at the root level.
+div.tag › sunt
+div.tag › eveniet
+div.tag.last › inventore
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › Ready
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 30
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-16.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #16
+span.user-story-name › Support for bulk actions
+div.tag › illum
+div.tag.last › praesentium
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › In progress
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 16
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-17.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #17
+span.user-story-name › Support for bulk actions
+div.tag.last › ullam
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › Ready for test
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 20.5
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-18.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #18
+span.user-story-name › Migrate to Python 3 and milk a beautiful cow
+div.tag › doloremque
+div.tag › quis
+div.tag.last › quibusdam
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › Ready for test
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 25.5
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-19.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #19
+span.user-story-name › Added file copying and processing of images (resizing)
+div.tag › neque
+div.tag › harum
+div.tag.last › enim
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › Ready for test
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 20.5
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-20.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #20
+span.user-story-name › Feature/improved image admin
+div.tag › incidunt
+div.tag › eligendi
+div.tag.last › neque
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › New
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 21
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-21.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #21
+span.user-story-name › Add setting to allow regular users to create folders at the root level.
+div.tag › distinctio
+div.tag › incidunt
+div.tag.last › corporis
+div.belong-to-epic-pill 
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › New
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 53.5
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div.doom-line 
+span › Project Scope [Doomline]
+div.row.us-item-row.tg-scope 
+div.us-item-row-left 
+div.draggable-us-row 
+tg-svg 
+svg 
+use 
+div.input 
+div.custom-checkbox 
+input#us-check-22.ng-pristine.ng-untouched.ng-valid.ng-empty 
+label 
+div.user-stories.user-story-main-data 
+a.user-story-link 
+span.user-story-number › #22
+span.user-story-name › Migrate to Python 3 and milk a beautiful cow
+div.tag › natus
+div.tag.last › laboriosam
+div.belong-to-epic-pill 
+div.status 
+a.us-status 
+span.us-status-bind › Ready for test
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › New
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Ready
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › In progress
+li.popover-status 
+a#js-status-btn.status.active-popover. 
+span.item-text › Ready for test
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Done
+li.popover-status 
+a#js-status-btn.status. 
+span.item-text › Archived
+div.points 
+button.us-points. 
+span.points-value › 18.5
+div.us-option 
+button.us-option-popup-button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.empty-backlog.js-empty-backlog.hidden 
+p.no-match › No matching search result found with “”
+p.no-match-help › Try again using more general search terms
+div.empty-large.js-empty-backlog.hidden 
+p.title › The backlog is empty!
+button.btn-small 
+tg-svg 
+svg 
+use 
+span.text › Add a user story
+img 
+sidebar.sidebar 
+section.sprints 
+header.sprint-header 
+h1 
+span.number › 1
+span.title › SPRINTS
+a.btn-link 
+span › Add
+tg-svg 
+svg 
+use 
+div.sprint.sprint-open 
+tg-sprint 
+header 
+div.sprint-summary 
+div.sprint-name-container 
+div.sprint-name 
+button.compact-sprint 
+tg-svg 
+svg 
+use 
+a 
+span › Sprint 2026-3-1
+div.sprint-date › 01 Mar 2026-16 Mar 2026
+div.sprint-points 
+a.edit-sprint 
+tg-svg 
+svg 
+use 
+div.sprint-info 
+ul 
+li 
+span.number › 21
+span.description › closed
+li 
+span.number › 101.5
+span.description › total
+div.summary-progress-wrapper 
+div.sprint-progress-bar 
+div.current-progress 
+div.sprint-table.tg-scope 
+div.row.milestone-us-item-row.tg-scope.closedRow 
+div.column-us 
+a.us-name.clickable.closed 
+span.us-ref-text › #1
+span.us-name-text › Exception is thrown if trying to add a folder with existing name
+tg-belong-to-epics.us-epic-container 
+span.belong-to-epic-pill-wrapper 
+div.belong-to-epic-pill 
+span.belong-to-epic-pill-wrapper 
+div.belong-to-epic-pill 
+div.column-points.width-1.closed 
+span.points-container › 21
+div.row.milestone-us-item-row.tg-scope 
+div.column-us 
+a.us-name.clickable 
+span.us-ref-text › #5
+span.us-name-text › Add tests for bulk operations
+tg-belong-to-epics.us-epic-container 
+span.belong-to-epic-pill-wrapper 
+div.belong-to-epic-pill 
+span.belong-to-epic-pill-wrapper 
+div.belong-to-epic-pill 
+div.column-points.width-1 
+span.points-container › 27
+div.row.milestone-us-item-row.tg-scope 
+div.column-us 
+a.us-name.clickable 
+span.us-ref-text › #9
+span.us-name-text › get_actions() does not check for 'delete_selected' in actions
+tg-belong-to-epics.us-epic-container 
+span.belong-to-epic-pill-wrapper 
+div.belong-to-epic-pill 
+div.column-points.width-1 
+span.points-container › 53.5
+a.btn-small 
+span › Sprint Taskboard
+div.lightbox.lightbox-generic-form.lightbox-create-edit 
+div.lightbox.lightbox-generic-bulk 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-invalid.ng-invalid-required 
+h2.title › New bulk insert
+fieldset 
+div.label › Select status
+div.bulk-status-selector-wrapper 
+button.bulk-status-selector 
+span 
+tg-svg 
+svg 
+use 
+div.bulk-status-option-wrapper.ng-hide 
+button.bulk-status-option › New
+button.bulk-status-option › Ready
+button.bulk-status-option › In progress
+button.bulk-status-option › Ready for test
+button.bulk-status-option › Done
+button.bulk-status-option › Archived
+fieldset.creation-position 
+div.label › Location
+div.creation-position-fields 
+label.custom-radio 
+input#top-backlog.ng-pristine.ng-untouched.ng-valid.ng-empty 
+span.radio-control 
+span.radio-label › at the bottom
+label.custom-radio 
+input#bottom-backlog.ng-pristine.ng-untouched.ng-valid.ng-empty 
+span.radio-control 
+span.radio-label › on top
+fieldset.swimlane-select 
+div.label › Select swimlane
+fieldset 
+textarea.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required 
+div.lb-action-wrapper 
+button.btn-small.js-submit-button › Save
+div.lightbox.lightbox-sprint-add-edit 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+div.lightbox.lightbox-generic-ask 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p 
+span.subtitle 
+span.message 
+div.options 
+button.btn-link.btn-cancel.js-cancel 
+span › Cancel
+button.btn-small.js-confirm 
+span › Accept
+div.lightbox.lightbox-ask-choice 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p.question 
+p.subtitle 
+p.replacement 
+select.choices 
+p.warning 
+div.options 
+button.btn-link.btn-cancel.js-cancel-ask 
+span › Cancel
+button.btn-small.btn-confirm.js-confirm-ask 
+tg-svg 
+svg 
+use 
+span › Delete
+div.lightbox.lightbox-generic-success 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+section 
+h2.title 
+p.message 
+div.options 
+button.btn-small.js-confirm 
+span › Accept
+div.lightbox.lightbox-generic-error 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+section 
+h2.title 
+div.options 
+a.button-green 
+span › Accept
+div.lightbox.lightbox-generic-loading 
+section 
+div.spin.hidden 
+img 
+div.progress-bar-wrapper.hidden 
+div.bar 
+span.progress 
+h2.title 
+p.message 
+div.lightbox.lightbox-generic-delete 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p 
+span.subtitle 
+span.message 
+div.options 
+button.btn-link.btn-cancel.js-cancel 
+span › Cancel
+button.btn-small.btn-confirm.js-confirm 
+tg-svg 
+svg 
+use 
+span › Delete
+div.loader 
+div.loading-bar 
+span.item.item-1 
+span.item.item-2 
+span.item.item-3 
+span.item.item-4 
+span.item.item-5 
+div.container 
+p › Loading...
+div.notification-message.notification-message-success 
+div.text 
+h4.warning 
+p 
+div.notification-message.notification-message-error 
+tg-svg 
+svg 
+use 
+div.text 
+h4.warning 
+p 
+a.close 
+tg-svg 
+svg 
+use 
+div.notification-light.notification-message-light-error 
+div.text 
+h4.warning 
+p 
+a.close 
+tg-svg 
+svg 
+use 
+div 
+div.live-announcement 
+div.live-announcement-inner 
+img.anouncement-decoration 
+div.text 
+h2.title 
+p.warning 
+a.close 
+tg-svg 
+svg 
+use 
+script 
+svg 
+defs 
+symbol#icon-private 
+title › private
+path 
+symbol#icon-project 
+title › project
+path 
+symbol#icon-scrum 
+title › scrum
+path 
+symbol#icon-dashboard 
+title › dashboard
+path 
+symbol#icon-discover 
+title › discover
+path 
+symbol#icon-drag 
+title › drag
+path 
+symbol#icon-exclamation 
+title › exclamation
+path 
+symbol#icon-flag 
+title › flag
+path 
+symbol#icon-fold-row 
+title › fold-row
+path 
+symbol#icon-graph 
+title › graph
+path 
+symbol#icon-kanban 
+title › kanban
+path 
+symbol#icon-kanban 
+path 
+symbol#icon-like-empty 
+title › like-empty
+path 
+symbol#icon-like 
+title › like
+path 
+symbol#icon-activity 
+title › activity
+path 
+symbol#icon-question 
+title › question
+path 
+symbol#icon-settings 
+title › settings
+path 
+symbol#icon-team 
+title › team
+path 
+symbol#icon-timeline 
+title › timeline
+path 
+symbol#icon-unfold-row 
+title › unfold-row
+path 
+symbol#icon-unwatch 
+title › unwatch
+path 
+symbol#icon-user 
+title › user
+path 
+symbol#icon-wiki 
+title › wiki
+path 
+symbol#icon-archive 
+title › archive
+path 
+symbol#icon-arrow-left 
+title › arrow-left
+path 
+symbol#icon-move-to-top 
+title › move-to-top
+path 
+symbol#icon-arrow-up 
+title › arrow-up
+path 
+symbol#icon-attachment 
+title › attachment
+path 
+symbol#icon-briefcase 
+title › briefcase
+path 
+symbol#icon-meetup 
+path 
+symbol#icon-bug 
+title › bug
+path 
+symbol#icon-capslock 
+title › capslock
+path 
+symbol#icon-check 
+title › check
+path 
+symbol#icon-clipboard 
+title › clipboard
+path 
+symbol#icon-document 
+title › document
+path 
+symbol#icon-documents 
+title › documents
+path 
+symbol#icon-downvote 
+title › downvote
+path 
+symbol#icon-error 
+title › error
+path 
+symbol#icon-filters-empty 
+title › filters-empty
+path 
+symbol#icon-github 
+title › github
+path 
+symbol#icon-maximize 
+title › maximize
+path 
+symbol#icon-minimize 
+title › minimize
+path 
+symbol#icon-move 
+title › move
+path 
+symbol#icon-reload 
+title › reload
+path 
+symbol#icon-save 
+title › save
+path 
+symbol#icon-upload 
+title › upload
+path 
+symbol#icon-upvote 
+title › upvote
+path 
+symbol#icon-writer 
+title › writer
+path 
+symbol#icon-watch 
+title › watch
+path 
+symbol#icon-task 
+title › task
+path 
+symbol#icon-api 
+title › api
+path 
+symbol#icon-customize 
+title › customize
+path 
+symbol#icon-feel-love 
+title › feel-love
+path 
+symbol#icon-highly-designed 
+title › highly-designed
+path 
+symbol#icon-integration 
+title › integration
+path 
+symbol#icon-lend-hand 
+title › lend-hand
+path 
+symbol#icon-powerful 
+title › powerful
+path 
+symbol#icon-smiley 
+title › smiley
+path 
+symbol#icon-social-management 
+title › social-management
+path 
+symbol#icon-speak-up 
+title › speak-up
+path 
+symbol#icon-gallery 
+title › gallery
+path 
+symbol#icon-list 
+title › list
+path 
+symbol#icon-recruit 
+title › Looking for people
+path 
+symbol#icon-badge 
+title › Owner Badge
+path 
+symbol#icon-exclamation 
+title › Exclamation
+path 
+symbol#icon-blocked-project 
+title › Blocked Project
+path 
+path 
+symbol#icon-add-user 
+title › Add user
+path 
+symbol#icon-view-more 
+title › View more
+path 
+symbol#icon-merge 
+title › Merge
+path 
+symbol#icon-fill 
+title › Fill
+path 
+symbol#icon-epics 
+path 
+symbol#icon-broken-link 
+title › Broken Link
+path 
+symbol#icon-duplicate 
+title › Duplicate
+path 
+symbol#icon-detach 
+g 
+path 
+defs 
+clippath#clip0 
+path 
+symbol#icon-activity 
+path 
+symbol#icon-agile 
+path 
+path 
+path 
+path 
+symbol#icon-folder 
+path 
+symbol#icon-plus-1 
+path 
+path 
+symbol#icon-compass 
+path 
+path 
+symbol#icon-bell 
+path 
+path 
+symbol#icon-chevron-down 
+path 
+symbol#icon-life-buoy 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+symbol#icon-message-square 
+path 
+symbol#icon-slash 
+path 
+path 
+symbol#icon-filters 
+path 
+symbol#icon-arrow-down 
+title › arrow-down
+path 
+symbol#icon-arrow-right 
+title › arrow-right
+path 
+symbol#icon-trash 
+title › trash
+path 
+symbol#icon-close 
+path 
+symbol#icon-search 
+path 
+symbol#icon-filter 
+title › filter
+path 
+symbol#icon-more-vertical 
+path 
+path 
+path 
+symbol#icon-draggable 
+path 
+symbol#icon-edit 
+title › edit
+path 
+symbol#icon-unfold-column 
+title › unfold-column
+path 
+symbol#icon-fold-column 
+title › fold-column
+path 
+symbol#icon-add 
+title › add
+path 
+symbol#icon-bulk 
+title › bulk
+path 
+symbol#icon-check-empty 
+path 
+symbol#icon-assign-to 
+path 
+symbol#icon-clock 
+path 
+symbol#icon-lock 
+path 
+symbol#icon-paperclip 
+path 
+symbol#icon-eye 
+path 
+path 
+symbol#icon-unfolded-swimlane 
+path 
+symbol#icon-folded-swimlane 
+path 
+symbol#icon-help-circle 
+path 
+symbol#icon-iocaine 
+path 
+path 
+path 
+path 
+path 
+path 
+symbol#icon-add-to-sprint 
+path 
+symbol#icon-star 
+path 
+symbol#icon-issues 
+path 
+symbol#icon-client-requirement 
+title › client-requirement
+path 
+symbol#icon-team-requirement 
+title › team-requirement
+path 
+symbol#icon-unlock 
+title › unlock
+path 
+symbol#icon-attach 
+path 
+symbol#icon-promote 
+title › promote
+path 
+symbol#icon-resources 
+title › promote
+path 
+symbol#icon-module-epic 
+title › epic
+path 
+symbol#icon-module-scrum 
+title › scrum
+path 
+symbol#icon-module-kanban 
+title › kanban
+path 
+symbol#icon-module-issues 
+title › issues
+path 
+symbol#icon-module-wiki 
+title › wiki
+path 
+symbol#icon-module-meet 
+title › team
+path 
+symbol#icon-mail 
+path 
+symbol#icon-lifeguard 
+path 
+symbol#icon-alert 
+g 
+path 
+path 
+defs 
+clippath#clip0 
+path 
+svg 
+defs 
+symbol#editor-list-o 
+title › editor-list-o
+path 
+symbol#editor-rtl 
+title › editor-rtl
+path 
+symbol#editor-quote 
+title › editor-quote
+path 
+symbol#editor-list-n 
+title › editor-list-n
+path 
+symbol#editor-no-format 
+title › editor-no-format
+path 
+symbol#editor-link 
+title › editor-link
+path 
+symbol#editor-italic 
+title › editor-italic
+path 
+symbol#editor-image 
+title › editor-image
+path 
+symbol#editor-h3 
+title › editor-h3
+path 
+symbol#editor-h1 
+title › editor-h1
+path 
+symbol#editor-h2 
+title › editor-h2
+path 
+symbol#editor-cross-out 
+title › editor-cross-out
+path 
+symbol#editor-code 
+title › editor-code

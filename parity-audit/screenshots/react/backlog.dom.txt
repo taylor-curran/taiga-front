@@ -1,0 +1,133 @@
+URL: http://localhost:5173/project/project-1/backlog
+TITLE: Taiga (React port)
+
+body.bg-slate-50.text-slate-800.antialiased 
+div#root 
+div.flex.min-h-screen.flex-col 
+header.sticky.top-0.z-40.flex.h-14.items-center.justify-between.border-b.border-slate-2 
+div.flex.items-center.gap-6 
+a.flex.items-center.gap-2.font-bold.text-taiga-700 
+svg 
+path 
+span › Taiga
+nav.flex.items-center.gap-4.text-sm 
+a.text-slate-600.hover:text-taiga-700 › Home
+a.text-slate-600.hover:text-taiga-700 › Discover
+a.text-slate-600.hover:text-taiga-700 › My Projects
+div.flex.items-center.gap-3 
+a.rounded.p-2.text-slate-500.hover:bg-slate-100 
+svg 
+path 
+button.flex.items-center.gap-2.rounded.p-1.hover:bg-slate-100 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+span.hidden.text-sm.font-medium.text-slate-700.md:inline › admin
+div.flex.min-h-[calc(100vh-3.5rem)] 
+aside.hidden.w-56.shrink-0.border-r.border-slate-200.bg-white.md:block 
+div.border-b.border-slate-200.px-4.py-3 
+a.block.text-base.font-semibold.text-taiga-800.hover:underline.active › Project Example 1
+div.mt-1.text-xs.text-slate-500 › Public project
+nav.flex.flex-col.p-2.text-sm 
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Timeline
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Epics
+a.rounded.px-3.py-2.bg-taiga-100.text-taiga-800.font-semibold › Backlog
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Kanban
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Issues
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Wiki
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Team
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Search
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Admin
+main.flex-1.p-6 
+div 
+header.flex.flex-wrap.items-center.justify-between.gap-3 
+div 
+h1.text-xl.font-semibold.text-slate-800 › Backlog
+p.mt-0.5.text-sm.text-slate-500 › 11 user stories in backlog
+div.flex.flex-wrap.items-center.gap-2 
+button.btn-secondary › + New sprint
+button.btn-primary › + New stories
+div.mt-6.grid.grid-cols-1.gap-6.xl:grid-cols-[2fr_1fr] 
+section.card.p-4. 
+h2.mb-3.text-sm.font-semibold.uppercase.tracking-wide.text-slate-500 › Backlog
+ul.divide-y.divide-slate-100 
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #12
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 50
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #13
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 19
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #14
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 16.5
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #15
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 30
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #16
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 16
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #17
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 20.5
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #18
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 25.5
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #19
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 20.5
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #20
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 21
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #21
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 53.5
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+li.flex.items-center.gap-3.py-2 
+span.inline-block.h-3.w-3.shrink-0.rounded-full 
+a.flex-1.truncate.text-sm.text-slate-700.hover:text-taiga-700 
+span.text-slate-400 › #22
+span.rounded.bg-slate-100.px-2.py-0.5.text-xs.text-slate-600 › 18.5
+button.rounded.p-1.text-slate-400.hover:bg-red-50.hover:text-red-600 › ×
+section.space-y-4 
+h2.text-sm.font-semibold.uppercase.tracking-wide.text-slate-500 › Sprints
+div.card.p-4. 
+div.flex.items-center.justify-between 
+a.text-sm.font-semibold.text-taiga-700.hover:underline › Sprint 2026-3-1
+span.text-xs.text-slate-400 › Mar 1, 2026 → Mar 16, 2026
+div.mt-2.text-xs.text-slate-500 › 21/101.5 points
+ul.mt-3.space-y-1 
+li.truncate.text-sm.text-slate-600 
+a.hover:text-taiga-700 › #1 Exception is thrown if trying to add a folder with existing name
+li.truncate.text-sm.text-slate-600 
+a.hover:text-taiga-700 › #5 Add tests for bulk operations
+li.truncate.text-sm.text-slate-600 
+a.hover:text-taiga-700 › #9 get_actions() does not check for 'delete_selected' in actions
+div.pointer-events-none.fixed.right-4.top-4.z-50.flex.w-80.flex-col.gap-2 
+script 

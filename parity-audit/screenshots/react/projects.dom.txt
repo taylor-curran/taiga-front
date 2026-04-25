@@ -1,0 +1,73 @@
+URL: http://localhost:5173/projects/
+TITLE: Taiga (React port)
+
+body.bg-slate-50.text-slate-800.antialiased 
+div#root 
+div.flex.min-h-screen.flex-col 
+header.sticky.top-0.z-40.flex.h-14.items-center.justify-between.border-b.border-slate-2 
+div.flex.items-center.gap-6 
+a.flex.items-center.gap-2.font-bold.text-taiga-700 
+svg 
+path 
+span › Taiga
+nav.flex.items-center.gap-4.text-sm 
+a.text-slate-600.hover:text-taiga-700 › Home
+a.text-slate-600.hover:text-taiga-700 › Discover
+a.text-taiga-700.font-semibold › My Projects
+div.flex.items-center.gap-3 
+a.rounded.p-2.text-slate-500.hover:bg-slate-100 
+svg 
+path 
+button.flex.items-center.gap-2.rounded.p-1.hover:bg-slate-100 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+span.hidden.text-sm.font-medium.text-slate-700.md:inline › admin
+div.mx-auto.max-w-5xl.p-6 
+div.flex.items-center.justify-between 
+h1.text-2xl.font-semibold.text-slate-800 › My projects
+a.btn-primary › + New project
+input.input.mt-4.max-w-md 
+ul.mt-6.space-y-3 
+li 
+a.card.flex.items-center.gap-4.p-4.hover:border-taiga-400 
+div.flex.h-12.w-12.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.t › P
+div.min-w-0.flex-1 
+div.font-semibold.text-slate-800 › Project Example 1
+div.line-clamp-1.text-sm.text-slate-500 › Project example 1 description
+div.text-xs.text-slate-400 › Public
+li 
+a.card.flex.items-center.gap-4.p-4.hover:border-taiga-400 
+div.flex.h-12.w-12.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.t › P
+div.min-w-0.flex-1 
+div.font-semibold.text-slate-800 › Project Example 2
+div.line-clamp-1.text-sm.text-slate-500 › Project example 2 description
+div.text-xs.text-slate-400 › Public
+li 
+a.card.flex.items-center.gap-4.p-4.hover:border-taiga-400 
+div.flex.h-12.w-12.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.t › P
+div.min-w-0.flex-1 
+div.font-semibold.text-slate-800 › Project Example 3
+div.line-clamp-1.text-sm.text-slate-500 › Project example 3 description
+div.text-xs.text-slate-400 › Private
+li 
+a.card.flex.items-center.gap-4.p-4.hover:border-taiga-400 
+div.flex.h-12.w-12.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.t › P
+div.min-w-0.flex-1 
+div.font-semibold.text-slate-800 › Project Example 5
+div.line-clamp-1.text-sm.text-slate-500 › Project example 5 description
+div.text-xs.text-slate-400 › Private
+li 
+a.card.flex.items-center.gap-4.p-4.hover:border-taiga-400 
+div.flex.h-12.w-12.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.t › P
+div.min-w-0.flex-1 
+div.font-semibold.text-slate-800 › Project Example 6
+div.line-clamp-1.text-sm.text-slate-500 › Project example 6 description
+div.text-xs.text-slate-400 › Public
+li 
+a.card.flex.items-center.gap-4.p-4.hover:border-taiga-400 
+div.flex.h-12.w-12.items-center.justify-center.rounded.bg-taiga-200.text-taiga-800.t › P
+div.min-w-0.flex-1 
+div.font-semibold.text-slate-800 › Project Example 7
+div.line-clamp-1.text-sm.text-slate-500 › Project example 7 description
+div.text-xs.text-slate-400 › Public
+div.pointer-events-none.fixed.right-4.top-4.z-50.flex.w-80.flex-col.gap-2 
+script 

@@ -1,0 +1,25 @@
+URL: http://localhost:5173/login
+TITLE: Taiga (React port)
+
+body.bg-slate-50.text-slate-800.antialiased 
+div#root 
+div.flex.min-h-screen.flex-col 
+div.flex.min-h-screen.items-center.justify-center.bg-gradient-to-br.from-taiga-50.vi 
+div.w-full.max-w-md.rounded-xl.bg-white.p-8.shadow-md 
+div.mb-6.text-center 
+div.mx-auto.mb-3.inline-flex.h-12.w-12.items-center.justify-center.rounded.bg-taiga- 
+svg 
+path 
+h1.text-3xl.font-bold.text-taiga-700 › Taiga
+p.text-sm.text-slate-500 › A simple project management platform
+form.space-y-4 
+div 
+label.label › Username or email
+input#username.input 
+div 
+label.label › Password
+input#password.input 
+a.mt-2.inline-block.text-xs.text-taiga-700.hover:underline › Forgot your password?
+button.btn-primary.w-full › Sign in
+div.pointer-events-none.fixed.right-4.top-4.z-50.flex.w-80.flex-col.gap-2 
+script 

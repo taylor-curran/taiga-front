@@ -1,0 +1,1503 @@
+URL: http://localhost:9000/project/project-1/kanban
+TITLE: Kanban - Project Example 1
+
+body 
+tg-legacy 
+div 
+nav.navbar 
+div.nav-left 
+a.logo 
+svg#logo-svg 
+style › #logo-svg path {}
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+div.topnav-dropdown-wrapper 
+div.dropdown-project-list.active 
+a.dropdown-project-list-projects 
+tg-svg.icon-folder 
+svg 
+use 
+span › Projects
+div.navbar-dropdown 
+div 
+ul.dropdown-project-list-ul 
+li 
+a.dropdown-project-list-link.secondary.blocked-project 
+img 
+span › Project Example 7
+tg-svg 
+svg 
+use 
+title › PROJECT.BLOCKED_PROJECT.BLOCKED
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 6
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 5
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 3
+a.see-more-projects-btn › View all projects
+div.create-options 
+a.create-project-btn.button-primary 
+tg-svg 
+svg 
+use 
+span › New project
+div.nav-right 
+a 
+tg-svg 
+svg 
+use 
+div.topnav-dropdown-wrapper.nav-bar-support 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.navigation-help 
+ul 
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Taiga Community
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Ask a question
+div.topnav-dropdown-wrapper 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown-notifications.ng-hide 
+div.header 
+a.action.disabled › Dismiss all
+div.notifications-wrapper 
+div.empty 
+span › No new events
+tg-notifications-list#my-notifications.dropdown-notifications-list 
+section.notifications-list 
+div 
+div.notifications-bottom 
+a.action › View all notifications
+div 
+div.dropdown-user-inner 
+div.dropdown-user-navbar 
+a.user-avatar 
+img 
+button.chevron 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.dropdown-user 
+div.dropdown-user-profile 
+a.profile-link.avatar 
+img 
+div.dropdown-user-data 
+a.profile-link.full-name › admin
+div.profile-link.email › admin@example.com
+p 
+a.edit-profile › Edit profile
+ul 
+li.user-profile-option 
+a.secondary › Account settings
+li.user-profile-option 
+a.secondary › Notifications
+li.user-profile-option 
+a › Logout
+div 
+div.master 
+div.wrapper 
+tg-project-menu 
+div.sticky-project-menu 
+tg-legacy-loader 
+section.main.kanban.swimlane 
+div.kanban-header 
+header 
+h1 
+span › Kanban
+div.taskboard-actions 
+div.kanban-table-options-start 
+button.btn-filter. 
+tg-svg 
+svg 
+use 
+span.text › Filters
+tg-input-search 
+input.ng-pristine.ng-untouched.ng-valid.ng-empty 
+tg-svg 
+svg 
+use 
+div.kanban-table-options-end 
+tg-kanban-board-zoom 
+tg-board-zoom.board-zoom 
+div.board-zoom 
+div.board-zoom-title › Zoom:
+label.zoom-radio 
+input.ng-pristine.ng-untouched.ng-valid.tg-scope.ng-not-empty 
+div.checkmark 
+span › Compact
+label.zoom-radio 
+input.ng-pristine.ng-untouched.ng-valid.tg-scope.ng-not-empty 
+div.checkmark 
+span › Default
+label.zoom-radio 
+input.ng-pristine.ng-untouched.ng-valid.tg-scope.ng-not-empty 
+div.checkmark 
+span › Detailed
+label.zoom-radio 
+input.ng-pristine.ng-untouched.ng-valid.tg-scope.ng-not-empty 
+div.checkmark 
+span › Expanded
+div.kanban-manager.expanded 
+div.kanban-table.zoom-1.kanban-table-swimlane 
+div.kanban-table-header 
+div.kanban-table-inner 
+h2.task-colum-name 
+div.deco-square 
+div.title 
+div.name › New
+div.options 
+button.btn-board.option 
+tg-svg.add-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg.bulk-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg 
+svg 
+use 
+button.btn-board.option.hunfold.hidden 
+tg-svg 
+svg 
+use 
+h2.task-colum-name 
+div.deco-square 
+div.title 
+div.name › Ready
+div.options 
+button.btn-board.option 
+tg-svg.add-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg.bulk-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg 
+svg 
+use 
+button.btn-board.option.hunfold.hidden 
+tg-svg 
+svg 
+use 
+h2.task-colum-name 
+div.deco-square 
+div.title 
+div.name › In progress
+div.options 
+button.btn-board.option 
+tg-svg.add-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg.bulk-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg 
+svg 
+use 
+button.btn-board.option.hunfold.hidden 
+tg-svg 
+svg 
+use 
+h2.task-colum-name 
+div.deco-square 
+div.title 
+div.name › Ready for test
+div.options 
+button.btn-board.option 
+tg-svg.add-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg.bulk-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg 
+svg 
+use 
+button.btn-board.option.hunfold.hidden 
+tg-svg 
+svg 
+use 
+h2.task-colum-name 
+div.deco-square 
+div.title 
+div.name › Done
+div.options 
+button.btn-board.option 
+tg-svg.add-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg.bulk-action 
+svg 
+use 
+button.btn-board.option 
+tg-svg 
+svg 
+use 
+button.btn-board.option.hunfold.hidden 
+tg-svg 
+svg 
+use 
+h2.task-colum-name.vfold 
+div.deco-square.hidden 
+div.title 
+div.name › Archived
+div.options 
+button.btn-board.option.ng-hide 
+tg-svg.add-action 
+svg 
+use 
+button.btn-board.option.ng-hide 
+tg-svg.bulk-action 
+svg 
+use 
+button.btn-board.option.hidden 
+tg-svg 
+svg 
+use 
+button.btn-board.option.hunfold 
+tg-svg 
+svg 
+use 
+button.btn-board.option.hunfold.ng-hide 
+tg-svg 
+svg 
+use 
+div.kanban-swimlane 
+button.kanban-swimlane-title 
+tg-svg.unfold-action 
+svg 
+use 
+h2.title-name › hic ut
+div.default-swimlane 
+tg-svg.default-swimlane-icon 
+svg 
+use 
+span.default-text › Default
+div.kanban-table-body 
+div.kanban-table-inner 
+div#column-1.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-2.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.wip-amount 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 1
+span › / 4
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Add setting to allow regular users to create folders at the root level.
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #1
+span.card-subject. › Exception is thrown if trying to add a folder with existing name
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar.card-not-assigned 
+img 
+span.card-not-assigned-title › Not assigned
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div#column-3.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-4.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.limit-over 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 1
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Create the html template
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #17
+span.card-subject. › Support for bulk actions
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div#column-5.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-6.kanban-uses-box.taskboard-column.vfold 
+div.placeholder-collapsed 
+div.placeholder-collapsed-wrapper 
+div.text-holder 
+div.archived › (Archived)
+div.name › Archived
+div.square-color 
+div.kanban-column-intro 
+div.kanban-swimlane 
+button.kanban-swimlane-title 
+tg-svg.unfold-action 
+svg 
+use 
+h2.title-name › animi
+div.kanban-table-body 
+div.kanban-table-inner 
+div#column-1.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-2.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.limit-over 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 1
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Add setting to allow regular users to create folders at the root level.
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #5
+span.card-subject. › Add tests for bulk operations
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div#column-3.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-4.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.limit-over 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 2
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Lighttpd support
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #14
+span.card-subject. › Added file copying and processing of images (resizing)
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar.card-not-assigned 
+img 
+span.card-not-assigned-title › Not assigned
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Added file copying and processing of images (resizing)
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #19
+span.card-subject. › Added file copying and processing of images (resizing)
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div#column-5.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-6.kanban-uses-box.taskboard-column.vfold 
+div.placeholder-collapsed 
+div.placeholder-collapsed-wrapper 
+div.text-holder 
+div.archived › (Archived)
+div.name › Archived
+div.square-color 
+div.kanban-column-intro 
+div.kanban-swimlane 
+button.kanban-swimlane-title 
+tg-svg.unfold-action 
+svg 
+use 
+h2.title-name › totam
+div.kanban-table-body 
+div.kanban-table-inner 
+div#column-1.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.wip-amount 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 2
+span › / 3
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Add setting to allow regular users to create folders at the root level.
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #20
+span.card-subject. › Feature/improved image admin
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar.card-not-assigned 
+img 
+span.card-not-assigned-title › Not assigned
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Create the html template
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #21
+span.card-subject. › Add setting to allow regular users to create folders at the root level.
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.kanban-wip-limit.one-left 
+span › WIP Limit
+div#column-2.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-3.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-4.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.limit-over 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 2
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Create the html template
+h2.card-title 
+a 
+span.card-ref › #9
+span.card-subject. › get_actions() does not check for 'delete_selected' in actions
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Add setting to allow regular users to create folders at the root level.
+h2.card-title 
+a 
+span.card-ref › #22
+span.card-subject. › Migrate to Python 3 and milk a beautiful cow
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div#column-5.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.wip-amount 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+span › / 2
+div.result 
+span.current › 0
+div#column-6.kanban-uses-box.taskboard-column.vfold 
+div.placeholder-collapsed 
+div.placeholder-collapsed-wrapper 
+div.text-holder 
+div.archived › (Archived)
+div.name › Archived
+div.square-color 
+div.kanban-column-intro 
+div.kanban-swimlane 
+button.kanban-swimlane-title 
+tg-svg.unfold-action 
+svg 
+use 
+h2.title-name › quos
+div.kanban-table-body 
+div.kanban-table-inner 
+div#column-1.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-2.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.wip-amount 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 1
+span › / 4
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Create the html template
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #15
+span.card-subject. › Add setting to allow regular users to create folders at the root level.
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div#column-3.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-4.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-5.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-6.kanban-uses-box.taskboard-column.vfold 
+div.placeholder-collapsed 
+div.placeholder-collapsed-wrapper 
+div.text-holder 
+div.archived › (Archived)
+div.name › Archived
+div.square-color 
+div.kanban-column-intro 
+div.kanban-swimlane 
+button.kanban-swimlane-title 
+tg-svg.unfold-action 
+svg 
+use 
+h2.title-name › autem quas
+div.kanban-table-body 
+div.kanban-table-inner 
+div#column-1.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.wip-amount 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 2
+span › / 2
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Create the html template
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #12
+span.card-subject. › Support for bulk actions
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Added file copying and processing of images (resizing)
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #13
+span.card-subject. › Feature/improved image admin
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.kanban-wip-limit.reached 
+span › WIP Limit
+div#column-2.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-3.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.limit-over 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 1
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Create the html template
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #16
+span.card-subject. › Support for bulk actions
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div#column-4.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner.limit-over 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 1
+div.result 
+span.current › 0
+tg-card.card.ng-animate-disabled 
+div.card-inner.zoom-1.type-us.with-assigned-user 
+tg-card-actions 
+div.card-actions 
+button.js-popup-button 
+tg-svg 
+svg 
+use 
+div 
+div.card-epics 
+a.card-epic 
+span.epic-color 
+span.epic-name › Add setting to allow regular users to create folders at the root level.
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+a.card-epic 
+span.epic-color 
+h2.card-title 
+a 
+span.card-ref › #18
+span.card-subject. › Migrate to Python 3 and milk a beautiful cow
+div.wrapper-assigned-to-data 
+tg-card-assigned-to 
+div.card-assigned-to. 
+div.card-user-avatar 
+img 
+tg-card-data 
+div.loading-extra 
+div.card-transit-multi 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div.fake-us 
+div.fake-img 
+div.column 
+div.fake-text 
+div.fake-text 
+div#column-5.kanban-uses-box.taskboard-column 
+div.kanban-task-counter 
+tg-animated-counter 
+div.animated-counter-inner 
+div.counter-translator 
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div.result 
+span.current › 0
+div#column-6.kanban-uses-box.taskboard-column.vfold 
+div.placeholder-collapsed 
+div.placeholder-collapsed-wrapper 
+div.text-holder 
+div.archived › (Archived)
+div.name › Archived
+div.square-color 
+div.kanban-column-intro 
+div.lightbox.lightbox-generic-form.lightbox-create-edit 
+div.lightbox.lightbox-generic-bulk 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-invalid.ng-invalid-required 
+h2.title › New bulk insert
+fieldset 
+div.label › Select status
+div.bulk-status-selector-wrapper 
+button.bulk-status-selector 
+span 
+tg-svg 
+svg 
+use 
+div.bulk-status-option-wrapper.ng-hide 
+button.bulk-status-option › New
+button.bulk-status-option › Ready
+button.bulk-status-option › In progress
+button.bulk-status-option › Ready for test
+button.bulk-status-option › Done
+button.bulk-status-option › Archived
+fieldset.creation-position 
+div.label › Location
+div.creation-position-fields 
+label.custom-radio 
+input#top-backlog.ng-pristine.ng-untouched.ng-valid.ng-empty 
+span.radio-control 
+span.radio-label › at the bottom
+label.custom-radio 
+input#bottom-backlog.ng-pristine.ng-untouched.ng-valid.ng-empty 
+span.radio-control 
+span.radio-label › on top
+fieldset.swimlane-select 
+div.label › Select swimlane
+fieldset 
+textarea.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required 
+div.lb-action-wrapper 
+button.btn-small.js-submit-button › Save
+div.lightbox.lightbox-generic-ask 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p 
+span.subtitle 
+span.message 
+div.options 
+button.btn-link.btn-cancel.js-cancel 
+span › Cancel
+button.btn-small.js-confirm 
+span › Accept
+div.lightbox.lightbox-ask-choice 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p.question 
+p.subtitle 
+p.replacement 
+select.choices 
+p.warning 
+div.options 
+button.btn-link.btn-cancel.js-cancel-ask 
+span › Cancel
+button.btn-small.btn-confirm.js-confirm-ask 
+tg-svg 
+svg 
+use 
+span › Delete
+div.lightbox.lightbox-generic-success 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+section 
+h2.title 
+p.message 
+div.options 
+button.btn-small.js-confirm 
+span › Accept
+div.lightbox.lightbox-generic-error 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+section 
+h2.title 
+div.options 
+a.button-green 
+span › Accept
+div.lightbox.lightbox-generic-loading 
+section 
+div.spin.hidden 
+img 
+div.progress-bar-wrapper.hidden 
+div.bar 
+span.progress 
+h2.title 
+p.message 
+div.lightbox.lightbox-generic-delete 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p 
+span.subtitle 
+span.message 
+div.options 
+button.btn-link.btn-cancel.js-cancel 
+span › Cancel
+button.btn-small.btn-confirm.js-confirm 
+tg-svg 
+svg 
+use 
+span › Delete
+div.loader 
+div.loading-bar 
+span.item.item-1 
+span.item.item-2 
+span.item.item-3 
+span.item.item-4 
+span.item.item-5 
+div.container 
+p › Loading...
+div.notification-message.notification-message-success 
+div.text 
+h4.warning 
+p 
+div.notification-message.notification-message-error 
+tg-svg 
+svg 
+use 
+div.text 
+h4.warning 
+p 
+a.close 
+tg-svg 
+svg 
+use 
+div.notification-light.notification-message-light-error 
+div.text 
+h4.warning 
+p 
+a.close 
+tg-svg 
+svg 
+use 
+div 
+div.live-announcement 
+div.live-announcement-inner 
+img.anouncement-decoration 
+div.text 
+h2.title 
+p.warning 
+a.close 
+tg-svg 
+svg 
+use 
+script 
+svg 
+defs 
+symbol#icon-private 
+title › private
+path 
+symbol#icon-project 
+title › project
+path 
+symbol#icon-scrum 
+title › scrum
+path 
+symbol#icon-dashboard 
+title › dashboard
+path 
+symbol#icon-discover 
+title › discover
+path 
+symbol#icon-drag 
+title › drag
+path 
+symbol#icon-exclamation 
+title › exclamation
+path 
+symbol#icon-flag 
+title › flag
+path 
+symbol#icon-fold-row 
+title › fold-row
+path 
+symbol#icon-graph 
+title › graph
+path 
+symbol#icon-kanban 
+title › kanban
+path 
+symbol#icon-kanban 
+path 
+symbol#icon-like-empty 
+title › like-empty
+path 
+symbol#icon-like 
+title › like
+path 
+symbol#icon-activity 
+title › activity
+path 
+symbol#icon-question 
+title › question
+path 
+symbol#icon-settings 
+title › settings
+path 
+symbol#icon-team 
+title › team
+path 
+symbol#icon-timeline 
+title › timeline
+path 
+symbol#icon-unfold-row 
+title › unfold-row
+path 
+symbol#icon-unwatch 
+title › unwatch
+path 
+symbol#icon-user 
+title › user
+path 
+symbol#icon-wiki 
+title › wiki
+path 
+symbol#icon-archive 
+title › archive
+path 
+symbol#icon-arrow-left 
+title › arrow-left
+path 
+symbol#icon-move-to-top 
+title › move-to-top
+path 
+symbol#icon-arrow-up 
+title › arrow-up
+path 
+symbol#icon-attachment 
+title › attachment
+path 
+symbol#icon-briefcase 
+title › briefcase
+path 
+symbol#icon-meetup 
+path 
+symbol#icon-bug 
+title › bug
+path 
+symbol#icon-capslock 
+title › capslock
+path 
+symbol#icon-check 
+title › check
+path 
+symbol#icon-clipboard 
+title › clipboard
+path 
+symbol#icon-document 
+title › document
+path 
+symbol#icon-documents 
+title › documents
+path 
+symbol#icon-downvote 
+title › downvote
+path 
+symbol#icon-error 
+title › error
+path 
+symbol#icon-filters-empty 
+title › filters-empty
+path 
+symbol#icon-github 
+title › github
+path 
+symbol#icon-maximize 
+title › maximize
+path 

@@ -1,0 +1,1503 @@
+URL: http://localhost:9000/project/project-1/issues
+TITLE: Issues - Project Example 1
+
+body 
+tg-legacy 
+div 
+nav.navbar 
+div.nav-left 
+a.logo 
+svg#logo-svg 
+style › #logo-svg path {}
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+div.topnav-dropdown-wrapper 
+div.dropdown-project-list.active 
+a.dropdown-project-list-projects 
+tg-svg.icon-folder 
+svg 
+use 
+span › Projects
+div.navbar-dropdown 
+div 
+ul.dropdown-project-list-ul 
+li 
+a.dropdown-project-list-link.secondary.blocked-project 
+img 
+span › Project Example 7
+tg-svg 
+svg 
+use 
+title › PROJECT.BLOCKED_PROJECT.BLOCKED
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 6
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 5
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 3
+a.see-more-projects-btn › View all projects
+div.create-options 
+a.create-project-btn.button-primary 
+tg-svg 
+svg 
+use 
+span › New project
+div.nav-right 
+a 
+tg-svg 
+svg 
+use 
+div.topnav-dropdown-wrapper.nav-bar-support 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.navigation-help 
+ul 
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Taiga Community
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Ask a question
+div.topnav-dropdown-wrapper 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown-notifications.ng-hide 
+div.header 
+a.action.disabled › Dismiss all
+div.notifications-wrapper 
+div.empty 
+span › No new events
+tg-notifications-list#my-notifications.dropdown-notifications-list 
+section.notifications-list 
+div 
+div.notifications-bottom 
+a.action › View all notifications
+div 
+div.dropdown-user-inner 
+div.dropdown-user-navbar 
+a.user-avatar 
+img 
+button.chevron 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.dropdown-user 
+div.dropdown-user-profile 
+a.profile-link.avatar 
+img 
+div.dropdown-user-data 
+a.profile-link.full-name › admin
+div.profile-link.email › admin@example.com
+p 
+a.edit-profile › Edit profile
+ul 
+li.user-profile-option 
+a.secondary › Account settings
+li.user-profile-option 
+a.secondary › Notifications
+li.user-profile-option 
+a › Logout
+div 
+div.master 
+div.wrapper.issues.lightbox-generic-form 
+tg-project-menu 
+div.sticky-project-menu 
+tg-legacy-loader 
+section.main.issue-main 
+div.issue-top 
+header.issue-header 
+header 
+h1 
+span › Issues
+div.taskboard-actions 
+div.issue-table-options-start 
+button.btn-filter. 
+tg-svg 
+svg 
+use 
+span.text › Filters
+tg-input-search 
+input.ng-pristine.ng-untouched.ng-valid.ng-empty 
+tg-svg 
+svg 
+use 
+div#show-tags.display-tags-button 
+div.check.js-check.active 
+input#show-tags-input.ng-pristine.ng-untouched.ng-valid.ng-not-empty 
+div 
+label › tags
+div.new-issue 
+button.btn-small 
+tg-svg 
+svg 
+use 
+span › NEW ISSUE
+button.btn-icon 
+tg-svg 
+svg 
+use 
+div.issue-container 
+section.issues-page 
+tg-issues-table 
+section.issues-options 
+div.new-issue 
+button.btn-small 
+tg-svg 
+svg 
+use 
+span › NEW ISSUE
+button.btn-icon 
+tg-svg 
+svg 
+use 
+section.issues-table.basic-table 
+div.row.title 
+div.level-field 
+span.wide › Type
+div.mobile 
+div.tooltip.pop-help › Type
+span.first-letter › Type
+svg 
+path 
+path 
+div.level-field 
+span.wide › Severity
+div.mobile 
+div.tooltip.pop-help › Severity
+span.first-letter › Severity
+svg 
+path 
+path 
+div.level-field 
+span.wide › Priority
+div.mobile 
+div.tooltip.pop-help › Priority
+span.first-letter › Priority
+svg 
+path 
+path 
+div.subject 
+span › Issue
+svg 
+path 
+path 
+div.issue-field 
+span › Status
+svg 
+path 
+path 
+div.modified-field 
+span › Modified
+svg 
+path 
+path 
+div.assigned-field 
+span › Assign to
+svg 
+path 
+path 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #38
+span.issue-subject › Create the user model
+span.tag › doloribus
+span.tag.last › ut
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Closed
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #37
+span.issue-subject › Support for bulk actions
+span.tag › aperiam
+span.tag › distinctio
+span.tag › doloribus
+span.tag › consequatur
+span.tag › fugit
+span.tag › cum
+span.tag › alias
+span.tag.last › aliquam
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › In progress
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #36
+span.issue-subject › Support for bulk actions
+span.tag › nulla
+span.tag › natus
+span.tag › cum
+span.tag › fuga
+span.tag › quidem
+span.tag › quis
+span.tag › tempore
+span.tag.last › provident
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › New
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #35
+span.issue-subject › get_actions() does not check for 'delete_selected' in actions
+span.tag › asperiores
+span.tag › libero
+span.tag › impedit
+span.tag.last › nulla
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Ready for test
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #34
+span.issue-subject › Migrate to Python 3 and milk a beautiful cow
+span.tag › ullam
+span.tag › veritatis
+span.tag.last › voluptatibus
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Closed
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #33
+span.issue-subject › Added file copying and processing of images (resizing)
+span.tag › quam
+span.tag › debitis
+span.tag › dignissimos
+span.tag › harum
+span.tag › possimus
+span.tag › enim
+span.tag › quibusdam
+span.tag.last › temporibus
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › In progress
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #32
+span.issue-subject › Create the html template
+span.tag › eius
+span.tag › nihil
+span.tag › placeat
+span.tag › libero
+span.tag › possimus
+span.tag › cumque
+span.tag.last › nemo
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Postponed
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #31
+span.issue-subject › Add setting to allow regular users to create folders at the root level.
+span.tag › ex
+span.tag › minima
+span.tag › impedit
+span.tag › debitis
+span.tag › quam
+span.tag › quae
+span.tag › similique
+span.tag › ipsam
+span.tag.last › tempore
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › New
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #30
+span.issue-subject › Create the html template
+span.tag › ad
+span.tag › eaque
+span.tag › nostrum
+span.tag › ab
+span.tag › officiis
+span.tag.last › consequuntur
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › New
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #29
+span.issue-subject › Add setting to allow regular users to create folders at the root level.
+span.tag › consequuntur
+span.tag › eum
+span.tag › iure
+span.tag › cumque
+span.tag.last › reiciendis
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Needs Info
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #28
+span.issue-subject › Added file copying and processing of images (resizing)
+span.tag › eveniet
+span.tag.last › sit
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Rejected
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #27
+span.issue-subject › Create testsuite with matrix builds
+span.tag › quam
+span.tag › illo
+span.tag › eaque
+span.tag › maiores
+span.tag.last › accusantium
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › In progress
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #26
+span.issue-subject › Create the html template
+span.tag › distinctio
+span.tag › ipsum
+span.tag › beatae
+span.tag › eligendi
+span.tag › repellendus
+span.tag › accusantium
+span.tag.last › obcaecati
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Postponed
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #25
+span.issue-subject › Lighttpd x-sendfile support
+span.tag › consectetur
+span.tag.last › aspernatur
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Postponed
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #24
+span.issue-subject › Create the user model
+span.tag › amet
+span.tag › esse
+span.tag › omnis
+span.tag.last › quo
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Rejected
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.row.table-main 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.level-field 
+div.level 
+div.subject 
+a 
+span.issue-text 
+span.issue-ref › #23
+span.issue-subject › Fixing templates for Django 1.6.
+span.tag › itaque
+span.tag › quaerat
+span.tag.last › id
+div.issue-field 
+a.issue-status 
+span.issue-status-bind › Ready for test
+tg-svg 
+svg 
+use 
+ul.popover.pop-status 
+li 
+a.status 
+span.item-text › New
+li 
+a.status 
+span.item-text › In progress
+li 
+a.status 
+span.item-text › Ready for test
+li 
+a.status 
+span.item-text › Closed
+li 
+a.status 
+span.item-text › Needs Info
+li 
+a.status 
+span.item-text › Rejected
+li 
+a.status 
+span.item-text › Postponed
+div.modified-field › 25 Apr 2026
+div.assigned-field 
+div.issue-assignedto 
+figure.avatar 
+img 
+tg-svg 
+svg 
+use 
+div.paginator.issues-paginator 
+div.lightbox.lightbox-generic-form.lightbox-create-edit 
+div.lightbox.lightbox-generic-bulk 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-invalid.ng-invalid-required 
+h2.title › New bulk insert
+fieldset 
+textarea.ng-pristine.ng-untouched.ng-empty.ng-invalid.ng-invalid-required 
+div.lb-action-wrapper 
+button.btn-big › Save
+div.lightbox.lightbox-generic-ask 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p 
+span.subtitle 
+span.message 
+div.options 
+button.btn-link.btn-cancel.js-cancel 
+span › Cancel
+button.btn-small.js-confirm 
+span › Accept
+div.lightbox.lightbox-ask-choice 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p.question 
+p.subtitle 
+p.replacement 
+select.choices 
+p.warning 
+div.options 
+button.btn-link.btn-cancel.js-cancel-ask 
+span › Cancel
+button.btn-small.btn-confirm.js-confirm-ask 
+tg-svg 
+svg 
+use 
+span › Delete
+div.lightbox.lightbox-generic-success 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+section 
+h2.title 
+p.message 
+div.options 
+button.btn-small.js-confirm 
+span › Accept
+div.lightbox.lightbox-generic-error 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+section 
+h2.title 
+div.options 
+a.button-green 
+span › Accept
+div.lightbox.lightbox-generic-loading 
+section 
+div.spin.hidden 
+img 
+div.progress-bar-wrapper.hidden 
+div.bar 
+span.progress 
+h2.title 
+p.message 
+div.lightbox.lightbox-generic-delete 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p 
+span.subtitle 
+span.message 
+div.options 
+button.btn-link.btn-cancel.js-cancel 
+span › Cancel
+button.btn-small.btn-confirm.js-confirm 
+tg-svg 
+svg 
+use 
+span › Delete
+div.loader 
+div.loading-bar 
+span.item.item-1 
+span.item.item-2 
+span.item.item-3 
+span.item.item-4 
+span.item.item-5 
+div.container 
+p › Loading...
+div.notification-message.notification-message-success 
+div.text 
+h4.warning 
+p 
+div.notification-message.notification-message-error 
+tg-svg 
+svg 
+use 
+div.text 
+h4.warning 
+p 
+a.close 
+tg-svg 
+svg 
+use 
+div.notification-light.notification-message-light-error 
+div.text 
+h4.warning 
+p 
+a.close 
+tg-svg 
+svg 
+use 
+div 
+div.live-announcement 
+div.live-announcement-inner 
+img.anouncement-decoration 
+div.text 
+h2.title 
+p.warning 
+a.close 
+tg-svg 
+svg 
+use 
+script 
+svg 
+defs 
+symbol#icon-private 
+title › private
+path 
+symbol#icon-project 
+title › project
+path 
+symbol#icon-scrum 
+title › scrum
+path 
+symbol#icon-dashboard 
+title › dashboard
+path 
+symbol#icon-discover 
+title › discover
+path 
+symbol#icon-drag 
+title › drag
+path 
+symbol#icon-exclamation 
+title › exclamation
+path 
+symbol#icon-flag 
+title › flag
+path 
+symbol#icon-fold-row 
+title › fold-row
+path 
+symbol#icon-graph 
+title › graph
+path 
+symbol#icon-kanban 
+title › kanban
+path 
+symbol#icon-kanban 
+path 
+symbol#icon-like-empty 
+title › like-empty
+path 
+symbol#icon-like 
+title › like
+path 
+symbol#icon-activity 
+title › activity
+path 
+symbol#icon-question 
+title › question
+path 
+symbol#icon-settings 
+title › settings
+path 
+symbol#icon-team 
+title › team
+path 
+symbol#icon-timeline 
+title › timeline
+path 
+symbol#icon-unfold-row 
+title › unfold-row
+path 
+symbol#icon-unwatch 
+title › unwatch
+path 
+symbol#icon-user 
+title › user
+path 
+symbol#icon-wiki 
+title › wiki
+path 
+symbol#icon-archive 
+title › archive
+path 
+symbol#icon-arrow-left 
+title › arrow-left
+path 
+symbol#icon-move-to-top 
+title › move-to-top
+path 
+symbol#icon-arrow-up 
+title › arrow-up
+path 
+symbol#icon-attachment 
+title › attachment
+path 
+symbol#icon-briefcase 
+title › briefcase
+path 
+symbol#icon-meetup 
+path 
+symbol#icon-bug 
+title › bug
+path 
+symbol#icon-capslock 
+title › capslock
+path 
+symbol#icon-check 
+title › check
+path 
+symbol#icon-clipboard 
+title › clipboard
+path 
+symbol#icon-document 
+title › document
+path 
+symbol#icon-documents 
+title › documents
+path 
+symbol#icon-downvote 
+title › downvote
+path 
+symbol#icon-error 
+title › error
+path 
+symbol#icon-filters-empty 
+title › filters-empty
+path 
+symbol#icon-github 
+title › github
+path 
+symbol#icon-maximize 
+title › maximize
+path 
+symbol#icon-minimize 
+title › minimize
+path 
+symbol#icon-move 
+title › move
+path 
+symbol#icon-reload 
+title › reload
+path 
+symbol#icon-save 
+title › save
+path 
+symbol#icon-upload 
+title › upload
+path 
+symbol#icon-upvote 
+title › upvote
+path 
+symbol#icon-writer 
+title › writer
+path 
+symbol#icon-watch 
+title › watch
+path 
+symbol#icon-task 
+title › task
+path 
+symbol#icon-api 
+title › api
+path 
+symbol#icon-customize 
+title › customize
+path 
+symbol#icon-feel-love 
+title › feel-love
+path 
+symbol#icon-highly-designed 
+title › highly-designed
+path 
+symbol#icon-integration 
+title › integration
+path 
+symbol#icon-lend-hand 
+title › lend-hand
+path 
+symbol#icon-powerful 
+title › powerful
+path 
+symbol#icon-smiley 
+title › smiley
+path 
+symbol#icon-social-management 
+title › social-management
+path 
+symbol#icon-speak-up 
+title › speak-up
+path 
+symbol#icon-gallery 
+title › gallery
+path 
+symbol#icon-list 
+title › list
+path 
+symbol#icon-recruit 
+title › Looking for people
+path 
+symbol#icon-badge 
+title › Owner Badge
+path 
+symbol#icon-exclamation 
+title › Exclamation
+path 
+symbol#icon-blocked-project 
+title › Blocked Project
+path 
+path 
+symbol#icon-add-user 
+title › Add user
+path 
+symbol#icon-view-more 
+title › View more
+path 
+symbol#icon-merge 
+title › Merge
+path 
+symbol#icon-fill 
+title › Fill
+path 
+symbol#icon-epics 
+path 
+symbol#icon-broken-link 
+title › Broken Link
+path 
+symbol#icon-duplicate 
+title › Duplicate
+path 
+symbol#icon-detach 
+g 
+path 
+defs 
+clippath#clip0 
+path 
+symbol#icon-activity 
+path 
+symbol#icon-agile 
+path 
+path 
+path 
+path 
+symbol#icon-folder 
+path 
+symbol#icon-plus-1 
+path 
+path 
+symbol#icon-compass 
+path 
+path 
+symbol#icon-bell 
+path 
+path 
+symbol#icon-chevron-down 
+path 
+symbol#icon-life-buoy 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+symbol#icon-message-square 
+path 
+symbol#icon-slash 
+path 
+path 
+symbol#icon-filters 
+path 
+symbol#icon-arrow-down 
+title › arrow-down
+path 
+symbol#icon-arrow-right 
+title › arrow-right
+path 
+symbol#icon-trash 
+title › trash
+path 
+symbol#icon-close 
+path 
+symbol#icon-search 
+path 
+symbol#icon-filter 
+title › filter
+path 
+symbol#icon-more-vertical 
+path 
+path 
+path 
+symbol#icon-draggable 
+path 
+symbol#icon-edit 
+title › edit
