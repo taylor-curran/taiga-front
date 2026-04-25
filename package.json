@@ -20,7 +20,14 @@
     "test": "./node_modules/karma/bin/karma start",
     "e2e": "./node_modules/.bin/babel-node run-e2e.js",
     "start": "npx gulp",
-    "ci:test": "npx gulp deploy && ./node_modules/karma/bin/karma start --single-run --browsers=ChromeHeadlessCI"
+    "ci:test": "npx gulp deploy && ./node_modules/karma/bin/karma start --single-run --browsers=ChromeHeadlessCI",
+    "taiga-up": "(cd taiga-docker && ./launch-taiga.sh)",
+    "taiga-down": "(cd taiga-docker && docker compose down)",
+    "taiga-superuser": "(cd taiga-docker && docker compose -f docker-compose.yml -f docker-compose-inits.yml run --rm -e DJANGO_SUPERUSER_USERNAME=admin -e DJANGO_SUPERUSER_EMAIL=admin@example.com -e DJANGO_SUPERUSER_PASSWORD=adminpass taiga-manage createsuperuser --noinput)",
+    "taiga-sample-data": "(cd taiga-docker && docker compose -f docker-compose.yml -f docker-compose-inits.yml run --rm taiga-manage sample_data)",
+    "taiga-seed": "node scripts/taiga-seed.mjs",
+    "taiga-logs": "(cd taiga-docker && docker compose logs -f taiga-back taiga-events)",
+    "react": "npm --prefix web-react run dev -- --host 0.0.0.0 --port 5173"
   },
   "devDependencies": {
     "angular-mocks": "1.5.5",
