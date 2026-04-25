@@ -2,8 +2,7 @@ import '@testing-library/jest-dom/vitest';
 import { vi } from 'vitest';
 
 // jsdom doesn't implement WebSocket fully; stub.
-// @ts-expect-error – intentionally undefined for tests
-globalThis.WebSocket = class FakeWS {
+(globalThis as { WebSocket: unknown }).WebSocket = class FakeWS {
   onopen: () => void = () => undefined;
   onmessage: () => void = () => undefined;
   onerror: () => void = () => undefined;
