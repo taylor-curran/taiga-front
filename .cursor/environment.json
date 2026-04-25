@@ -1,14 +1,14 @@
 {
   "$schema": "https://www.cursor.com/schemas/environment.schema.json",
   "name": "taiga-front-cloud",
-  "install": "([ -d taiga-docker ] || git clone https://github.com/taylor-curran/taiga-docker.git taiga-docker) && (cd taiga-docker && docker compose pull) && npm --prefix web-react install",
+  "install": "if [ -s \"$HOME/.nvm/nvm.sh\" ]; then . \"$HOME/.nvm/nvm.sh\"; nvm install 16.19.1; nvm use 16.19.1; fi; npm ci; if [ -s \"$HOME/.nvm/nvm.sh\" ]; then . \"$HOME/.nvm/nvm.sh\"; nvm install 22; nvm use 22; fi; npm --prefix web-react ci",
   "ports": [
-    { "name": "Taiga gateway (reference)", "port": 9000 },
-    { "name": "React app",                 "port": 5173 }
+    { "name": "Angular frontend", "port": 9001 },
+    { "name": "React app",        "port": 5173 }
   ],
   "start": "true",
   "terminals": [
-    { "name": "taiga", "command": "npm run taiga-up && npm run taiga-seed && npm run taiga-logs" },
-    { "name": "react", "command": "npm run react" }
+    { "name": "angular", "command": "if [ -s \"$HOME/.nvm/nvm.sh\" ]; then . \"$HOME/.nvm/nvm.sh\"; nvm use 16.19.1; fi; npm start" },
+    { "name": "react", "command": "if [ -s \"$HOME/.nvm/nvm.sh\" ]; then . \"$HOME/.nvm/nvm.sh\"; nvm use 22; fi; npm run react" }
   ]
 }
