@@ -1,12 +1,16 @@
 {
   "$schema": "https://www.cursor.com/schemas/environment.schema.json",
   "name": "taiga-front-cloud",
-  "install": "([ -d taiga-docker ] || git clone https://github.com/taylor-curran/taiga-docker.git taiga-docker) && (cd taiga-docker && docker compose pull) && npm --prefix web-react install",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "install": "bash .cursor/scripts/install.sh",
   "ports": [
     { "name": "Taiga gateway (reference)", "port": 9000 },
     { "name": "React app",                 "port": 5173 }
   ],
-  "start": "true",
+  "start": "bash .cursor/scripts/start.sh",
   "terminals": [
     { "name": "taiga", "command": "npm run taiga-up && npm run taiga-seed && npm run taiga-logs" },
     { "name": "react", "command": "npm run react" }
