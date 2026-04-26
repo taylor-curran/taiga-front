@@ -1,0 +1,346 @@
+/* Ported from app/modules/history/comments/comment.scss + history/history.scss + history-tabs */
+
+.taiga-history-section {
+  margin-top: var(--space-md);
+}
+
+.taiga-history-tabs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-sm);
+}
+
+.taiga-history-tabs__nav {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.taiga-history-tab {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-button);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  font-family: inherit;
+}
+
+.taiga-history-tab:hover {
+  color: var(--color-text);
+}
+
+.taiga-history-tab--active {
+  color: var(--color-link-primary);
+  border-color: var(--color-gray300);
+  background: var(--color-surface);
+}
+
+.taiga-history-tabs__order {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.taiga-history-tabs__order button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-link-primary);
+  font: inherit;
+  padding: 0;
+}
+
+.taiga-comments {
+  clear: both;
+}
+
+.taiga-comments__add {
+  margin-top: var(--space-md);
+}
+
+.taiga-comments__add textarea {
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--color-gray300);
+  border-radius: var(--radius-button);
+  font: inherit;
+  resize: vertical;
+}
+
+.taiga-comments__add-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-sm);
+}
+
+.taiga-comment {
+  display: block;
+}
+
+.taiga-comment__wrapper {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--color-whitish);
+  padding: 2rem 0;
+}
+
+.taiga-comment__wrapper:hover .taiga-comment__options {
+  opacity: 1;
+}
+
+.taiga-comment__avatar {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: var(--color-gray200);
+}
+
+.taiga-comment__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.taiga-comment__main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--space-md);
+}
+
+.taiga-comment__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.taiga-comment__creator {
+  color: var(--color-link-primary);
+  margin-right: 0.5rem;
+}
+
+.taiga-comment__date {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.taiga-comment__edited {
+  font-size: var(--font-size-small);
+  background: var(--color-whitish);
+  padding: 0.25rem 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.taiga-comment__text {
+  max-width: 80rem;
+  word-break: break-word;
+  line-height: 1.45;
+}
+
+.taiga-comment__text--edit textarea {
+  width: 100%;
+  min-height: 4rem;
+  padding: 0.5rem;
+  border: 1px solid var(--color-gray300);
+  border-radius: var(--radius-button);
+  font: inherit;
+}
+
+.taiga-comment__options {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.taiga-comment__options button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  margin-left: 0.5rem;
+}
+
+.taiga-comment__options button:hover {
+  color: var(--color-link-primary);
+}
+
+.taiga-comment--deleted .taiga-comment__deleted-main {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.taiga-comment__restore {
+  margin-left: auto;
+  color: var(--color-primary);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+.taiga-activities {
+  margin-top: var(--space-sm);
+}
+
+.taiga-activity {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--color-whitish);
+  padding: 2rem 0;
+}
+
+.taiga-activity__avatar {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: var(--color-gray200);
+}
+
+.taiga-activity__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.taiga-activity__meta {
+  margin-bottom: 1rem;
+}
+
+.taiga-activity__creator {
+  color: var(--color-primary);
+  margin-right: 0.5rem;
+}
+
+.taiga-activity__date {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+}
+
+.taiga-activity__diff {
+  font-size: var(--font-size-small);
+  color: var(--color-text);
+  margin-top: 0.25rem;
+}
+
+.taiga-timeline {
+  margin-top: var(--space-md);
+}
+
+.taiga-timeline__item {
+  border-bottom: 1px solid var(--color-whitish);
+  padding: var(--space-lg) 0;
+}
+
+.taiga-timeline__when {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.taiga-timeline__title {
+  margin: 0 0 var(--space-sm);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.taiga-timeline__row {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.taiga-timeline__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--color-gray200);
+}
+
+.taiga-load-more {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+/* Project home timeline — see app/modules/user-timeline/user-timeline/user-timeline.scss */
+.profile-timeline {
+  border-top: 1px solid var(--color-whitish);
+  margin-top: var(--space-md);
+}
+.profile-timeline .taiga-activity-item {
+  border-bottom: 1px solid var(--color-whitish);
+  padding: 1rem 0.5rem 1rem 0;
+  position: relative;
+  word-break: break-word;
+}
+.profile-timeline .taiga-activity-item__date {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 1.2rem;
+}
+.profile-timeline .taiga-activity-item__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  color: var(--color-text-muted);
+  margin-right: 7rem;
+}
+.profile-timeline .taiga-activity-item__pic img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.1rem;
+  object-fit: cover;
+  background: var(--color-gray200);
+}
+.profile-timeline blockquote.taiga-activity-item__quote {
+  line-height: 1.4rem;
+  margin: 0.5rem 0 0 calc(2rem + 1rem);
+  padding: 0;
+  color: var(--color-text);
+  border-left: 3px solid var(--color-gray300);
+  padding-left: 0.75rem;
+  white-space: pre-line;
+}
+.profile-timeline .taiga-activity-item__html {
+  margin: 0;
+  line-height: 1.4;
+}
+.profile-timeline .taiga-activity-item__html a {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.taiga-history-error {
+  padding: var(--space-md);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-panel);
+  color: #991b1b;
+}

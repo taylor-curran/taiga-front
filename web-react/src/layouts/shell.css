@@ -93,6 +93,20 @@
   max-width: 960px;
   margin: 0 auto;
 }
+.app-shell__page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-sm);
+  color: var(--color-text);
+}
+.app-shell__lede {
+  font-size: var(--font-size-body);
+  margin: 0 0 var(--space-lg);
+  line-height: 1.45;
+}
+.taiga-surface {
+  max-width: 960px;
+}
 .app-shell-nav {
   display: flex;
   flex-direction: column;
