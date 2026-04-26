@@ -1,0 +1,13 @@
+{
+  "name": "taiga-angular-react-migration-audit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:angular": "playwright test --project=angular",
+    "test:react": "playwright test --project=react"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.48.2"
+  }
+}

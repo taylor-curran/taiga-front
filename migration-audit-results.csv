@@ -1,0 +1,58 @@
+area,test_name,category,angular_behavior,react_behavior,priority
+Global / head,m_auth_index_title,missing content,Generic shell title is Taiga before route; then route-specific title from i18n.,Document title remains Taiga (React port) from Vite index.html (no per-route <title> updates).,P0
+Home /,m_auth_home_h1,missing content,Main H1: Projects Dashboard (HOME.DASHBOARD).,H1: Dashboard (shortened / different copy).,P0
+Projects,m_auth_title_projects,missing content,"After load, <title> My projects - Taiga (PROJECTS.PAGE_TITLE + app meta).",Title stays the static Vite default (Taiga (React port)).,P0
+Projects,m_auth_projects_cta,form UX difference,Create CTA: New project (PROJECT.NAVIGATION.ACTION_CREATE_PROJECT).,Link: + Create project (different label).,P1
+Discover,m_auth_discover_featured,missing functionality,"Discover home includes Featured Projects, most liked/active, search bar (discover module).",Simplified discover: heading Discover + time filters + list only; no featured/most-liked blocks.,P1
+Discover,m_auth_discover_title,missing content,Title: Discover projects - Taiga (DISCOVER.PAGE_TITLE).,Static Vite index title; no discover-specific title in head.,P1
+Project timeline,m_auth_timeline_title,missing content,Title: {projectName} (PROJECT.PAGE_TITLE).,No matching dynamic title; index.html default.,P0
+Backlog,m_auth_backlog_title,missing content,Title: Backlog - {project} (BACKLOG.PAGE_TITLE).,Index default title; backlog-specific title not set in document head.,P0
+US detail,m_auth_us1_title,missing content,"Title includes subject, User Story #ref, project (US.PAGE_TITLE).",Index default; story detail not reflected in <title>.,P0
+Wiki,m_auth_wiki_title,missing content,Title: {page} - Wiki - {project} (WIKI.PAGE_TITLE).,Index default; wiki page not in document title.,P1
+Profile,m_auth_profile_title,missing content,Title: {name} (@{user}) (USER.PROFILE.PAGE_TITLE).,Index default; profile title not in head.,P1
+Epics,m_auth_epics_title,missing content,Title: Epics - {project}.,Index default.,P0
+Kanban,m_auth_kanban_title,missing content,Title: Kanban - {project}.,Index default.,P0
+Issues,m_auth_issues_title,missing content,Title: Issues - {project}.,Index default.,P0
+Team,m_auth_team_title,missing content,Title: Team - {project}.,Index default.,P0
+Taskboard,m_auth_taskboard_title,missing content,Title: {Sprint} - Sprint taskboard - {project} (TASKBOARD.PAGE_TITLE).,Index default.,P0
+Short ref /t/:ref,m_auth_us_ref_title,missing content,Resolves to user story; title follows US.PAGE_TITLE pattern.,Index default; ref route not setting document title.,P0
+Notifications,m_auth_notif_title,missing content,Angular sets a notifications-appropriate page title in head.,Static index title; route-specific <title> not updated.,P1
+User settings,m_auth_user_settings,missing content,Settings sections set translated titles in head via meta service pattern.,Static index title for user settings routes.,P1
+Admin,m_admin_status_title,missing content,Status admin page has specific section title in document head (project values + admin).,Still shows generic index title; no per-admin title.,P1
+Admin,m_admin_webhooks_placeholder,missing content,Title: Webhooks - {project} (third-party admin).,Index default (test expected full title string).,P1
+Admin,m_admin_details_title,missing content,Title: Project details - Project profile - {project} (admin profile section).,Index default.,P1
+Project search,m_search_page_title,missing content,Title: Search - {project}.,Index default.,P1
+Issue detail,m_issue_38_title,missing content,Title: {subject} - Issue #38 - {project} (ISSUE.PAGE_TITLE).,Index default; issue not in <title>.,P0
+Epic detail,m_epic_39_title,missing content,Title: {subject} - Epic #39 - {project} (EPIC.PAGE_TITLE).,Index default.,P0
+Task detail,m_task2_title,missing content,Title: {subject} - Task #2 - {project} (TASK.PAGE_TITLE).,Index default.,P0
+Discover search,m_discover_search_title,missing content,Title should follow discover search (Search - Discover projects - Taiga) when set.,May match substring Discover only or still static; not full parity with Angular meta.,P1
+Home,m_title_home,missing content,Title: Home - Taiga (HOME.PAGE_TITLE).,Taiga (React port).,P0
+Projects,m_title_my_projects,missing content,Title: My projects - Taiga.,Taiga (React port).,P0
+Discover,m_title_discover,missing content,Title: Discover projects - Taiga.,Taiga (React port).,P0
+Discover search,m_title_discover_search,missing content,Title: Search - Discover projects - Taiga.,Taiga (React port).,P0
+Timeline,m_title_timeline,missing content,Title: Project Example 1 (project name only for timeline in sample).,Taiga (React port).,P0
+Backlog,m_title_backlog,missing content,Backlog - Project Example 1 in <title>.,Taiga (React port).,P0
+Kanban,m_title_kanban,missing content,Kanban - Project Example 1 in <title>.,Taiga (React port).,P0
+Issues,m_title_issues,missing content,Issues - Project Example 1 in <title>.,Taiga (React port).,P0
+Team,m_title_team,missing content,Team - Project Example 1 in <title>.,Taiga (React port).,P0
+Epics,m_title_epics,missing content,Epics - Project Example 1 in <title>.,Taiga (React port).,P0
+Search,m_title_search,missing content,Search - Project Example 1 in <title>.,Taiga (React port).,P0
+Wiki,m_title_wiki,missing content,home - Wiki - Project Example 1 (lowercase page slug in title).,Taiga (React port).,P1
+Taskboard,m_title_taskboard,missing content,Sprint name - Sprint taskboard - Project in <title>.,Taiga (React port).,P0
+Admin,m_title_memberships,missing content,Memberships - Project in <title>.,Taiga (React port).,P1
+Admin,m_title_roles,missing content,Roles - Project in <title>.,Taiga (React port).,P1
+Admin,m_title_github,missing content,GitHub - Project in <title> (third-party admin).,Taiga (React port).,P1
+Profile,m_title_profile,missing content,admin (@admin) in <title> for own profile.,Taiga (React port).,P0
+Login,m_title_login,missing content,Login - Taiga in <title> (LOGIN.PAGE_TITLE).,Taiga (React port) until a route-aware title is implemented.,P0
+Forgot password,m_title_forgot,missing content,Forgot password - Taiga in <title>.,Taiga (React port).,P1
+Register,m_title_register,missing content,Register - Taiga in <title> when public registration is enabled.,Taiga (React port).,P1
+Login,m_unauth_login_tagline,missing content,Tagline: LOVE YOUR PROJECT (COMMON.TAG_LINE_2) under the logo.,Tagline: Project management platform (different marketing line).,P1
+Login,m_unauth_login_placeholder,form UX difference,Placeholders include case sensitive per LOGIN_COMMON (username/password).,Placeholders: username or email address / password (no case-sensitive reminder).,P1
+Login,m_unauth_login_submit,form UX difference,Submit: Login (same as legacy LOGIN_COMMON).,Submit: Sign in (disabled until form valid).,P1
+Login,m_unauth_login_forgot,navigation difference,"Forgot password copy: ""Forgot it?"" (short, playful).",Link: Forgot password? (full phrase).,P1
+Recover,m_unauth_forgot_title,visual difference,"Branded h1 ""Taiga"" in auth card (matches rest of auth pages).",H1: Recover (different layout/hierarchy than legacy).,P1
+Recover,m_unauth_forgot_copy,missing content,"Intro: Oops, did you forget your password? + subtitle from FORGOT_PASSWORD_FORM.",Different one-line subcopy; missing Taiga Oops/paragraph structure.,P1
+Errors,m_unauth_404_h1,missing content,404 page heading: Not found (ERROR.NOT_FOUND) without a leading 404 in the h1 text.,Heading: 404 — Not found (extra numeric prefix in UI).,P1
+Errors,m_unauth_404_body,missing content,Body references Error 404 and Taiga home (long ERROR.NOT_FOUND_TEXT).,Short custom message; not the long Taiga copy about homepage.,P1
+Errors,m_unauth_403,missing content,403 heading: Permission denied (no leading code in h1).,403 — Permission denied (code prefix in heading).,P1
+Register,m_unauth_register_signup,form UX difference,Primary CTA: Sign up (REGISTER_FORM.ACTION_SIGN_UP) on the form button.,Button: Create account (not Sign up) while heading says Sign up.,P1
