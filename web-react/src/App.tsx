@@ -1,3 +1,11 @@
+import { RouterProvider } from 'react-router';
+import { AppProviders } from './providers/AppProviders';
+import { adminRouter } from './routes/adminRouter';
+
 export default function App() {
-  return <h1>Taiga (React port) — scaffold</h1>;
+  return (
+    <AppProviders>
+      <RouterProvider router={adminRouter} />
+    </AppProviders>
+  );
 }
