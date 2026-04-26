@@ -1,0 +1,3 @@
+I noticed the original app shows a real sign-in form on `/login` (username and password fields, the short "Forgot it?" link, and a primary Login action) and hides the main navigation chrome on that screen, but the migration page does not give me those fields or actions and still shows the global header above the content.
+
+I noticed after signing in the original app takes me to a **My projects** listing where I can see and open my workspaces, whereas the migration does not offer that projects home at `/projects/` at all.
