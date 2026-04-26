@@ -19,3 +19,5 @@ app/modules/compile-modules/
 yarn.lock
 /taiga-docker/
 /artifacts/
+e2e-comparison/test-results/
+e2e-comparison/playwright-report/

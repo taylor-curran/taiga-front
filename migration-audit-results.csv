@@ -1,0 +1,10 @@
+area,test_name,category,angular_behavior,react_behavior,priority
+auth/login,audit_login_submit_label,form UX difference,Submit control reads "Login" (LOGIN_COMMON.ACTION_SIGN_IN),Submit control reads "Sign in",2
+auth/login,audit_login_username_placeholder,form UX difference,"Username field placeholder includes case-sensitivity text (LOGIN_COMMON.PLACEHOLDER_AUTH_NAME)",Username field has visible labels but no case-sensitivity placeholder on the field,3
+auth/login,audit_login_document_title,missing content,Document title is "Login - Taiga" (route meta),Document title stays the generic "Taiga (React port)" from index.html,2
+auth/forgot-password,audit_forgot_submit_label,form UX difference,Primary action is "Reset Password" (FORGOT_PASSWORD_FORM),Primary action is "Send instructions",3
+discover,audit_discover_search_placeholder,form UX difference,Discover search placeholder is "Type something..." (DISCOVER.SEARCH.INPUT_PLACEHOLDER),Placeholder is "Search public projects…",3
+discover,audit_discover_document_title,missing content,Document title is "Discover projects - Taiga" (DISCOVER.PAGE_TITLE),Document title is not updated; remains the generic build title,2
+errors/not-found,audit_not_found_cta,visual difference,Home link is labeled "Take me home" (COMMON.GO_HOME),Home link is labeled "Go home",4
+errors/not-found,audit_not_found_body,content difference,Body includes full legacy 404 copy starting with "Error 404. The page you are looking for no longer exists…" (ERROR.NOT_FOUND_TEXT),Body is a short line: "The page you’re looking for doesn’t exist.",3
+public-auth,audit_register_route,missing functionality,When public registration is enabled, `/register` loads the full registration form (REGISTER_FORM, etc.),No `/register` route is registered; the URL does not show the registration flow,1
