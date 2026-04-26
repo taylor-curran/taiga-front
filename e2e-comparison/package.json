@@ -1,0 +1,13 @@
+{
+  "name": "taiga-migration-audit-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:angular": "TARGET=angular BASE_URL=http://127.0.0.1:9101 playwright test",
+    "test:react": "TARGET=react BASE_URL=http://127.0.0.1:5173 playwright test",
+    "e2e:install": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
+}
