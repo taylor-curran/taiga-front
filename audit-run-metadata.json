@@ -1,0 +1,29 @@
+{
+  "migration_pr_url": "https://github.com/taylor-curran/taiga-front/pull/29",
+  "migration_branch": "cursor/angular-react-app-migration-d525",
+  "audit_branch": "cursor/angular-react-migration-audit-d2d9",
+  "repository": "https://github.com/taylor-curran/taiga-front",
+  "angular_commit": "20a9f8083c06dadd36b0da62fa9d5ce8b3be4a50",
+  "react_commit": "20a9f8083c06dadd36b0da62fa9d5ce8b3be4a50",
+  "angular_url": "http://127.0.0.1:9001",
+  "react_url": "http://127.0.0.1:5173",
+  "api_url": "http://127.0.0.1:9000",
+  "started_at": "2026-04-26T21:53:00Z",
+  "completed_at": "2026-04-26T22:14:48Z",
+  "commands_run": [
+    "bash scripts/cursor-cloud-install.sh",
+    "bash scripts/cursor-cloud-dockerd.sh",
+    "bash scripts/cursor-cloud-taiga.sh",
+    "cd /workspace && source \"$HOME/.nvm/nvm.sh\" && nvm use 16.19.1 && npx gulp",
+    "cd /workspace && source \"$HOME/.nvm/nvm.sh\" && nvm use 22 && npm run react",
+    "cd /workspace/e2e-comparison && source \"$HOME/.nvm/nvm.sh\" && nvm use 22 && npm install && npx playwright install chromium",
+    "cd /workspace/e2e-comparison && npx playwright test"
+  ],
+  "notes": [
+    "Angular dev server uses gulp express on port 9001 per gulpfile.js (README documents 9001).",
+    "React Vite dev server on 5173 with API proxy to localhost:9000 per web-react/vite.config.ts.",
+    "Playwright globalSetup fetches admin auth from POST /api/v1/auth into e2e-comparison/.auth-cache.json (gitignored) for seeding Angular localStorage.",
+    "AUDIT_PROJECT_SLUG defaults to project-1 (sample_data); override if seed differs.",
+    "Migration and audit branches pointed to the same commit in this workspace clone (PR branch tip)."
+  ]
+}

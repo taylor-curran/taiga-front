@@ -1,0 +1,1204 @@
+{
+  "config": {
+    "configFile": "/workspace/e2e-comparison/playwright.config.ts",
+    "rootDir": "/workspace/e2e-comparison/specs",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": "/workspace/e2e-comparison/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/e2e-comparison/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "angular-baseline",
+        "name": "angular-baseline",
+        "testDir": "/workspace/e2e-comparison/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/workspace/e2e-comparison/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "react-parity",
+        "name": "react-parity",
+        "testDir": "/workspace/e2e-comparison/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "discover-nav-icon.spec.ts",
+      "file": "discover-nav-icon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authenticated discover nav uses compass SVG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:07.389Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9c95c6e79050a1bdef36-bb43a08c656a5669c62d",
+          "file": "discover-nav-icon.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "authenticated discover nav uses compass SVG",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5603,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('nav.navbar .nav-right a').filter({ has: locator('tg-svg[svg-icon=\"icon-compass\"]') })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav.navbar .nav-right a').filter({ has: locator('tg-svg[svg-icon=\"icon-compass\"]') })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('nav.navbar .nav-right a').filter({ has: locator('tg-svg[svg-icon=\"icon-compass\"]') })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav.navbar .nav-right a').filter({ has: locator('tg-svg[svg-icon=\"icon-compass\"]') })\u001b[22m\n\n    at /workspace/e2e-comparison/specs/discover-nav-icon.spec.ts:17:26",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/discover-nav-icon.spec.ts",
+                      "column": 26,
+                      "line": 17
+                    },
+                    "snippet": "  15 |   await page.screenshot({ path: shot, fullPage: false });\n  16 |   const discover = page.locator('nav.navbar .nav-right a').filter({ has: page.locator('tg-svg[svg-icon=\"icon-compass\"]') });\n> 17 |   await expect(discover).toBeVisible();\n     |                          ^\n  18 | });\n  19 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/discover-nav-icon.spec.ts",
+                        "column": 26,
+                        "line": 17
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('nav.navbar .nav-right a').filter({ has: locator('tg-svg[svg-icon=\"icon-compass\"]') })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav.navbar .nav-right a').filter({ has: locator('tg-svg[svg-icon=\"icon-compass\"]') })\u001b[22m\n\n\n  15 |   await page.screenshot({ path: shot, fullPage: false });\n  16 |   const discover = page.locator('nav.navbar .nav-right a').filter({ has: page.locator('tg-svg[svg-icon=\"icon-compass\"]') });\n> 17 |   await expect(discover).toBeVisible();\n     |                          ^\n  18 | });\n  19 |\n    at /workspace/e2e-comparison/specs/discover-nav-icon.spec.ts:17:26"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:18.326Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/discover-nav-icon-authenti-b5df7-scover-nav-uses-compass-SVG-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/discover-nav-icon-authenti-b5df7-scover-nav-uses-compass-SVG-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/discover-nav-icon.spec.ts",
+                    "column": 26,
+                    "line": 17
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9c95c6e79050a1bdef36-02054a6c97672b6022de",
+          "file": "discover-nav-icon.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "forgot-password.spec.ts",
+      "file": "forgot-password.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "forgot-password shows Angular-style recovery form",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1150,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:08.652Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "852acb1e2419f9f859ad-5e1393fa5e992826cddf",
+          "file": "forgot-password.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "forgot-password shows Angular-style recovery form",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5236,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('div.auth-container')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.auth-container')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('div.auth-container')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.auth-container')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/forgot-password.spec.ts:10:52",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/forgot-password.spec.ts",
+                      "column": 52,
+                      "line": 10
+                    },
+                    "snippet": "   8 |       : 'screenshots/forgot-password-react.png';\n   9 |   await page.screenshot({ path: shot, fullPage: true });\n> 10 |   await expect(page.locator('div.auth-container')).toBeVisible();\n     |                                                    ^\n  11 |   await expect(page.locator('form', { has: page.locator('input[name=\"username\"]') })).toBeVisible();\n  12 | });\n  13 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/forgot-password.spec.ts",
+                        "column": 52,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('div.auth-container')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('div.auth-container')\u001b[22m\n\n\n   8 |       : 'screenshots/forgot-password-react.png';\n   9 |   await page.screenshot({ path: shot, fullPage: true });\n> 10 |   await expect(page.locator('div.auth-container')).toBeVisible();\n     |                                                    ^\n  11 |   await expect(page.locator('form', { has: page.locator('input[name=\"username\"]') })).toBeVisible();\n  12 | });\n  13 |\n    at /workspace/e2e-comparison/specs/forgot-password.spec.ts:10:52"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:24.454Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/forgot-password-forgot-pas-7a3e8-Angular-style-recovery-form-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/forgot-password-forgot-pas-7a3e8-Angular-style-recovery-form-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/forgot-password.spec.ts",
+                    "column": 52,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "852acb1e2419f9f859ad-9c18db4df6aeecd8b67d",
+          "file": "forgot-password.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "home-dashboard.spec.ts",
+      "file": "home-dashboard.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authenticated navbar home logo includes SVG mark",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:09.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0b3665b07e09850262d7-c10b6d12c5f09934615b",
+          "file": "home-dashboard.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "authenticated navbar home logo includes SVG mark",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5566,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('nav.navbar a.logo svg')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav.navbar a.logo svg')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('nav.navbar a.logo svg')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav.navbar a.logo svg')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/home-dashboard.spec.ts:16:55",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/home-dashboard.spec.ts",
+                      "column": 55,
+                      "line": 16
+                    },
+                    "snippet": "  14 |       : 'screenshots/navbar-logo-react.png';\n  15 |   await page.screenshot({ path: shot, fullPage: false });\n> 16 |   await expect(page.locator('nav.navbar a.logo svg')).toBeVisible();\n     |                                                       ^\n  17 | });\n  18 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/home-dashboard.spec.ts",
+                        "column": 55,
+                        "line": 16
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('nav.navbar a.logo svg')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav.navbar a.logo svg')\u001b[22m\n\n\n  14 |       : 'screenshots/navbar-logo-react.png';\n  15 |   await page.screenshot({ path: shot, fullPage: false });\n> 16 |   await expect(page.locator('nav.navbar a.logo svg')).toBeVisible();\n     |                                                       ^\n  17 | });\n  18 |\n    at /workspace/e2e-comparison/specs/home-dashboard.spec.ts:16:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:30.210Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/home-dashboard-authenticat-a2815-home-logo-includes-SVG-mark-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/home-dashboard-authenticat-a2815-home-logo-includes-SVG-mark-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/home-dashboard.spec.ts",
+                    "column": 55,
+                    "line": 16
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0b3665b07e09850262d7-9bd5953a12b491d65c93",
+          "file": "home-dashboard.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "login-form-fields.spec.ts",
+      "file": "login-form-fields.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "login form uses placeholder copy on username/password fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 771,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:10.880Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de53f91725cf2694328f-33b7f1d815efb1959e87",
+          "file": "login-form-fields.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "login form uses placeholder copy on username/password fields",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5269,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('input[name=\"username\"]')\nExpected: \u001b[32m\"Username or email (case sensitive)\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[name=\"username\"]')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('input[name=\"username\"]')\nExpected: \u001b[32m\"Username or email (case sensitive)\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[name=\"username\"]')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-form-fields.spec.ts:12:22",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/login-form-fields.spec.ts",
+                      "column": 22,
+                      "line": 12
+                    },
+                    "snippet": "  10 |   const user = page.locator('input[name=\"username\"]');\n  11 |   const pass = page.locator('input[name=\"password\"]');\n> 12 |   await expect(user).toHaveAttribute('placeholder', 'Username or email (case sensitive)');\n     |                      ^\n  13 |   await expect(pass).toHaveAttribute('placeholder', 'Password (case sensitive)');\n  14 | });\n  15 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/login-form-fields.spec.ts",
+                        "column": 22,
+                        "line": 12
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('input[name=\"username\"]')\nExpected: \u001b[32m\"Username or email (case sensitive)\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('input[name=\"username\"]')\u001b[22m\n\n\n  10 |   const user = page.locator('input[name=\"username\"]');\n  11 |   const pass = page.locator('input[name=\"password\"]');\n> 12 |   await expect(user).toHaveAttribute('placeholder', 'Username or email (case sensitive)');\n     |                      ^\n  13 |   await expect(pass).toHaveAttribute('placeholder', 'Password (case sensitive)');\n  14 | });\n  15 |\n    at /workspace/e2e-comparison/specs/login-form-fields.spec.ts:12:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:36.291Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/login-form-fields-login-fo-93bb6-on-username-password-fields-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/login-form-fields-login-fo-93bb6-on-username-password-fields-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/login-form-fields.spec.ts",
+                    "column": 22,
+                    "line": 12
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de53f91725cf2694328f-76be7cc1250f8c6278be",
+          "file": "login-form-fields.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "login-ui.spec.ts",
+      "file": "login-ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "login page shows Taiga auth chrome and inline forgot-password link",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1129,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:11.665Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dd7d11480fa5fb0ba9ad-dbf034e9ee34e545bb6e",
+          "file": "login-ui.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "login page shows Taiga auth chrome and inline forgot-password link",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5252,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.auth-container .logo-svg')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.auth-container .logo-svg')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.auth-container .logo-svg')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.auth-container .logo-svg')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-ui.spec.ts:10:59",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/login-ui.spec.ts",
+                      "column": 59,
+                      "line": 10
+                    },
+                    "snippet": "   8 |       : 'screenshots/login-layout-react.png';\n   9 |   await page.screenshot({ path: shot, fullPage: true });\n> 10 |   await expect(page.locator('.auth-container .logo-svg')).toBeVisible();\n     |                                                           ^\n  11 |   await expect(page.locator('.auth-container h1.logo')).toHaveText(/Taiga/i);\n  12 |   await expect(page.locator('.auth-container h2.tagline')).toBeVisible();\n  13 |   await expect(page.locator('.auth-container a.forgot-pass')).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/login-ui.spec.ts",
+                        "column": 59,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.auth-container .logo-svg')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.auth-container .logo-svg')\u001b[22m\n\n\n   8 |       : 'screenshots/login-layout-react.png';\n   9 |   await page.screenshot({ path: shot, fullPage: true });\n> 10 |   await expect(page.locator('.auth-container .logo-svg')).toBeVisible();\n     |                                                           ^\n  11 |   await expect(page.locator('.auth-container h1.logo')).toHaveText(/Taiga/i);\n  12 |   await expect(page.locator('.auth-container h2.tagline')).toBeVisible();\n  13 |   await expect(page.locator('.auth-container a.forgot-pass')).toBeVisible();\n    at /workspace/e2e-comparison/specs/login-ui.spec.ts:10:59"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:42.069Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/login-ui-login-page-shows--7fe10-inline-forgot-password-link-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/login-ui-login-page-shows--7fe10-inline-forgot-password-link-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/login-ui.spec.ts",
+                    "column": 59,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "dd7d11480fa5fb0ba9ad-de0fe6d5538d753caec6",
+          "file": "login-ui.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "project-backlog.spec.ts",
+      "file": "project-backlog.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "project backlog renders scrum backlog shell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1028,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:12.815Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3d4c47ef02df68b453e0-fc8866771d67c281ce47",
+          "file": "project-backlog.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "project backlog renders scrum backlog shell",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5568,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('section.backlog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('section.backlog')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('section.backlog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('section.backlog')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/project-backlog.spec.ts:18:49",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/project-backlog.spec.ts",
+                      "column": 49,
+                      "line": 18
+                    },
+                    "snippet": "  16 |       : 'screenshots/backlog-react.png';\n  17 |   await page.screenshot({ path: shot, fullPage: true });\n> 18 |   await expect(page.locator('section.backlog')).toBeVisible();\n     |                                                 ^\n  19 |   await expect(page.locator('.tg-placeholder')).toHaveCount(0);\n  20 | });\n  21 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/project-backlog.spec.ts",
+                        "column": 49,
+                        "line": 18
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('section.backlog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('section.backlog')\u001b[22m\n\n\n  16 |       : 'screenshots/backlog-react.png';\n  17 |   await page.screenshot({ path: shot, fullPage: true });\n> 18 |   await expect(page.locator('section.backlog')).toBeVisible();\n     |                                                 ^\n  19 |   await expect(page.locator('.tg-placeholder')).toHaveCount(0);\n  20 | });\n  21 |\n    at /workspace/e2e-comparison/specs/project-backlog.spec.ts:18:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:47.834Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/project-backlog-project-backlog-renders-scrum-backlog-shell-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/project-backlog-project-backlog-renders-scrum-backlog-shell-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/project-backlog.spec.ts",
+                    "column": 49,
+                    "line": 18
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "3d4c47ef02df68b453e0-549965b23db683542268",
+          "file": "project-backlog.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "project-timeline.spec.ts",
+      "file": "project-timeline.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "project root loads timeline shell with project-data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1200,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:13.857Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "711ec52f7310f6d3df93-79085a441f6bd7e026e6",
+          "file": "project-timeline.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "project root loads timeline shell with project-data",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5559,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.project-data')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.project-data')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.project-data')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.project-data')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/project-timeline.spec.ts:21:47",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/project-timeline.spec.ts",
+                      "column": 47,
+                      "line": 21
+                    },
+                    "snippet": "  19 |       : 'screenshots/timeline-react.png';\n  20 |   await page.screenshot({ path: shot, fullPage: true });\n> 21 |   await expect(page.locator('.project-data')).toBeVisible();\n     |                                               ^\n  22 |   await expect(page.locator('.tg-placeholder')).toHaveCount(0);\n  23 | });\n  24 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/project-timeline.spec.ts",
+                        "column": 47,
+                        "line": 21
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.project-data')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.project-data')\u001b[22m\n\n\n  19 |       : 'screenshots/timeline-react.png';\n  20 |   await page.screenshot({ path: shot, fullPage: true });\n> 21 |   await expect(page.locator('.project-data')).toBeVisible();\n     |                                               ^\n  22 |   await expect(page.locator('.tg-placeholder')).toHaveCount(0);\n  23 | });\n  24 |\n    at /workspace/e2e-comparison/specs/project-timeline.spec.ts:21:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:53.911Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/project-timeline-project-r-10c43-ine-shell-with-project-data-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/project-timeline-project-r-10c43-ine-shell-with-project-data-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/project-timeline.spec.ts",
+                    "column": 47,
+                    "line": 21
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "711ec52f7310f6d3df93-c2c85a950a37de59baaa",
+          "file": "project-timeline.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "projects-listing.spec.ts",
+      "file": "projects-listing.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "my projects listing page layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 906,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:15.070Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c4579e1b933bc51a2cab-058d5f3637548f3f7910",
+          "file": "projects-listing.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "my projects listing page layout",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5591,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.project-list-wrapper')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.project-list-wrapper')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.project-list-wrapper')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.project-list-wrapper')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/projects-listing.spec.ts:17:55",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/projects-listing.spec.ts",
+                      "column": 55,
+                      "line": 17
+                    },
+                    "snippet": "  15 |       : 'screenshots/projects-listing-react.png';\n  16 |   await page.screenshot({ path: shot, fullPage: true });\n> 17 |   await expect(page.locator('.project-list-wrapper')).toBeVisible();\n     |                                                       ^\n  18 |   await expect(page.locator('.project-list-title h1')).toContainText(/My projects/i);\n  19 | });\n  20 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/projects-listing.spec.ts",
+                        "column": 55,
+                        "line": 17
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.project-list-wrapper')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.project-list-wrapper')\u001b[22m\n\n\n  15 |       : 'screenshots/projects-listing-react.png';\n  16 |   await page.screenshot({ path: shot, fullPage: true });\n> 17 |   await expect(page.locator('.project-list-wrapper')).toBeVisible();\n     |                                                       ^\n  18 |   await expect(page.locator('.project-list-title h1')).toContainText(/My projects/i);\n  19 | });\n  20 |\n    at /workspace/e2e-comparison/specs/projects-listing.spec.ts:17:55"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:59.962Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/projects-listing-my-projects-listing-page-layout-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/projects-listing-my-projects-listing-page-layout-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/projects-listing.spec.ts",
+                    "column": 55,
+                    "line": 17
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c4579e1b933bc51a2cab-e431309edf570917b2b0",
+          "file": "projects-listing.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "register-route.spec.ts",
+      "file": "register-route.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "register route serves registration form when public registration is enabled",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 810,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:15.992Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "43979101763ffc481a54-d8b293eed02adb426bed",
+          "file": "register-route.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "register route serves registration form when public registration is enabled",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5271,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('form.register-form input[name=\"username\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form.register-form input[name=\"username\"]')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('form.register-form input[name=\"username\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form.register-form input[name=\"username\"]')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/register-route.spec.ts:10:75",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/register-route.spec.ts",
+                      "column": 75,
+                      "line": 10
+                    },
+                    "snippet": "   8 |       : 'screenshots/register-placeholder-react.png';\n   9 |   await page.screenshot({ path: shot, fullPage: true });\n> 10 |   await expect(page.locator('form.register-form input[name=\"username\"]')).toBeVisible();\n     |                                                                           ^\n  11 | });\n  12 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/register-route.spec.ts",
+                        "column": 75,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('form.register-form input[name=\"username\"]')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('form.register-form input[name=\"username\"]')\u001b[22m\n\n\n   8 |       : 'screenshots/register-placeholder-react.png';\n   9 |   await page.screenshot({ path: shot, fullPage: true });\n> 10 |   await expect(page.locator('form.register-form input[name=\"username\"]')).toBeVisible();\n     |                                                                           ^\n  11 | });\n  12 |\n    at /workspace/e2e-comparison/specs/register-route.spec.ts:10:75"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:26:06.050Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/register-route-register-ro-bd626-lic-registration-is-enabled-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/register-route-register-ro-bd626-lic-registration-is-enabled-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/register-route.spec.ts",
+                    "column": 75,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "43979101763ffc481a54-f0f0d0c055691e5badcf",
+          "file": "register-route.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "wiki-home-route.spec.ts",
+      "file": "wiki-home-route.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "wiki home deep link loads wiki editor shell",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "angular-baseline",
+              "projectName": "angular-baseline",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1051,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:25:16.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de189898a64f58caa4c2-b55753c8e60eaba743e7",
+          "file": "wiki-home-route.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "wiki home deep link loads wiki editor shell",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "react-parity",
+              "projectName": "react-parity",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5565,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('section.main.wiki')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('section.main.wiki')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('section.main.wiki')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('section.main.wiki')\u001b[22m\n\n    at /workspace/e2e-comparison/specs/wiki-home-route.spec.ts:19:51",
+                    "location": {
+                      "file": "/workspace/e2e-comparison/specs/wiki-home-route.spec.ts",
+                      "column": 51,
+                      "line": 19
+                    },
+                    "snippet": "  17 |       : 'screenshots/wiki-home-react.png';\n  18 |   await page.screenshot({ path: shot, fullPage: true });\n> 19 |   await expect(page.locator('section.main.wiki')).toBeVisible();\n     |                                                   ^\n  20 |   await expect(page.locator('.tg-placeholder')).toHaveCount(0);\n  21 | });\n  22 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/e2e-comparison/specs/wiki-home-route.spec.ts",
+                        "column": 51,
+                        "line": 19
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('section.main.wiki')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('section.main.wiki')\u001b[22m\n\n\n  17 |       : 'screenshots/wiki-home-react.png';\n  18 |   await page.screenshot({ path: shot, fullPage: true });\n> 19 |   await expect(page.locator('section.main.wiki')).toBeVisible();\n     |                                                   ^\n  20 |   await expect(page.locator('.tg-placeholder')).toHaveCount(0);\n  21 | });\n  22 |\n    at /workspace/e2e-comparison/specs/wiki-home-route.spec.ts:19:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-26T22:26:11.842Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/e2e-comparison/test-results/wiki-home-route-wiki-home-deep-link-loads-wiki-editor-shell-react-parity/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/e2e-comparison/test-results/wiki-home-route-wiki-home-deep-link-loads-wiki-editor-shell-react-parity/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/e2e-comparison/specs/wiki-home-route.spec.ts",
+                    "column": 51,
+                    "line": 19
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de189898a64f58caa4c2-b6bb8fe58512d59ca2d5",
+          "file": "wiki-home-route.spec.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-26T22:25:06.822Z",
+    "duration": 70698.916,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 10,
+    "flaky": 0
+  }
+}
