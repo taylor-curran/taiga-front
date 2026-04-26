@@ -1,0 +1,233 @@
+/**
+ * Taiga admin theme tokens — values mirror app/themes/taiga/variables.scss
+ * and app/styles/dependencies/helpers.scss (Taiga 6 palette).
+ */
+:root {
+  --taiga-navbar-height: 48px;
+  --taiga-main-min-height: calc(100vh - var(--taiga-navbar-height));
+
+  --color-primary: #25a28c;
+  --color-primary-75: #5cbaa9;
+  --color-primary-50: #92d1c5;
+  --color-primary-25: #c9e8e2;
+  --color-primary-10: #e9f6f3;
+
+  --color-link-primary: #008aa8;
+  --color-link-tertiary: #70728f;
+  --color-solid-primary: #83eede;
+  --color-link-red: #e44057;
+
+  --color-gray100: #f9f9fb;
+  --color-gray200: #eceff4;
+  --color-gray300: #e5e9f0;
+  --color-gray400: #d8dee9;
+  --color-gray800: #505c74;
+
+  --color-black600: #4c566a;
+  --color-black700: #434c5e;
+  --color-black800: #3b4252;
+  --color-black900: #2e3440;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --grey-02: #f9f9fb;
+  --grey-05: #f1f1f4;
+  --grey-10: #e2e3e9;
+  --grey-20: #c6c6d4;
+  --grey-30: #a9aabc;
+  --grey-50: #70728f;
+  --grey-60: #5a5b72;
+  --grey-70: #434456;
+  --grey-80: #2d2d39;
+  --grey-90: #16171d;
+
+  --default-tags: #a9aabc;
+  --tertiary-border: #bcbcc8;
+
+  --font-regular: 'Ubuntu', 'Ubuntu-Regular', Arial, Helvetica, sans-serif;
+  --font-medium: 'Ubuntu', 'Ubuntu-Medium', Arial, Helvetica, sans-serif;
+
+  --shadow-subtle: 0 1px 2px rgba(46, 52, 64, 0.06);
+
+  --admin-menu-border: var(--default-tags);
+  --admin-secondary-bg: var(--color-gray100);
+  --admin-tertiary-bg: var(--color-gray400);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  font-family: var(--font-regular);
+  line-height: 1.25;
+  color: var(--color-black900);
+  background: var(--color-white);
+}
+
+body *:focus-visible {
+  outline: 1px dotted var(--color-link-primary);
+}
+
+.taiga-admin-root {
+  min-height: var(--taiga-main-min-height);
+}
+
+.taiga-admin-wrapper {
+  display: flex;
+  min-height: var(--taiga-main-min-height);
+}
+
+.taiga-admin-menu-secondary {
+  background: var(--admin-secondary-bg);
+  flex: 0 0 300px;
+  min-height: var(--taiga-main-min-height);
+  border-right: 1px solid var(--grey-10);
+}
+
+.taiga-admin-menu-secondary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.taiga-admin-menu-secondary li {
+  border-bottom: 1px solid var(--admin-menu-border);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.taiga-admin-menu-secondary li:last-child {
+  border-bottom: 0;
+}
+
+.taiga-admin-menu-secondary a {
+  display: block;
+  padding: 1rem 0 1rem 1rem;
+  color: var(--color-link-tertiary);
+  text-decoration: none;
+}
+
+.taiga-admin-menu-secondary a:hover {
+  color: var(--color-link-primary);
+  background: var(--color-white);
+}
+
+.taiga-admin-menu-secondary li.is-active a {
+  font-family: var(--font-medium);
+  background: var(--color-white);
+  color: var(--color-link-primary);
+}
+
+.taiga-admin-menu-tertiary {
+  flex: 0 0 300px;
+  min-height: var(--taiga-main-min-height);
+  background-color: var(--admin-tertiary-bg);
+  border-right: 1px solid var(--tertiary-border);
+}
+
+.taiga-admin-menu-tertiary ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.taiga-admin-menu-tertiary a {
+  display: block;
+  padding: 0.65rem 1rem;
+  color: var(--grey-70);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.taiga-admin-menu-tertiary li.is-active a {
+  font-family: var(--font-medium);
+  background: var(--color-gray300);
+  color: var(--color-link-primary);
+}
+
+.taiga-admin-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 1.5rem 2rem;
+  background: var(--color-white);
+}
+
+.taiga-admin-main h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.7rem;
+  font-family: var(--font-medium);
+  color: var(--color-black900);
+}
+
+.taiga-admin-subtitle {
+  color: var(--color-black600);
+  margin-block-end: 1rem;
+  font-size: 0.875rem;
+}
+
+.taiga-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-link-primary);
+  background: var(--color-link-primary);
+  color: var(--color-white);
+  font-family: var(--font-medium);
+  font-size: 0.875rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+}
+
+.taiga-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.taiga-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.taiga-table th,
+.taiga-table td {
+  border-bottom: 1px solid var(--grey-10);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.taiga-table th {
+  font-family: var(--font-medium);
+  color: var(--color-black700);
+  background: var(--grey-05);
+}
+
+.taiga-loading {
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-link-tertiary);
+  font-size: 0.875rem;
+}
+
+.taiga-error-fallback {
+  padding: 1.5rem;
+  border: 1px solid var(--color-link-red);
+  background: #ffe7e7;
+  color: var(--color-black800);
+  border-radius: 4px;
+}
