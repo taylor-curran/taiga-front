@@ -1,0 +1,21 @@
+/**
+ * Taiga theme tokens (from app/themes/taiga/variables.scss) for admin history slice.
+ */
+:root {
+  --taiga-primary: #25a28c;
+  --taiga-link: #008aa8;
+  --taiga-grey-05: #f1f1f4;
+  --taiga-grey-10: #e2e3e9;
+  --taiga-grey-50: #70728f;
+  --taiga-grey-70: #434456;
+  --taiga-red: #ff6363;
+  --taiga-red-light: #ff9a9a;
+  --taiga-white: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif;
+  color: var(--taiga-grey-70);
+  background: var(--taiga-white);
+}

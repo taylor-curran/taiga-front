@@ -1,0 +1,425 @@
+/* Mirrors app/styles/components/history.scss + modules/history/comments/comment.scss */
+
+.admin-history-page {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+}
+
+.admin-history-page h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  color: var(--taiga-grey-70);
+}
+
+.admin-history-demo-hint {
+  font-size: 0.875rem;
+  color: var(--taiga-grey-50);
+  margin-bottom: 1.5rem;
+}
+
+.admin-history-demo-hint code {
+  background: var(--taiga-grey-05);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}
+
+section.history {
+  margin-top: 1rem;
+}
+
+.history-tabs {
+  background: var(--taiga-grey-05);
+  display: flex;
+  flex-direction: row;
+  margin-top: 4rem;
+  align-items: center;
+}
+
+.history-tabs a {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+}
+
+.history-tabs a:hover {
+  color: var(--taiga-primary);
+}
+
+.history-tabs .history-tab {
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  color: var(--taiga-grey-50);
+  transition: color 0.1s linear, border-color 0.1s linear;
+}
+
+.history-tabs .history-tab.active {
+  border-bottom: 3px solid var(--taiga-grey-70);
+  color: var(--taiga-grey-70);
+}
+
+.history-tabs .order-comments {
+  font-weight: 400;
+  color: var(--taiga-grey-70);
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.history-tabs .order-comments .icon-arrow {
+  width: 0.75rem;
+  height: 0.75rem;
+  display: inline-block;
+}
+
+/* --- comments (comment.scss) --- */
+
+.comments {
+  clear: both;
+}
+
+.comments .add-comment {
+  margin-top: 1rem;
+}
+
+.comments .add-comment textarea {
+  width: 100%;
+  min-height: 4rem;
+  box-sizing: border-box;
+  border: 1px solid var(--taiga-grey-10);
+  border-radius: 4px;
+  padding: 0.5rem;
+  font: inherit;
+  resize: vertical;
+}
+
+.comments .add-comment .save-comment-wrapper {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments .add-comment .save-comment {
+  margin-top: 1rem;
+  padding: 0.5rem 2rem;
+  background: var(--taiga-primary);
+  color: var(--taiga-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.comments .add-comment .save-comment:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.comments .add-comment .comment-post-error {
+  color: var(--taiga-red);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.comment {
+  display: block;
+}
+
+.comment .comment-wrapper {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--taiga-grey-10);
+  display: flex;
+  padding: 2rem 0;
+}
+
+.comment .comment-wrapper:hover .comment-option {
+  opacity: 1;
+}
+
+.comment .comment-editor textarea {
+  width: 100%;
+  min-height: 4rem;
+  box-sizing: border-box;
+  border: 1px solid var(--taiga-grey-10);
+  padding: 0.5rem;
+  font: inherit;
+}
+
+.comment .comment-editor .save-comment-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.comment .comment-content-wrapper {
+  inline-size: 100%;
+}
+
+.comment .comment-main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.comment .comment-avatar {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--taiga-grey-05);
+}
+
+.comment .comment-data {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.comment .comment-creator {
+  color: var(--taiga-link);
+  margin-right: 0.5rem;
+}
+
+.comment .comment-date {
+  font-size: 0.875rem;
+  color: var(--taiga-grey-50);
+}
+
+.comment .comment-edited {
+  font-size: 0.875rem;
+  background: var(--taiga-grey-10);
+  margin: 0 0.5rem;
+  padding: 0.25rem;
+}
+
+.comment .comment-edited .separator {
+  margin: 0 0.25rem;
+}
+
+.comment .comment-edited a.comment-history {
+  color: var(--taiga-primary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.comment .comment-options {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex-basis: 50px;
+  flex-shrink: 0;
+  margin-left: 1.5rem;
+}
+
+.comment .comment-options .comment-option {
+  cursor: pointer;
+  opacity: 0;
+  border: none;
+  background: transparent;
+  padding: 0.25rem;
+}
+
+.comment .comment-options .icon-edit {
+  fill: var(--taiga-grey-50);
+  margin-right: 0.5rem;
+}
+
+.comment .comment-options .icon-edit:hover {
+  fill: var(--taiga-grey-70);
+}
+
+.comment .comment-options .icon-trash {
+  fill: var(--taiga-red-light);
+}
+
+.comment .comment-options .icon-trash:hover {
+  fill: var(--taiga-red);
+}
+
+.comment-text {
+  max-width: 80rem;
+  word-break: break-word;
+}
+
+.comment-text.wysiwyg {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.comment-text.wysiwyg p:first-child {
+  margin-top: 0;
+}
+
+.comment .deleted-comment-wrapper {
+  border-bottom: 1px solid var(--taiga-grey-10);
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.comment .deleted-comment-main {
+  font-size: 0.75rem;
+  color: var(--taiga-grey-50);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  gap: 0.25rem;
+}
+
+.comment .toggle-deleted-comment {
+  color: var(--taiga-primary);
+  margin: 0 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  font: inherit;
+}
+
+.comment .restore-comment {
+  margin-left: auto;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+}
+
+.comment .restore-comment:hover {
+  color: var(--taiga-primary);
+}
+
+.comment .deleted-comment-comment {
+  margin-top: 1rem;
+}
+
+/* --- activity (history/history.jade layout) --- */
+
+section.activities .activities-wrapper .activity {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--taiga-grey-10);
+  padding: 1.5rem 0;
+}
+
+section.activities .activity-avatar {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--taiga-grey-05);
+}
+
+section.activities .activity-main {
+  flex: 1;
+}
+
+section.activities .activity-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+section.activities .activity-creator {
+  color: var(--taiga-link);
+}
+
+section.activities .activity-date {
+  font-size: 0.875rem;
+  color: var(--taiga-grey-50);
+}
+
+.activity-diff-block {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.activity-diff-block .diff-key {
+  font-weight: 600;
+  margin-right: 0.35rem;
+}
+
+.activity-diff-block .diff-json {
+  color: var(--taiga-grey-50);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.activity-load-more {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--taiga-grey-10);
+  background: var(--taiga-white);
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.activity-load-more:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Lightbox */
+
+.comment-history-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.comment-history-lightbox {
+  background: var(--taiga-white);
+  max-width: 40rem;
+  width: 100%;
+  max-height: 85vh;
+  overflow: auto;
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.comment-history-lightbox h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.comment-history-lightbox .lb-close {
+  float: right;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--taiga-grey-50);
+}
+
+.history-entry-row {
+  border-bottom: 1px solid var(--taiga-grey-10);
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+}

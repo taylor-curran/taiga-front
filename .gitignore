@@ -20,3 +20,4 @@ e2e/reports/
 app/modules/compile-modules/
 yarn.lock
 /taiga-docker/
+web-react/test-results/
