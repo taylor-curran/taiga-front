@@ -1,0 +1,14 @@
+{
+  "name": "taiga-migration-audit-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:angular": "playwright test --project=angular-baseline",
+    "test:react": "playwright test --project=react-parity",
+    "install:browsers": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1"
+  }
+}
