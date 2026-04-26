@@ -1,7 +1,3 @@
-node_modules
-dist
-dist-ssr
-*.local
-.vite
-.DS_Store
+# Copied from repo-root `dist/` by `scripts/sync-legacy-dist.mjs` (run `gulp deploy` first).
+public/legacy/
 *.tsbuildinfo
