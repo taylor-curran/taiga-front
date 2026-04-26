@@ -11,6 +11,12 @@ export function AppHeader() {
         <span className="app-header__tag">Admin (React port)</span>
       </div>
       <nav className="app-header__nav" aria-label="Skeletal shortcuts">
+        <Link to="/" data-testid="nav-home-dashboard">
+          Home
+        </Link>
+        <Link to="/projects" data-testid="nav-my-projects">
+          My projects
+        </Link>
         <Link to={`/project/${DEMO_PROJECT_SLUG}/admin/project-profile/details`} data-testid="nav-jump-admin">
           Project admin
         </Link>

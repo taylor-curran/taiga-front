@@ -2,7 +2,10 @@ import { expect, test } from '@playwright/test';
 import { waitForAdminPlaceholder } from './helpers/visual';
 
 const reactRoutes = [
+  '/',
+  '/projects',
   '/project/scrum/admin/project-profile/details',
+  '/project/scrum/admin/memberships',
   '/project/scrum/admin/roles',
   '/user-settings/mail-notifications',
   '/profile',
