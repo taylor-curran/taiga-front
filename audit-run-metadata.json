@@ -1,0 +1,27 @@
+{
+  "migration_pr_url": "https://github.com/taylor-curran/taiga-front/pull/30",
+  "migration_branch": "cursor/angular-react-migration-5129",
+  "audit_branch": "cursor/angular-react-migration-audit-31ec",
+  "repository": "https://github.com/taylor-curran/taiga-front",
+  "angular_commit": "a09cced13207c9fdd9ab24ed079336ec8267de9b",
+  "react_commit": "a09cced13207c9fdd9ab24ed079336ec8267de9b",
+  "angular_url": "http://localhost:9001",
+  "react_url": "http://localhost:5173",
+  "api_url": "http://localhost:9000",
+  "commands_run": [
+    "source ~/.nvm/nvm.sh && nvm use 16.19.1 && cd /workspace && npm ci",
+    "source ~/.nvm/nvm.sh && nvm use 16.19.1 && cd /workspace && npx gulp deploy",
+    "node /workspace/e2e-comparison/scripts/serve-angular-dist.mjs",
+    "source ~/.nvm/nvm.sh && nvm use 22 && cd /workspace/web-react && npm ci && npm run dev -- --host 127.0.0.1 --port 5173",
+    "cd /workspace/e2e-comparison && npm ci && npx playwright install && npx playwright test"
+  ],
+  "started_at": "2026-04-26T21:50:00Z",
+  "completed_at": "2026-04-26T22:25:00Z",
+  "notes": [
+    "Angular reference is the Gulp-built AngularJS app served by `gulp express` on port 9001 (see gulpfile.js).",
+    "React migration shell is Vite in `web-react/` on port 5173; it syncs `dist/` into `web-react/public/legacy` and embeds Angular via iframe (`LegacyFrame.tsx`).",
+    "`dist/` was generated with `npx gulp deploy` for this audit; `conf.json` targets API at http://localhost:9000 (backend optional for static meta / shell structure checks).",
+    "Migration PR branch and audit branch currently point to the same commit in this clone (merge-base equals HEAD).",
+    "Angular tests use e2e-comparison/scripts/serve-angular-dist.mjs instead of gulp express: gulp's version = v-Date.now() on each process start mismatches TAIGA_VERSION baked into dist/index.html, which breaks /{version}/locales/*.json loads."
+  ]
+}
