@@ -50,7 +50,7 @@ class HistorySectionController
             @.comments = _.filter(comments, (item) -> item.comment != "")
 
             if @.reverse
-                @.comments - _.reverse(@.comments)
+                @.comments = @.comments.slice().reverse()
             @.commentsNum = @.comments.length
 
     nextActivityPage: () ->
