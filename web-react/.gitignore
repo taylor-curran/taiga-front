@@ -1,7 +1,8 @@
-node_modules
-dist
-dist-ssr
-*.local
-.vite
+node_modules/
+dist/
+.vite/
+tests/e2e/.results/
+playwright-report/
+docs/screenshots/
+docs/video/
 .DS_Store
-*.tsbuildinfo
