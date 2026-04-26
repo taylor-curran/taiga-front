@@ -26,6 +26,13 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
     css: false,
-    exclude: ['node_modules', 'dist', 'playwright', 'tests/e2e/**'],
+    include: ['tests/unit/**/*.{test,spec}.{ts,tsx}'],
+    exclude: [
+      'node_modules',
+      'dist',
+      'playwright',
+      'tests/e2e/**',
+      'tests/visuals/**',
+    ],
   },
 });

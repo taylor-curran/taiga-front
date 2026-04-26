@@ -6,3 +6,4 @@ playwright-report/
 docs/screenshots/
 docs/video/
 .DS_Store
+*.tsbuildinfo

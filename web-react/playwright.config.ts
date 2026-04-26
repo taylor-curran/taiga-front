@@ -5,7 +5,7 @@ const ANGULAR_BASE = process.env.ANGULAR_BASE_URL ?? 'http://localhost:9000';
 const API_BASE = process.env.API_BASE_URL ?? 'http://localhost:9000';
 
 export default defineConfig({
-  testDir: './tests/e2e',
+  testDir: './tests',
   outputDir: './tests/e2e/.results',
   timeout: 60_000,
   retries: 0,
@@ -36,6 +36,13 @@ export default defineConfig({
         baseURL: ANGULAR_BASE,
       },
       metadata: { app: 'angular', api: API_BASE },
+    },
+    {
+      name: 'visuals',
+      testMatch: /visuals\/.*\.spec\.ts$/,
+      use: {
+        ...devices['Desktop Chrome'],
+      },
     },
   ],
 });

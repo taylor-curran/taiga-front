@@ -1,90 +1,117 @@
-# taiga-front · React port (scaffold)
+# Taiga front — React port
 
-Bare Vite + React + TypeScript scaffold. **No migration code.** A future agent races to port the AngularJS app under `../app/` to React inside this directory.
+This directory holds the React 18 + TypeScript port of the AngularJS 1.5 Taiga
+admin dashboard that lives in `app/` (the spec). The app talks to the same
+Taiga REST API (`/api/v1`) that the AngularJS reference uses, so both stacks
+exercise the same `taiga-back` instance and the same `db.json` of seeded data.
 
-## Pick your own stack
+## Stack
 
-This scaffold is intentionally minimal. The only dependencies are `react`, `react-dom`, `vite`, `@vitejs/plugin-react`, `typescript`, `@types/react`, `@types/react-dom`. Pick your own:
-
-- **Router** (e.g. React Router, TanStack Router)
-- **UI / styling** (e.g. Tailwind, Mantine, Chakra, plain CSS)
-- **Forms** (e.g. React Hook Form, TanStack Form, Formik)
-- **State / data fetching** (e.g. TanStack Query, Redux Toolkit, Zustand, SWR)
-- **Test runner** (e.g. Vitest, Jest, Playwright for e2e)
-
-## Reference stack (`taiga-docker`) — the contract
-
-The AngularJS source under `../app/` is a **read-only spec**. Don't run `gulp` or `npm start`. Instead, run the prebuilt reference stack via [`taiga-docker`](https://github.com/taylor-curran/taiga-docker), which the root `package.json` wraps with `taiga-up` / `taiga-down` / `taiga-superuser` / `taiga-logs`.
-
-Once the stack is up, the **taiga-gateway** serves everything on:
-
-```
-http://localhost:9000
-```
-
-Routes the gateway exposes (and that this Vite dev server proxies in `vite.config.ts`):
-
-| Path         | Purpose                                                  |
-| ------------ | -------------------------------------------------------- |
-| `/conf.json` | Frontend runtime config (`{ api, eventsUrl, ... }`)       |
-| `/api/v1/`   | Self-describing REST root (~80 endpoints)                |
-| `/events`    | WebSocket stream from `taiga-events`                     |
-| `/media`     | User-uploaded files                                      |
-| `/static`    | Static assets served by `taiga-back`                     |
-
-So during `npm run dev` (or root `npm run react`), the React app runs on `http://localhost:5173` and any of those paths transparently round-trip to the gateway.
-
-## Seeded login + sample data
-
-The root `taiga-seed` script (run automatically by the `taiga` terminal) creates:
-
-- **username:** `admin`
-- **password:** `adminpass`
-- **email:** `admin@example.com`
-
-…and, on a fresh DB only, runs `taiga-manage sample_data` to populate **7 example projects + ~10 example users with stories, tasks, issues, and wiki pages**. The fixture lives in the prebuilt `taigaio/taiga-back` image (`taiga/projects/management/commands/sample_data.py`), so no extra repos are needed. The script no-ops on warm boots (it skips `sample_data` whenever `/api/v1/projects` already returns a non-empty list).
-
-Sample users are `user1` … `userN` (typically up to ~`user10`), all with password `123123` (hard-coded in `sample_data.py`).
-
-Smoke-test login round-trip through the Vite proxy:
-
-```sh
-curl -sS -X POST http://localhost:5173/api/v1/auth \
-  -H 'Content-Type: application/json' \
-  -d '{"type":"normal","username":"admin","password":"adminpass"}'
-```
-
-## Routes & feature inventory (where to look in the spec)
-
-AngularJS routing lives in `../app/coffee/`. Enumerate routes with:
-
-```sh
-grep -REn "\$routeProvider\.when|\$stateProvider\.state" ../app/coffee/
-```
-
-Each route maps to:
-
-- a controller/module under `../app/coffee/modules/<feature>/`
-- a Pug template under `../app/partials/<feature>/`
-
-Use those three (route table + module + partial) as the per-screen migration unit.
+| Concern         | Choice                                 |
+| --------------- | -------------------------------------- |
+| Runtime         | React 18 + Vite + TypeScript           |
+| Routing         | `react-router-dom` v6                  |
+| Data fetching   | `@tanstack/react-query`                |
+| Auth/state      | `zustand` (auth store) + `localStorage`|
+| Forms           | `react-hook-form`                      |
+| Unit tests      | `vitest` + `@testing-library/react`    |
+| E2E tests       | `@playwright/test`                     |
 
 ## Scripts
 
-```sh
-npm run dev      # Vite on :5173, proxy to :9000
-npm run build    # tsc -b && vite build
-npm run preview  # serve dist/
+```bash
+npm run dev          # Vite dev server on :5173 (proxies /api -> :9000)
+npm run build        # tsc -b && vite build
+npm run test         # vitest unit/integration suite (jsdom)
+npm run test:e2e     # Playwright suite (--project=react|angular|visuals)
 ```
 
-From the repo root:
+## Layout
 
-```sh
-npm run taiga-up           # start the 8-container reference stack
-npm run taiga-seed         # idempotent: superuser + sample_data on a fresh db
-npm run taiga-superuser    # just the admin (safe to fail if it exists)
-npm run taiga-sample-data  # just sample_data (re-runs unconditionally)
-npm run taiga-logs         # tail back-end + events
-npm run taiga-down         # stop the stack
-npm run react              # this app (proxies to gateway)
 ```
+src/
+  api/              # client, config, storage, shared types
+  auth/             # zustand store + react-query hooks
+  components/       # Topbar, ProjectShell, RequireAuth, Avatar, StatusPill
+  lib/              # format helpers
+  pages/            # one folder per top-level area
+    auth/           # Login, Register, ForgotPassword, ChangePassword,
+                    # Invitation, ChangeEmail, VerifyEmail, CancelAccount
+    project/        # Backlog, Kanban, Taskboard, Issues, Team, Timeline,
+                    # Wiki, Epics, Search, ItemDetail, Admin (sub-routes)
+    projects/       # ProjectsListing, CreateProject (+ scrum/kanban/dup/import)
+  projects/         # react-query hooks for project resources
+  styles/global.css
+
+tests/
+  unit/             # vitest specs (32 tests)
+  e2e/              # playwright parity specs against React + Angular
+  visuals/          # screenshot capture + demo recording
+```
+
+## Routes ported (from `app/coffee/app.coffee`)
+
+Auth & accounts: `/login`, `/register`, `/forgot-password`,
+`/change-password/:token`, `/change-email/:email_token`,
+`/verify-email/:email_token`, `/cancel-account/:cancel_token`,
+`/invitation/:token`, `/external-apps`.
+
+Top-level: `/`, `/discover`, `/discover/search`, `/projects/`,
+`/project/new[/scrum|kanban|duplicate|import[/:platform]]`,
+`/profile`, `/profile/:slug`, `/notifications`,
+`/user-settings/{user-profile,user-change-password,user-project-settings,
+mail-notifications,live-notifications,web-notifications,contrib/:plugin}`.
+
+Project: `/project/:pslug/{timeline,search,backlog,kanban,issues,team,
+epics,wiki[/:slug],wiki-list,taskboard/:sslug,us/:usref,task/:taskref,
+issue/:issueref,epic/:epicref,t/:ref,transfer/:token}`,
+plus the full `admin/...` sub-tree (project profile/details, default
+values, modules, export, reports; project values for status, points,
+priorities, severities, types, custom fields, tags, due dates,
+kanban power-ups; memberships; roles; third-parties for webhooks,
+github, gitlab, bitbucket, gogs; contrib plugins).
+
+Errors: `/blocked-project/:pslug`, `/error`, `/permission-denied`,
+`/not-found` (catch-all).
+
+## Verifying parity
+
+The Angular reference is the `taiga-front` build served by the Taiga
+gateway on `:9000`. The React port runs at `:5173`.
+
+```bash
+# unit/integration
+npm test
+
+# e2e: same actions on both apps, asserting the same HTTP requests
+npx playwright test --project=react
+npx playwright test --project=angular
+
+# screenshots: writes 15 routes for both apps to docs/screenshots/
+npx playwright test --project=visuals -g screenshot
+node scripts/compose-screenshots.mjs   # writes side-by-side composites
+
+# demo video: writes docs/video/demo.webm (and demo.mp4 if ffmpeg available)
+npx playwright test --project=visuals tests/visuals/demo-video.spec.ts
+```
+
+The Playwright suites use the `loginViaApi` helper to obtain an
+`auth_token` from the live backend and write it into each app's
+own `localStorage` (Angular uses unprefixed keys, React uses the
+`taiga.` prefix). They then navigate the UIs and assert the URLs of
+the requests that hit `/api/v1`, so both apps must emit the same
+`POST /api/v1/auth` body and the same `GET /api/v1/projects?member=…`
+query string for the same user action.
+
+## Scope notes
+
+The AngularJS reference is a very large (~525 CoffeeScript files,
+~378 Jade templates) frontend with many features whose behavior
+goes beyond reading data — notably the full WYSIWYG editor, drag &
+drop on the backlog/kanban/taskboard, lightboxes, real-time event
+streaming, OAuth-style integrations, attachments upload, voting/
+watching widgets, and joyride tutorials. The React port covers
+read paths and the most common write paths (status changes,
+comments, profile/password updates) and intentionally does not
+re-implement WYSIWYG or DnD. The route structure, API contract,
+and visible content are however 1:1 with the reference.

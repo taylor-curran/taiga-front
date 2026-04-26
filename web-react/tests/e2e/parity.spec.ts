@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { loginViaApi, trackedRequests } from './helpers';
 
 test.describe('react app parity', () => {
-  test('signs in via the login form and lands on the home page', async ({ page, request }) => {
+  test('signs in via the login form and lands on the home page', async ({ page }) => {
     await page.goto('/login');
     await expect(page.getByTestId('login-form')).toBeVisible();
     const { calls } = await trackedRequests(page, /\/api\/v1\/auth$/, async () => {
