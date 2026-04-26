@@ -7,6 +7,8 @@ const reactRoutes = [
   '/user-settings/mail-notifications',
   '/profile',
   '/login',
+  '/register',
+  '/forgot-password',
 ];
 
 const referenceRoutes = [
