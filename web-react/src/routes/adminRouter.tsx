@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter, Navigate } from 'react-router';
+import { createBrowserRouter } from 'react-router';
 import { AuthGuard } from '@/components/AuthGuard';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { LoadingScreen } from '@/components/LoadingScreen';
@@ -11,6 +11,10 @@ import { globalAuthProfileRoutes, projectAdminRoutes, userSettingsRoutes } from 
 import type { AdminPathDef } from '@/routes/adminRoutePaths';
 
 const PlaceholderPage = lazy(() => import('@/pages/PlaceholderPage'));
+const HomeDashboardPage = lazy(() => import('@/pages/listing/HomeDashboardPage'));
+const ProjectsListingPage = lazy(() => import('@/pages/listing/ProjectsListingPage'));
+const AdminMembershipsPage = lazy(() => import('@/pages/listing/AdminMembershipsPage'));
+const AdminRolesPage = lazy(() => import('@/pages/listing/AdminRolesPage'));
 
 function Page({ def, pageGroup }: { def: AdminPathDef; pageGroup: string }) {
   return (
@@ -20,9 +24,27 @@ function Page({ def, pageGroup }: { def: AdminPathDef; pageGroup: string }) {
   );
 }
 
+function ProjectAdminElement({ def }: { def: AdminPathDef }) {
+  if (def.pattern === 'admin/memberships') {
+    return (
+      <Suspense fallback={<LoadingScreen />}>
+        <AdminMembershipsPage />
+      </Suspense>
+    );
+  }
+  if (def.pattern === 'admin/roles') {
+    return (
+      <Suspense fallback={<LoadingScreen />}>
+        <AdminRolesPage />
+      </Suspense>
+    );
+  }
+  return <Page def={def} pageGroup="Project administration" />;
+}
+
 const projectChildren = projectAdminRoutes.map((d) => ({
   path: d.pattern,
-  element: <Page def={d} pageGroup="Project administration" />,
+  element: <ProjectAdminElement def={d} />,
 }));
 
 const userSettingsChildren = userSettingsRoutes.map((d) => ({
@@ -75,7 +97,42 @@ const shellGuardedRoutes = globalAuthProfileRoutes
 
 export const adminRouter = createBrowserRouter(
   [
-    { path: '/', element: <Navigate to="/project/scrum/admin/project-profile/details" replace /> },
+    {
+      path: '/',
+      element: (
+        <AuthGuard>
+          <ShellLayout />
+        </AuthGuard>
+      ),
+      children: [
+        {
+          index: true,
+          element: (
+            <Suspense fallback={<LoadingScreen />}>
+              <HomeDashboardPage />
+            </Suspense>
+          ),
+        },
+      ],
+    },
+    {
+      path: '/projects',
+      element: (
+        <AuthGuard>
+          <ShellLayout />
+        </AuthGuard>
+      ),
+      children: [
+        {
+          index: true,
+          element: (
+            <Suspense fallback={<LoadingScreen />}>
+              <ProjectsListingPage />
+            </Suspense>
+          ),
+        },
+      ],
+    },
     ...authLayoutRoutes,
     ...shellGuardedRoutes,
     {

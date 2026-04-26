@@ -4,6 +4,8 @@ import { adminRelatedPaths, projectAdminRoutes, userSettingsRoutes, globalAuthPr
 describe('admin route inventory', () => {
   it('excludes AngularJS and app/ from this package by construction', () => {
     expect(adminRelatedPaths.every((p) => !p.includes('app/'))).toBe(true);
+    expect(adminRelatedPaths).toContain('/');
+    expect(adminRelatedPaths).toContain('/projects');
   });
 
   it('keeps one entry per project admin feature from the Angular route table', () => {
