@@ -1,0 +1,32 @@
+area,test_name,category,angular_behavior,react_behavior,priority
+Login,login_page_username_password_fields,missing functionality,Login form shows username and password inputs with standard names.,No username/password inputs on the login surface.,1
+Login,login_username_placeholder,form UX difference,Username field placeholder explains case sensitivity.,Placeholder missing or different (no matching field).,3
+Login,login_password_placeholder,form UX difference,Password field placeholder explains case sensitivity.,Placeholder missing or different.,3
+Login,login_forgot_password_link,missing content,Forgot-password link reads “Forgot it?” near the password field.,Forgot-password affordance not present in the same form.,2
+Login,login_submit_button_login,missing content,Primary submit is labeled “Login”.,Submit control missing or different label.,2
+Login,login_document_title,navigation difference,Document title matches “Login - Taiga”.,Static Vite document title does not match the localized login title.,4
+Login,login_tagline_love_your_project,missing content,Tagline “LOVE YOUR PROJECT” under the logo.,Tagline block from the reference login layout is absent.,3
+Login,login_brand_heading_taiga,missing content,Prominent “Taiga” heading in the auth card.,Logo heading structure from the reference is absent.,3
+Discover,discover_home_section,missing functionality,Discover home renders featured and highlighted sections.,No discover experience at `/discover`.,1
+Project / Scrum,backlog_scrum_heading,missing functionality,Scrum backlog view with a top-level “Backlog” heading.,No backlog shell or heading at the same URL.,1
+Project / Kanban,kanban_board_shell,missing functionality,Kanban board container and header chrome.,No kanban board at the project kanban URL.,1
+Project / Issues,issues_list_shell,missing functionality,Issues list layout with `.issues` main chrome.,No issues list at the project issues URL.,1
+Project / Wiki,wiki_list_main,missing functionality,Wiki pages list in `section.main.wiki-main`.,No wiki list main section at the wiki list URL.,1
+Project / Team,team_page_shell,missing functionality,Team roster page with `.team` layout.,No team page shell at the team URL.,1
+Project / Timeline,project_timeline_intro,missing functionality,Project overview / timeline intro block on `/timeline`.,No project timeline intro at the same path.,1
+Home,home_working_on_section_heading_level,visual difference,“Working on” is an `h1.title-bar` in the reference dashboard.,“Working on” is a level-two heading in the port.,4
+Home,home_watching_section_heading_level,visual difference,“Watching” uses the same heading level pattern as “Working on”.,“Watching” is a level-two heading while the reference used `h1`.,4
+Home,home_hidden_items_toggle,missing functionality,Show/hide hidden dashboard items control.,No hidden-items toggle on the dashboard.,2
+Projects list,projects_new_project_button_enabled,behavior difference,“New project” is an enabled primary action on the listing.,Create action is visibly disabled with a port-pending treatment.,2
+Projects list,projects_help_sidebar_line_break,missing content,Help copy includes a `<br>` with the navigation-bar guidance sentence.,Help text is plain without the line break and extra sentence.,3
+Home / Dashboard,dashboard_duty_href_entity_route,navigation difference,Dashboard cards link to entity-specific paths (`…/us/…`, `…/task/…`, etc.).,Cards link through a generic `/project/:slug/t/:ref` indirection.,2
+Admin / Members,admin_memberships_title_manage_members,missing content + behavior difference,Page title is “Manage members”.,Membership admin errors or shows “Members” / placeholder instead of the full title.,2
+Admin / Members,admin_memberships_new_member_button,missing content + form UX difference,Primary add action reads “+ New member”.,Add control label differs and is not the same primary affordance.,3
+Admin / Roles,admin_roles_delete_button,missing functionality,Delete role destructive button in the roles header.,No delete-role control in the port’s roles UI.,2
+Admin / Roles,admin_roles_computable_checkbox,visual difference + behavior difference,Computable role toggle lives in `.general-category` with Yes/No copy.,Different markup/location for the computable estimation toggle.,4
+Profile,profile_full_layout,missing functionality,Full profile shell with tabs and content.,Profile is a placeholder card instead of the profile experience.,1
+Notifications,notifications_list_layout,missing functionality,Notifications page with list chrome.,Notifications are a placeholder rather than the inbox layout.,1
+User settings,mail_notifications_policy_table,missing functionality,Mail notification matrix (`section.policy-table`).,Mail settings are a placeholder without the policy table.,1
+Shell,shell_no_admin_port_brand_label,missing content,No “Admin (React port)” ribbon in the global chrome.,Header exposes an explicit “Admin (React port)” tag.,3
+Auth guard,unauthenticated_projects_redirects_to_login,behavior difference,Hitting `/projects/` without a session redirects to `/login`.,Unauthenticated visit can remain on `/projects/` without the same redirect.,1
+Admin / Project profile,admin_project_details_not_placeholder,missing functionality,Project details admin is the real profile editor (no port-pending banner).,Project details admin is still the port-pending placeholder card.,2
