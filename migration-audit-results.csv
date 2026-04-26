@@ -1,0 +1,63 @@
+area,test_name,category,angular_behavior,react_behavior,priority
+Login / auth,login_document_title,missing content,Document title resolves to the translated login page title (Login - Taiga).,Static HTML title is Taiga (React port) for all shell routes.,P1
+Login / auth,login_tagline,missing content,Secondary heading shows LOVE YOUR PROJECT from COMMON.TAG_LINE_2.,No matching tagline on the React auth placeholder surface.,P2
+Login / auth,login_username_placeholder,form UX difference,Username field placeholder reads Username or email (case sensitive).,No username/email field with that placeholder on the React login route.,P1
+Login / auth,login_password_placeholder,form UX difference,Password field placeholder reads Password (case sensitive).,No password field with that placeholder on the React login route.,P1
+Login / auth,login_submit_label,missing content,Submit button label is Login (LOGIN_COMMON.ACTION_SIGN_IN).,No login submit control with that label.,P1
+Login / auth,login_forgot_link,navigation difference,Forgot it? link sits beside the password field with the expected title attribute behavior.,No equivalent inline forgot-password affordance with the same copy.,P2
+Login / auth,login_no_chrome_header,visual difference,Auth pages omit the main navigation chrome (disableHeader route flag).,AuthLayout renders AppHeader with Admin (React port) and shortcut links on auth routes.,P2
+Login / auth,forgot_intro_copy,missing content,Forgot password view shows FORGOT_PASSWORD_FORM title and subtitle copy.,No equivalent instructional copy block on the React forgot-password route.,P2
+Login / auth,forgot_username_placeholder,form UX difference,Recovery input placeholder is Username or email.,No matching recovery field or placeholder in React.,P2
+Login / auth,forgot_submit_reset,missing content,Primary action is a visible Reset Password button.,No Reset Password control in React.,P2
+Login / auth,forgot_cancel_link,missing content,Cancel line Nah take me back I think I remember it returns toward login.,No equivalent cancel/back copy path in React.,P3
+Login / auth,register_back_to_login,missing content,Register page shows REGISTER_FORM.LINK_LOGIN as a visible back-to-login affordance.,No equivalent register-to-login copy control in React.,P2
+Login / auth,register_username_placeholder,form UX difference,Register username placeholder is Pick a username.,No register username field in React.,P2
+Login / auth,register_signup_button,missing content,Register submit reads Sign up.,No Sign up submit control in React.,P2
+Home / discover,home_dashboard_heading,missing functionality,Authenticated home shows Projects Dashboard heading and dashboard widgets.,React root URL redirects into a project admin placeholder; no home dashboard.,P0
+Home / discover,discover_shell,missing functionality,Public /discover renders the discover layout with featured projects.,No discover route or UI in the React admin scaffold.,P0
+Project admin,admin_nav_presets_label,data display difference,Tertiary admin nav uses Presets for default values (ADMIN.PROJECT_PRESETS.MENU_TITLE).,Sidebar label is Default values rather than Presets.,P2
+Project admin,admin_nav_export_label,data display difference,Tertiary nav uses Export for the export screen (ADMIN.PROJECT_EXPORT.TITLE).,Sidebar uses Export & reports (CSV block) as the feature label.,P2
+Project admin,admin_nav_reports_label,data display difference,Tertiary nav uses Reports (ADMIN.REPORTS.TITLE).,Reports label exists but sits beside differently named export sibling; overall IA differs.,P3
+Project admin,admin_kanban_options_label,data display difference,Kanban power-ups submenu label is Kanban options (ADMIN.SUBMENU_PROJECT_VALUES.KANBAN_OPTIONS).,React nav label is Kanban power-ups.,P2
+Project admin,admin_secondary_members,navigation difference,Admin secondary menu nests items under Members (ADMIN.MENU.MEMBERS).,React uses one flat nav list without the same grouped hierarchy.,P2
+Project admin,admin_github_title,data display difference,GitHub integration main title follows ADMIN.GITHUB.SECTION_NAME casing.,Placeholder title uses GitHub integration wording from the route manifest.,P3
+Project admin,admin_gitlab_title,data display difference,GitLab screen title uses Gitlab spelling from ADMIN.GITLAB.SECTION_NAME.,React uses GitLab integration capitalization in the placeholder title.,P3
+Project admin,admin_webhooks_title,data display difference,Webhooks page title is Webhooks (ADMIN.WEBHOOKS.SECTION_NAME).,Placeholder uses Webhooks (integrations) style naming.,P3
+Project admin,admin_no_placeholder_banner,missing functionality,Admin templates render real forms and tables backed by project API data.,All project admin URLs render Port pending with JSON path debug only.,P0
+User settings,mail_notifications_h1,data display difference,Page H1 reads Email Notifications (USER_SETTINGS.NOTIFICATIONS.SECTION_NAME).,Placeholder H1 uses Mail notifications from the route manifest.,P2
+User settings,live_menu_desktop,data display difference,Settings sidebar shows Desktop notifications (USER_SETTINGS.MENU.DESKTOP_NOTIFICATIONS).,React sidebar uses Live notifications as the label.,P2
+User settings,web_menu_events,data display difference,Settings sidebar shows Events (USER_SETTINGS.MENU.EVENTS).,React sidebar uses Web notifications as the label.,P2
+Profile / notifications,notifications_heading,missing functionality,Notifications page shows My events as the main heading (EVENTS.MY_EVENTS).,Placeholder shows only the Notifications feature label without the events list UI.,P1
+Profile / notifications,profile_timeline_tab,missing functionality,Profile shows a tab strip whose first tab is Timeline (USER.PROFILE.TABS).,Placeholder has no profile tabs or timeline content.,P1
+Routing / shell,react_root_redirect,navigation difference,Angular / is the authenticated home dashboard when logged in.,React / immediately redirects to /project/scrum/admin/project-profile/details.,P0
+Routing / shell,react_demo_slug_only,behavior difference,Angular project URLs use real project slugs from the API (sample data uses project-1 style slugs).,React demo routing hard-codes scrum in redirects and header shortcuts regardless of backend slug.,P1
+Routing / shell,auth_guard_redirect_target,navigation difference,401 recovery paths append next= to /login (same path as marketing login).,AuthGuard navigates to /auth/login which is not a defined route in adminRouter.,P0
+Inventory backlog,project_backlog_route,missing functionality,/project/:pslug/backlog renders backlog UI.,No equivalent React route in this port.,P0
+Inventory backlog,project_kanban_route,missing functionality,/project/:pslug/kanban renders kanban board.,No equivalent React route in this port.,P0
+Inventory backlog,project_issues_route,missing functionality,/project/:pslug/issues renders issues list.,No equivalent React route in this port.,P0
+Inventory backlog,project_wiki_route,missing functionality,/project/:pslug/wiki and wiki-list/wiki/:slug render wiki.,No equivalent React route in this port.,P0
+Inventory backlog,project_team_route,missing functionality,/project/:pslug/team renders team page.,No equivalent React route in this port.,P0
+Inventory backlog,project_epics_route,missing functionality,/project/:pslug/epics renders epics dashboard.,No equivalent React route in this port.,P0
+Inventory backlog,my_projects_listing,missing functionality,/projects/ lists the signed-in user projects.,No equivalent React route in this port.,P0
+Inventory backlog,discover_search,missing functionality,/discover/search supports discover search with reloadOnSearch behavior.,No equivalent React route in this port.,P0
+Inventory backlog,external_apps,missing functionality,/external-apps hosts external application handoff UI.,No equivalent React route in this port.,P2
+Inventory backlog,error_routes,missing functionality,/error /not-found /permission-denied render dedicated error templates.,No matching dedicated error routes in the React router scaffold.,P3
+Inventory backlog,project_timeline,missing functionality,/project/:pslug/timeline renders project timeline section.,No equivalent React route in this port.,P0
+Inventory backlog,project_search,missing functionality,/project/:pslug/search renders in-project search UI.,No equivalent React route in this port.,P0
+Inventory backlog,project_ref_detail,missing functionality,/project/:pslug/t/:ref resolves typed item detail.,No equivalent React route in this port.,P0
+Inventory backlog,us_detail,missing functionality,/project/:pslug/us/:usref renders user story detail.,No equivalent React route in this port.,P0
+Inventory backlog,task_detail,missing functionality,/project/:pslug/task/:taskref renders task detail.,No equivalent React route in this port.,P0
+Inventory backlog,issue_detail,missing functionality,/project/:pslug/issue/:issueref renders issue detail.,No equivalent React route in this port.,P0
+Inventory backlog,epic_detail,missing functionality,/project/:pslug/epic/:epicref renders epic detail.,No equivalent React route in this port.,P0
+Inventory backlog,sprint_taskboard,missing functionality,/project/:pslug/taskboard/:sslug renders sprint taskboard.,No equivalent React route in this port.,P0
+Inventory backlog,create_project_hub,missing functionality,/project/new and typed /project/new/* flows render project creation UIs.,No equivalent React routes in this port.,P0
+Inventory backlog,blocked_project,missing functionality,/blocked-project/:pslug/ explains blocked project state.,No equivalent React route in this port.,P2
+Inventory backlog,project_transfer,missing functionality,/project/:pslug/transfer/:token handles ownership transfer acceptance.,No equivalent React route in this port.,P1
+Inventory backlog,user_settings_contrib,missing functionality,/user-settings/contrib/:plugin hosts contrib plugin pages.,Pattern exists in React manifest but remains a placeholder without plugin UI.,P2
+Inventory backlog,admin_contrib_plugin,missing functionality,/project/:pslug/admin/contrib/:plugin hosts admin contrib plugins.,Pattern exists in React manifest but remains a placeholder without plugin UI.,P2
+Inventory backlog,change_email_token,missing functionality,/change-email/:email_token renders email change confirmation UI.,React route exists as placeholder only without the Angular confirmation flow UI.,P1
+Inventory backlog,verify_email_token,missing functionality,/verify-email/:email_token renders verification UI.,React route exists as placeholder only without the Angular verification flow UI.,P1
+Inventory backlog,cancel_account_token,missing functionality,/cancel-account/:cancel_token renders account cancellation UI.,React route exists as placeholder only without the Angular cancellation flow UI.,P1
+Inventory backlog,invitation_token,missing functionality,/invitation/:token renders invitation acceptance UI.,React route exists as placeholder only without the Angular invitation flow UI.,P1
+Inventory backlog,change_password_recovery,missing functionality,/change-password/:token renders recovery password set UI.,React route exists as placeholder only without the Angular recovery form UI.,P1
+Inventory backlog,public_profile_slug,missing functionality,/profile/:slug renders another user public profile.,React route exists as placeholder only without profile chrome and tabs.,P1
