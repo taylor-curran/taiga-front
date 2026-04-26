@@ -1,0 +1,17 @@
+area,test_name,category,angular_behavior,react_behavior,priority
+Navigation / unauthenticated,parity_root_unauthenticated_redirects_to_discover_only_in_angular,navigation difference,"Opening / sends anonymous users to /discover (see Home controller).",The Vite app keeps the user on the root URL with no client-side route change.,1
+Discover,parity_discover_heading_discover_projects,missing content,The page shows an h1 with the text “Discover projects”.,The scaffold has no discover UI; that heading is absent.,1
+Discover,parity_discover_document_title,missing content,The document title is “Discover projects - Taiga.”,The document title remains the Vite default “Taiga (React port).”,2
+Discover,parity_discover_search_input_placeholder,missing functionality,"The search input shows the placeholder “Type something…”",There is no discover search field.,1
+Unauthenticated /,parity_root_document_title,missing content,After the redirect the title matches the discover page (“Discover projects - Taiga”).,The static title is “Taiga (React port)”. ,2
+Unauthenticated /,parity_root_h1,missing content,The user sees the discover page heading (not the scaffold h1).,The only main heading is the scaffold “Taiga (React port) — scaffold”. ,1
+Top navigation,parity_topbar_login_cta,missing functionality,"A top bar includes a “Login” link when logged out.","The scaffold has no <nav> and no “Login” link.",1
+Error handling,parity_unknown_path_shows_angular_404,missing content,"A dedicated 404 view shows an h1 “Not found.”",Unknown client paths still show the same scaffold; there is no “Not found” heading.,1
+Error handling,parity_unknown_path_404_subtext,navigation difference,"404 text explains the error and offers “Take me home” (covered in Angular flow with error template).",The unknown URL still shows the one-line scaffold; no 404 copy.,1
+Auth / login,parity_login_document_title,missing content,The login page sets the document title to “Login - Taiga.”,The static title is still “Taiga (React port).”,2
+Auth / login,parity_login_brand_h1_taiga,missing content,An h1 shows the exact brand text “Taiga” on the auth layout.,The login path shows the long scaffold h1; there is no simple “Taiga” brand heading on the form.,2
+Auth / login,parity_login_tagline,missing content,An h2 shows “LOVE YOUR PROJECT” under the logo.,The tagline is absent.,2
+Auth / login,parity_login_username_placeholder,form UX difference,"Username field uses the placeholder “Username or email (case sensitive)”.",No login fields are rendered on /login.,1
+Auth / login,parity_login_password_placeholder,form UX difference,"Password field uses the placeholder “Password (case sensitive)”.",No password field.,1
+Auth / login,parity_login_forgot_link,missing functionality,A “Forgot it?” control is present for password recovery.,The link is not present in the scaffold.,1
+Auth / login,parity_login_submit_button,missing functionality,The primary sign-in action is a button labeled “Login.”,No submit action exists for sign-in on /login.,1
