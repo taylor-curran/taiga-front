@@ -1,0 +1,20 @@
+{
+  "api": "http://127.0.0.1:9101/api/v1/",
+  "eventsUrl": null,
+  "baseHref": "/",
+  "debug": false,
+  "debugInfo": false,
+  "defaultLanguage": "en",
+  "themes": ["taiga"],
+  "defaultTheme": "taiga",
+  "defaultLoginEnabled": true,
+  "publicRegisterEnabled": true,
+  "feedbackEnabled": false,
+  "supportUrl": "https://community.taiga.io/",
+  "privacyPolicyUrl": null,
+  "termsOfServiceUrl": null,
+  "maxUploadFileSize": null,
+  "contribPlugins": [],
+  "gravatar": false,
+  "rtlLanguages": ["ar", "fa", "he"]
+}
