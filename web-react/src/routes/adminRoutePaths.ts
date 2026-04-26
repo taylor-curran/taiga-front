@@ -15,6 +15,16 @@ export type AdminPathDef = {
 /** Routes under /project/:pslug/... (admin) */
 export const projectAdminRoutes: AdminPathDef[] = [
   {
+    pattern: 'timeline',
+    featureLabel: 'Project timeline (activity feed)',
+    description: 'Project home timeline — mirrors `/project/:pslug/timeline` in the reference app.',
+  },
+  {
+    pattern: 'admin/sample-us-history',
+    featureLabel: 'Sample: user story history',
+    description: 'Comments + activity for a user story in admin context (dev slice).',
+  },
+  {
     pattern: 'admin/project-profile/details',
     featureLabel: 'Project details (profile)',
     description: 'Project name, description, and core settings (admin / project profile).',

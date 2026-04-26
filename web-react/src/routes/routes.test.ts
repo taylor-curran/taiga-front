@@ -7,7 +7,7 @@ describe('admin route inventory', () => {
   });
 
   it('keeps one entry per project admin feature from the Angular route table', () => {
-    expect(projectAdminRoutes.length).toBe(22);
+    expect(projectAdminRoutes.length).toBe(24);
   });
 
   it('has user-settings and global companion routes for navigation parity', () => {

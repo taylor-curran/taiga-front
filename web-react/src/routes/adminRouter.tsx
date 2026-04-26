@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter, Navigate } from 'react-router';
+import { createBrowserRouter, Navigate, useParams, useSearchParams } from 'react-router';
 import { AuthGuard } from '@/components/AuthGuard';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { LoadingScreen } from '@/components/LoadingScreen';
@@ -11,6 +11,10 @@ import { globalAuthProfileRoutes, projectAdminRoutes, userSettingsRoutes } from 
 import type { AdminPathDef } from '@/routes/adminRoutePaths';
 
 const PlaceholderPage = lazy(() => import('@/pages/PlaceholderPage'));
+const ProjectTimelinePage = lazy(() => import('@/pages/ProjectTimelinePage').then((m) => ({ default: m.ProjectTimelinePage })));
+const UserStoryAdminHistoryPage = lazy(() =>
+  import('@/pages/UserStoryAdminHistoryPage').then((m) => ({ default: m.UserStoryAdminHistoryPage })),
+);
 
 function Page({ def, pageGroup }: { def: AdminPathDef; pageGroup: string }) {
   return (
@@ -20,10 +24,36 @@ function Page({ def, pageGroup }: { def: AdminPathDef; pageGroup: string }) {
   );
 }
 
-const projectChildren = projectAdminRoutes.map((d) => ({
-  path: d.pattern,
-  element: <Page def={d} pageGroup="Project administration" />,
-}));
+function UserStoryAdminHistoryPageRoute() {
+  const { pslug } = useParams();
+  const [search] = useSearchParams();
+  const fromQuery = search.get('us');
+  const us = fromQuery && fromQuery.length ? fromQuery : '1';
+  return (
+    <Suspense fallback={<LoadingScreen />}>
+      <UserStoryAdminHistoryPage pslug={pslug ?? ''} usid={us} />
+    </Suspense>
+  );
+}
+
+function ProjectTimelinePageRoute() {
+  const { pslug } = useParams();
+  return (
+    <Suspense fallback={<LoadingScreen />}>
+      <ProjectTimelinePage pslug={pslug ?? ''} />
+    </Suspense>
+  );
+}
+
+const projectChildren = projectAdminRoutes.map((d) => {
+  if (d.pattern === 'timeline') {
+    return { path: d.pattern, element: <ProjectTimelinePageRoute /> };
+  }
+  if (d.pattern === 'admin/sample-us-history') {
+    return { path: d.pattern, element: <UserStoryAdminHistoryPageRoute /> };
+  }
+  return { path: d.pattern, element: <Page def={d} pageGroup="Project administration" /> };
+});
 
 const userSettingsChildren = userSettingsRoutes.map((d) => ({
   path: d.pattern,
