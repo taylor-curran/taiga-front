@@ -1,0 +1,33 @@
+@import '../../styles/taiga-theme.css';
+
+.tg-error-main {
+  align-items: center;
+  background: var(--tg-color-white);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.tg-error-container {
+  max-width: 28rem;
+  text-align: center;
+}
+
+.tg-error-container .logo {
+  color: var(--tg-color-black900);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.tg-error-container p {
+  color: var(--tg-color-black600);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.tg-error-container a {
+  color: var(--tg-color-link-primary);
+  text-decoration: underline;
+}

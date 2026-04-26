@@ -1,0 +1,43 @@
+@import '../../styles/taiga-theme.css';
+
+.tg-admin-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.tg-admin-top {
+  align-items: center;
+  background: var(--tg-color-white);
+  border-bottom: 1px solid var(--tg-color-gray400);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+}
+
+.tg-admin-top h1 {
+  color: var(--tg-color-black900);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.tg-admin-top button {
+  background: transparent;
+  border: 1px solid var(--tg-color-gray400);
+  border-radius: 4px;
+  color: var(--tg-color-link-primary);
+  cursor: pointer;
+  padding: 0.35rem 0.75rem;
+}
+
+.tg-admin-body {
+  flex: 1;
+  padding: 1.25rem;
+}
+
+.tg-admin-placeholder {
+  color: var(--tg-color-black600);
+  max-width: 40rem;
+}

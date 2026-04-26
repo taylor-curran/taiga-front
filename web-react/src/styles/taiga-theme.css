@@ -1,0 +1,18 @@
+/**
+ * Theme tokens from app/themes/taiga/variables.scss (Taiga 6 palette)
+ * for auth and error layouts.
+ */
+:root {
+  --tg-color-primary: #25a28c;
+  --tg-color-link-primary: #008aa8;
+  --tg-color-link-red: #e44057;
+  --tg-color-solid-red: rgba(228, 64, 87, 0.25);
+  --tg-color-gray400: #d8dee9;
+  --tg-color-black600: #4c566a;
+  --tg-color-black800: #3b4252;
+  --tg-color-black900: #2e3440;
+  --tg-color-white: #ffffff;
+  --tg-font-small: 0.875rem;
+  --tg-font-xlarge: 1.3rem;
+  --tg-font-xxlarge: 2.2rem;
+}
