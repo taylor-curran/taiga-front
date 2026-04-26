@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { SessionBootstrap } from '@/providers/SessionBootstrap';
 
 type Props = { children: ReactNode };
 
@@ -7,5 +8,5 @@ type Props = { children: ReactNode };
  * keeps a single place for future providers (i18n, query client, etc.).
  */
 export function AppProviders({ children }: Props) {
-  return children;
+    return <SessionBootstrap>{children}</SessionBootstrap>;
 }

@@ -7,11 +7,13 @@ type Props = { children: ReactNode };
  * Skeleton guard — no token checks yet. Toggles with `isAuthenticated` in the store for tests.
  */
 export function AuthGuard({ children }: Props) {
-  const isAuthenticated = useAppStore((s) => s.isAuthenticated);
-  const location = useLocation();
+    const isAuthenticated = useAppStore((s) => s.isAuthenticated);
+    const location = useLocation();
 
-  if (!isAuthenticated) {
-    return <Navigate to="/auth/login" state={{ from: location }} replace />;
-  }
-  return children;
+    if (!isAuthenticated) {
+        const next = `${location.pathname}${location.search}${location.hash}`;
+        const q = new URLSearchParams({ next });
+        return <Navigate to={`/login?${q.toString()}`} state={{ from: location }} replace />;
+    }
+    return children;
 }
