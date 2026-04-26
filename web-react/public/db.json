@@ -1,0 +1,125 @@
+{
+  "user": { "id": 1, "username": "admin", "auth_token": "fixture-token" },
+  "projects": [
+    {
+      "id": 10,
+      "name": "Alpha Project",
+      "slug": "alpha",
+      "description": "First fixture project",
+      "is_private": false,
+      "i_am_owner": true,
+      "i_am_member": true,
+      "i_am_admin": true,
+      "blocked_code": null,
+      "archived_code": null,
+      "is_looking_for_people": false,
+      "looking_for_people_note": null,
+      "total_fans": 2,
+      "total_watchers": 3,
+      "members": [{ "id": 1 }, { "id": 2 }],
+      "my_homepage": "timeline",
+      "logo_small_url": null,
+      "public_permissions": ["view_epics", "view_us"],
+      "max_memberships": null,
+      "total_memberships": 2
+    },
+    {
+      "id": 11,
+      "name": "Beta Private",
+      "slug": "beta",
+      "description": "Private beta",
+      "is_private": true,
+      "i_am_owner": false,
+      "i_am_member": true,
+      "i_am_admin": true,
+      "blocked_code": null,
+      "archived_code": null,
+      "is_looking_for_people": false,
+      "total_fans": 0,
+      "total_watchers": 1,
+      "members": [{ "id": 1 }],
+      "my_homepage": "kanban",
+      "logo_small_url": null,
+      "public_permissions": [],
+      "max_memberships": null,
+      "total_memberships": 1
+    }
+  ],
+  "memberships": [
+    {
+      "id": 100,
+      "project": 10,
+      "user": 5,
+      "user_email": "alice@example.com",
+      "username": "alice",
+      "full_name_display": "Alice Example",
+      "photo": null,
+      "role_name": "Product Owner",
+      "is_owner": true,
+      "is_admin": true,
+      "is_user_active": true,
+      "user_email_extra": null
+    },
+    {
+      "id": 101,
+      "project": 10,
+      "user": null,
+      "user_email": "pending@example.com",
+      "username": null,
+      "full_name_display": null,
+      "photo": null,
+      "role_name": "Developer",
+      "is_owner": false,
+      "is_admin": false,
+      "is_user_active": true,
+      "user_email_extra": null
+    }
+  ],
+  "roles": [
+    {
+      "id": 200,
+      "name": "Developer",
+      "slug": "developer",
+      "project": 10,
+      "permissions": ["view_project", "view_us", "add_us"],
+      "computable": true,
+      "order": 1
+    }
+  ],
+  "userstory": {
+    "id": 300,
+    "ref": 1,
+    "subject": "Fixture US",
+    "modified_date": "2024-01-02T00:00:00Z",
+    "project": 10,
+    "project_extra": { "slug": "alpha", "name": "Alpha Project" },
+    "is_blocked": false
+  },
+  "task": {
+    "id": 301,
+    "ref": 2,
+    "subject": "Fixture Task",
+    "modified_date": "2024-01-03T00:00:00Z",
+    "project": 10,
+    "project_extra": { "slug": "alpha", "name": "Alpha Project" },
+    "is_blocked": false
+  },
+  "issue": {
+    "id": 302,
+    "ref": 3,
+    "subject": "Fixture Issue",
+    "modified_date": "2024-01-01T00:00:00Z",
+    "project": 10,
+    "project_extra": { "slug": "alpha", "name": "Alpha Project" },
+    "is_blocked": false
+  },
+  "epic": {
+    "id": 303,
+    "ref": 4,
+    "subject": "Fixture Epic",
+    "modified_date": "2024-01-04T00:00:00Z",
+    "project": 10,
+    "project_extra": { "slug": "alpha", "name": "Alpha Project" },
+    "is_blocked": false
+  }
+}
