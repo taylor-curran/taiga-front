@@ -1,0 +1,33 @@
+area,test_name,category,angular_behavior,react_behavior,priority
+login,login: document title is Login - Taiga,missing content,Title updates to match the login page (Login - Taiga).,static index title Taiga (React port) for all routes.,1
+login,login: main brand h1 is exactly Taiga,missing content,Branding h1 shows Taiga.,scaffold h1 is Taiga (React port) — scaffold.,1
+login,login: h2 tagline includes LOVE YOUR PROJECT,missing content,Tagline LOVE YOUR PROJECT under the logo.,no tagline block.,1
+login,login: username field placeholder (discrimination string),missing functionality,Login form and username field with the expected placeholder.,no login form.,1
+login,login: password field placeholder (discrimination string),missing functionality,Password field with case-sensitive placeholder.,no password field.,1
+login,login: forgot link text is Forgot it?,missing functionality,Recovery link with label Forgot it?,no link.,1
+login,login: primary submit button says Login,missing functionality,Submit action labeled Login.,no submit control.,1
+discover,discover: h1 page title is Discover projects,missing content,Discover page shows primary h1 Discover projects.,root scaffold; no discover layout.,1
+discover,discover: search placeholder is Type something...,missing functionality,Search box with placeholder Type something....,no search control.,1
+discover,discover: featured section title is Featured Projects,missing content,Featured block heading Featured Projects.,no featured section.,2
+discover,discover: most liked block title is Most liked,missing content,Most liked section heading present.,not shown.,2
+discover,discover: most active block title is Most active,missing content,Most active section heading present.,not shown.,2
+discover,discover: document title is Discover projects - Taiga,missing content,Document title Discover projects - Taiga when visiting discover.,static Taiga (React port) title.,2
+home,home: main dashboard heading is Projects Dashboard (requires auth in Angular),missing functionality,Authenticated home shows a Projects Dashboard heading for the main rail.,scaffold; no dashboard.,1
+home,home: working-on has duty items (requires auth in Angular),data display difference,Working on lists items (tg-duty elements).,no working-on data.,1
+home,home: sidebar lists at least one home-project row (requires auth in Angular),data display difference,At least one .home-project card in the sidebar list.,no project list.,1
+project,project home: h1 project name is non-empty (requires auth in Angular),data display difference,Project title area shows the project name.,no project chrome.,1
+project,project home: section Team heading (requires auth in Angular),missing content,Team section heading for members.,not present.,1
+project,project home: user timeline block visible (requires auth in Angular),data display difference,Timeline component tg-user-timeline visible on project home.,not present.,1
+auth,forgot-password: document title is Forgot password - Taiga,missing content,Title Forgot password - Taiga on recovery route.,static app title.,2
+auth,forgot-password: intro line 1 is Oops, did you forget your password?,missing content,Copy from FORGOT_PASSWORD_FORM title shown.,not present.,2
+auth,forgot-password: single-line input placeholder is Username or email,missing functionality,Recovery field placeholder Username or email.,no form.,2
+auth,forgot-password: primary button is Reset Password,missing functionality,Reset Password button on the form.,not present.,2
+auth,register: document title is Register - Taiga,missing content,Title Register - Taiga on register.,static title.,2
+auth,register: username input placeholder is Pick a username,missing functionality,Registration form with username placeholder Pick a username.,no registration form.,2
+auth,register: sign-up button is Sign up,missing functionality,Primary registration action Sign up.,not present.,2
+errors,not-found: error heading is Not found,navigation difference,Client-side 404 view with heading Not found for unknown paths.,Vite always serves the SPA shell; no Taiga 404 view.,1
+errors,not-found: Go home link text is Take me home,missing functionality,404 screen includes Take me home link.,not present.,1
+backlog,backlog: main section h1 is Backlog (requires auth in Angular),missing functionality,Scrum backlog view with main h1 Backlog.,scaffold only.,1
+kanban,kanban: main section h1 is Kanban (requires auth in Angular),missing functionality,Kanban board with main h1 Kanban.,scaffold only.,1
+issues,issues: main section h1 is Issues (requires auth in Angular),missing functionality,Issues list with main h1 Issues.,scaffold only.,1
+wiki,wiki: main section h1 is Wiki (requires auth in Angular),missing functionality,Wiki with main h1 Wiki.,scaffold only.,1
