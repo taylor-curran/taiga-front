@@ -85,7 +85,7 @@ export default function TaskDetailPage() {
               <input className="edit-subject" value={subject} onChange={(e) => setSubject(e.target.value)} />
               <textarea className="edit-description" value={description} onChange={(e) => setDescription(e.target.value)} rows={8} />
               <div className="edit-actions">
-                <button className="btn btn-primary" onClick={() => updateMutation.mutate({ subject, description })}>Save</button>
+                <button className="btn btn-primary" onClick={() => updateMutation.mutate({ subject, description, version: task.version })}>Save</button>
                 <button className="btn btn-secondary" onClick={() => setEditing(false)}>Cancel</button>
               </div>
             </div>
@@ -123,7 +123,7 @@ export default function TaskDetailPage() {
         <div className="detail-sidebar">
           <div className="sidebar-section">
             <h4>Status</h4>
-            <select value={task.status} onChange={(e) => updateMutation.mutate({ status: Number(e.target.value) })}>
+            <select value={task.status} onChange={(e) => updateMutation.mutate({ status: Number(e.target.value), version: task.version })}>
               {project.task_statuses.map((s: Status) => (
                 <option key={s.id} value={s.id}>{s.name}</option>
               ))}

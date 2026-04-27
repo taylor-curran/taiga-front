@@ -79,7 +79,7 @@ export default function IssueDetailPage() {
               <input className="edit-subject" value={subject} onChange={(e) => setSubject(e.target.value)} />
               <textarea className="edit-description" value={description} onChange={(e) => setDescription(e.target.value)} rows={8} />
               <div className="edit-actions">
-                <button className="btn btn-primary" onClick={() => updateMutation.mutate({ subject, description })}>Save</button>
+                <button className="btn btn-primary" onClick={() => updateMutation.mutate({ subject, description, version: issue.version })}>Save</button>
                 <button className="btn btn-secondary" onClick={() => setEditing(false)}>Cancel</button>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function IssueDetailPage() {
         <div className="detail-sidebar">
           <div className="sidebar-section">
             <h4>Status</h4>
-            <select value={issue.status} onChange={(e) => updateMutation.mutate({ status: Number(e.target.value) })}>
+            <select value={issue.status} onChange={(e) => updateMutation.mutate({ status: Number(e.target.value), version: issue.version })}>
               {project.issue_statuses.map((s: Status) => (
                 <option key={s.id} value={s.id}>{s.name}</option>
               ))}
@@ -125,7 +125,7 @@ export default function IssueDetailPage() {
           </div>
           <div className="sidebar-section">
             <h4>Type</h4>
-            <select value={issue.type} onChange={(e) => updateMutation.mutate({ type: Number(e.target.value) })}>
+            <select value={issue.type} onChange={(e) => updateMutation.mutate({ type: Number(e.target.value), version: issue.version })}>
               {project.issue_types.map((t: Status) => (
                 <option key={t.id} value={t.id}>{t.name}</option>
               ))}
@@ -134,7 +134,7 @@ export default function IssueDetailPage() {
           </div>
           <div className="sidebar-section">
             <h4>Priority</h4>
-            <select value={issue.priority} onChange={(e) => updateMutation.mutate({ priority: Number(e.target.value) })}>
+            <select value={issue.priority} onChange={(e) => updateMutation.mutate({ priority: Number(e.target.value), version: issue.version })}>
               {project.priorities.map((p: Status) => (
                 <option key={p.id} value={p.id}>{p.name}</option>
               ))}
@@ -143,7 +143,7 @@ export default function IssueDetailPage() {
           </div>
           <div className="sidebar-section">
             <h4>Severity</h4>
-            <select value={issue.severity} onChange={(e) => updateMutation.mutate({ severity: Number(e.target.value) })}>
+            <select value={issue.severity} onChange={(e) => updateMutation.mutate({ severity: Number(e.target.value), version: issue.version })}>
               {project.severities.map((s: Status) => (
                 <option key={s.id} value={s.id}>{s.name}</option>
               ))}

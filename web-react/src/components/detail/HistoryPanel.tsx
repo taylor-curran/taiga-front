@@ -25,7 +25,7 @@ export default function HistoryPanel({ type, objectId, projectId }: Props) {
   const postCommentMutation = useMutation({
     mutationFn: async (text: string) => {
       const contentType = type === 'userstory' ? 'userstories' : type === 'wiki' ? 'wiki' : `${type}s`;
-      await api.post(`/${contentType}/${objectId}/comment`, {
+      await api.patch(`/${contentType}/${objectId}`, {
         comment: text,
         version: 1,
       });

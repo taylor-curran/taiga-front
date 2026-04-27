@@ -83,7 +83,7 @@ export default function EpicDetailPage() {
               <input className="edit-subject" value={subject} onChange={(e) => setSubject(e.target.value)} />
               <textarea className="edit-description" value={description} onChange={(e) => setDescription(e.target.value)} rows={8} />
               <div className="edit-actions">
-                <button className="btn btn-primary" onClick={() => updateMutation.mutate({ subject, description })}>Save</button>
+                <button className="btn btn-primary" onClick={() => updateMutation.mutate({ subject, description, version: epic.version })}>Save</button>
                 <button className="btn btn-secondary" onClick={() => setEditing(false)}>Cancel</button>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function EpicDetailPage() {
         <div className="detail-sidebar">
           <div className="sidebar-section">
             <h4>Status</h4>
-            <select value={epic.status} onChange={(e) => updateMutation.mutate({ status: Number(e.target.value) })}>
+            <select value={epic.status} onChange={(e) => updateMutation.mutate({ status: Number(e.target.value), version: epic.version })}>
               {project.epic_statuses.map((s: Status) => (
                 <option key={s.id} value={s.id}>{s.name}</option>
               ))}

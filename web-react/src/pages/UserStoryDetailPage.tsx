@@ -59,7 +59,7 @@ export default function UserStoryDetailPage() {
   const updateStatusMutation = useMutation({
     mutationFn: async (statusId: number) => {
       if (!story) return;
-      return userstories.update(story.id, { status: statusId });
+      return userstories.update(story.id, { status: statusId, version: story.version });
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['userstory', usId] });
@@ -104,7 +104,7 @@ export default function UserStoryDetailPage() {
                 rows={8}
               />
               <div className="edit-actions">
-                <button className="btn btn-primary" onClick={() => updateMutation.mutate({ subject, description })}>Save</button>
+                <button className="btn btn-primary" onClick={() => updateMutation.mutate({ subject, description, version: story.version })}>Save</button>
                 <button className="btn btn-secondary" onClick={() => setEditing(false)}>Cancel</button>
               </div>
             </div>
