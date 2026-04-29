@@ -7,10 +7,10 @@ export function legacyIndexPath(): string {
 }
 
 /** URL the iframe loads so Angular html5 routes resolve under /legacy/. */
-export function legacyFrameSrc(pathname: string, search: string): string {
+export function legacyFrameSrc(pathname: string, search: string, hash: string = ''): string {
   const path = pathname.startsWith('/') ? pathname : `/${pathname}`;
   if (path === '/' || path === '') {
-    return `${legacyIndexPath()}${search}`;
+    return `${legacyIndexPath()}${search}${hash}`;
   }
-  return `/legacy${path}${search}`;
+  return `/legacy${path}${search}${hash}`;
 }

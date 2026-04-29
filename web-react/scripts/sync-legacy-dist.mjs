@@ -47,7 +47,14 @@ copyRecursive(srcDist, destLegacy);
 
 const indexDest = path.join(destLegacy, 'index.html');
 let html = fs.readFileSync(indexDest, 'utf8');
-html = html.replace(/<base href="\/">/i, '<base href="/legacy/">');
-fs.writeFileSync(indexDest, html, 'utf8');
+const updated = html.replace(/<base href="\/">/i, '<base href="/legacy/">');
+if (updated === html) {
+  console.error(
+    '[sync-legacy-dist] Could not find <base href="/"> in index.html to rewrite.\n' +
+      '  The Angular bundle may not load correctly under /legacy/.',
+  );
+  process.exit(1);
+}
+fs.writeFileSync(indexDest, updated, 'utf8');
 
 console.log('[sync-legacy-dist] Wrote', destLegacy);

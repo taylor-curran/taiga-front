@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { legacyFrameSrc } from './legacyUrls';
 
 export default function LegacyFrame() {
-  const { pathname, search } = useLocation();
-  const src = useMemo(() => legacyFrameSrc(pathname, search), [pathname, search]);
+  const { pathname, search, hash } = useLocation();
+  const src = useMemo(() => legacyFrameSrc(pathname, search, hash), [pathname, search, hash]);
 
   return (
     <iframe

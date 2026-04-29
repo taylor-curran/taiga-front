@@ -11,6 +11,14 @@ describe('legacy URL helpers', () => {
     expect(legacyFrameSrc('/login', '?next=%2F')).toBe('/legacy/login?next=%2F');
     expect(legacyFrameSrc('/project/foo/timeline', '')).toBe('/legacy/project/foo/timeline');
   });
+
+  it('forwards hash fragments to the legacy URL', () => {
+    expect(legacyFrameSrc('/project/foo/wiki/page', '', '#section')).toBe(
+      '/legacy/project/foo/wiki/page#section',
+    );
+    expect(legacyFrameSrc('/', '', '#top')).toBe('/legacy/index.html#top');
+    expect(legacyFrameSrc('/login', '?next=%2F', '#form')).toBe('/legacy/login?next=%2F#form');
+  });
 });
 
 describe('auth storage keys (match Angular $tgStorage)', () => {
