@@ -331,6 +331,7 @@ export function ChangePasswordSettings() {
             type="password"
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
+            required
             autoComplete="current-password"
           />
         </label>
