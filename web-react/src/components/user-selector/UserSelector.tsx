@@ -26,6 +26,10 @@ export function UserSelector({
 }: UserSelectorProps) {
   const [search, setSearch] = useState('');
 
+  useEffect(() => {
+    if (open) setSearch('');
+  }, [open]);
+
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
