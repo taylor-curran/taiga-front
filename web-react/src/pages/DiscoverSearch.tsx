@@ -85,9 +85,11 @@ export function DiscoverSearchPage() {
       setPage(1);
       doSearch(activeQuery, filter, orderBy, 1, false);
     } else {
+      generationRef.current++;
       setResults([]);
       setHasNext(false);
       setError(null);
+      setLoading(false);
     }
   }, [activeQuery, filter, orderBy, doSearch]);
 
@@ -200,7 +202,7 @@ export function DiscoverSearchPage() {
               <button
                 className="btn-ghost text-sm"
                 onClick={loadMore}
-                disabled={loadingMore}
+                disabled={loadingMore || loading}
               >
                 {loadingMore ? 'Loading...' : 'View more'}
               </button>
