@@ -195,3 +195,128 @@ export interface ApiError {
   _error_message?: string;
   _error_type?: string;
 }
+
+// --- Backlog & User Stories extended types ---
+
+export interface PointValue {
+  id: number;
+  name: string;
+  value: number | null;
+  order?: number;
+}
+
+export interface RolePointsEntry {
+  [roleId: string]: number; // roleId -> pointId
+}
+
+export interface UserStoryDetail extends UserStory {
+  points?: RolePointsEntry;
+  watchers?: number[];
+  voters_count?: number;
+  is_voter?: boolean;
+  is_watcher?: boolean;
+  custom_attributes_values?: Record<string, unknown>;
+  attachments?: Attachment[];
+  comment?: string;
+  version?: number;
+  backlog_order?: number;
+  sprint_order?: number;
+  kanban_order?: number;
+  tribe_gig?: unknown;
+  due_date?: string | null;
+  due_date_reason?: string | null;
+  due_date_status?: string | null;
+  owner?: number;
+  owner_extra_info?: { full_name_display?: string; photo?: string | null; username?: string };
+  assigned_users?: number[];
+  assigned_users_extra_info?: Array<{ full_name_display?: string; photo?: string | null; id?: number }>;
+  epics?: Array<{ id: number; ref: number; subject: string; color?: string; project?: { id: number; slug: string; name: string } }> | null;
+  origin_issue?: unknown;
+  origin_task?: unknown;
+  total_voters?: number;
+  total_watchers?: number;
+  neighbors?: { previous?: { id: number; ref: number; subject: string }; next?: { id: number; ref: number; subject: string } };
+}
+
+export interface Attachment {
+  id: number;
+  name: string;
+  size?: number;
+  url?: string;
+  thumbnail_card_url?: string | null;
+  created_date?: string;
+  modified_date?: string;
+  object_id?: number;
+  project?: number;
+  owner?: number;
+  attached_file?: string;
+  is_deprecated?: boolean;
+  description?: string;
+  order?: number;
+  from_comment?: boolean;
+}
+
+export interface Comment {
+  id: string;
+  user?: { id: number; name?: string; photo?: string | null; username?: string };
+  comment?: string;
+  comment_html?: string;
+  created_at?: string;
+  delete_comment_date?: string | null;
+}
+
+export interface HistoryEntry {
+  id: string;
+  user?: { pk?: number; name?: string; photo?: string | null; username?: string };
+  created_at?: string;
+  comment?: string;
+  comment_html?: string;
+  type?: number;
+  values_diff?: Record<string, unknown>;
+  delete_comment_date?: string | null;
+  edit_comment_date?: string | null;
+}
+
+export interface CustomAttribute {
+  id: number;
+  name: string;
+  description?: string;
+  type?: string;
+  order?: number;
+  project?: number;
+  extra?: string | null;
+  created_date?: string;
+  modified_date?: string;
+}
+
+export interface CustomAttributeValue {
+  attributes_values?: Record<string, unknown>;
+  version?: number;
+}
+
+export interface BulkUpdateOrder {
+  project_id: number;
+  bulk_userstories: Array<[number, number]>; // [usId, order]
+}
+
+export interface SprintCreate {
+  project: number;
+  name: string;
+  estimated_start: string;
+  estimated_finish: string;
+}
+
+export interface SprintUpdate {
+  name?: string;
+  estimated_start?: string;
+  estimated_finish?: string;
+  closed?: boolean;
+}
+
+export interface MilestoneDetail extends Milestone {
+  project?: number;
+  disponibility?: number;
+  order?: number;
+  created_date?: string;
+  modified_date?: string;
+}

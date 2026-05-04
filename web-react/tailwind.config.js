@@ -5,6 +5,8 @@ export default {
     extend: {
       colors: {
         // Approximated from app/styles/_taiga-colors.scss
+        'taiga-primary': '#25A28C',
+        'taiga-secondary': '#A7CB23',
         'taiga-green': '#83eede',
         'taiga-green-dark': '#1dac9d',
         'taiga-green-darker': '#197a72',
@@ -14,7 +16,7 @@ export default {
         'taiga-bg': '#f4f4f4',
         'taiga-card': '#fff',
         'taiga-text': '#444',
-        'taiga-link': '#1ea3a3',
+        'taiga-link': '#008AA8',
         'taiga-red': '#e44057',
         'taiga-yellow': '#ffd13e',
       },

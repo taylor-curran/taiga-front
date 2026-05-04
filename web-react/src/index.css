@@ -40,3 +40,13 @@
     @apply bg-taiga-green-dark text-white hover:bg-taiga-green-darker hover:text-white;
   }
 }
+
+@layer utilities {
+  .animate-slide-down {
+    animation: slide-down 0.2s ease-out;
+  }
+  @keyframes slide-down {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
