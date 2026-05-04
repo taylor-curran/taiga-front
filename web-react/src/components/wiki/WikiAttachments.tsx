@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useCurrentProject } from '@/hooks/useCurrentProject';
 import {
   useWikiAttachments,
@@ -19,14 +19,20 @@ export function WikiAttachments({ wikiId }: { wikiId: number | undefined }) {
   const upload = useUploadWikiAttachment(project.id, wikiId);
   const remove = useDeleteWikiAttachment(project.id, wikiId);
 
+  const [uploading, setUploading] = useState(0);
   const canModify = project.my_permissions?.includes('modify_wiki_page');
 
   if (!wikiId) return null;
 
   const handleUpload = () => {
     const files = fileRef.current?.files;
-    if (!files) return;
-    Array.from(files).forEach((f) => upload.mutate(f));
+    if (!files || files.length === 0) return;
+    Array.from(files).forEach((f) => {
+      setUploading((n) => n + 1);
+      upload.mutate(f, {
+        onSettled: () => setUploading((n) => n - 1),
+      });
+    });
     if (fileRef.current) fileRef.current.value = '';
   };
 
@@ -55,8 +61,8 @@ export function WikiAttachments({ wikiId }: { wikiId: number | undefined }) {
         )}
       </div>
 
-      {upload.isPending && (
-        <p className="text-xs text-taiga-grey-light mb-2">Uploading…</p>
+      {uploading > 0 && (
+        <p className="text-xs text-taiga-grey-light mb-2">Uploading… ({uploading})</p>
       )}
 
       {attachments && attachments.length > 0 ? (
