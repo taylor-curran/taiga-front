@@ -66,7 +66,7 @@ export const KanbanCard = memo(function KanbanCard({
       {...attributes}
       {...listeners}
       className={clsx(
-        'kanban-card card p-2 cursor-grab active:cursor-grabbing transition-shadow',
+        'kanban-card card p-2 cursor-grab active:cursor-grabbing transition-shadow relative',
         `zoom-${zoomLevel}`,
         {
           'ring-2 ring-taiga-green-dark': isSelected,

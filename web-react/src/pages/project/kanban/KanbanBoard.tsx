@@ -227,30 +227,34 @@ export function KanbanBoard({
         ),
       );
 
-      // Persist to API
-      bulkUpdate.mutate({
-        projectId: project.id,
-        statusId: newStatusId,
-        stories: [
-          {
-            us_id: draggedStory.id,
-            order: newOrder,
-            swimlane: newSwimlaneId,
+      // Persist to API — chain mutations to avoid version conflicts
+      bulkUpdate.mutate(
+        {
+          projectId: project.id,
+          statusId: newStatusId,
+          stories: [
+            {
+              us_id: draggedStory.id,
+              order: newOrder,
+              swimlane: newSwimlaneId,
+            },
+          ],
+        },
+        {
+          onSuccess: () => {
+            // Only patch status after bulk order succeeds to avoid version conflict
+            if (draggedStory.status !== newStatusId) {
+              patchUs.mutate({
+                id: draggedStory.id,
+                data: {
+                  status: newStatusId,
+                  swimlane: newSwimlaneId,
+                },
+              });
+            }
           },
-        ],
-      });
-
-      // If status changed, also patch the story status
-      if (draggedStory.status !== newStatusId) {
-        patchUs.mutate({
-          id: draggedStory.id,
-          data: {
-            status: newStatusId,
-            swimlane: newSwimlaneId,
-            version: draggedStory.version,
-          },
-        });
-      }
+        },
+      );
     },
     [stories, onStoriesChange, bulkUpdate, patchUs, project.id, findContainerForStory],
   );
