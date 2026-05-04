@@ -5,6 +5,9 @@ import { router } from '@/routes';
 import { queryClient } from '@/lib/queryClient';
 import { loadConfig } from '@/lib/config';
 import { useAuth } from '@/lib/auth';
+import { initI18n } from '@/lib/i18n';
+import { ToastContainer } from '@/components/common/Toast';
+import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 
 export default function App() {
   const [bootstrapped, setBootstrapped] = useState(false);
@@ -15,8 +18,7 @@ export default function App() {
     let cancelled = false;
     async function boot() {
       hydrate();
-      await loadConfig();
-      // Best-effort refresh of the current user; ignore errors.
+      await Promise.all([loadConfig(), initI18n()]);
       void refreshMe();
       if (!cancelled) setBootstrapped(true);
     }
@@ -28,15 +30,18 @@ export default function App() {
 
   if (!bootstrapped) {
     return (
-      <div className="h-full flex items-center justify-center text-taiga-grey-light">
-        Loading…
+      <div className="h-full flex items-center justify-center text-gray-600">
+        Loading\u2026
       </div>
     );
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ToastContainer />
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
