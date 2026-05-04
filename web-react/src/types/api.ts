@@ -164,10 +164,59 @@ export interface WikiPage {
   slug: string;
   content?: string;
   html?: string;
-  modified_date?: string;
+  editions?: number;
+  project?: number;
   owner?: number;
   last_modifier?: number;
+  created_date?: string;
+  modified_date?: string;
   version?: number;
+}
+
+export interface WikiLink {
+  id: number;
+  project: number;
+  title: string;
+  href: string;
+  order: number;
+}
+
+export interface WikiAttachment {
+  id: number;
+  object_id: number;
+  project: number;
+  name: string;
+  size: number;
+  url: string;
+  created_date: string;
+  modified_date?: string;
+  owner: number;
+  is_deprecated: boolean;
+  description?: string;
+  attached_file?: string;
+  thumbnail_card_url?: string | null;
+}
+
+export interface HistoryEntry {
+  id: string;
+  user: {
+    pk?: number;
+    username?: string;
+    name?: string;
+    photo?: string;
+    is_active?: boolean;
+  };
+  created_at: string;
+  type: number;
+  key: string;
+  diff?: Record<string, unknown>;
+  values_diff?: Record<string, unknown>;
+  comment?: string;
+  comment_html?: string;
+  delete_comment_date?: string | null;
+  delete_comment_user?: Record<string, unknown> | null;
+  edit_comment_date?: string | null;
+  is_snapshot?: boolean;
 }
 
 export interface TimelineEntry {
