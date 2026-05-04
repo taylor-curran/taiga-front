@@ -416,13 +416,15 @@ export function IssuesPage() {
         </>
       )}
 
-      <CreateIssueModal
-        project={project}
-        isOpen={createModalOpen}
-        onClose={() => setCreateModalOpen(false)}
-        onSubmit={handleCreateIssue}
-        isSubmitting={createMutation.isPending}
-      />
+      {createModalOpen && (
+        <CreateIssueModal
+          project={project}
+          isOpen={createModalOpen}
+          onClose={() => setCreateModalOpen(false)}
+          onSubmit={handleCreateIssue}
+          isSubmitting={createMutation.isPending}
+        />
+      )}
     </div>
   );
 }

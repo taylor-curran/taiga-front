@@ -36,7 +36,7 @@ export async function fetchIssues(
 ): Promise<{ data: Issue[]; count: number }> {
   const res = await api.get<Issue[]>('issues', {
     params: filters,
-    headers: { 'x-disable-pagination': undefined },
+    headers: { 'x-disable-pagination': '0' },
   });
   const count = Number(res.headers['x-pagination-count'] || res.data.length);
   return { data: res.data, count };
