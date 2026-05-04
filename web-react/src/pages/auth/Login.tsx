@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/lib/auth';
 import { ErrorBox } from '@/components/common/ErrorBox';
-import { SocialLoginButtons } from '@/components/common/SocialLoginButtons';
+import { SocialLoginButtons, verifyOAuthState } from '@/components/common/SocialLoginButtons';
 
 export function LoginPage() {
   const login = useAuth((s) => s.login);
@@ -19,12 +19,17 @@ export function LoginPage() {
   const state = params.get('state');
   useEffect(() => {
     if (!code) return;
+    const { valid, invitationToken } = verifyOAuthState(state);
+    if (!valid) {
+      setError('OAuth state verification failed. Please try again.');
+      return;
+    }
     const provider = params.get('provider') || 'github';
     setSubmitting(true);
     loginWith({
       type: provider as 'github' | 'gitlab',
       code,
-      invitation_token: state || undefined,
+      invitation_token: invitationToken,
     })
       .then(() => {
         const next = params.get('next');

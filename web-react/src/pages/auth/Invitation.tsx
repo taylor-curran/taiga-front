@@ -32,11 +32,10 @@ export function InvitationPage() {
   const [invitation, setInvitation] = useState<InvitationData | null>(null);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);
-  const [acceptError, setAcceptError] = useState<string | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
 
-  // Login form
-  const [loginUsername, setLoginUsername] = useState('');
+  // Login form — pre-fill username for logged-in users
+  const [loginUsername, setLoginUsername] = useState(user?.username ?? '');
   const [loginPassword, setLoginPassword] = useState('');
   const [loginSubmitting, setLoginSubmitting] = useState(false);
 
@@ -74,41 +73,6 @@ export function InvitationPage() {
         <Link to="/login" className="btn-primary mt-4 inline-block text-center">
           Go to login
         </Link>
-      </div>
-    );
-  }
-
-  // If already logged in, accept invitation directly
-  if (user) {
-    return (
-      <div className="card p-8 max-w-md mx-auto text-center space-y-4">
-        <Avatar
-          name={invitation.invited_by.full_name_display}
-          src={invitation.invited_by.photo}
-          size={64}
-        />
-        <p className="text-sm">
-          <strong>{invitation.invited_by.full_name_display}</strong> invited you to
-        </p>
-        <p className="text-lg font-semibold">{invitation.project_name}</p>
-        <p className="text-sm text-taiga-grey-light">Role: {invitation.role_name}</p>
-        {acceptError && <ErrorBox message={acceptError} />}
-        <button
-          className="btn-primary w-full"
-          onClick={async () => {
-            setAcceptError(null);
-            try {
-              await api.post(`memberships/${invitation.id}/accept`, {
-                invitation_token: token,
-              });
-              navigate(`/project/${invitation.project_slug}`);
-            } catch {
-              setAcceptError('Failed to accept invitation. Please try again.');
-            }
-          }}
-        >
-          Accept invitation
-        </button>
       </div>
     );
   }
@@ -178,6 +142,12 @@ export function InvitationPage() {
         </p>
         <p className="text-lg font-semibold">{invitation.project_name}</p>
       </div>
+
+      {user && (
+        <p className="text-sm text-taiga-grey-light text-center">
+          Please sign in with your credentials to accept this invitation.
+        </p>
+      )}
 
       {formError && <ErrorBox message={formError} />}
 

@@ -1,5 +1,31 @@
 import { getConfig } from '@/lib/config';
 
+const OAUTH_NONCE_KEY = 'oauth_csrf_nonce';
+
+function buildOAuthState(invitationToken?: string): string {
+  const nonce = crypto.randomUUID();
+  sessionStorage.setItem(OAUTH_NONCE_KEY, nonce);
+  if (invitationToken) {
+    return JSON.stringify({ nonce, invitation_token: invitationToken });
+  }
+  return JSON.stringify({ nonce });
+}
+
+export function verifyOAuthState(state: string | null): { valid: boolean; invitationToken?: string } {
+  const storedNonce = sessionStorage.getItem(OAUTH_NONCE_KEY);
+  if (!state || !storedNonce) return { valid: false };
+  try {
+    const parsed = JSON.parse(state) as { nonce?: string; invitation_token?: string };
+    if (parsed.nonce === storedNonce) {
+      sessionStorage.removeItem(OAUTH_NONCE_KEY);
+      return { valid: true, invitationToken: parsed.invitation_token };
+    }
+  } catch {
+    // state is not JSON — legacy or tampered
+  }
+  return { valid: false };
+}
+
 export function SocialLoginButtons({ invitationToken }: { invitationToken?: string }) {
   const config = getConfig();
   const hasGithub = !!config.gitHubClientId;
@@ -13,8 +39,8 @@ export function SocialLoginButtons({ invitationToken }: { invitationToken?: stri
       client_id: config.gitHubClientId!,
       redirect_uri: redirectUri,
       scope: 'user:email',
+      state: buildOAuthState(invitationToken),
     });
-    if (invitationToken) params.set('state', invitationToken);
     window.location.href = `https://github.com/login/oauth/authorize?${params}`;
   }
 
@@ -26,8 +52,8 @@ export function SocialLoginButtons({ invitationToken }: { invitationToken?: stri
       redirect_uri: redirectUri,
       response_type: 'code',
       scope: 'read_user',
+      state: buildOAuthState(invitationToken),
     });
-    if (invitationToken) params.set('state', invitationToken);
     window.location.href = `${gitlabUrl}/oauth/authorize?${params}`;
   }
 
