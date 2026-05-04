@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import clsx from 'clsx';
-import { TagDisplay, type TagItem } from './TagDisplay';
+import { type TagItem } from './TagDisplay';
 import { ColorSelector } from '@/components/color-selector/ColorSelector';
 
 interface TagEditorProps {
@@ -18,6 +18,7 @@ export function TagEditor({
 }: TagEditorProps) {
   const [input, setInput] = useState('');
   const [showColorPicker, setShowColorPicker] = useState<string | null>(null);
+  const [showNewColorPicker, setShowNewColorPicker] = useState(false);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -36,6 +37,7 @@ export function TagEditor({
       setInput('');
       setShowSuggestions(false);
       setSelectedColor(null);
+      setShowNewColorPicker(false);
     },
     [tags, onChange],
   );
@@ -71,25 +73,49 @@ export function TagEditor({
 
   return (
     <div className={clsx('space-y-2', className)}>
-      <TagDisplay
-        tags={tags}
-        onRemove={handleRemove}
-      />
-
-      {/* Color picker for existing tags */}
-      {tags.map((tag) => (
-        <div key={tag.name} className="relative inline-block">
-          {showColorPicker === tag.name && (
-            <div className="absolute z-10 mt-1">
-              <ColorSelector
-                value={tag.color ?? undefined}
-                onChange={(c) => handleColorChange(tag.name, c)}
-                onClose={() => setShowColorPicker(null)}
+      {/* Tag list with color edit buttons */}
+      {tags.length > 0 && (
+        <div className="flex flex-wrap gap-1">
+          {tags.map((tag) => (
+            <span
+              key={tag.name}
+              className={clsx(
+                'inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium',
+                tag.color ? 'text-white' : 'bg-taiga-grey-lighter text-taiga-text',
+              )}
+              style={tag.color ? { backgroundColor: tag.color } : undefined}
+            >
+              <button
+                type="button"
+                onClick={() => setShowColorPicker(showColorPicker === tag.name ? null : tag.name)}
+                className="w-2.5 h-2.5 rounded-full border border-current shrink-0 hover:opacity-70"
+                style={tag.color ? { backgroundColor: tag.color } : { backgroundColor: '#ccc' }}
+                title="Change color"
               />
-            </div>
-          )}
+              {tag.name}
+              <button
+                type="button"
+                onClick={() => handleRemove(tag.name)}
+                className="hover:opacity-70"
+              >
+                {'\u00D7'}
+              </button>
+              {showColorPicker === tag.name && (
+                <div
+                  className="absolute z-10 mt-6"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <ColorSelector
+                    value={tag.color ?? undefined}
+                    onChange={(c) => handleColorChange(tag.name, c)}
+                    onClose={() => setShowColorPicker(null)}
+                  />
+                </div>
+              )}
+            </span>
+          ))}
         </div>
-      ))}
+      )}
 
       {/* Input */}
       <div className="relative">
@@ -106,6 +132,28 @@ export function TagEditor({
             placeholder="Add tag..."
             className="input text-xs flex-1"
           />
+          {/* Color picker for new tags */}
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => setShowNewColorPicker(!showNewColorPicker)}
+              className="w-6 h-6 rounded-full border border-taiga-grey-lighter shrink-0 hover:opacity-70"
+              style={{ backgroundColor: selectedColor ?? '#ccc' }}
+              title="Pick color for new tag"
+            />
+            {showNewColorPicker && (
+              <div className="absolute z-10 right-0 mt-1">
+                <ColorSelector
+                  value={selectedColor ?? undefined}
+                  onChange={(c) => {
+                    setSelectedColor(c);
+                    setShowNewColorPicker(false);
+                  }}
+                  onClose={() => setShowNewColorPicker(false)}
+                />
+              </div>
+            )}
+          </div>
           {input.trim() && (
             <button
               type="button"

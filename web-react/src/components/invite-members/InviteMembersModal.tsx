@@ -42,7 +42,12 @@ export function InviteMembersModal({
       setEmails([]);
       setEmailInput('');
       setError(null);
-      setSelectedRole(roles?.[0]?.id);
+    }
+  }, [open]);
+
+  useEffect(() => {
+    if (open && roles?.length) {
+      setSelectedRole(roles[0].id);
     }
   }, [open, roles]);
 

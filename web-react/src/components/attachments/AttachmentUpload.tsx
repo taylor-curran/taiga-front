@@ -24,10 +24,11 @@ export function AttachmentUpload({
       e.preventDefault();
       setDragOver(false);
       if (disabled) return;
-      const files = Array.from(e.dataTransfer.files);
+      const allFiles = Array.from(e.dataTransfer.files);
+      const files = multiple ? allFiles : allFiles.slice(0, 1);
       if (files.length) onUpload(files);
     },
-    [onUpload, disabled],
+    [onUpload, disabled, multiple],
   );
 
   const handleChange = useCallback(
