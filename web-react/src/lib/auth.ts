@@ -10,6 +10,7 @@ export interface CurrentUser {
   email: string;
   full_name?: string;
   full_name_display?: string;
+  bio?: string;
   is_active?: boolean;
   is_admin?: boolean;
   photo?: string | null;
@@ -21,6 +22,11 @@ export interface CurrentUser {
   total_private_projects?: number;
   total_public_projects?: number;
   uuid?: string;
+  verified_email?: boolean;
+  max_private_projects?: number | null;
+  max_public_projects?: number | null;
+  max_memberships_private_projects?: number | null;
+  max_memberships_public_projects?: number | null;
 }
 
 interface AuthState {

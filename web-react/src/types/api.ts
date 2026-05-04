@@ -195,3 +195,90 @@ export interface ApiError {
   _error_message?: string;
   _error_type?: string;
 }
+
+export interface NotifyPolicy {
+  id: number;
+  project: number;
+  project_name?: string;
+  notify_level: number;
+  live_notify_level: number;
+  web_notify_level: boolean;
+}
+
+export interface UserProjectSettings {
+  id: number;
+  project: number;
+  project_name?: string;
+  homepage: number;
+  allowed_sections?: number[];
+}
+
+export interface Contact {
+  id: number;
+  username: string;
+  full_name?: string;
+  full_name_display?: string;
+  photo?: string | null;
+  big_photo?: string | null;
+  bio?: string;
+  roles?: string[];
+  color?: string;
+  is_active?: boolean;
+}
+
+export interface Locale {
+  code: string;
+  name: string;
+}
+
+export interface UserStats {
+  total_num_projects?: number;
+  total_num_contacts?: number;
+  total_num_closed_userstories?: number;
+  roles?: string[];
+}
+
+export interface LikedItem {
+  id: number;
+  type: string;
+  ref?: number;
+  slug?: string;
+  subject?: string;
+  name?: string;
+  description?: string;
+  assigned_to?: number;
+  status?: string;
+  project?: { id: number; slug: string; name: string };
+  is_private?: boolean;
+  total_fans?: number;
+}
+
+export interface VotedItem {
+  id: number;
+  type: string;
+  ref?: number;
+  slug?: string;
+  subject?: string;
+  name?: string;
+  description?: string;
+  assigned_to?: number;
+  status?: string;
+  project?: { id: number; slug: string; name: string };
+  is_private?: boolean;
+  total_voters?: number;
+}
+
+export interface WatchedItem {
+  id: number;
+  type: string;
+  ref?: number;
+  slug?: string;
+  subject?: string;
+  name?: string;
+  description?: string;
+  assigned_to?: number;
+  status?: string;
+  project?: { id: number; slug: string; name: string };
+  is_private?: boolean;
+  total_watchers?: number;
+}
