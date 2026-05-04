@@ -58,7 +58,8 @@ export function WikiHistory({ wikiId }: { wikiId: number | undefined }) {
   const [expanded, setExpanded] = useState(false);
   const { data: entries, isLoading } = useWikiHistory(wikiId);
 
-  if (!wikiId || !entries || entries.length === 0) return null;
+  if (!wikiId) return null;
+  if (!isLoading && (!entries || entries.length === 0)) return null;
 
   return (
     <div className="card mt-4">
@@ -67,7 +68,7 @@ export function WikiHistory({ wikiId }: { wikiId: number | undefined }) {
         onClick={() => setExpanded(!expanded)}
         className="w-full px-4 py-3 text-left text-sm font-semibold flex items-center justify-between hover:bg-taiga-bg/60 rounded"
       >
-        <span>Activity ({entries.length})</span>
+        <span>Activity{entries ? ` (${entries.length})` : ''}</span>
         <span className="text-taiga-grey-light text-xs">
           {expanded ? '▲ Collapse' : '▼ Expand'}
         </span>
@@ -78,7 +79,7 @@ export function WikiHistory({ wikiId }: { wikiId: number | undefined }) {
           {isLoading ? (
             <p className="text-sm text-taiga-grey-light">Loading history…</p>
           ) : (
-            entries.map((entry: HistoryEntry) => (
+            entries!.map((entry: HistoryEntry) => (
               <HistoryEntryRow key={entry.id} entry={entry} />
             ))
           )}

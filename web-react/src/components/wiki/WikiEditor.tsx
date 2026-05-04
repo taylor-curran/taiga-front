@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { marked } from 'marked';
 import { sanitizeHtml } from '@/lib/sanitize';
 
@@ -22,7 +22,7 @@ export function WikiEditor({
     setContent(initialContent);
   }, [initialContent]);
 
-  const html = useCallback(() => {
+  const html = useMemo(() => {
     return sanitizeHtml(marked.parse(content) as string);
   }, [content]);
 
@@ -50,7 +50,7 @@ export function WikiEditor({
       {preview ? (
         <div
           className="prose max-w-none text-sm min-h-[200px] p-3 border border-taiga-grey-lighter rounded bg-white"
-          dangerouslySetInnerHTML={{ __html: html() }}
+          dangerouslySetInnerHTML={{ __html: html }}
         />
       ) : (
         <textarea

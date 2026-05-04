@@ -38,6 +38,7 @@ export function WikiPageView() {
   const isNew = !isLoading && !wiki;
   useEffect(() => {
     if (isNew && canAdd) setEditing(true);
+    else if (!isNew) setEditing(false);
   }, [isNew, canAdd]);
 
   const html = useMemo(() => {
