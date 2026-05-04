@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useMemo } from 'react';
+import { useState, useCallback, useEffect, useMemo, useRef } from 'react';
 import { useCurrentProject } from '@/hooks/useCurrentProject';
 import { useKanbanStories, useSwimlanes, usePatchUserStory } from '@/services/kanban';
 import { useEpics } from '@/services/epics';
@@ -24,10 +24,25 @@ export function KanbanPage() {
   const [localOverrides, setLocalOverrides] = useState<Map<number, Partial<UserStory>>>(
     new Map(),
   );
+  // Track story IDs with in-flight mutations to preserve their overrides on refetch
+  const pendingMutations = useRef(new Set<number>());
 
-  // Clear optimistic overrides once the server provides fresh data
+  // Clear optimistic overrides once the server provides fresh data,
+  // but keep overrides for stories with in-flight mutations
   useEffect(() => {
-    setLocalOverrides(new Map());
+    if (pendingMutations.current.size === 0) {
+      setLocalOverrides(new Map());
+    } else {
+      setLocalOverrides((prev) => {
+        const next = new Map<number, Partial<UserStory>>();
+        for (const [id, override] of prev) {
+          if (pendingMutations.current.has(id)) {
+            next.set(id, override);
+          }
+        }
+        return next;
+      });
+    }
   }, [serverStories]);
 
   const stories = useMemo(() => {
@@ -131,6 +146,7 @@ export function KanbanPage() {
           swimlanes={swimlanes ?? []}
           onStoriesChange={handleStoriesChange}
           onQuickEdit={handleQuickEdit}
+          pendingMutations={pendingMutations}
         />
       </div>
     </div>

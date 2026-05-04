@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, type MutableRefObject } from 'react';
 import {
   DndContext,
   DragOverlay,
@@ -24,6 +24,7 @@ interface KanbanBoardProps {
   swimlanes: Swimlane[];
   onStoriesChange: (updater: (prev: UserStory[]) => UserStory[]) => void;
   onQuickEdit: (story: UserStory, field: string, value: unknown) => void;
+  pendingMutations?: MutableRefObject<Set<number>>;
 }
 
 export function KanbanBoard({
@@ -32,6 +33,7 @@ export function KanbanBoard({
   swimlanes,
   onStoriesChange,
   onQuickEdit,
+  pendingMutations,
 }: KanbanBoardProps) {
   const zoom = useKanbanStore((s) => s.zoom);
   const filters = useKanbanStore((s) => s.filters);
@@ -211,8 +213,11 @@ export function KanbanBoard({
         ? targetStories[insertIndex].id
         : null;
 
+      // Compute a unique order value between neighbors to avoid collisions
       const newOrder = insertIndex < targetStories.length
-        ? (targetStories[insertIndex].kanban_order ?? 0)
+        ? (insertIndex > 0
+          ? ((targetStories[insertIndex - 1].kanban_order ?? 0) + (targetStories[insertIndex].kanban_order ?? 0)) / 2
+          : (targetStories[insertIndex].kanban_order ?? 0) - 1)
         : targetStories.length > 0
           ? (targetStories[targetStories.length - 1].kanban_order ?? 0) + 1
           : 0;
@@ -231,17 +236,28 @@ export function KanbanBoard({
         ),
       );
 
+      // Track in-flight mutation so Kanban.tsx preserves its override on refetch
+      const storyId = draggedStory.id;
+      pendingMutations?.current.add(storyId);
+
       // Persist via bulk endpoint matching the AngularJS API contract
-      bulkUpdate.mutate({
-        projectId: project.id,
-        statusId: newStatusId,
-        swimlaneId: newSwimlaneId,
-        afterUserstoryId,
-        beforeUserstoryId,
-        bulkUserstories: [{ us_id: draggedStory.id, order: newOrder }],
-      });
+      bulkUpdate.mutate(
+        {
+          projectId: project.id,
+          statusId: newStatusId,
+          swimlaneId: newSwimlaneId,
+          afterUserstoryId,
+          beforeUserstoryId,
+          bulkUserstories: [{ us_id: storyId, order: newOrder }],
+        },
+        {
+          onSettled: () => {
+            pendingMutations?.current.delete(storyId);
+          },
+        },
+      );
     },
-    [stories, onStoriesChange, bulkUpdate, project.id, findContainerForStory],
+    [stories, onStoriesChange, bulkUpdate, project.id, findContainerForStory, pendingMutations],
   );
 
   return (
