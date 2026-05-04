@@ -331,7 +331,7 @@ function UserStoriesTable({
               </Link>
             </div>
             <div className="text-center text-xs text-taiga-grey truncate">
-              {us.milestone_name ? (
+              {us.milestone_name && us.milestone_slug ? (
                 <Link
                   to={`/project/${projectSlug}/taskboard/${us.milestone_slug}`}
                   className="text-taiga-link"
