@@ -92,6 +92,12 @@ export function SearchPage() {
 
   const { data, isLoading, error } = useSearch(project.id, debouncedText);
 
+  // Reset auto-tab when query changes (must run before auto-select effect
+  // so cached query hits still trigger tab selection)
+  useEffect(() => {
+    autoTabApplied.current = false;
+  }, [debouncedText]);
+
   // Auto-select the tab with the most results on first search
   useEffect(() => {
     if (data && data.count > 0) {
@@ -101,11 +107,6 @@ export function SearchPage() {
       }
     }
   }, [data]);
-
-  // Reset auto-tab when query changes
-  useEffect(() => {
-    autoTabApplied.current = false;
-  }, [debouncedText]);
 
   const handleTabClick = useCallback((key: TabKey) => {
     setActiveTab(key);
