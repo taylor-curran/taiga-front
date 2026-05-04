@@ -54,8 +54,9 @@ export function DiscoverSearchPage() {
   const doSearch = useCallback(async (q: string, f: FilterKey, ob: string, p: number, append: boolean) => {
     if (!q) return;
     const gen = ++generationRef.current;
-    const setter = append ? setLoadingMore : setLoading;
-    setter(true);
+    // Reset both loading flags so a superseded request never leaves one stuck.
+    setLoading(!append);
+    setLoadingMore(append);
     setError(null);
     try {
       const params: DiscoverParams = {
@@ -73,7 +74,8 @@ export function DiscoverSearchPage() {
       setError(err);
     } finally {
       if (gen === generationRef.current) {
-        setter(false);
+        if (append) setLoadingMore(false);
+        else setLoading(false);
       }
     }
   }, []);
@@ -181,7 +183,7 @@ export function DiscoverSearchPage() {
       )}
       {loading && <Loading />}
       {error && <ErrorBox error={error} />}
-      {!loading && activeQuery && results.length === 0 && (
+      {!loading && !error && activeQuery && results.length === 0 && (
         <Empty title="No matches" message={`Nothing matched "${activeQuery}".`} />
       )}
       {results.length > 0 && (
