@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/api';
+import { useAuth } from '@/lib/auth';
 import type {
   DiscoverProject,
   Milestone,
@@ -7,9 +8,13 @@ import type {
   ProjectSummary,
 } from '@/types/api';
 
-export async function fetchMyProjects(): Promise<ProjectSummary[]> {
+// Taiga's `/projects` endpoint requires a numeric user id for the `member`
+// filter — `member=me` returns HTTP 400. The legacy AngularJS app passes the
+// authenticated user's `id` (see app/coffee/modules/resources/projects.coffee
+// `service.listByMember`).
+export async function fetchProjectsByMember(memberId: number): Promise<ProjectSummary[]> {
   const res = await api.get<ProjectSummary[]>('projects', {
-    params: { member: 'me', order_by: 'memberships__user_order' },
+    params: { member: memberId, order_by: 'memberships__user_order' },
   });
   return res.data;
 }
@@ -59,7 +64,12 @@ export async function fetchMilestoneBySlug(
 }
 
 export function useMyProjects() {
-  return useQuery({ queryKey: ['projects', 'mine'], queryFn: fetchMyProjects });
+  const userId = useAuth((s) => s.user?.id);
+  return useQuery({
+    queryKey: ['projects', 'mine', userId],
+    queryFn: () => fetchProjectsByMember(userId as number),
+    enabled: !!userId,
+  });
 }
 
 export function useProjectBySlug(slug: string | undefined) {
