@@ -96,31 +96,31 @@ export function AppShell() {
         {mobileOpen && (
           <nav className="tablet:hidden border-t border-gray-300 bg-white px-4 py-2 space-y-1">
             <NavLink to="/" end className={({ isActive }) => clsx('nav-link', isActive && 'nav-link-active')} onClick={() => setMobileOpen(false)}>
-              Home
+              {t('COMMON.GO_HOME', 'Home')}
             </NavLink>
             <NavLink to="/projects/" className={({ isActive }) => clsx('nav-link', isActive && 'nav-link-active')} onClick={() => setMobileOpen(false)}>
-              Projects
+              {t('PROJECT.SECTION_NAME', 'Projects')}
             </NavLink>
             <NavLink to="/discover" className={({ isActive }) => clsx('nav-link', isActive && 'nav-link-active')} onClick={() => setMobileOpen(false)}>
-              Discover
+              {t('DISCOVER.PAGE_TITLE', 'Discover')}
             </NavLink>
             {user && (
               <>
                 <Link to="/notifications" className="nav-link" onClick={() => setMobileOpen(false)}>
-                  Notifications
+                  {t('NOTIFICATIONS.TITLE', 'Notifications')}
                 </Link>
                 <Link to="/user-settings/user-profile" className="nav-link" onClick={() => setMobileOpen(false)}>
-                  Settings
+                  {t('USER_SETTINGS.PAGE_TITLE', 'Settings')}
                 </Link>
                 <LanguageSwitcher />
                 <button className="nav-link text-link-red w-full text-left" onClick={() => { handleLogout(); setMobileOpen(false); }}>
-                  Sign out
+                  {t('COMMON.LOGOUT', 'Sign out')}
                 </button>
               </>
             )}
             {!user && (
               <Link to="/login" className="btn-primary text-sm w-full" onClick={() => setMobileOpen(false)}>
-                Sign in
+                {t('LOGIN.TITLE', 'Sign in')}
               </Link>
             )}
           </nav>
