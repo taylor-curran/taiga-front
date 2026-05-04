@@ -49,7 +49,7 @@ function scheduleReconnect(): void {
   _reconnectTimer = setTimeout(() => {
     _reconnectTimer = null;
     if (_subscriptions.length > 0 && !_closed) {
-      void open();
+      void open().catch(() => { /* reconnect will be scheduled by onclose */ });
     }
   }, getReconnectInterval());
 }

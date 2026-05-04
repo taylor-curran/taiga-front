@@ -66,17 +66,21 @@ export async function changeLanguage(lng: string): Promise<void> {
 export async function initI18n(): Promise<void> {
   const lng = getSavedLocale();
 
-  await i18n.use(initReactI18next).init({
-    lng,
-    fallbackLng: 'en',
-    interpolation: { escapeValue: false },
-    returnNull: false,
-    react: { useSuspense: false },
-  });
+  try {
+    await i18n.use(initReactI18next).init({
+      lng,
+      fallbackLng: 'en',
+      interpolation: { escapeValue: false },
+      returnNull: false,
+      react: { useSuspense: false },
+    });
 
-  await loadLocale(lng);
-  if (lng !== 'en') {
-    await loadLocale('en');
+    await loadLocale(lng);
+    if (lng !== 'en') {
+      await loadLocale('en');
+    }
+  } catch (err) {
+    console.error('i18n init failed, continuing without translations:', err);
   }
 }
 
