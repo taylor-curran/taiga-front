@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 import { useCurrentProject } from '@/hooks/useCurrentProject';
@@ -76,6 +76,17 @@ export function IssueDetailPage() {
   const [descriptionDraft, setDescriptionDraft] = useState('');
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [showPromoteConfirm, setShowPromoteConfirm] = useState(false);
+
+  useEffect(() => {
+    setEditingSubject(false);
+    setSubjectDraft('');
+    setEditingDescription(false);
+    setDescriptionDraft('');
+    setShowDeleteConfirm(false);
+    setShowPromoteConfirm(false);
+    setComment('');
+    setIsSubmittingComment(false);
+  }, [ref]);
 
   // Status change
   const handleStatusChange = useCallback(
