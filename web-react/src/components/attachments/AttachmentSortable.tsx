@@ -37,7 +37,8 @@ export function AttachmentSortable({
       }
       const items = [...attachments];
       const [moved] = items.splice(dragIdx, 1);
-      items.splice(dropIdx, 0, moved);
+      const adjustedIdx = dropIdx > dragIdx ? dropIdx - 1 : dropIdx;
+      items.splice(adjustedIdx, 0, moved);
       onReorder(items);
       setDragIdx(null);
       setOverIdx(null);

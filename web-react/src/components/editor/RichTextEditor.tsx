@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import clsx from 'clsx';
 import DOMPurify from 'dompurify';
 import { marked } from 'marked';
@@ -157,8 +157,8 @@ export function RichTextEditor({
     setMentionQuery(null);
   };
 
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
+  const handleMentionKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       if (mentionQuery === null || !filteredMembers?.length) return;
       if (e.key === 'ArrowDown') {
         e.preventDefault();
@@ -173,11 +173,10 @@ export function RichTextEditor({
       } else if (e.key === 'Escape') {
         setMentionQuery(null);
       }
-    };
-    document.addEventListener('keydown', handler);
-    return () => document.removeEventListener('keydown', handler);
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mentionQuery, mentionIdx, filteredMembers]);
+    [mentionQuery, mentionIdx, filteredMembers],
+  );
 
   return (
     <div className={clsx('border border-taiga-grey-lighter rounded', className)}>
@@ -213,6 +212,7 @@ export function RichTextEditor({
             ref={textareaRef}
             value={value}
             onChange={(e) => handleTextChange(e.target.value)}
+            onKeyDown={handleMentionKeyDown}
             placeholder={placeholder}
             style={{ minHeight }}
             className="w-full px-3 py-2 text-sm resize-y focus:outline-none bg-transparent"
