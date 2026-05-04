@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useEffect, useState } from 'react';
+import { FormEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { fetchDiscoverProjects } from '@/services/projects';
 import type { DiscoverParams } from '@/services/projects';
@@ -48,8 +48,12 @@ export function DiscoverSearchPage() {
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<unknown>(null);
 
+  // Generation counter to discard stale responses from superseded requests.
+  const generationRef = useRef(0);
+
   const doSearch = useCallback(async (q: string, f: FilterKey, ob: string, p: number, append: boolean) => {
     if (!q) return;
+    const gen = ++generationRef.current;
     const setter = append ? setLoadingMore : setLoading;
     setter(true);
     setError(null);
@@ -61,12 +65,16 @@ export function DiscoverSearchPage() {
         ...(ob ? { order_by: ob } : {}),
       };
       const res = await fetchDiscoverProjects(params);
+      if (gen !== generationRef.current) return; // stale response
       setResults((prev) => append ? [...prev, ...res.data] : res.data);
       setHasNext(res.hasNext);
     } catch (err) {
+      if (gen !== generationRef.current) return; // stale error
       setError(err);
     } finally {
-      setter(false);
+      if (gen === generationRef.current) {
+        setter(false);
+      }
     }
   }, []);
 

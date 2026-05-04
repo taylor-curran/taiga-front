@@ -91,7 +91,7 @@ export function DiscoverPage() {
       {/* Content */}
       {isLoading && <Loading />}
       {error && <ErrorBox error={error} />}
-      {!isLoading && projects.length === 0 && (
+      {!isLoading && !error && projects.length === 0 && (
         <Empty title="No public projects found" />
       )}
       {projects.length > 0 && (
