@@ -153,7 +153,7 @@ export function disconnect(): void {
   _heartbeat = null;
 }
 
-export function useProjectEvents(
+export function subscribeToProjectEvents(
   projectId: number | undefined,
   listener: Listener,
 ): () => void {
