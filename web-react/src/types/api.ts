@@ -36,19 +36,38 @@ export interface ProjectSummary {
   total_story_points?: number;
   default_points?: number;
   total_fans?: number;
+  total_fans_last_week?: number;
+  total_fans_last_month?: number;
+  total_fans_last_year?: number;
   total_watchers?: number;
+  total_activity?: number;
+  total_activity_last_week?: number;
+  total_activity_last_month?: number;
+  total_activity_last_year?: number;
+  is_fan?: boolean;
+  is_watcher?: boolean;
   is_kanban_activated?: boolean;
   is_backlog_activated?: boolean;
   is_wiki_activated?: boolean;
   is_issues_activated?: boolean;
   is_epics_activated?: boolean;
+  is_featured?: boolean;
+  is_looking_for_people?: boolean;
+  looking_for_people_note?: string;
   logo_small_url?: string | null;
   logo_big_url?: string | null;
   tags?: string[] | null;
+  colorized_tags?: { name: string; color: string }[];
+  members?: Membership[];
+  i_am_member?: boolean;
+  i_am_owner?: boolean;
+  blocked_code?: string | null;
+  my_homepage?: string;
+  created_date?: string;
+  modified_date?: string;
 }
 
 export interface ProjectDetail extends ProjectSummary {
-  members?: Membership[];
   us_statuses?: ProjectStatus[];
   task_statuses?: ProjectStatus[];
   issue_statuses?: ProjectStatus[];
@@ -59,11 +78,12 @@ export interface ProjectDetail extends ProjectSummary {
   points?: { id: number; name: string; value?: number | null; order?: number }[];
   total_milestones?: number;
   is_admin?: boolean;
-  i_am_owner?: boolean;
-  i_am_member?: boolean;
   i_am_admin?: boolean;
   my_permissions?: string[];
   total_story_points?: number;
+  total_closed_milestones?: number;
+  total_memberships?: number;
+  roles?: { id: number; name: string; order?: number; computable?: boolean }[];
 }
 
 export interface UserStory {
@@ -74,7 +94,7 @@ export interface UserStory {
   status_extra_info?: { name?: string; color?: string; is_closed?: boolean };
   is_closed?: boolean;
   assigned_to?: number | null;
-  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null };
+  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null; username?: string };
   total_points?: number | null;
   total_comments?: number;
   finish_date?: string | null;
@@ -82,7 +102,7 @@ export interface UserStory {
   milestone_name?: string | null;
   milestone_slug?: string | null;
   project?: number;
-  project_extra_info?: { id: number; slug: string; name: string };
+  project_extra_info?: { id: number; slug: string; name: string; logo_small_url?: string | null };
   tags?: ([string, string | null] | string)[] | null;
   is_blocked?: boolean;
   blocked_note?: string | null;
@@ -102,15 +122,20 @@ export interface Task {
   status_extra_info?: { name?: string; color?: string };
   is_closed?: boolean;
   assigned_to?: number | null;
-  assigned_to_extra_info?: { full_name_display?: string };
+  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null; username?: string };
   user_story?: number | null;
   user_story_extra_info?: { ref: number; subject: string };
   milestone?: number | null;
   is_iocaine?: boolean;
+  is_blocked?: boolean;
+  blocked_note?: string | null;
   description?: string;
   description_html?: string;
   tags?: ([string, string | null] | string)[] | null;
   total_comments?: number;
+  project?: number;
+  project_extra_info?: { id: number; slug: string; name: string; logo_small_url?: string | null };
+  modified_date?: string;
 }
 
 export interface Issue {
@@ -123,12 +148,17 @@ export interface Issue {
   severity: number;
   type: number;
   is_closed?: boolean;
+  is_blocked?: boolean;
+  blocked_note?: string | null;
   assigned_to?: number | null;
-  assigned_to_extra_info?: { full_name_display?: string };
+  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null; username?: string };
   description?: string;
   description_html?: string;
   total_comments?: number;
   tags?: ([string, string | null] | string)[] | null;
+  project?: number;
+  project_extra_info?: { id: number; slug: string; name: string; logo_small_url?: string | null };
+  modified_date?: string;
 }
 
 export interface Epic {
@@ -138,13 +168,18 @@ export interface Epic {
   status: number;
   status_extra_info?: { name?: string; color?: string };
   is_closed?: boolean;
+  is_blocked?: boolean;
+  blocked_note?: string | null;
   assigned_to?: number | null;
-  assigned_to_extra_info?: { full_name_display?: string };
+  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null; username?: string };
   description?: string;
   description_html?: string;
   color?: string;
   user_stories_counts?: { progress?: number; total?: number };
   total_comments?: number;
+  project?: number;
+  project_extra_info?: { id: number; slug: string; name: string; logo_small_url?: string | null };
+  modified_date?: string;
 }
 
 export interface Milestone {
@@ -186,7 +221,34 @@ export interface Notification {
 }
 
 export interface DiscoverProject extends ProjectSummary {
-  total_activity?: number;
+}
+
+export interface ProjectStats {
+  name?: string;
+  total_milestones?: number;
+  total_points?: number;
+  closed_points?: number;
+  defined_points?: number;
+  assigned_points?: number;
+  speed?: number;
+}
+
+export interface DiscoverStats {
+  projects?: { total?: number };
+}
+
+export interface DutyItem {
+  id: number;
+  ref: number;
+  subject: string;
+  status_extra_info?: { name?: string; color?: string };
+  is_blocked?: boolean;
+  blocked_note?: string | null;
+  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null };
+  project?: number;
+  project_extra_info?: { id: number; slug: string; name: string; logo_small_url?: string | null };
+  modified_date?: string;
+  _type: 'userstory' | 'task' | 'issue' | 'epic';
 }
 
 export interface ApiError {

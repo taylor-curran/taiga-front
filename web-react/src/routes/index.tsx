@@ -8,6 +8,13 @@ import { HomePage } from '@/pages/Home';
 import { DiscoverPage } from '@/pages/Discover';
 import { DiscoverSearchPage } from '@/pages/DiscoverSearch';
 import { ProjectsListPage } from '@/pages/ProjectsList';
+import {
+  NewProjectPage,
+  NewProjectScrumPage,
+  NewProjectKanbanPage,
+  DuplicateProjectPage,
+  ImportProjectPage,
+} from '@/pages/ProjectNew';
 import { ProfilePage } from '@/pages/Profile';
 import { NotificationsPage } from '@/pages/Notifications';
 import { UserSettingsLayout, UserProfileSettings } from '@/pages/UserSettings';
@@ -45,11 +52,7 @@ import { NotPorted } from '@/components/common/NotPorted';
 const placeholder = (area: string, legacyRoute: string) => () =>
   <NotPorted area={area} legacyRoute={legacyRoute} />;
 
-const NewProject = placeholder('Project · new', '/project/new');
-const NewProjectScrum = placeholder('Project · new (Scrum)', '/project/new/scrum');
-const NewProjectKanban = placeholder('Project · new (Kanban)', '/project/new/kanban');
-const NewProjectDuplicate = placeholder('Project · duplicate', '/project/new/duplicate');
-const NewProjectImport = placeholder('Project · import', '/project/new/import/:platform?');
+
 const ProjectTransfer = placeholder('Project · transfer', '/project/:pslug/transfer/:token');
 const TaskboardLegacy = placeholder('Project · task by ref (legacy)', '/project/:pslug/t/:ref');
 
@@ -101,11 +104,11 @@ const routes: RouteObject[] = [
       { path: 'projects/', element: <ProjectsListPage /> },
 
       // New project flows
-      { path: 'project/new', element: <NewProject /> },
-      { path: 'project/new/scrum', element: <NewProjectScrum /> },
-      { path: 'project/new/kanban', element: <NewProjectKanban /> },
-      { path: 'project/new/duplicate', element: <NewProjectDuplicate /> },
-      { path: 'project/new/import/:platform?', element: <NewProjectImport /> },
+      { path: 'project/new', element: <RequireAuth><NewProjectPage /></RequireAuth> },
+      { path: 'project/new/scrum', element: <RequireAuth><NewProjectScrumPage /></RequireAuth> },
+      { path: 'project/new/kanban', element: <RequireAuth><NewProjectKanbanPage /></RequireAuth> },
+      { path: 'project/new/duplicate', element: <RequireAuth><DuplicateProjectPage /></RequireAuth> },
+      { path: 'project/new/import/:platform?', element: <RequireAuth><ImportProjectPage /></RequireAuth> },
 
       // Profile / notifications
       { path: 'profile', element: <RequireAuth><ProfilePage /></RequireAuth> },
