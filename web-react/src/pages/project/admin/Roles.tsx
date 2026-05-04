@@ -232,7 +232,7 @@ function RoleItem({
 }) {
   return (
     <div
-      className={`flex items-center justify-between px-3 py-2 rounded cursor-pointer transition-colors ${
+      className={`group flex items-center justify-between px-3 py-2 rounded cursor-pointer transition-colors ${
         isSelected ? 'bg-taiga-green-dark/10 text-taiga-green-dark' : 'hover:bg-taiga-bg'
       }`}
       onClick={onSelect}
