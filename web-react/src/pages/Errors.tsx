@@ -5,7 +5,7 @@ export function ErrorPage({ status = 500, message }: { status?: number; message?
   const { t } = useTranslation();
   const defaultMessage =
     status === 404
-      ? t('ERROR.NOT_FOUND', "The page you're looking for doesn't exist.")
+      ? t('ERROR.NOT_FOUND_TEXT', "The page you're looking for doesn't exist.")
       : status === 403
         ? t('ERROR.FORBIDDEN', 'You do not have permission to access this resource.')
         : t('ERROR.DEFAULT', 'An unexpected error occurred.');

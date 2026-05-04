@@ -50,7 +50,7 @@ export function AppShell() {
               {t('PROJECT.SECTION_NAME', 'Projects')}
             </NavLink>
             <NavLink to="/discover" className={({ isActive }) => clsx('nav-link', isActive && 'nav-link-active')}>
-              {t('DISCOVER.PAGE_TITLE', 'Discover')}
+              {t('PROJECT.NAVIGATION.DISCOVER', 'Discover')}
             </NavLink>
 
             {/* Project switcher */}
@@ -102,7 +102,7 @@ export function AppShell() {
               {t('PROJECT.SECTION_NAME', 'Projects')}
             </NavLink>
             <NavLink to="/discover" className={({ isActive }) => clsx('nav-link', isActive && 'nav-link-active')} onClick={() => setMobileOpen(false)}>
-              {t('DISCOVER.PAGE_TITLE', 'Discover')}
+              {t('PROJECT.NAVIGATION.DISCOVER', 'Discover')}
             </NavLink>
             {user && (
               <>
