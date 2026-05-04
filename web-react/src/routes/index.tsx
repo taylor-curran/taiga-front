@@ -11,7 +11,7 @@ import { ProjectsListPage } from '@/pages/ProjectsList';
 import { ProfilePage } from '@/pages/Profile';
 import { NotificationsPage } from '@/pages/Notifications';
 import { UserSettingsLayout, UserProfileSettings } from '@/pages/UserSettings';
-import { ErrorPage, NotFoundPage, BlockedProjectPage } from '@/pages/Errors';
+import { ErrorPage, NotFoundPage, ForbiddenPage, BlockedProjectPage } from '@/pages/Errors';
 
 import { LoginPage } from '@/pages/auth/Login';
 import { RegisterPage } from '@/pages/auth/Register';
@@ -219,6 +219,7 @@ const routes: RouteObject[] = [
       { path: 'blocked-project/:pslug/', element: <BlockedProjectPage /> },
       { path: 'error', element: <ErrorPage /> },
       { path: 'not-found', element: <NotFoundPage /> },
+      { path: 'forbidden', element: <ForbiddenPage /> },
     ],
   },
 
