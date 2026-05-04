@@ -5,6 +5,7 @@ import { useTasks } from '@/services/tasks';
 import { Loading } from '@/components/common/Loading';
 import { ErrorBox } from '@/components/common/ErrorBox';
 import { Tags } from '@/components/common/Tags';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 export function USDetailPage() {
   const project = useCurrentProject();
@@ -37,7 +38,7 @@ export function USDetailPage() {
       {us.description_html ? (
         <div
           className="prose max-w-none text-sm"
-          dangerouslySetInnerHTML={{ __html: us.description_html }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(us.description_html) }}
         />
       ) : us.description ? (
         <p className="whitespace-pre-wrap text-sm">{us.description}</p>

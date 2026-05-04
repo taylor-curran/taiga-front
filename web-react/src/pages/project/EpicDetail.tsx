@@ -6,6 +6,7 @@ import { fetchEpicUserStories } from '@/services/epics';
 import { Loading } from '@/components/common/Loading';
 import { ErrorBox } from '@/components/common/ErrorBox';
 import { Empty } from '@/components/common/Empty';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 export function EpicDetailPage() {
   const project = useCurrentProject();
@@ -35,7 +36,7 @@ export function EpicDetailPage() {
       {epic.description_html ? (
         <div
           className="prose max-w-none text-sm"
-          dangerouslySetInnerHTML={{ __html: epic.description_html }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(epic.description_html) }}
         />
       ) : epic.description ? (
         <p className="whitespace-pre-wrap text-sm">{epic.description}</p>

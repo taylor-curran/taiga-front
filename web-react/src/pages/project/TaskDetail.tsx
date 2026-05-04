@@ -4,6 +4,7 @@ import { useTaskByRef } from '@/services/tasks';
 import { Loading } from '@/components/common/Loading';
 import { ErrorBox } from '@/components/common/ErrorBox';
 import { Tags } from '@/components/common/Tags';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 export function TaskDetailPage() {
   const project = useCurrentProject();
@@ -40,7 +41,7 @@ export function TaskDetailPage() {
       {task.description_html ? (
         <div
           className="prose max-w-none text-sm"
-          dangerouslySetInnerHTML={{ __html: task.description_html }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(task.description_html) }}
         />
       ) : task.description ? (
         <p className="whitespace-pre-wrap text-sm">{task.description}</p>

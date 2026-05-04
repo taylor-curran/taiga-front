@@ -4,6 +4,7 @@ import { useIssueByRef } from '@/services/issues';
 import { Loading } from '@/components/common/Loading';
 import { ErrorBox } from '@/components/common/ErrorBox';
 import { Tags } from '@/components/common/Tags';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 export function IssueDetailPage() {
   const project = useCurrentProject();
@@ -35,7 +36,7 @@ export function IssueDetailPage() {
       {issue.description_html ? (
         <div
           className="prose max-w-none text-sm"
-          dangerouslySetInnerHTML={{ __html: issue.description_html }}
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(issue.description_html) }}
         />
       ) : issue.description ? (
         <p className="whitespace-pre-wrap text-sm">{issue.description}</p>

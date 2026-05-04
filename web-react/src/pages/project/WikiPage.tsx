@@ -5,6 +5,7 @@ import { useCurrentProject } from '@/hooks/useCurrentProject';
 import { useWikiPageBySlug } from '@/services/wiki';
 import { Loading } from '@/components/common/Loading';
 import { Empty } from '@/components/common/Empty';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 export function WikiPageView() {
   const project = useCurrentProject();
@@ -13,8 +14,8 @@ export function WikiPageView() {
 
   const html = useMemo(() => {
     if (!data) return '';
-    if (data.html) return data.html;
-    if (data.content) return marked.parse(data.content) as string;
+    if (data.html) return sanitizeHtml(data.html);
+    if (data.content) return sanitizeHtml(marked.parse(data.content) as string);
     return '';
   }, [data]);
 
