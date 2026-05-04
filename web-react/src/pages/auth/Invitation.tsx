@@ -31,8 +31,9 @@ export function InvitationPage() {
 
   const [invitation, setInvitation] = useState<InvitationData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const [acceptError, setAcceptError] = useState<string | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
 
   // Login form
   const [loginUsername, setLoginUsername] = useState('');
@@ -61,15 +62,15 @@ export function InvitationPage() {
           setRegisterForm((prev) => ({ ...prev, email: res.data.email }));
         }
       })
-      .catch(() => setError('Invalid or expired invitation.'))
+      .catch(() => setFetchError('Invalid or expired invitation.'))
       .finally(() => setLoading(false));
   }, [token]);
 
   if (loading) return <Loading />;
-  if (error || !invitation) {
+  if (fetchError || !invitation) {
     return (
       <div className="card p-8 max-w-md mx-auto">
-        <ErrorBox message={error || 'Invitation not found.'} />
+        <ErrorBox message={fetchError || 'Invitation not found.'} />
         <Link to="/login" className="btn-primary mt-4 inline-block text-center">
           Go to login
         </Link>
@@ -115,7 +116,7 @@ export function InvitationPage() {
   async function handleLogin(e: FormEvent) {
     e.preventDefault();
     if (!invitation) return;
-    setError(null);
+    setFormError(null);
     setLoginSubmitting(true);
     try {
       const res = await api.post('auth', {
@@ -132,7 +133,7 @@ export function InvitationPage() {
       const detail =
         (err as { response?: { data?: { _error_message?: string } } })?.response?.data
           ?._error_message || 'Login failed.';
-      setError(detail);
+      setFormError(detail);
     } finally {
       setLoginSubmitting(false);
     }
@@ -141,7 +142,7 @@ export function InvitationPage() {
   async function handleRegister(e: FormEvent) {
     e.preventDefault();
     if (!invitation) return;
-    setError(null);
+    setFormError(null);
     setRegisterSubmitting(true);
     try {
       const res = await api.post('auth/register', {
@@ -157,7 +158,7 @@ export function InvitationPage() {
       const detail =
         (err as { response?: { data?: { _error_message?: string } } })?.response?.data
           ?._error_message || 'Registration failed.';
-      setError(detail);
+      setFormError(detail);
     } finally {
       setRegisterSubmitting(false);
     }
@@ -178,7 +179,7 @@ export function InvitationPage() {
         <p className="text-lg font-semibold">{invitation.project_name}</p>
       </div>
 
-      {error && <ErrorBox message={error} />}
+      {formError && <ErrorBox message={formError} />}
 
       <div className="flex gap-2 border-b border-taiga-grey-lighter">
         <button
