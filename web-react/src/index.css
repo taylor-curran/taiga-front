@@ -60,7 +60,7 @@
 
   /* ---------- Toast ---------- */
   .toast {
-    @apply fixed bottom-4 right-4 z-toast px-4 py-3 rounded-taiga shadow-taiga-lg text-sm font-medium animate-slide-up;
+    @apply px-4 py-3 rounded-taiga shadow-taiga-lg text-sm font-medium animate-slide-up;
   }
   .toast-success {
     @apply toast bg-link-green text-white;
