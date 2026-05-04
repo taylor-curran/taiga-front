@@ -44,7 +44,7 @@ export function DiscoverSearchPage() {
   const [results, setResults] = useState<DiscoverProject[]>([]);
   const [hasNext, setHasNext] = useState(false);
   const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(!!initialQ);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<unknown>(null);
 
@@ -84,6 +84,10 @@ export function DiscoverSearchPage() {
     if (activeQuery) {
       setPage(1);
       doSearch(activeQuery, filter, orderBy, 1, false);
+    } else {
+      setResults([]);
+      setHasNext(false);
+      setError(null);
     }
   }, [activeQuery, filter, orderBy, doSearch]);
 
