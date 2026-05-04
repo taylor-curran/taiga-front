@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { ProjectDetail } from '@/types/api';
 
 interface BulkActionsBarProps {
@@ -19,6 +19,10 @@ export function BulkActionsBar({
   onClear,
 }: BulkActionsBarProps) {
   const [confirmDelete, setConfirmDelete] = useState(false);
+
+  useEffect(() => {
+    setConfirmDelete(false);
+  }, [count]);
 
   const statuses = project.issue_statuses ?? [];
   const members = project.members ?? [];

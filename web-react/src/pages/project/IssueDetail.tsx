@@ -170,23 +170,33 @@ export function IssueDetailPage() {
   // Vote
   const handleVote = useCallback(async () => {
     if (!issue) return;
-    if (issue.is_voter) {
-      await downvoteIssue(issue.id);
-    } else {
-      await upvoteIssue(issue.id);
+    try {
+      if (issue.is_voter) {
+        await downvoteIssue(issue.id);
+      } else {
+        await upvoteIssue(issue.id);
+      }
+    } catch (err) {
+      console.error('Vote failed:', err);
+    } finally {
+      qc.invalidateQueries({ queryKey: ['issue'] });
     }
-    qc.invalidateQueries({ queryKey: ['issue'] });
   }, [issue, qc]);
 
   // Watch
   const handleWatch = useCallback(async () => {
     if (!issue) return;
-    if (issue.is_watcher) {
-      await unwatchIssue(issue.id);
-    } else {
-      await watchIssue(issue.id);
+    try {
+      if (issue.is_watcher) {
+        await unwatchIssue(issue.id);
+      } else {
+        await watchIssue(issue.id);
+      }
+    } catch (err) {
+      console.error('Watch failed:', err);
+    } finally {
+      qc.invalidateQueries({ queryKey: ['issue'] });
     }
-    qc.invalidateQueries({ queryKey: ['issue'] });
   }, [issue, qc]);
 
   // Delete
@@ -215,19 +225,29 @@ export function IssueDetailPage() {
   const handleFileUpload = useCallback(
     async (e: React.ChangeEvent<HTMLInputElement>) => {
       if (!issue || !e.target.files?.length) return;
-      for (const file of Array.from(e.target.files)) {
-        await uploadIssueAttachment(project.id, issue.id, file);
+      try {
+        for (const file of Array.from(e.target.files)) {
+          await uploadIssueAttachment(project.id, issue.id, file);
+        }
+      } catch (err) {
+        console.error('File upload failed:', err);
+      } finally {
+        qc.invalidateQueries({ queryKey: ['issue', 'attachments'] });
+        e.target.value = '';
       }
-      qc.invalidateQueries({ queryKey: ['issue', 'attachments'] });
-      e.target.value = '';
     },
     [issue, project.id, qc],
   );
 
   const handleDeleteAttachment = useCallback(
     async (attachId: number) => {
-      await deleteIssueAttachment(attachId);
-      qc.invalidateQueries({ queryKey: ['issue', 'attachments'] });
+      try {
+        await deleteIssueAttachment(attachId);
+      } catch (err) {
+        console.error('Delete attachment failed:', err);
+      } finally {
+        qc.invalidateQueries({ queryKey: ['issue', 'attachments'] });
+      }
     },
     [qc],
   );
