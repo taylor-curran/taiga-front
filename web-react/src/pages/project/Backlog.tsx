@@ -238,7 +238,7 @@ export function BacklogPage() {
     ? allStories.find((s) => s.id === Number(activeId.replace('us-', '')))
     : null;
 
-  if (backlogStoriesQuery.isLoading && milestonesQuery.isLoading) return <Loading />;
+  if (backlogStoriesQuery.isLoading || milestonesQuery.isLoading) return <Loading />;
   if (backlogStoriesQuery.error) return <ErrorBox error={backlogStoriesQuery.error} />;
 
   return (
@@ -254,7 +254,7 @@ export function BacklogPage() {
           <div className="flex items-baseline gap-3">
             <h1 className="text-2xl font-semibold text-taiga-text">Backlog</h1>
             <span className="text-sm text-taiga-grey-light">
-              {backlogStories.length} stories \u00B7 {totalBacklogPoints} points
+              {backlogStories.length} stories {'\u00B7'} {totalBacklogPoints} points
             </span>
           </div>
           <div className="flex items-center gap-2">

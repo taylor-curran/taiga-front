@@ -87,7 +87,7 @@ export function USDetailPage() {
               className="ml-auto text-taiga-grey-light hover:text-taiga-primary"
               title={us.neighbors.previous.subject}
             >
-              \u2190 Prev
+              {"\u2190"} Prev
             </Link>
           )}
           {us.neighbors?.next && (
@@ -96,7 +96,7 @@ export function USDetailPage() {
               className="text-taiga-grey-light hover:text-taiga-primary"
               title={us.neighbors.next.subject}
             >
-              Next \u2192
+              Next {"\u2192"}
             </Link>
           )}
         </nav>

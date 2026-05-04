@@ -59,7 +59,7 @@ export function SprintPanel({
           )}
           {milestone.estimated_start && milestone.estimated_finish && (
             <span className="text-xs text-taiga-grey-light">
-              {milestone.estimated_start} \u2192 {milestone.estimated_finish}
+              {milestone.estimated_start} {'\u2192'} {milestone.estimated_finish}
             </span>
           )}
         </div>

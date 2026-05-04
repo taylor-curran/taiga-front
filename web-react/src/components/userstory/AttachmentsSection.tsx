@@ -91,7 +91,7 @@ export function AttachmentsSection({ usId, projectId }: AttachmentsSectionProps)
                 className="text-xs text-red-400 hover:text-red-600 px-1"
                 title="Delete"
               >
-                \u2715
+                {'\u2715'}
               </button>
             </li>
           ))}

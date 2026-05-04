@@ -53,11 +53,8 @@ export async function patchUserStory(
   data: Partial<UserStoryDetail>,
   version?: number,
 ): Promise<UserStoryDetail> {
-  const headers: Record<string, string> = {};
-  if (version !== undefined) {
-    headers['x-lazy-pagination'] = 'true';
-  }
-  const res = await api.patch<UserStoryDetail>(`userstories/${id}`, data);
+  const payload = version !== undefined ? { ...data, version } : data;
+  const res = await api.patch<UserStoryDetail>(`userstories/${id}`, payload);
   return res.data;
 }
 

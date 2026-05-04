@@ -110,7 +110,7 @@ export function BulkActions({
           className="text-sm px-2 py-1 rounded hover:bg-white/20"
           title="Clear selection"
         >
-          \u2715
+          {'\u2715'}
         </button>
       </div>
     </div>
