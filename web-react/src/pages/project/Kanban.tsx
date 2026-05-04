@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 import { useCurrentProject } from '@/hooks/useCurrentProject';
 import { useKanbanStories, useSwimlanes, usePatchUserStory } from '@/services/kanban';
 import { useEpics } from '@/services/epics';
@@ -24,6 +24,11 @@ export function KanbanPage() {
   const [localOverrides, setLocalOverrides] = useState<Map<number, Partial<UserStory>>>(
     new Map(),
   );
+
+  // Clear optimistic overrides once the server provides fresh data
+  useEffect(() => {
+    setLocalOverrides(new Map());
+  }, [serverStories]);
 
   const stories = useMemo(() => {
     if (!serverStories) return [];

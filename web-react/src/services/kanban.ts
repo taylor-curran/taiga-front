@@ -89,7 +89,7 @@ export function useBulkUpdateKanbanOrder() {
       statusId: number;
       stories: { us_id: number; order: number; swimlane?: number | null }[];
     }) => bulkUpdateKanbanOrder(args.projectId, args.statusId, args.stories),
-    onSuccess: () => {
+    onSettled: () => {
       qc.invalidateQueries({ queryKey: ['kanban-stories'] });
     },
   });
