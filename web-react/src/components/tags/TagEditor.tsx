@@ -80,7 +80,7 @@ export function TagEditor({
             <span
               key={tag.name}
               className={clsx(
-                'inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium',
+                'relative inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium',
                 tag.color ? 'text-white' : 'bg-taiga-grey-lighter text-taiga-text',
               )}
               style={tag.color ? { backgroundColor: tag.color } : undefined}
