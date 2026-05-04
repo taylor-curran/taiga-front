@@ -2,23 +2,23 @@ import { getConfig } from '@/lib/config';
 
 const OAUTH_NONCE_KEY = 'oauth_csrf_nonce';
 
-function buildOAuthState(invitationToken?: string): string {
+function buildOAuthState(invitationToken?: string, next?: string): string {
   const nonce = crypto.randomUUID();
   sessionStorage.setItem(OAUTH_NONCE_KEY, nonce);
-  if (invitationToken) {
-    return JSON.stringify({ nonce, invitation_token: invitationToken });
-  }
-  return JSON.stringify({ nonce });
+  const payload: Record<string, string> = { nonce };
+  if (invitationToken) payload.invitation_token = invitationToken;
+  if (next) payload.next = next;
+  return JSON.stringify(payload);
 }
 
-export function verifyOAuthState(state: string | null): { valid: boolean; invitationToken?: string } {
+export function verifyOAuthState(state: string | null): { valid: boolean; invitationToken?: string; next?: string } {
   const storedNonce = sessionStorage.getItem(OAUTH_NONCE_KEY);
   if (!state || !storedNonce) return { valid: false };
   try {
-    const parsed = JSON.parse(state) as { nonce?: string; invitation_token?: string };
+    const parsed = JSON.parse(state) as { nonce?: string; invitation_token?: string; next?: string };
     if (parsed.nonce === storedNonce) {
       sessionStorage.removeItem(OAUTH_NONCE_KEY);
-      return { valid: true, invitationToken: parsed.invitation_token };
+      return { valid: true, invitationToken: parsed.invitation_token, next: parsed.next };
     }
   } catch {
     // state is not JSON — legacy or tampered
@@ -26,7 +26,7 @@ export function verifyOAuthState(state: string | null): { valid: boolean; invita
   return { valid: false };
 }
 
-export function SocialLoginButtons({ invitationToken }: { invitationToken?: string }) {
+export function SocialLoginButtons({ invitationToken, next }: { invitationToken?: string; next?: string }) {
   const config = getConfig();
   const hasGithub = !!config.gitHubClientId;
   const hasGitlab = !!config.gitLabClientId;
@@ -39,7 +39,7 @@ export function SocialLoginButtons({ invitationToken }: { invitationToken?: stri
       client_id: config.gitHubClientId!,
       redirect_uri: redirectUri,
       scope: 'user:email',
-      state: buildOAuthState(invitationToken),
+      state: buildOAuthState(invitationToken, next),
     });
     window.location.href = `https://github.com/login/oauth/authorize?${params}`;
   }
@@ -52,7 +52,7 @@ export function SocialLoginButtons({ invitationToken }: { invitationToken?: stri
       redirect_uri: redirectUri,
       response_type: 'code',
       scope: 'read_user',
-      state: buildOAuthState(invitationToken),
+      state: buildOAuthState(invitationToken, next),
     });
     window.location.href = `${gitlabUrl}/oauth/authorize?${params}`;
   }

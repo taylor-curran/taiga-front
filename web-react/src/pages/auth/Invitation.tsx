@@ -234,7 +234,7 @@ export function InvitationPage() {
         </form>
       )}
 
-      <SocialLoginButtons invitationToken={token} />
+      <SocialLoginButtons invitationToken={token} next={`/project/${invitation.project_slug}`} />
     </div>
   );
 }

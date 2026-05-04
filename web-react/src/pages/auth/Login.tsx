@@ -19,7 +19,7 @@ export function LoginPage() {
   const state = params.get('state');
   useEffect(() => {
     if (!code) return;
-    const { valid, invitationToken } = verifyOAuthState(state);
+    const { valid, invitationToken, next: stateNext } = verifyOAuthState(state);
     if (!valid) {
       setError('OAuth state verification failed. Please try again.');
       return;
@@ -32,8 +32,8 @@ export function LoginPage() {
       invitation_token: invitationToken,
     })
       .then(() => {
-        const next = params.get('next');
-        navigate(next ? decodeURIComponent(next) : '/', { replace: true });
+        const next = stateNext || params.get('next');
+        navigate(next || '/', { replace: true });
       })
       .catch(() => {
         setError('Social login failed. Please try again.');
