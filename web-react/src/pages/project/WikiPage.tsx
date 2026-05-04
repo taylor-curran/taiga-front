@@ -34,12 +34,11 @@ export function WikiPageView() {
   const canAdd = project.my_permissions?.includes('add_wiki_page');
   const canDelete = project.my_permissions?.includes('delete_wiki_page');
 
-  // If the page doesn't exist yet and we can add, start in edit mode
+  // Reset editing when slug changes; auto-open editor for new pages
   const isNew = !isLoading && !wiki;
   useEffect(() => {
-    if (isNew && canAdd) setEditing(true);
-    else if (!isNew) setEditing(false);
-  }, [isNew, canAdd]);
+    setEditing(isNew && !!canAdd);
+  }, [slug, isNew, canAdd]);
 
   const html = useMemo(() => {
     if (!wiki) return '';

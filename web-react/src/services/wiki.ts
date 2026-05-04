@@ -192,9 +192,10 @@ export function useUpdateWikiPage(projectId: number | undefined) {
   return useMutation({
     mutationFn: ({ id, ...data }: { id: number; content?: string; version?: number }) =>
       updateWikiPage(id, data),
-    onSuccess: () => {
+    onSuccess: (_data, vars) => {
       qc.invalidateQueries({ queryKey: ['wiki', 'pages', projectId] });
       qc.invalidateQueries({ queryKey: ['wiki', 'by_slug', projectId] });
+      qc.invalidateQueries({ queryKey: ['wiki', 'history', vars.id] });
     },
   });
 }
