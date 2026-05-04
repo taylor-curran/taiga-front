@@ -160,6 +160,8 @@ export function IssueDetailPage() {
       setComment('');
       qc.invalidateQueries({ queryKey: ['issue'] });
       qc.invalidateQueries({ queryKey: ['issue', 'history'] });
+    } catch (err) {
+      console.error('Failed to add comment:', err);
     } finally {
       setIsSubmittingComment(false);
     }

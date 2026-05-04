@@ -272,36 +272,51 @@ export function IssuesPage() {
   // Bulk operations
   const handleBulkChangeStatus = useCallback(
     async (statusId: number) => {
-      await Promise.all(
-        Array.from(selectedIds).map((id) => {
-          const version = issues.find((i) => i.id === id)?.version;
-          return patchIssue(id, { status: statusId, version });
-        }),
-      );
-      setSelectedIds(new Set());
-      qc.invalidateQueries({ queryKey: ['issues'] });
+      try {
+        await Promise.all(
+          Array.from(selectedIds).map((id) => {
+            const version = issues.find((i) => i.id === id)?.version;
+            return patchIssue(id, { status: statusId, version });
+          }),
+        );
+      } catch (err) {
+        console.error('Bulk status change failed:', err);
+      } finally {
+        setSelectedIds(new Set());
+        qc.invalidateQueries({ queryKey: ['issues'] });
+      }
     },
     [selectedIds, issues, qc],
   );
 
   const handleBulkAssign = useCallback(
     async (userId: number | null) => {
-      await Promise.all(
-        Array.from(selectedIds).map((id) => {
-          const version = issues.find((i) => i.id === id)?.version;
-          return patchIssue(id, { assigned_to: userId, version });
-        }),
-      );
-      setSelectedIds(new Set());
-      qc.invalidateQueries({ queryKey: ['issues'] });
+      try {
+        await Promise.all(
+          Array.from(selectedIds).map((id) => {
+            const version = issues.find((i) => i.id === id)?.version;
+            return patchIssue(id, { assigned_to: userId, version });
+          }),
+        );
+      } catch (err) {
+        console.error('Bulk assign failed:', err);
+      } finally {
+        setSelectedIds(new Set());
+        qc.invalidateQueries({ queryKey: ['issues'] });
+      }
     },
     [selectedIds, issues, qc],
   );
 
   const handleBulkDelete = useCallback(async () => {
-    await Promise.all(Array.from(selectedIds).map((id) => deleteIssue(id)));
-    setSelectedIds(new Set());
-    qc.invalidateQueries({ queryKey: ['issues'] });
+    try {
+      await Promise.all(Array.from(selectedIds).map((id) => deleteIssue(id)));
+    } catch (err) {
+      console.error('Bulk delete failed:', err);
+    } finally {
+      setSelectedIds(new Set());
+      qc.invalidateQueries({ queryKey: ['issues'] });
+    }
   }, [selectedIds, qc]);
 
   // Create issue
