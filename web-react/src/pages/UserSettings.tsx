@@ -88,6 +88,7 @@ export function UserProfileSettings() {
   });
 
   const [success, setSuccess] = useState<string | null>(null);
+  const [removeError, setRemoveError] = useState<string | null>(null);
 
   if (!user) return null;
 
@@ -114,9 +115,14 @@ export function UserProfileSettings() {
   }
 
   async function handleRemoveAvatar() {
-    await removeAvatar();
-    const refreshMe = useAuth.getState().refreshMe;
-    await refreshMe();
+    setRemoveError(null);
+    try {
+      await removeAvatar();
+      const refreshMe = useAuth.getState().refreshMe;
+      await refreshMe();
+    } catch {
+      setRemoveError('Failed to remove avatar.');
+    }
   }
 
   async function handleVerifyEmail() {
@@ -134,6 +140,7 @@ export function UserProfileSettings() {
 
       {patchProfile.error && <ErrorBox error={patchProfile.error} />}
       {avatarMutation.error && <ErrorBox error={avatarMutation.error} />}
+      {removeError && <ErrorBox message={removeError} />}
       {success && (
         <div className="border border-taiga-green-dark/40 bg-taiga-green-dark/10 text-taiga-green-dark rounded p-3 text-sm">
           {success}
