@@ -32,6 +32,7 @@ export function InvitationPage() {
   const [invitation, setInvitation] = useState<InvitationData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [acceptError, setAcceptError] = useState<string | null>(null);
 
   // Login form
   const [loginUsername, setLoginUsername] = useState('');
@@ -90,16 +91,18 @@ export function InvitationPage() {
         </p>
         <p className="text-lg font-semibold">{invitation.project_name}</p>
         <p className="text-sm text-taiga-grey-light">Role: {invitation.role_name}</p>
+        {acceptError && <ErrorBox message={acceptError} />}
         <button
           className="btn-primary w-full"
           onClick={async () => {
+            setAcceptError(null);
             try {
               await api.post(`memberships/${invitation.id}/accept`, {
                 invitation_token: token,
               });
               navigate(`/project/${invitation.project_slug}`);
             } catch {
-              setError('Failed to accept invitation.');
+              setAcceptError('Failed to accept invitation. Please try again.');
             }
           }}
         >

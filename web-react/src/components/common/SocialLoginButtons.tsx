@@ -8,7 +8,7 @@ export function SocialLoginButtons({ invitationToken }: { invitationToken?: stri
   if (!hasGithub && !hasGitlab) return null;
 
   function handleGithubLogin() {
-    const redirectUri = `${window.location.origin}/login`;
+    const redirectUri = `${window.location.origin}/login?provider=github`;
     const params = new URLSearchParams({
       client_id: config.gitHubClientId!,
       redirect_uri: redirectUri,
@@ -20,7 +20,7 @@ export function SocialLoginButtons({ invitationToken }: { invitationToken?: stri
 
   function handleGitlabLogin() {
     const gitlabUrl = config.gitLabUrl || 'https://gitlab.com';
-    const redirectUri = `${window.location.origin}/login`;
+    const redirectUri = `${window.location.origin}/login?provider=gitlab`;
     const params = new URLSearchParams({
       client_id: config.gitLabClientId!,
       redirect_uri: redirectUri,

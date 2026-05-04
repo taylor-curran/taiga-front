@@ -19,7 +19,7 @@ export function LoginPage() {
   const state = params.get('state');
   useEffect(() => {
     if (!code) return;
-    const provider = params.get('provider') || (window.location.href.includes('gitlab') ? 'gitlab' : 'github');
+    const provider = params.get('provider') || 'github';
     setSubmitting(true);
     loginWith({
       type: provider as 'github' | 'gitlab',
