@@ -184,30 +184,38 @@ export function KanbanBoard({
       const newStatusId = target.statusId;
       const newSwimlaneId = target.swimlaneId;
 
-      // Calculate new order
-      let newOrder = 0;
+      // Collect stories in the target column (scoped to swimlane correctly)
       const targetStories = stories
         .filter(
           (s) =>
             s.status === newStatusId &&
-            (newSwimlaneId != null ? s.swimlane === newSwimlaneId : true) &&
+            (newSwimlaneId != null ? s.swimlane === newSwimlaneId : s.swimlane == null) &&
             s.id !== draggedStory.id,
         )
         .sort((a, b) => (a.kanban_order ?? 0) - (b.kanban_order ?? 0));
 
+      // Determine insertion position and neighboring story IDs
+      let insertIndex = targetStories.length; // default: append to end
       if (overData?.type === 'card') {
         const overStory = overData.story as UserStory;
         const overIndex = targetStories.findIndex((s) => s.id === overStory.id);
         if (overIndex >= 0) {
-          newOrder = (targetStories[overIndex].kanban_order ?? 0);
-        }
-      } else {
-        // Dropped on column itself = append to end
-        if (targetStories.length > 0) {
-          newOrder =
-            (targetStories[targetStories.length - 1].kanban_order ?? 0) + 1;
+          insertIndex = overIndex;
         }
       }
+
+      const afterUserstoryId = insertIndex > 0
+        ? targetStories[insertIndex - 1].id
+        : null;
+      const beforeUserstoryId = insertIndex < targetStories.length
+        ? targetStories[insertIndex].id
+        : null;
+
+      const newOrder = insertIndex < targetStories.length
+        ? (targetStories[insertIndex].kanban_order ?? 0)
+        : targetStories.length > 0
+          ? (targetStories[targetStories.length - 1].kanban_order ?? 0) + 1
+          : 0;
 
       // Optimistic update
       onStoriesChange((prev) =>
@@ -223,18 +231,14 @@ export function KanbanBoard({
         ),
       );
 
-      // bulkUpdateKanbanOrder already persists status + swimlane + order in one
-      // call (matching the AngularJS implementation), so no separate PATCH needed.
+      // Persist via bulk endpoint matching the AngularJS API contract
       bulkUpdate.mutate({
         projectId: project.id,
         statusId: newStatusId,
-        stories: [
-          {
-            us_id: draggedStory.id,
-            order: newOrder,
-            swimlane: newSwimlaneId,
-          },
-        ],
+        swimlaneId: newSwimlaneId,
+        afterUserstoryId,
+        beforeUserstoryId,
+        bulkUserstories: [{ us_id: draggedStory.id, order: newOrder }],
       });
     },
     [stories, onStoriesChange, bulkUpdate, project.id, findContainerForStory],

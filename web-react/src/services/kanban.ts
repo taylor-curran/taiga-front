@@ -42,16 +42,32 @@ export async function patchUserStory(
   return res.data;
 }
 
+export interface BulkKanbanOrderArgs {
+  projectId: number;
+  statusId: number;
+  swimlaneId?: number | null;
+  afterUserstoryId?: number | null;
+  beforeUserstoryId?: number | null;
+  bulkUserstories: { us_id: number; order: number }[];
+}
+
 export async function bulkUpdateKanbanOrder(
-  projectId: number,
-  statusId: number,
-  stories: { us_id: number; order: number; swimlane?: number | null }[],
+  args: BulkKanbanOrderArgs,
 ): Promise<void> {
-  await api.post('userstories/bulk_update_kanban_order', {
-    project_id: projectId,
-    status_id: statusId,
-    bulk_userstories: stories,
-  });
+  const params: Record<string, unknown> = {
+    project_id: args.projectId,
+    status_id: args.statusId,
+    bulk_userstories: args.bulkUserstories,
+  };
+  if (args.afterUserstoryId != null) {
+    params.after_userstory_id = args.afterUserstoryId;
+  } else if (args.beforeUserstoryId != null) {
+    params.before_userstory_id = args.beforeUserstoryId;
+  }
+  if (args.swimlaneId != null) {
+    params.swimlane_id = args.swimlaneId;
+  }
+  await api.post('userstories/bulk_update_kanban_order', params);
 }
 
 export function useKanbanStories(filters: KanbanFilters | undefined) {
@@ -84,11 +100,7 @@ export function usePatchUserStory() {
 export function useBulkUpdateKanbanOrder() {
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: (args: {
-      projectId: number;
-      statusId: number;
-      stories: { us_id: number; order: number; swimlane?: number | null }[];
-    }) => bulkUpdateKanbanOrder(args.projectId, args.statusId, args.stories),
+    mutationFn: (args: BulkKanbanOrderArgs) => bulkUpdateKanbanOrder(args),
     onSettled: () => {
       qc.invalidateQueries({ queryKey: ['kanban-stories'] });
     },
