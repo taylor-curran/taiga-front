@@ -55,7 +55,7 @@ export function AttachmentPreview({ attachment, onClose }: AttachmentPreviewProp
               onClick={onClose}
               className="text-taiga-grey hover:text-taiga-text text-lg leading-none"
             >
-              \u00D7
+              {'\u00D7'}
             </button>
           </div>
         </div>

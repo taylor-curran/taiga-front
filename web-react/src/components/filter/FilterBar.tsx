@@ -69,12 +69,10 @@ export function FilterBar({
 
   const handleSelectOption = (category: FilterCategory, option: FilterOption) => {
     if (isSelected(category.key, option.id)) {
-      onRemoveFilter({
-        category: category.key,
-        id: option.id,
-        name: option.name,
-        mode: filterMode,
-      });
+      const existing = activeFilters.find(
+        (f) => f.category === category.key && f.id === option.id,
+      )!;
+      onRemoveFilter(existing);
     } else {
       onAddFilter({
         category: category.key,

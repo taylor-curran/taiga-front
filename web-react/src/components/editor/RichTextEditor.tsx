@@ -162,13 +162,14 @@ export function RichTextEditor({
       if (mentionQuery === null || !filteredMembers?.length) return;
       if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setMentionIdx((i) => Math.min(i + 1, filteredMembers.length - 1));
+        setMentionIdx((i) => Math.min(i + 1, Math.min(filteredMembers.length, 10) - 1));
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         setMentionIdx((i) => Math.max(i - 1, 0));
       } else if (e.key === 'Enter' && mentionQuery !== null) {
         e.preventDefault();
-        insertMention(filteredMembers[mentionIdx].username);
+        const visible = filteredMembers.slice(0, 10);
+        if (visible[mentionIdx]) insertMention(visible[mentionIdx].username);
       } else if (e.key === 'Escape') {
         setMentionQuery(null);
       }
