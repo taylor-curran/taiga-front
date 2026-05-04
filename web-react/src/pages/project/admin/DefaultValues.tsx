@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useCurrentProject } from '@/hooks/useCurrentProject';
 import { useUpdateProject } from '@/services/admin';
 
@@ -7,13 +7,13 @@ export function DefaultValuesPage() {
   const update = useUpdateProject();
   const [saved, setSaved] = useState(false);
 
-  const usStatuses = project.us_statuses ?? [];
-  const taskStatuses = project.task_statuses ?? [];
-  const issueStatuses = project.issue_statuses ?? [];
-  const issueTypes = project.issue_types ?? [];
-  const priorities = project.priorities ?? [];
-  const severities = project.severities ?? [];
-  const points = project.points ?? [];
+  const usStatuses = useMemo(() => project.us_statuses ?? [], [project.us_statuses]);
+  const taskStatuses = useMemo(() => project.task_statuses ?? [], [project.task_statuses]);
+  const issueStatuses = useMemo(() => project.issue_statuses ?? [], [project.issue_statuses]);
+  const issueTypes = useMemo(() => project.issue_types ?? [], [project.issue_types]);
+  const priorities = useMemo(() => project.priorities ?? [], [project.priorities]);
+  const severities = useMemo(() => project.severities ?? [], [project.severities]);
+  const points = useMemo(() => project.points ?? [], [project.points]);
 
   const [defaults, setDefaults] = useState({
     default_us_status: 0,

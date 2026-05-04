@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCurrentProject } from '@/hooks/useCurrentProject';
 import {
   useMemberships,
@@ -20,8 +20,12 @@ export function MembershipsPage() {
   const resend = useResendInvitation();
 
   const [inviteEmail, setInviteEmail] = useState('');
-  const [inviteRole, setInviteRole] = useState<number>(roles[0]?.id ?? 0);
+  const [inviteRole, setInviteRole] = useState<number>(0);
   const [inviteText, setInviteText] = useState('');
+
+  useEffect(() => {
+    if (roles.length > 0 && inviteRole === 0) setInviteRole(roles[0].id);
+  }, [roles, inviteRole]);
   const [confirmDeleteId, setConfirmDeleteId] = useState<number | null>(null);
 
   const activeMembers = memberships.filter(
