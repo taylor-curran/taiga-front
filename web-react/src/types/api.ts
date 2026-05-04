@@ -74,10 +74,14 @@ export interface UserStory {
   status_extra_info?: { name?: string; color?: string; is_closed?: boolean };
   is_closed?: boolean;
   assigned_to?: number | null;
-  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null };
+  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null; username?: string };
+  assigned_users?: number[];
+  assigned_users_extra_info?: { full_name_display?: string; photo?: string | null; id?: number }[];
   total_points?: number | null;
   total_comments?: number;
   finish_date?: string | null;
+  due_date?: string | null;
+  due_date_status?: string | null;
   milestone?: number | null;
   milestone_name?: string | null;
   milestone_slug?: string | null;
@@ -92,6 +96,21 @@ export interface UserStory {
   generated_from_task?: number | null;
   modified_date?: string;
   created_date?: string;
+  kanban_order?: number;
+  swimlane?: number | null;
+  epics?: { id: number; ref: number; subject: string; color: string; project?: { id: number; slug: string; name: string } }[] | null;
+  is_iocaine?: boolean;
+  tasks?: { id: number; ref: number; subject: string; status: number; is_closed?: boolean }[];
+  version?: number;
+}
+
+export interface Swimlane {
+  id: number;
+  name: string;
+  order: number;
+  project: number;
+  kanban_order?: Record<string, number>;
+  statuses_extra_info?: { wip_limit?: number | null; status?: number }[];
 }
 
 export interface Task {
