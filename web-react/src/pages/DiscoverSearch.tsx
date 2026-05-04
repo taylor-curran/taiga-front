@@ -24,6 +24,12 @@ const ORDER_OPTIONS: { value: string; label: string }[] = [
   { value: '-created_date', label: 'Newest' },
 ];
 
+function normalizeOrderBy(raw: string): string {
+  if (raw.startsWith('-total_fans')) return '-total_fans';
+  if (raw.startsWith('-total_activity')) return '-total_activity';
+  return raw;
+}
+
 function filterParams(filter: FilterKey): Partial<DiscoverParams> {
   if (filter === 'people') return { is_looking_for_people: true };
   if (filter === 'scrum') return { is_backlog_activated: true };
@@ -35,7 +41,7 @@ export function DiscoverSearchPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialQ = searchParams.get('text') ?? '';
   const initialFilter = (searchParams.get('filter') as FilterKey) ?? 'all';
-  const initialOrderBy = searchParams.get('order_by') ?? '';
+  const initialOrderBy = normalizeOrderBy(searchParams.get('order_by') ?? '');
 
   const [query, setQuery] = useState(initialQ);
   const [activeQuery, setActiveQuery] = useState(initialQ);
