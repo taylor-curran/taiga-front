@@ -229,7 +229,8 @@ export function IssuesPage() {
   }, []);
 
   const handleToggleSelectAll = useCallback(() => {
-    if (selectedIds.size === issues.length) {
+    const allCurrentSelected = issues.length > 0 && issues.every((i) => selectedIds.has(i.id));
+    if (allCurrentSelected) {
       setSelectedIds(new Set());
     } else {
       setSelectedIds(new Set(issues.map((i) => i.id)));
@@ -240,23 +241,29 @@ export function IssuesPage() {
   const handleBulkChangeStatus = useCallback(
     async (statusId: number) => {
       await Promise.all(
-        Array.from(selectedIds).map((id) => patchIssue(id, { status: statusId })),
+        Array.from(selectedIds).map((id) => {
+          const version = issues.find((i) => i.id === id)?.version;
+          return patchIssue(id, { status: statusId, version });
+        }),
       );
       setSelectedIds(new Set());
       qc.invalidateQueries({ queryKey: ['issues'] });
     },
-    [selectedIds, qc],
+    [selectedIds, issues, qc],
   );
 
   const handleBulkAssign = useCallback(
     async (userId: number | null) => {
       await Promise.all(
-        Array.from(selectedIds).map((id) => patchIssue(id, { assigned_to: userId })),
+        Array.from(selectedIds).map((id) => {
+          const version = issues.find((i) => i.id === id)?.version;
+          return patchIssue(id, { assigned_to: userId, version });
+        }),
       );
       setSelectedIds(new Set());
       qc.invalidateQueries({ queryKey: ['issues'] });
     },
-    [selectedIds, qc],
+    [selectedIds, issues, qc],
   );
 
   const handleBulkDelete = useCallback(async () => {
@@ -379,7 +386,7 @@ export function IssuesPage() {
             selectedIds={selectedIds}
             onToggleSelect={handleToggleSelect}
             onToggleSelectAll={handleToggleSelectAll}
-            allSelected={selectedIds.size === issues.length && issues.length > 0}
+            allSelected={issues.length > 0 && issues.every((i) => selectedIds.has(i.id))}
             sort={{ field: sortField, direction: sortDir }}
             onSort={handleSort}
             showTags={showTags}
