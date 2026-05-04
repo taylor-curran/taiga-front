@@ -27,11 +27,15 @@ export function WikiAttachments({ wikiId }: { wikiId: number | undefined }) {
   const handleUpload = () => {
     const files = fileRef.current?.files;
     if (!files || files.length === 0) return;
-    Array.from(files).forEach((f) => {
+    Array.from(files).forEach(async (f) => {
       setUploading((n) => n + 1);
-      upload.mutate(f, {
-        onSettled: () => setUploading((n) => n - 1),
-      });
+      try {
+        await upload.mutateAsync(f);
+      } catch {
+        // error handled by React Query
+      } finally {
+        setUploading((n) => n - 1);
+      }
     });
     if (fileRef.current) fileRef.current.value = '';
   };
