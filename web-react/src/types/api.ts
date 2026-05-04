@@ -189,6 +189,56 @@ export interface DiscoverProject extends ProjectSummary {
   total_activity?: number;
 }
 
+export interface Attachment {
+  id: number;
+  object_id: number;
+  project: number;
+  owner: number;
+  name: string;
+  size: number;
+  url: string;
+  attached_file: string;
+  thumbnail_card_url?: string | null;
+  description?: string;
+  is_deprecated?: boolean;
+  created_date: string;
+  modified_date?: string;
+  order: number;
+  from_comment?: boolean;
+}
+
+export interface HistoryEntry {
+  id: string;
+  user: {
+    pk: number;
+    username: string;
+    name: string;
+    photo?: string | null;
+    is_active?: boolean;
+  };
+  created_at: string;
+  type: number;
+  key: string;
+  diff?: Record<string, unknown>;
+  snapshot?: Record<string, unknown> | null;
+  values?: Record<string, unknown>;
+  values_diff?: Record<string, [unknown, unknown]>;
+  comment?: string;
+  comment_html?: string;
+  delete_comment_date?: string | null;
+  delete_comment_user?: Record<string, unknown> | null;
+  edit_comment_date?: string | null;
+  is_hidden?: boolean;
+  is_snapshot?: boolean;
+}
+
+export interface Watcher {
+  id: number;
+  username?: string;
+  full_name?: string;
+  photo?: string | null;
+}
+
 export interface ApiError {
   message?: string;
   detail?: string;
