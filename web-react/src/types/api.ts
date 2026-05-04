@@ -118,17 +118,107 @@ export interface Issue {
   ref: number;
   subject: string;
   status: number;
-  status_extra_info?: { name?: string; color?: string };
+  status_extra_info?: { name?: string; color?: string; is_closed?: boolean };
   priority: number;
+  priority_extra_info?: { name?: string; color?: string };
   severity: number;
+  severity_extra_info?: { name?: string; color?: string };
   type: number;
+  type_extra_info?: { name?: string; color?: string };
   is_closed?: boolean;
   assigned_to?: number | null;
-  assigned_to_extra_info?: { full_name_display?: string };
+  assigned_to_extra_info?: { full_name_display?: string; photo?: string | null; username?: string };
+  owner?: number;
+  owner_extra_info?: { full_name_display?: string; photo?: string | null; username?: string };
   description?: string;
   description_html?: string;
   total_comments?: number;
   tags?: ([string, string | null] | string)[] | null;
+  project?: number;
+  project_extra_info?: { id: number; slug: string; name: string };
+  milestone?: number | null;
+  milestone_slug?: string | null;
+  created_date?: string;
+  modified_date?: string;
+  finished_date?: string | null;
+  due_date?: string | null;
+  due_date_reason?: string;
+  due_date_status?: string;
+  watchers?: number[];
+  total_watchers?: number;
+  total_voters?: number;
+  is_voter?: boolean;
+  is_watcher?: boolean;
+  is_blocked?: boolean;
+  blocked_note?: string;
+  blocked_note_html?: string;
+  version?: number;
+  generated_user_stories?: number[] | null;
+  neighbors?: {
+    previous?: { id: number; ref: number; subject: string };
+    next?: { id: number; ref: number; subject: string };
+  };
+  custom_attributes_values?: Record<string, unknown>;
+  comment?: string;
+}
+
+export interface IssueFiltersData {
+  statuses: { id: number; name: string; color: string; count: number }[];
+  types: { id: number; name: string; color: string; count: number }[];
+  severities: { id: number; name: string; color: string; count: number }[];
+  priorities: { id: number; name: string; color: string; count: number }[];
+  assigned_to: { id: number | null; full_name: string; count: number }[];
+  owners: { id: number; full_name: string; count: number }[];
+  roles: { id: number | null; name: string; count: number }[];
+  tags: { name: string; color: string | null; count: number }[];
+}
+
+export interface Attachment {
+  id: number;
+  name: string;
+  size: number;
+  url: string;
+  created_date?: string;
+  modified_date?: string;
+  owner?: number;
+  attached_file?: string;
+  thumbnail_card_url?: string | null;
+  description?: string;
+  is_deprecated?: boolean;
+  order?: number;
+  object_id?: number;
+  project?: number;
+}
+
+export interface HistoryEntry {
+  id: string;
+  user: { pk: number; username: string; name: string; photo?: string | null; is_active?: boolean };
+  created_at: string;
+  type: number;
+  key: string;
+  diff?: Record<string, unknown>;
+  snapshot?: Record<string, unknown>;
+  values?: Record<string, unknown>;
+  values_diff?: Record<string, unknown>;
+  comment?: string;
+  comment_html?: string;
+  delete_comment_date?: string | null;
+  delete_comment_user?: Record<string, unknown> | null;
+  edit_comment_date?: string | null;
+  is_hidden?: boolean;
+  is_snapshot?: boolean;
+}
+
+export interface CustomAttribute {
+  id: number;
+  name: string;
+  description?: string;
+  type: string;
+  order: number;
+  project?: number;
+  extra?: string | null;
+  created_date?: string;
+  modified_date?: string;
 }
 
 export interface Epic {
