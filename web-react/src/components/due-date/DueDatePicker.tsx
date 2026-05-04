@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { format, isPast, isToday, addDays, isBefore } from 'date-fns';
+import { format, isPast, isToday, addDays, isBefore, parse } from 'date-fns';
 import clsx from 'clsx';
 
 interface DueDatePickerProps {
@@ -9,9 +9,13 @@ interface DueDatePickerProps {
   className?: string;
 }
 
+function parseLocalDate(dateStr: string): Date {
+  return parse(dateStr, 'yyyy-MM-dd', new Date());
+}
+
 function getDateStatus(dateStr: string, isClosed: boolean) {
   if (isClosed) return 'closed';
-  const date = new Date(dateStr);
+  const date = parseLocalDate(dateStr);
   if (isPast(date) && !isToday(date)) return 'overdue';
   if (isToday(date)) return 'due-today';
   if (isBefore(date, addDays(new Date(), 7))) return 'due-soon';
@@ -37,7 +41,7 @@ export function DueDatePicker({
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   const status = value ? getDateStatus(value, isClosed) : null;
-  const displayDate = value ? format(new Date(value), 'MMM d, yyyy') : null;
+  const displayDate = value ? format(parseLocalDate(value), 'MMM d, yyyy') : null;
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
