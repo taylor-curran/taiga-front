@@ -17,7 +17,7 @@ import { BulkActionsBar } from '@/components/issues/BulkActionsBar';
 import { CreateIssueModal } from '@/components/issues/CreateIssueModal';
 import { useQueryClient } from '@tanstack/react-query';
 import { api } from '@/lib/api';
-import type { Issue } from '@/types/api';
+import type { Issue, IssueFiltersData } from '@/types/api';
 
 const PAGE_SIZE = 50;
 
@@ -109,6 +109,7 @@ export function IssuesPage() {
         setSortDir('asc');
       }
       setPage(1);
+      setSelectedIds(new Set());
     },
     [sortField],
   );
@@ -154,6 +155,7 @@ export function IssuesPage() {
         ];
       });
       setPage(1);
+      setSelectedIds(new Set());
     },
     [filtersData],
   );
@@ -165,11 +167,13 @@ export function IssuesPage() {
       ),
     );
     setPage(1);
+    setSelectedIds(new Set());
   }, []);
 
   const handleChangeQ = useCallback((q: string) => {
     setFilterQ(q);
     setPage(1);
+    setSelectedIds(new Set());
   }, []);
 
   const handleSelectSavedFilter = useCallback(
@@ -179,19 +183,47 @@ export function IssuesPage() {
         if (key === 'order_by' || !value) continue;
         const isExclude = key.startsWith('exclude_');
         const category = isExclude ? key.replace('exclude_', '') : key;
+        const dataKey = (
+          category === 'assigned_to'
+            ? 'assigned_to'
+            : category === 'owner'
+              ? 'owners'
+              : category === 'role'
+                ? 'roles'
+                : category === 'tags'
+                  ? 'tags'
+                  : category === 'type'
+                    ? 'types'
+                    : category === 'severity'
+                      ? 'severities'
+                      : category === 'priority'
+                        ? 'priorities'
+                        : 'statuses'
+        ) as keyof IssueFiltersData;
+        const items = filtersData?.[dataKey] as Array<Record<string, unknown>> | undefined;
         for (const id of value.split(',')) {
+          const match = items?.find((it) => {
+            const itemId = category === 'tags' ? String(it.name) : String(it.id ?? 'null');
+            return itemId === id;
+          });
           newFilters.push({
             category,
             id,
-            name: id,
+            name: String(
+              (match as Record<string, unknown>)?.full_name ??
+                (match as Record<string, unknown>)?.name ??
+                id,
+            ),
+            color: ((match as Record<string, unknown>)?.color as string | null) ?? null,
             mode: isExclude ? 'exclude' : 'include',
           });
         }
       }
       setActiveFilters(newFilters);
       setPage(1);
+      setSelectedIds(new Set());
     },
-    [],
+    [filtersData],
   );
 
   const handleSaveFilter = useCallback(
@@ -397,7 +429,7 @@ export function IssuesPage() {
               <button
                 className="btn btn-sm"
                 disabled={page <= 1}
-                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                onClick={() => { setPage((p) => Math.max(1, p - 1)); setSelectedIds(new Set()); }}
               >
                 Previous
               </button>
@@ -407,7 +439,7 @@ export function IssuesPage() {
               <button
                 className="btn btn-sm"
                 disabled={page >= totalPages}
-                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                onClick={() => { setPage((p) => Math.min(totalPages, p + 1)); setSelectedIds(new Set()); }}
               >
                 Next
               </button>
