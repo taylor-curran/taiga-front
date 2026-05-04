@@ -16,10 +16,7 @@ import { useKanbanStore } from './useKanbanStore';
 import { KanbanColumn } from './KanbanColumn';
 import { KanbanSwimlane } from './KanbanSwimlane';
 import { KanbanCard } from './KanbanCard';
-import {
-  useBulkUpdateKanbanOrder,
-  usePatchUserStory,
-} from '@/services/kanban';
+import { useBulkUpdateKanbanOrder } from '@/services/kanban';
 
 interface KanbanBoardProps {
   project: ProjectDetail;
@@ -42,7 +39,6 @@ export function KanbanBoard({
   const [activeStory, setActiveStory] = useState<UserStory | null>(null);
 
   const bulkUpdate = useBulkUpdateKanbanOrder();
-  const patchUs = usePatchUserStory();
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
@@ -227,36 +223,21 @@ export function KanbanBoard({
         ),
       );
 
-      // Persist to API — chain mutations to avoid version conflicts
-      bulkUpdate.mutate(
-        {
-          projectId: project.id,
-          statusId: newStatusId,
-          stories: [
-            {
-              us_id: draggedStory.id,
-              order: newOrder,
-              swimlane: newSwimlaneId,
-            },
-          ],
-        },
-        {
-          onSuccess: () => {
-            // Only patch status after bulk order succeeds to avoid version conflict
-            if (draggedStory.status !== newStatusId) {
-              patchUs.mutate({
-                id: draggedStory.id,
-                data: {
-                  status: newStatusId,
-                  swimlane: newSwimlaneId,
-                },
-              });
-            }
+      // bulkUpdateKanbanOrder already persists status + swimlane + order in one
+      // call (matching the AngularJS implementation), so no separate PATCH needed.
+      bulkUpdate.mutate({
+        projectId: project.id,
+        statusId: newStatusId,
+        stories: [
+          {
+            us_id: draggedStory.id,
+            order: newOrder,
+            swimlane: newSwimlaneId,
           },
-        },
-      );
+        ],
+      });
     },
-    [stories, onStoriesChange, bulkUpdate, patchUs, project.id, findContainerForStory],
+    [stories, onStoriesChange, bulkUpdate, project.id, findContainerForStory],
   );
 
   return (
