@@ -29,7 +29,7 @@ export function ProjectShell() {
     { label: 'Wiki', to: `/project/${pslug}/wiki`, enabled: project.is_wiki_activated ?? true },
     { label: 'Team', to: `/project/${pslug}/team`, enabled: true },
     { label: 'Search', to: `/project/${pslug}/search`, enabled: true },
-    { label: 'Admin', to: `/project/${pslug}/admin/project-profile/details`, enabled: !!project.is_admin },
+    { label: 'Admin', to: `/project/${pslug}/admin/project-profile/details`, enabled: !!(project.i_am_admin || project.is_admin) },
   ];
 
   return (
