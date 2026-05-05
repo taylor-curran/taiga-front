@@ -148,23 +148,24 @@ export function useLocales() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Update profile (PATCH /users/me)                                   */
+/*  Update profile (PATCH /users/:id)                                  */
 /* ------------------------------------------------------------------ */
 
 export type ProfilePatch = Partial<
   Pick<CurrentUser, 'full_name' | 'email' | 'username' | 'lang' | 'theme'> & { bio: string }
 >;
 
-export async function patchProfile(patch: ProfilePatch): Promise<CurrentUser> {
-  const res = await api.patch<CurrentUser>('users/me', patch);
+export async function patchProfile(userId: number, patch: ProfilePatch): Promise<CurrentUser> {
+  const res = await api.patch<CurrentUser>(`users/${userId}`, patch);
   return res.data;
 }
 
 export function usePatchProfile() {
+  const user = useAuth((s) => s.user);
   const setUser = useAuth((s) => s.setUser);
   const qc = useQueryClient();
   return useMutation({
-    mutationFn: patchProfile,
+    mutationFn: (patch: ProfilePatch) => patchProfile(user!.id, patch),
     onSuccess(data) {
       setUser(data);
       qc.invalidateQueries({ queryKey: ['user'] });
