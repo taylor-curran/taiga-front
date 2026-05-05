@@ -57,6 +57,7 @@ class EventsService {
 
   stopExistingConnection() {
     if (!this.ws) return;
+    this.connected = false;
     this.ws.removeEventListener('open', this.onOpen);
     this.ws.removeEventListener('message', this.onMessage);
     this.ws.removeEventListener('error', this.onError);

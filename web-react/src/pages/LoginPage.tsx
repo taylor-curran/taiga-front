@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link, Navigate } from 'react-router-dom';
 import { auth } from '../api/resources';
 import { useAuthStore } from '../stores/auth';
 
@@ -14,8 +14,7 @@ export default function LoginPage() {
 
   if (isAuthenticated() && !searchParams.get('force_login')) {
     const next = searchParams.get('next') || '/';
-    navigate(next, { replace: true });
-    return null;
+    return <Navigate to={next} replace />;
   }
 
   const handleSubmit = async (e: FormEvent) => {
