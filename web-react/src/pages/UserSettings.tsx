@@ -185,12 +185,9 @@ export function UserProfileSettings() {
         <label className="block">
           <span className="block text-sm font-medium mb-1">Username</span>
           <input
-            className="input"
+            className="input bg-gray-50"
             value={form.username}
-            onChange={(e) => handleChange('username', e.target.value)}
-            required
-            maxLength={255}
-            pattern="[\w.\-]+"
+            readOnly
             autoComplete="username"
           />
         </label>
@@ -209,12 +206,10 @@ export function UserProfileSettings() {
             )}
           </span>
           <input
-            className="input"
+            className="input bg-gray-50"
             type="email"
             value={form.email}
-            onChange={(e) => handleChange('email', e.target.value)}
-            required
-            maxLength={255}
+            readOnly
           />
         </label>
 

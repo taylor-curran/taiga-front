@@ -152,7 +152,7 @@ export function useLocales() {
 /* ------------------------------------------------------------------ */
 
 export type ProfilePatch = Partial<
-  Pick<CurrentUser, 'full_name' | 'email' | 'username' | 'lang' | 'theme'> & { bio: string }
+  Pick<CurrentUser, 'full_name' | 'lang' | 'theme'> & { bio: string }
 >;
 
 export async function patchProfile(userId: number, patch: ProfilePatch): Promise<CurrentUser> {
