@@ -10,7 +10,15 @@ import { DiscoverSearchPage } from '@/pages/DiscoverSearch';
 import { ProjectsListPage } from '@/pages/ProjectsList';
 import { ProfilePage } from '@/pages/Profile';
 import { NotificationsPage } from '@/pages/Notifications';
-import { UserSettingsLayout, UserProfileSettings } from '@/pages/UserSettings';
+import {
+  UserSettingsLayout,
+  UserProfileSettings,
+  ChangePasswordSettings,
+  ProjectSettings,
+  MailNotifications,
+  LiveNotifications,
+  WebNotifications,
+} from '@/pages/UserSettings';
 import { ErrorPage, NotFoundPage, BlockedProjectPage } from '@/pages/Errors';
 
 import { LoginPage } from '@/pages/auth/Login';
@@ -18,6 +26,7 @@ import { RegisterPage } from '@/pages/auth/Register';
 import { ForgotPasswordPage } from '@/pages/auth/ForgotPassword';
 import { ChangePasswordPage } from '@/pages/auth/ChangePassword';
 import { TokenLandingPage } from '@/pages/auth/TokenLanding';
+import { InvitationPage } from '@/pages/auth/Invitation';
 
 import { ProjectHomePage } from '@/pages/project/ProjectHome';
 import { BacklogPage } from '@/pages/project/Backlog';
@@ -79,11 +88,6 @@ const AdminThirdPartiesBitbucket = placeholder('Admin · Bitbucket integration',
 const AdminThirdPartiesGogs = placeholder('Admin · Gogs integration', '/project/:pslug/admin/third-parties/gogs');
 const AdminContribPlugin = placeholder('Admin · contrib plugin', '/project/:pslug/admin/contrib/:plugin');
 
-const UserSettingsChangePassword = placeholder('User settings · change password', '/user-settings/user-change-password');
-const UserSettingsProjects = placeholder('User settings · project settings', '/user-settings/user-project-settings');
-const UserSettingsMail = placeholder('User settings · mail notifications', '/user-settings/mail-notifications');
-const UserSettingsLive = placeholder('User settings · live notifications', '/user-settings/live-notifications');
-const UserSettingsWeb = placeholder('User settings · web notifications', '/user-settings/web-notifications');
 const UserSettingsContrib = placeholder('User settings · contrib plugin', '/user-settings/contrib/:plugin');
 
 const ExternalApps = placeholder('External apps', '/external-apps');
@@ -117,11 +121,11 @@ const routes: RouteObject[] = [
         element: <RequireAuth><UserSettingsLayout /></RequireAuth>,
         children: [
           { path: 'user-settings/user-profile', element: <UserProfileSettings /> },
-          { path: 'user-settings/user-change-password', element: <UserSettingsChangePassword /> },
-          { path: 'user-settings/user-project-settings', element: <UserSettingsProjects /> },
-          { path: 'user-settings/mail-notifications', element: <UserSettingsMail /> },
-          { path: 'user-settings/live-notifications', element: <UserSettingsLive /> },
-          { path: 'user-settings/web-notifications', element: <UserSettingsWeb /> },
+          { path: 'user-settings/user-change-password', element: <ChangePasswordSettings /> },
+          { path: 'user-settings/user-project-settings', element: <ProjectSettings /> },
+          { path: 'user-settings/mail-notifications', element: <MailNotifications /> },
+          { path: 'user-settings/live-notifications', element: <LiveNotifications /> },
+          { path: 'user-settings/web-notifications', element: <WebNotifications /> },
           { path: 'user-settings/contrib/:plugin', element: <UserSettingsContrib /> },
         ],
       },
@@ -230,17 +234,7 @@ const routes: RouteObject[] = [
       { path: '/register', element: <RegisterPage /> },
       { path: '/forgot-password', element: <ForgotPasswordPage /> },
       { path: '/change-password/:token', element: <ChangePasswordPage /> },
-      {
-        path: '/invitation/:token',
-        element: (
-          <TokenLandingPage
-            endpoint="invitations/accept"
-            paramKey="token"
-            successTitle="Invitation accepted"
-            successMessage="You're now a member of the project."
-          />
-        ),
-      },
+      { path: '/invitation/:token', element: <InvitationPage /> },
     ],
   },
 

@@ -4,6 +4,7 @@ import { api } from '@/lib/api';
 import { useAuth } from '@/lib/auth';
 import { auth as apiAuth } from '@/lib/api';
 import { ErrorBox } from '@/components/common/ErrorBox';
+import { SocialLoginButtons } from '@/components/common/SocialLoginButtons';
 
 export function RegisterPage() {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ export function RegisterPage() {
           {submitting ? 'Creating account…' : 'Sign up'}
         </button>
       </form>
+      <SocialLoginButtons />
       <div className="mt-6 text-sm text-center">
         Already have an account? <Link to="/login">Sign in</Link>
       </div>
