@@ -14,7 +14,7 @@ export default function ExternalAppsPage() {
   const { data: apps, isLoading } = useQuery({
     queryKey: ['external-apps'],
     queryFn: async () => {
-      const res = await api.get<ExternalApp[]>('/api/v1/applications');
+      const res = await api.get<ExternalApp[]>('/applications');
       return res.data;
     },
   });

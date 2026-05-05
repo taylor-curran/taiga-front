@@ -18,7 +18,7 @@ export default function InvitationPage() {
       return;
     }
 
-    api.post('/api/v1/memberships', { token })
+    api.post('/memberships', { token })
       .then(() => {
         navigate('/');
       })

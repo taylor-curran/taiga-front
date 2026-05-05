@@ -123,17 +123,20 @@ function AppRoutes() {
 
 export default function App() {
   const [configLoaded, setConfigLoaded] = useState(false);
-  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
+  const token = useAuthStore((s) => s.token);
 
   useEffect(() => {
     loadConfig().then(() => {
       setConfigLoaded(true);
       eventsService.initialize();
-      if (isAuthenticated()) {
-        eventsService.setupConnection();
-      }
     });
-  }, [isAuthenticated]);
+  }, []);
+
+  useEffect(() => {
+    if (configLoaded && token) {
+      eventsService.setupConnection();
+    }
+  }, [configLoaded, token]);
 
   if (!configLoaded) return <Loader />;
 
