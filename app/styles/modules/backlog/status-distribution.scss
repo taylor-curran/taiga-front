@@ -1,0 +1,58 @@
+.backlog-status-distribution {
+    background: $whitish;
+    border-radius: 3px;
+    margin: 0 0 2rem;
+    padding: 1rem;
+    .backlog-status-distribution-title {
+        @include font-size(medium);
+        @include font-type(regular);
+        color: $blackish;
+        margin: 0 0 .75rem;
+        text-transform: uppercase;
+    }
+    .backlog-status-distribution-bar {
+        background: $gray-lighter;
+        border-radius: 3px;
+        display: flex;
+        height: 18px;
+        margin-bottom: .75rem;
+        overflow: hidden;
+        width: 100%;
+    }
+    .backlog-status-distribution-segment {
+        height: 100%;
+        min-width: 2px;
+        transition: width .3s ease-in-out;
+    }
+    .backlog-status-distribution-legend {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .backlog-status-distribution-legend-item {
+        @include font-size(small);
+        align-items: center;
+        color: $blackish;
+        display: flex;
+        margin: .25rem 1rem .25rem 0;
+    }
+    .backlog-status-distribution-legend-color {
+        border-radius: 2px;
+        display: inline-block;
+        height: 10px;
+        margin-right: .4rem;
+        width: 10px;
+    }
+    .backlog-status-distribution-legend-label {
+        margin-right: .35rem;
+    }
+    .backlog-status-distribution-legend-count {
+        @include font-type(regular);
+        margin-right: .2rem;
+    }
+    .backlog-status-distribution-legend-percentage {
+        color: $grey-40;
+    }
+}
