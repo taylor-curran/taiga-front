@@ -13,4 +13,10 @@ export default defineConfig({
       '/conf.json': 'http://localhost:9000',
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.ts'],
+    css: true,
+  },
 })

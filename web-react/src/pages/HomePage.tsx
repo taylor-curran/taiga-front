@@ -6,6 +6,32 @@ import type { ProjectListEntry, TimelineEntry } from '../types';
 import Loader from '../components/common/Loader';
 import { formatDistanceToNow } from 'date-fns';
 
+function parseEventType(eventType: string): { module: string; action: string } {
+  const parts = eventType.split('.');
+  return {
+    module: parts[1] || parts[0] || 'unknown',
+    action: parts[2] || 'change',
+  };
+}
+
+function getTypeLabel(module: string): string {
+  const labels: Record<string, string> = {
+    userstory: 'User story',
+    userstories: 'User story',
+    task: 'Task',
+    tasks: 'Task',
+    issue: 'Issue',
+    issues: 'Issue',
+    epic: 'Epic',
+    epics: 'Epic',
+    wiki: 'Wiki',
+    wikipage: 'Wiki',
+    milestone: 'Sprint',
+    milestones: 'Sprint',
+  };
+  return labels[module.toLowerCase()] || module;
+}
+
 function WorkingOnSection({ userId }: { userId: number }) {
   const { data: timelineData, isLoading } = useQuery({
     queryKey: ['user-timeline', userId],
@@ -24,16 +50,40 @@ function WorkingOnSection({ userId }: { userId: number }) {
         <p className="empty-state">No recent activity</p>
       ) : (
         <ul className="timeline-list">
-          {timelineData.map((entry: TimelineEntry) => (
-            <li key={entry.id} className="timeline-item">
-              <div className="timeline-event">
-                <span className="timeline-type">{entry.event_type.replace(/\./g, ' ')}</span>
-                <span className="timeline-date">
-                  {formatDistanceToNow(new Date(entry.created), { addSuffix: true })}
-                </span>
-              </div>
-            </li>
-          ))}
+          {timelineData.map((entry: TimelineEntry) => {
+            const { module, action } = parseEventType(entry.event_type);
+            const typeLabel = getTypeLabel(module);
+            const subject = (entry.data as Record<string, unknown>)?.subject as string | undefined;
+            const ref = (entry.data as Record<string, unknown>)?.ref as number | undefined;
+            const projectSlug = ((entry.data as Record<string, unknown>)?.project as Record<string, unknown>)?.slug as string | undefined;
+            const projectName = ((entry.data as Record<string, unknown>)?.project as Record<string, unknown>)?.name as string | undefined;
+
+            return (
+              <li key={entry.id} className="timeline-item">
+                <div className="timeline-event">
+                  <div className="timeline-event-header">
+                    {projectName && <span className="timeline-project">{projectName}</span>}
+                    <span className="timeline-type-badge">{typeLabel}</span>
+                    <span className="timeline-action">{action === 'create' ? 'Create' : 'Change'}</span>
+                  </div>
+                  {(ref || subject) && (
+                    <div className="timeline-event-subject">
+                      {ref && projectSlug ? (
+                        <Link to={`/project/${projectSlug}/${module.toLowerCase().replace(/s$/, '')}/${ref}`}>
+                          #{ref} {subject}
+                        </Link>
+                      ) : (
+                        <span>{ref ? `#${ref} ` : ''}{subject}</span>
+                      )}
+                    </div>
+                  )}
+                  <span className="timeline-date">
+                    {formatDistanceToNow(new Date(entry.created), { addSuffix: true })}
+                  </span>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>

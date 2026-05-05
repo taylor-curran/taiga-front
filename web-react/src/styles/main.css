@@ -2,19 +2,22 @@
 /* Matching the Taiga AngularJS visual design */
 
 :root {
-  --color-primary: #4c566a;
-  --color-primary-light: #5e81ac;
-  --color-primary-dark: #3b4252;
-  --color-accent: #a3be8c;
-  --color-warn: #bf616a;
+  --color-primary: #25A28C;
+  --color-primary-light: #25A28C;
+  --color-primary-dark: #1a7a69;
+  --color-accent: #A7CB23;
+  --color-link: #008AA8;
+  --color-warn: #E44057;
   --color-warn-light: #d08770;
-  --color-bg: #eceff4;
+  --color-bg: #F9F9FB;
   --color-surface: #ffffff;
-  --color-text: #2e3440;
+  --color-text: #2E3440;
   --color-text-secondary: #4c566a;
   --color-text-muted: #7b88a0;
   --color-border: #d8dee9;
   --color-border-light: #e5e9f0;
+  --color-header-bg: #4c566a;
+  --color-teal-btn: #70c5be;
   --font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --header-height: 48px;
   --sidebar-width: 240px;
@@ -33,7 +36,7 @@ body {
   line-height: 1.5;
 }
 
-a { color: var(--color-primary-light); text-decoration: none; }
+a { color: var(--color-link); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 h1 { font-size: 24px; font-weight: 600; margin-bottom: 16px; }
@@ -60,7 +63,7 @@ h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; color: var(--color-t
 .btn-primary { background: var(--color-primary-light); color: white; }
 .btn-secondary { background: var(--color-surface); color: var(--color-text); border-color: var(--color-border); }
 .btn-danger { background: var(--color-warn); color: white; }
-.btn-link { background: none; border: none; color: var(--color-primary-light); padding: 4px 8px; }
+.btn-link { background: none; border: none; color: var(--color-link); padding: 4px 8px; }
 .btn-full { width: 100%; }
 .btn-sm { padding: 4px 10px; font-size: 12px; }
 .btn-icon { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--color-text-muted); padding: 2px 6px; }
@@ -80,7 +83,7 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sea
   color: var(--color-text);
   transition: border-color 0.2s;
 }
-input:focus, textarea:focus, select:focus { outline: none; border-color: var(--color-primary-light); }
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--color-primary); }
 select { cursor: pointer; }
 
 /* Badges */
@@ -107,7 +110,7 @@ select { cursor: pointer; }
 /* Header */
 .main-header {
   height: var(--header-height);
-  background: var(--color-primary-dark);
+  background: var(--color-header-bg);
   color: white;
   display: flex;
   align-items: center;
@@ -200,11 +203,20 @@ select { cursor: pointer; }
 .project-nav-admin a.active { color: var(--color-primary-light); font-weight: 600; }
 
 /* Auth Page */
-.auth-page { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: var(--color-bg); }
-.auth-container { background: var(--color-surface); padding: 40px; border-radius: 8px; box-shadow: var(--shadow-lg); width: 400px; max-width: 90%; }
-.auth-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; justify-content: center; }
-.auth-logo h1 { margin: 0; }
-.auth-form h2 { text-align: center; margin-bottom: 20px; }
+.auth-page { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #fff; }
+.auth-container { padding: 40px; width: 400px; max-width: 90%; text-align: center; }
+.auth-logo { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 16px; }
+.auth-logo h1 { margin: 0; font-size: 28px; font-weight: 300; color: #333; }
+.auth-tagline { font-size: 15px; font-weight: 600; letter-spacing: 2px; color: #333; margin-bottom: 24px; text-transform: uppercase; }
+.auth-form h2 { display: none; }
+.auth-form .form-field label { display: none; }
+.auth-form input[type="text"], .auth-form input[type="password"] { border: 1px solid #ccc; border-radius: 0; padding: 12px; font-size: 14px; }
+.auth-form .btn-primary { background: var(--color-teal-btn); border-radius: 0; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; font-size: 14px; padding: 12px; }
+.auth-form .btn-primary:hover { background: #5ab8b1; }
+.auth-links { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); }
+.auth-links a { color: var(--color-link); font-size: 12px; }
+.auth-form .form-field { margin-bottom: 0; position: relative; }
+.auth-form .form-field + .form-field { border-top: none; }
 .auth-error { background: #fef2f2; border: 1px solid var(--color-warn); color: var(--color-warn); padding: 10px; border-radius: var(--radius); margin-bottom: 16px; font-size: 13px; }
 .success-message { background: #f0fdf4; border: 1px solid var(--color-accent); color: #166534; padding: 10px; border-radius: var(--radius); margin-bottom: 16px; font-size: 13px; }
 .auth-links { margin-top: 16px; text-align: center; }
@@ -501,10 +513,19 @@ select { cursor: pointer; }
 .timeline-entry-header { display: flex; justify-content: space-between; }
 .timeline-event-type { font-weight: 500; text-transform: capitalize; }
 .timeline-entry-date { font-size: 12px; color: var(--color-text-muted); }
-.timeline-list { display: flex; flex-direction: column; gap: 4px; }
-.timeline-item { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--color-border-light); }
+.timeline-list { display: flex; flex-direction: column; gap: 0; list-style: none; }
+.timeline-item { padding: 10px 12px; border-bottom: 1px solid var(--color-border-light); }
+.timeline-item:hover { background: var(--color-bg); }
+.timeline-event { display: flex; flex-direction: column; gap: 2px; }
+.timeline-event-header { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.timeline-project { font-weight: 600; color: var(--color-text); }
+.timeline-type-badge { color: var(--color-primary); font-weight: 500; }
+.timeline-action { color: var(--color-text-muted); }
+.timeline-event-subject { font-size: 13px; color: var(--color-text); }
+.timeline-event-subject a { color: var(--color-text); }
+.timeline-event-subject a:hover { color: var(--color-primary); text-decoration: none; }
 .timeline-type { text-transform: capitalize; font-size: 13px; }
-.timeline-date { font-size: 12px; color: var(--color-text-muted); }
+.timeline-date { font-size: 11px; color: var(--color-text-muted); }
 
 /* History Panel */
 .history-panel { margin-top: 24px; }
