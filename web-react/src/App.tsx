@@ -36,6 +36,10 @@ import ProfilePage from './pages/ProfilePage';
 import NotificationsPage from './pages/NotificationsPage';
 import UserSettingsPage from './pages/UserSettingsPage';
 import DiscoverPage from './pages/DiscoverPage';
+import RegisterPage from './pages/RegisterPage';
+import InvitationPage from './pages/InvitationPage';
+import ExternalAppsPage from './pages/ExternalAppsPage';
+import BlockedProjectPage from './pages/BlockedProjectPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 import './styles/main.css';
@@ -55,8 +59,10 @@ function AppRoutes() {
     <Routes>
       {/* Auth routes (no header) */}
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/change-password/:token" element={<ChangePasswordPage />} />
+      <Route path="/invitation/:token" element={<InvitationPage />} />
 
       {/* Main layout with header */}
       <Route element={<AppLayout />}>
@@ -78,6 +84,7 @@ function AppRoutes() {
         <Route path="/profile/:slug" element={<ProfilePage />} />
         <Route path="/notifications" element={<RequireAuth><NotificationsPage /></RequireAuth>} />
         <Route path="/user-settings/*" element={<RequireAuth><UserSettingsPage /></RequireAuth>} />
+        <Route path="/external-apps" element={<RequireAuth><ExternalAppsPage /></RequireAuth>} />
 
         {/* Project routes */}
         <Route path="/project/:pslug/" element={<ProjectRouterPage />} />
@@ -100,6 +107,9 @@ function AppRoutes() {
           <Route path="search" element={<SearchPage />} />
           <Route path="admin/*" element={<AdminPage />} />
         </Route>
+
+        {/* Blocked project */}
+        <Route path="/blocked-project/:pslug/" element={<BlockedProjectPage />} />
 
         {/* Error pages */}
         <Route path="/error" element={<div className="error-page"><h1>Error</h1><p>An unexpected error occurred.</p></div>} />
