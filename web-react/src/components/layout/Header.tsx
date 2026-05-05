@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/auth';
 import { getAvatarUrl } from '../../utils/gravatar';
 import { useState, useRef, useEffect } from 'react';
+import TaigaLogo from '../common/TaigaLogo';
 
 export default function Header() {
   const { user, isAuthenticated, logout } = useAuthStore();
@@ -25,13 +26,10 @@ export default function Header() {
   };
 
   return (
-    <header className="main-header">
-      <div className="header-left">
-        <Link to="/" className="logo-link">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <rect width="28" height="28" rx="6" fill="#4c566a" />
-            <text x="14" y="20" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">T</text>
-          </svg>
+    <nav className="navbar main-header">
+      <div className="nav-left header-left">
+        <Link to="/" className="logo logo-link" title="Homepage">
+          <TaigaLogo size={28} />
         </Link>
         {isAuthenticated() && (
           <nav className="header-nav">
@@ -39,35 +37,64 @@ export default function Header() {
           </nav>
         )}
       </div>
-      <div className="header-right">
+      <div className="nav-right header-right">
         {isAuthenticated() ? (
-          <div className="user-menu" ref={menuRef}>
-            <button className="user-avatar-btn" onClick={() => setMenuOpen(!menuOpen)}>
-              <img
-                src={getAvatarUrl(user)}
-                alt={user?.full_name_display || user?.username || ''}
-                className="user-avatar"
-              />
-            </button>
-            {menuOpen && (
-              <div className="user-dropdown">
-                <div className="dropdown-header">
-                  <strong>{user?.full_name_display || user?.username}</strong>
-                  <span className="dropdown-email">{user?.email}</span>
+          <>
+            <Link
+              to="/discover"
+              className="nav-link nav-icon"
+              title="Discover trending projects"
+            >
+              <span aria-hidden>⌖</span>
+            </Link>
+            <a
+              href="https://community.taiga.io/"
+              target="_blank"
+              rel="noreferrer"
+              className="nav-link nav-icon"
+              title="Help"
+            >
+              <span aria-hidden>?</span>
+            </a>
+            <Link
+              to="/notifications"
+              className="nav-link nav-icon"
+              title="Events"
+            >
+              <span aria-hidden>🔔</span>
+            </Link>
+            <div className="user-menu" ref={menuRef}>
+              <button
+                className="user-avatar-btn"
+                onClick={() => setMenuOpen(!menuOpen)}
+                title={user?.full_name_display || user?.username || 'User menu'}
+              >
+                <img
+                  src={getAvatarUrl(user)}
+                  alt={user?.full_name_display || user?.username || ''}
+                  className="user-avatar"
+                />
+              </button>
+              {menuOpen && (
+                <div className="user-dropdown">
+                  <div className="dropdown-header">
+                    <strong>{user?.full_name_display || user?.username}</strong>
+                    <span className="dropdown-email">{user?.email}</span>
+                  </div>
+                  <div className="dropdown-divider" />
+                  <Link to="/profile" className="dropdown-item" onClick={() => setMenuOpen(false)}>My profile</Link>
+                  <Link to="/notifications" className="dropdown-item" onClick={() => setMenuOpen(false)}>Notifications</Link>
+                  <Link to="/user-settings/user-profile" className="dropdown-item" onClick={() => setMenuOpen(false)}>Settings</Link>
+                  <div className="dropdown-divider" />
+                  <button className="dropdown-item logout-btn" onClick={handleLogout}>Sign out</button>
                 </div>
-                <div className="dropdown-divider" />
-                <Link to="/profile" className="dropdown-item" onClick={() => setMenuOpen(false)}>My profile</Link>
-                <Link to="/notifications" className="dropdown-item" onClick={() => setMenuOpen(false)}>Notifications</Link>
-                <Link to="/user-settings/user-profile" className="dropdown-item" onClick={() => setMenuOpen(false)}>Settings</Link>
-                <div className="dropdown-divider" />
-                <button className="dropdown-item logout-btn" onClick={handleLogout}>Sign out</button>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          </>
         ) : (
           <Link to="/login" className="nav-link login-link">Login</Link>
         )}
       </div>
-    </header>
+    </nav>
   );
 }

@@ -102,8 +102,8 @@ function KanbanColumn({
     >
       <div className="kanban-column-header">
         <span className="column-color" style={{ backgroundColor: status.color }} />
-        <h3>{status.name.toUpperCase()}</h3>
-        <button className="btn-icon-sm" onClick={onToggleFold} title="Fold column">‹</button>
+        <h3>{status.name}</h3>
+        <button type="button" className="btn-icon-sm" onClick={onToggleFold} title="Fold column">‹</button>
       </div>
       <div className="kanban-column-body">
         {stories.map((story) => (
@@ -248,10 +248,11 @@ export default function KanbanPage() {
   if (isLoading) return <Loader />;
 
   return (
-    <div className="kanban-page">
+    <tg-kanban-board className="kanban-page">
       <div className="kanban-toolbar">
         <h1>Kanban</h1>
         <div className="kanban-toolbar-actions">
+          <button type="button" className="btn btn-default filters-btn">Filters</button>
           <div className="search-input">
             <input
               type="search"
@@ -285,9 +286,9 @@ export default function KanbanPage() {
               onClick={() => foldedColumns.has(status.id) && toggleFold(status.id)}
             >
               <span className="column-color" style={{ backgroundColor: status.color }} />
-              <span>{status.name.toUpperCase()}</span>
+              <h2 className="column-name">{status.name}</h2>
               {!foldedColumns.has(status.id) && (
-                <button className="btn-icon-sm" onClick={(e) => { e.stopPropagation(); toggleFold(status.id); }} title="Fold">‹</button>
+                <button type="button" className="btn-icon-sm" onClick={(e) => { e.stopPropagation(); toggleFold(status.id); }} title="Fold column">‹</button>
               )}
             </div>
           ))}
@@ -306,6 +307,6 @@ export default function KanbanPage() {
           />
         ))}
       </div>
-    </div>
+    </tg-kanban-board>
   );
 }

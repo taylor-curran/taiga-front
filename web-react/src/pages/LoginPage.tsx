@@ -2,6 +2,7 @@ import { useState, FormEvent } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { auth } from '../api/resources';
 import { useAuthStore } from '../stores/auth';
+import TaigaLogo from '../components/common/TaigaLogo';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -35,51 +36,64 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-container">
-        <div className="auth-logo">
-          <svg width="48" height="48" viewBox="0 0 28 28" fill="none">
-            <rect width="28" height="28" rx="6" fill="#4c566a" />
-            <text x="14" y="20" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">T</text>
-          </svg>
-          <h1>Taiga</h1>
+    <div className="wrapper">
+      <div className="auth">
+        <div className="auth-container">
+          <div className="logo-svg">
+            <TaigaLogo size={96} />
+          </div>
+          <h1 className="logo">Taiga</h1>
+          <h2 className="tagline">LOVE YOUR PROJECT</h2>
+
+          <div className="login-form-container">
+            <form onSubmit={handleSubmit} className="login-form">
+              {error && <div className="auth-error">{error}</div>}
+              {searchParams.get('unauthorized') && (
+                <div className="auth-error">Your session has expired. Please sign in again.</div>
+              )}
+              <fieldset>
+                <input
+                  type="text"
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  autoCorrect="off"
+                  autoCapitalize="none"
+                  autoFocus
+                  required
+                  placeholder="Username or email (case sensitive)"
+                />
+              </fieldset>
+              <fieldset className="login-password">
+                <input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  placeholder="Password (case sensitive)"
+                />
+                <Link
+                  to="/forgot-password"
+                  className="forgot-pass"
+                  title="Did you forget your password?"
+                >
+                  Forgot it?
+                </Link>
+              </fieldset>
+              <fieldset className="end">
+                <button
+                  type="submit"
+                  className="btn-small full"
+                  title="Login"
+                  disabled={loading}
+                >
+                  {loading ? 'Logging in...' : 'Login'}
+                </button>
+              </fieldset>
+            </form>
+          </div>
         </div>
-        <form onSubmit={handleSubmit} className="auth-form">
-          <h2>Sign in</h2>
-          {error && <div className="auth-error">{error}</div>}
-          {searchParams.get('unauthorized') && (
-            <div className="auth-error">Your session has expired. Please sign in again.</div>
-          )}
-          <div className="form-field">
-            <label htmlFor="username">Username or email</label>
-            <input
-              id="username"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              autoFocus
-              required
-              autoComplete="username"
-            />
-          </div>
-          <div className="form-field">
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              autoComplete="current-password"
-            />
-          </div>
-          <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
-            {loading ? 'Signing in...' : 'Sign in'}
-          </button>
-          <div className="auth-links">
-            <Link to="/forgot-password">Forgot your password?</Link>
-          </div>
-        </form>
       </div>
     </div>
   );

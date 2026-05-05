@@ -194,7 +194,9 @@ export default function BacklogPage() {
   const [showBulk, setShowBulk] = useState(false);
   const [showGraph, setShowGraph] = useState(true);
   const [showTags, setShowTags] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  void showFilters;
 
   const { data: stats } = useQuery<ProjectStats>({
     queryKey: ['project-stats', project.id],
@@ -260,7 +262,14 @@ export default function BacklogPage() {
               📊
             </button>
           </div>
-          {showGraph && stats && <BurndownChart stats={stats} />}
+          {showGraph && stats && (
+            <div
+              {...{ 'tg-backlog-graph': '' }}
+              className="backlog-graph-wrapper burndown forecasting"
+            >
+              <BurndownChart stats={stats} />
+            </div>
+          )}
         </div>
         {sprintsList && sprintsList.length > 0 && (
           <div className="backlog-top-right">
@@ -275,6 +284,9 @@ export default function BacklogPage() {
       <div className="backlog-toolbar">
         <h2>Backlog <span className="count">{filteredStories.length} user stories</span></h2>
         <div className="backlog-toolbar-actions">
+          <button type="button" className="btn btn-default filters-btn" onClick={() => setShowFilters(!showFilters)}>
+            Filters
+          </button>
           <button className="btn btn-secondary btn-sm" onClick={() => setShowBulk(!showBulk)}>
             + Add user stories
           </button>
@@ -310,8 +322,8 @@ export default function BacklogPage() {
         </div>
       )}
 
-      <div className="backlog-list">
-        <div className="backlog-row backlog-row-header">
+      <tg-backlog-table className="backlog-list product-backlog">
+        <div className="backlog-row backlog-row-header row title">
           <div className="backlog-row-ref">User Story</div>
           <div className="backlog-row-subject" />
           <div className="backlog-row-status">Status</div>
@@ -326,7 +338,7 @@ export default function BacklogPage() {
             <p>{searchQuery ? 'No matching user stories' : 'The backlog is empty'}</p>
           </div>
         )}
-      </div>
+      </tg-backlog-table>
     </div>
   );
 }

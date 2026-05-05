@@ -17,6 +17,7 @@ export default function IssuesListPage() {
   const [filterType, setFilterType] = useState<string>(searchParams.get('type') || '');
   const [searchQuery, setSearchQuery] = useState('');
   const [showTags, setShowTags] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
   const [sortField, setSortField] = useState<string>('');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
 
@@ -93,22 +94,30 @@ export default function IssuesListPage() {
     <div className="issues-page">
       <div className="issues-header">
         <h1>Issues</h1>
+        <Link to={`/project/${project.slug}/issues/new`} className="btn btn-primary new-issue-btn" role="button">
+          NEW ISSUE
+        </Link>
       </div>
       <div className="issues-toolbar">
-        <div className="issues-filters">
-          <select value={filterStatus} onChange={(e) => handleFilterChange('status', e.target.value)}>
-            <option value="">All statuses</option>
-            {project.issue_statuses.map((s: Status) => (
-              <option key={s.id} value={s.id}>{s.name}</option>
-            ))}
-          </select>
-          <select value={filterType} onChange={(e) => handleFilterChange('type', e.target.value)}>
-            <option value="">All types</option>
-            {project.issue_types.map((t: Status) => (
-              <option key={t.id} value={t.id}>{t.name}</option>
-            ))}
-          </select>
-        </div>
+        <button type="button" className="btn btn-default filters-btn" onClick={() => setShowFilters(!showFilters)}>
+          Filters
+        </button>
+        {showFilters && (
+          <div className="issues-filters">
+            <select value={filterStatus} onChange={(e) => handleFilterChange('status', e.target.value)}>
+              <option value="">All statuses</option>
+              {project.issue_statuses.map((s: Status) => (
+                <option key={s.id} value={s.id}>{s.name}</option>
+              ))}
+            </select>
+            <select value={filterType} onChange={(e) => handleFilterChange('type', e.target.value)}>
+              <option value="">All types</option>
+              {project.issue_types.map((t: Status) => (
+                <option key={t.id} value={t.id}>{t.name}</option>
+              ))}
+            </select>
+          </div>
+        )}
         <div className="issues-toolbar-right">
           <div className="search-input">
             <input
@@ -124,11 +133,11 @@ export default function IssuesListPage() {
           </label>
         </div>
       </div>
-      <div className="issues-table">
-        <div className="issues-row issues-row-header">
+      <tg-issues-table className="issues-table">
+        <div className="issues-row issues-row-header row title">
           <div className="issue-type-icon" onClick={() => handleSort('type')}>Type{sortIcon('type')}</div>
-          <div className="issue-severity-icon">Sev</div>
-          <div className="issue-priority-icon">Pri</div>
+          <div className="issue-severity-icon" onClick={() => handleSort('severity')}>Severity{sortIcon('severity')}</div>
+          <div className="issue-priority-icon" onClick={() => handleSort('priority')}>Priority{sortIcon('priority')}</div>
           <div className="issue-subject" onClick={() => handleSort('subject')}>Issue{sortIcon('subject')}</div>
           <div className="issue-status" onClick={() => handleSort('status')}>Status{sortIcon('status')}</div>
           <div className="issue-modified" onClick={() => handleSort('modified')}>Modified{sortIcon('modified')}</div>
@@ -140,7 +149,7 @@ export default function IssuesListPage() {
           const pr = project.priorities.find((p: Status) => p.id === issue.priority);
           const sv = project.severities.find((s: Status) => s.id === issue.severity);
           return (
-            <div key={issue.id} className="issues-row">
+            <div key={issue.id} className="issues-row row">
               <div className="issue-type-icon">
                 <span className="color-dot" style={{ backgroundColor: tp?.color || '#ccc' }} title={tp?.name} />
               </div>
@@ -184,7 +193,7 @@ export default function IssuesListPage() {
         {filteredAndSorted.length === 0 && (
           <div className="empty-state"><p>No issues found</p></div>
         )}
-      </div>
+      </tg-issues-table>
     </div>
   );
 }
