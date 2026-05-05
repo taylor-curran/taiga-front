@@ -101,7 +101,8 @@ export function UserProfileSettings() {
     e.preventDefault();
     setSuccess(null);
     try {
-      await patchProfile.mutateAsync(form);
+      const { full_name, bio, lang, theme } = form;
+      await patchProfile.mutateAsync({ full_name, bio, lang, theme });
       setSuccess('Profile saved successfully.');
     } catch {
       // error is in patchProfile.error
