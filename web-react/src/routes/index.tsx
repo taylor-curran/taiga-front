@@ -36,60 +36,59 @@ import { TeamPage } from '@/pages/project/Team';
 import { TimelinePage } from '@/pages/project/Timeline';
 import { SearchPage } from '@/pages/project/Search';
 
+import {
+  AdminLayout,
+  ProjectDetailsPage,
+  DefaultValuesPage,
+  ProjectModulesPage,
+  ProjectExportPage,
+  ProjectReportsPage,
+  ValuesStatusPage,
+  ValuesPointsPage,
+  ValuesPrioritiesPage,
+  ValuesSeveritiesPage,
+  ValuesTypesPage,
+  ValuesCustomFieldsPage,
+  ValuesTagsPage,
+  ValuesDueDatesPage,
+  ValuesKanbanPowerUpsPage,
+  MembershipsPage,
+  RolesPage,
+  WebhooksPage,
+  GitHubIntegrationPage,
+  GitLabIntegrationPage,
+  BitbucketIntegrationPage,
+  GogsIntegrationPage,
+  ContribPluginPage,
+} from '@/pages/project/admin';
+
 import { NotPorted } from '@/components/common/NotPorted';
 
-// `not yet ported` placeholders for the long tail of routes (admin pages,
-// new-project flows, contrib plugins, transfer/export). Each gets a unique
-// component so a future PR can replace it in-place without touching the route
-// table.
+// `not yet ported` placeholders for the long tail of routes (new-project
+// flows, contrib plugins, transfer/export). Each gets a unique component so a
+// future PR can replace it in-place without touching the route table.
 const placeholder = (area: string, legacyRoute: string) => () =>
   <NotPorted area={area} legacyRoute={legacyRoute} />;
 
-const NewProject = placeholder('Project · new', '/project/new');
-const NewProjectScrum = placeholder('Project · new (Scrum)', '/project/new/scrum');
-const NewProjectKanban = placeholder('Project · new (Kanban)', '/project/new/kanban');
-const NewProjectDuplicate = placeholder('Project · duplicate', '/project/new/duplicate');
-const NewProjectImport = placeholder('Project · import', '/project/new/import/:platform?');
-const ProjectTransfer = placeholder('Project · transfer', '/project/:pslug/transfer/:token');
-const TaskboardLegacy = placeholder('Project · task by ref (legacy)', '/project/:pslug/t/:ref');
+const NewProject = placeholder('Project \u00b7 new', '/project/new');
+const NewProjectScrum = placeholder('Project \u00b7 new (Scrum)', '/project/new/scrum');
+const NewProjectKanban = placeholder('Project \u00b7 new (Kanban)', '/project/new/kanban');
+const NewProjectDuplicate = placeholder('Project \u00b7 duplicate', '/project/new/duplicate');
+const NewProjectImport = placeholder('Project \u00b7 import', '/project/new/import/:platform?');
+const ProjectTransfer = placeholder('Project \u00b7 transfer', '/project/:pslug/transfer/:token');
+const TaskboardLegacy = placeholder('Project \u00b7 task by ref (legacy)', '/project/:pslug/t/:ref');
 
-const AdminProjectDetails = placeholder('Admin · project profile · details', '/project/:pslug/admin/project-profile/details');
-const AdminProjectDefaults = placeholder('Admin · default values', '/project/:pslug/admin/project-profile/default-values');
-const AdminProjectModules = placeholder('Admin · modules', '/project/:pslug/admin/project-profile/modules');
-const AdminProjectExport = placeholder('Admin · export', '/project/:pslug/admin/project-profile/export');
-const AdminProjectReports = placeholder('Admin · reports', '/project/:pslug/admin/project-profile/reports');
-
-const AdminValuesStatus = placeholder('Admin values · status', '/project/:pslug/admin/project-values/status');
-const AdminValuesPoints = placeholder('Admin values · points', '/project/:pslug/admin/project-values/points');
-const AdminValuesPriorities = placeholder('Admin values · priorities', '/project/:pslug/admin/project-values/priorities');
-const AdminValuesSeverities = placeholder('Admin values · severities', '/project/:pslug/admin/project-values/severities');
-const AdminValuesTypes = placeholder('Admin values · types', '/project/:pslug/admin/project-values/types');
-const AdminValuesCustomFields = placeholder('Admin values · custom fields', '/project/:pslug/admin/project-values/custom-fields');
-const AdminValuesTags = placeholder('Admin values · tags', '/project/:pslug/admin/project-values/tags');
-const AdminValuesDueDates = placeholder('Admin values · due dates', '/project/:pslug/admin/project-values/due-dates');
-const AdminValuesKanbanPowerUps = placeholder('Admin values · kanban power-ups', '/project/:pslug/admin/project-values/kanban-power-ups');
-
-const AdminMemberships = placeholder('Admin · memberships', '/project/:pslug/admin/memberships');
-const AdminRoles = placeholder('Admin · roles', '/project/:pslug/admin/roles');
-
-const AdminThirdPartiesWebhooks = placeholder('Admin · webhooks', '/project/:pslug/admin/third-parties/webhooks');
-const AdminThirdPartiesGithub = placeholder('Admin · GitHub integration', '/project/:pslug/admin/third-parties/github');
-const AdminThirdPartiesGitlab = placeholder('Admin · GitLab integration', '/project/:pslug/admin/third-parties/gitlab');
-const AdminThirdPartiesBitbucket = placeholder('Admin · Bitbucket integration', '/project/:pslug/admin/third-parties/bitbucket');
-const AdminThirdPartiesGogs = placeholder('Admin · Gogs integration', '/project/:pslug/admin/third-parties/gogs');
-const AdminContribPlugin = placeholder('Admin · contrib plugin', '/project/:pslug/admin/contrib/:plugin');
-
-const UserSettingsChangePassword = placeholder('User settings · change password', '/user-settings/user-change-password');
-const UserSettingsProjects = placeholder('User settings · project settings', '/user-settings/user-project-settings');
-const UserSettingsMail = placeholder('User settings · mail notifications', '/user-settings/mail-notifications');
-const UserSettingsLive = placeholder('User settings · live notifications', '/user-settings/live-notifications');
-const UserSettingsWeb = placeholder('User settings · web notifications', '/user-settings/web-notifications');
-const UserSettingsContrib = placeholder('User settings · contrib plugin', '/user-settings/contrib/:plugin');
+const UserSettingsChangePassword = placeholder('User settings \u00b7 change password', '/user-settings/user-change-password');
+const UserSettingsProjects = placeholder('User settings \u00b7 project settings', '/user-settings/user-project-settings');
+const UserSettingsMail = placeholder('User settings \u00b7 mail notifications', '/user-settings/mail-notifications');
+const UserSettingsLive = placeholder('User settings \u00b7 live notifications', '/user-settings/live-notifications');
+const UserSettingsWeb = placeholder('User settings \u00b7 web notifications', '/user-settings/web-notifications');
+const UserSettingsContrib = placeholder('User settings \u00b7 contrib plugin', '/user-settings/contrib/:plugin');
 
 const ExternalApps = placeholder('External apps', '/external-apps');
 
-// All 74 AngularJS routes mapped to React components. Routes without a real
-// component show a styled `NotPorted` placeholder so navigation never 404s.
+// All 74 AngularJS routes mapped to React components. Admin routes now use
+// a nested AdminLayout with a settings sidebar.
 const routes: RouteObject[] = [
   {
     element: <AppShell />,
@@ -126,7 +125,7 @@ const routes: RouteObject[] = [
         ],
       },
 
-      // Token-gated landings — outside auth layout because users may be signed in
+      // Token-gated landings
       {
         path: 'change-email/:email_token',
         element: (
@@ -164,7 +163,7 @@ const routes: RouteObject[] = [
       // External apps
       { path: 'external-apps', element: <ExternalApps /> },
 
-      // Project routes — all under the project shell layout
+      // Project routes
       {
         path: 'project/:pslug',
         element: <ProjectShell />,
@@ -187,29 +186,35 @@ const routes: RouteObject[] = [
           { path: 'issues', element: <IssuesPage /> },
           { path: 'issue/:issueref', element: <IssueDetailPage /> },
 
-          // Admin
-          { path: 'admin/project-profile/details', element: <AdminProjectDetails /> },
-          { path: 'admin/project-profile/default-values', element: <AdminProjectDefaults /> },
-          { path: 'admin/project-profile/modules', element: <AdminProjectModules /> },
-          { path: 'admin/project-profile/export', element: <AdminProjectExport /> },
-          { path: 'admin/project-profile/reports', element: <AdminProjectReports /> },
-          { path: 'admin/project-values/status', element: <AdminValuesStatus /> },
-          { path: 'admin/project-values/points', element: <AdminValuesPoints /> },
-          { path: 'admin/project-values/priorities', element: <AdminValuesPriorities /> },
-          { path: 'admin/project-values/severities', element: <AdminValuesSeverities /> },
-          { path: 'admin/project-values/types', element: <AdminValuesTypes /> },
-          { path: 'admin/project-values/custom-fields', element: <AdminValuesCustomFields /> },
-          { path: 'admin/project-values/tags', element: <AdminValuesTags /> },
-          { path: 'admin/project-values/due-dates', element: <AdminValuesDueDates /> },
-          { path: 'admin/project-values/kanban-power-ups', element: <AdminValuesKanbanPowerUps /> },
-          { path: 'admin/memberships', element: <AdminMemberships /> },
-          { path: 'admin/roles', element: <AdminRoles /> },
-          { path: 'admin/third-parties/webhooks', element: <AdminThirdPartiesWebhooks /> },
-          { path: 'admin/third-parties/github', element: <AdminThirdPartiesGithub /> },
-          { path: 'admin/third-parties/gitlab', element: <AdminThirdPartiesGitlab /> },
-          { path: 'admin/third-parties/bitbucket', element: <AdminThirdPartiesBitbucket /> },
-          { path: 'admin/third-parties/gogs', element: <AdminThirdPartiesGogs /> },
-          { path: 'admin/contrib/:plugin', element: <AdminContribPlugin /> },
+          // Admin — nested layout with settings sidebar
+          {
+            path: 'admin',
+            element: <AdminLayout />,
+            children: [
+              { path: 'project-profile/details', element: <ProjectDetailsPage /> },
+              { path: 'project-profile/default-values', element: <DefaultValuesPage /> },
+              { path: 'project-profile/modules', element: <ProjectModulesPage /> },
+              { path: 'project-profile/export', element: <ProjectExportPage /> },
+              { path: 'project-profile/reports', element: <ProjectReportsPage /> },
+              { path: 'project-values/status', element: <ValuesStatusPage /> },
+              { path: 'project-values/points', element: <ValuesPointsPage /> },
+              { path: 'project-values/priorities', element: <ValuesPrioritiesPage /> },
+              { path: 'project-values/severities', element: <ValuesSeveritiesPage /> },
+              { path: 'project-values/types', element: <ValuesTypesPage /> },
+              { path: 'project-values/custom-fields', element: <ValuesCustomFieldsPage /> },
+              { path: 'project-values/tags', element: <ValuesTagsPage /> },
+              { path: 'project-values/due-dates', element: <ValuesDueDatesPage /> },
+              { path: 'project-values/kanban-power-ups', element: <ValuesKanbanPowerUpsPage /> },
+              { path: 'memberships', element: <MembershipsPage /> },
+              { path: 'roles', element: <RolesPage /> },
+              { path: 'third-parties/webhooks', element: <WebhooksPage /> },
+              { path: 'third-parties/github', element: <GitHubIntegrationPage /> },
+              { path: 'third-parties/gitlab', element: <GitLabIntegrationPage /> },
+              { path: 'third-parties/bitbucket', element: <BitbucketIntegrationPage /> },
+              { path: 'third-parties/gogs', element: <GogsIntegrationPage /> },
+              { path: 'contrib/:plugin', element: <ContribPluginPage /> },
+            ],
+          },
 
           { path: 'transfer/:token', element: <ProjectTransfer /> },
         ],
@@ -244,7 +249,7 @@ const routes: RouteObject[] = [
     ],
   },
 
-  // Catch-all redirect (mirrors AngularJS' otherwise → /not-found)
+  // Catch-all redirect (mirrors AngularJS' otherwise -> /not-found)
   { path: '*', element: <Navigate to="/not-found" replace /> },
 ];
 
