@@ -13,36 +13,44 @@ export default function ProfilePage() {
   const currentUser = useAuthStore((s) => s.user);
   const [tab, setTab] = useState<'timeline' | 'contacts' | 'liked' | 'voted' | 'watched'>('timeline');
 
-  const userId = slug ? Number(slug) : currentUser?.id;
+  const isNumericSlug = slug ? /^\d+$/.test(slug) : false;
 
   const { data: profileUser, isLoading: userLoading } = useQuery({
-    queryKey: ['user', userId],
+    queryKey: ['user', slug ?? currentUser?.id],
     queryFn: async () => {
-      if (!userId) throw new Error('No user');
-      const res = await users.getById(userId);
+      if (slug) {
+        const res = isNumericSlug
+          ? await users.getById(Number(slug))
+          : await users.getByUsername(slug);
+        return res.data;
+      }
+      if (!currentUser?.id) throw new Error('No user');
+      const res = await users.getById(currentUser.id);
       return res.data;
     },
-    enabled: !!userId,
+    enabled: !!slug || !!currentUser?.id,
   });
 
+  const profileUserId = profileUser?.id;
+
   const { data: stats } = useQuery({
-    queryKey: ['user-stats', userId],
+    queryKey: ['user-stats', profileUserId],
     queryFn: async () => {
-      if (!userId) return null;
-      const res = await users.getStats(userId);
+      if (!profileUserId) return null;
+      const res = await users.getStats(profileUserId);
       return res.data;
     },
-    enabled: !!userId,
+    enabled: !!profileUserId,
   });
 
   const { data: timelineData } = useQuery({
-    queryKey: ['profile-timeline', userId],
+    queryKey: ['profile-timeline', profileUserId],
     queryFn: async () => {
-      if (!userId) return [];
-      const res = await timeline.getProfileTimeline(userId, { page_size: 20 });
+      if (!profileUserId) return [];
+      const res = await timeline.getProfileTimeline(profileUserId, { page_size: 20 });
       return res.data;
     },
-    enabled: !!userId && tab === 'timeline',
+    enabled: !!profileUserId && tab === 'timeline',
   });
 
   if (userLoading) return <Loader />;
