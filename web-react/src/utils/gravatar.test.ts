@@ -34,10 +34,10 @@ describe('getUserColor', () => {
   });
 
   it('returns default for null', () => {
-    expect(getUserColor(null)).toBe('#a9aabc');
+    expect(getUserColor(null)).toBe('#E8A4C8');
   });
 
   it('returns default for no color', () => {
-    expect(getUserColor({})).toBe('#a9aabc');
+    expect(getUserColor({})).toBe('#E8A4C8');
   });
 });

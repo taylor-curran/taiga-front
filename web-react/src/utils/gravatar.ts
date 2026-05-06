@@ -5,5 +5,5 @@ export function getAvatarUrl(user: { photo?: string | null; gravatar_id?: string
 }
 
 export function getUserColor(user: { color?: string } | null | undefined): string {
-  return user?.color || '#a9aabc';
+  return user?.color || '#E8A4C8';
 }

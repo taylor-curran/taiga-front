@@ -39,7 +39,7 @@ function KanbanCard({ story, project, zoom }: { story: UserStory; project: Proje
             <span className="unassigned-avatar-sm" title="Not assigned" />
           )}
           {zoom >= 2 && story.tags?.map(([tag, color]) => (
-            <span key={tag} className="tag-badge-sm" style={{ backgroundColor: color || '#a9aabc' }}>{tag}</span>
+            <span key={tag} className="tag-badge-sm" style={{ backgroundColor: color || '#E8A4C8' }}>{tag}</span>
           ))}
         </div>
       )}

@@ -37,17 +37,39 @@ export default function LoginPage() {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-logo">
-          <svg width="80" height="80" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="100,20 120,60 100,50 80,60" fill="#a5d6a7" opacity="0.8"/>
-            <polygon points="100,50 130,70 100,100 70,70" fill="#4db6ac" opacity="0.7"/>
-            <polygon points="100,50 70,70 50,50 80,60" fill="#c5e1a5" opacity="0.7"/>
-            <polygon points="100,50 130,70 150,50 120,60" fill="#80cbc4" opacity="0.6"/>
-            <polygon points="70,70 50,100 100,100" fill="#ce93d8" opacity="0.5"/>
-            <polygon points="130,70 150,100 100,100" fill="#9575cd" opacity="0.5"/>
-            <polygon points="100,100 50,100 70,130 100,120" fill="#78909c" opacity="0.6"/>
-            <polygon points="100,100 150,100 130,130 100,120" fill="#90a4ae" opacity="0.5"/>
-            <polygon points="100,120 70,130 80,150 100,140" fill="#b39ddb" opacity="0.5"/>
-            <polygon points="100,120 130,130 120,150 100,140" fill="#a1887f" opacity="0.4"/>
+          <svg width="90" height="90" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Crown base */}
+            <rect x="40" y="130" width="120" height="24" rx="6" fill="url(#crownGrad)" />
+            <rect x="44" y="134" width="112" height="16" rx="4" fill="none" stroke="#FFD700" strokeWidth="1" opacity="0.4" />
+            {/* Crown body */}
+            <path d="M40 130 L30 70 L65 100 L100 50 L135 100 L170 70 L160 130 Z" fill="url(#crownGrad)" />
+            {/* Inner detail lines */}
+            <path d="M50 125 L42 82 L65 100" fill="none" stroke="#FFD700" strokeWidth="1.5" opacity="0.5" />
+            <path d="M150 125 L158 82 L135 100" fill="none" stroke="#FFD700" strokeWidth="1.5" opacity="0.5" />
+            {/* Jewels */}
+            <circle cx="100" cy="58" r="7" fill="#FFD700" />
+            <circle cx="100" cy="58" r="4" fill="#FFF3B0" opacity="0.8" />
+            <circle cx="65" cy="105" r="5" fill="#FF6EB4" />
+            <circle cx="65" cy="105" r="2.5" fill="#FFB6C1" opacity="0.7" />
+            <circle cx="135" cy="105" r="5" fill="#FF6EB4" />
+            <circle cx="135" cy="105" r="2.5" fill="#FFB6C1" opacity="0.7" />
+            <circle cx="35" cy="75" r="4" fill="#E91E8C" />
+            <circle cx="165" cy="75" r="4" fill="#E91E8C" />
+            {/* Band jewels */}
+            <circle cx="70" cy="142" r="4" fill="#FFD700" opacity="0.7" />
+            <circle cx="100" cy="142" r="5" fill="#FF6EB4" />
+            <circle cx="130" cy="142" r="4" fill="#FFD700" opacity="0.7" />
+            {/* Sparkle accents */}
+            <path d="M45 55 L47 48 L55 50 L47 52 Z" fill="#FFD700" opacity="0.6" />
+            <path d="M155 55 L157 48 L165 50 L157 52 Z" fill="#FFD700" opacity="0.6" />
+            <path d="M95 30 L97 23 L105 25 L97 27 Z" fill="#FFD700" opacity="0.5" />
+            <defs>
+              <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FF6EB4" />
+                <stop offset="50%" stopColor="#E91E8C" />
+                <stop offset="100%" stopColor="#D63384" />
+              </linearGradient>
+            </defs>
           </svg>
           <h1>Taiga</h1>
         </div>
