@@ -28,10 +28,14 @@ export default function Header() {
     <header className="main-header">
       <div className="header-left">
         <Link to="/" className="logo-link">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <rect width="28" height="28" rx="6" fill="#4c566a" />
-            <text x="14" y="20" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">T</text>
+          <svg width="28" height="28" viewBox="0 0 200 200" fill="none">
+            <path d="M40 130 L30 70 L65 100 L100 50 L135 100 L170 70 L160 130 Z" fill="#FFD700" />
+            <rect x="40" y="130" width="120" height="20" rx="4" fill="#FFD700" />
+            <circle cx="100" cy="58" r="6" fill="white" opacity="0.8" />
+            <circle cx="65" cy="105" r="4" fill="white" opacity="0.6" />
+            <circle cx="135" cy="105" r="4" fill="white" opacity="0.6" />
           </svg>
+          Taiga
         </Link>
         {isAuthenticated() && (
           <nav className="header-nav">

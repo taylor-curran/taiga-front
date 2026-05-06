@@ -124,7 +124,7 @@ export default function UserStoryDetailPage() {
           {story.tags?.length > 0 && (
             <div className="detail-tags">
               {story.tags.map(([tag, color]) => (
-                <span key={tag} className="tag-badge" style={{ backgroundColor: color || '#a9aabc' }}>{tag}</span>
+                <span key={tag} className="tag-badge" style={{ backgroundColor: color || '#E8A4C8' }}>{tag}</span>
               ))}
             </div>
           )}

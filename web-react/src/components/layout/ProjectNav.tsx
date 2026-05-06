@@ -16,7 +16,7 @@ export default function ProjectNav({ project }: Props) {
           {project.logo_small_url ? (
             <img src={project.logo_small_url} alt={project.name} />
           ) : (
-            <div className="project-logo-placeholder" style={{ backgroundColor: '#4c566a' }}>
+            <div className="project-logo-placeholder">
               {project.name.charAt(0).toUpperCase()}
             </div>
           )}

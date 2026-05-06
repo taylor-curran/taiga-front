@@ -58,31 +58,31 @@ function BurndownChart({ stats }: { stats: ProjectStats }) {
         {/* Grid lines */}
         {yTicks.map((v) => (
           <g key={v}>
-            <line x1={padding.left} y1={yScale(v)} x2={width - padding.right} y2={yScale(v)} stroke="#e5e9f0" strokeWidth={1} />
-            <text x={padding.left - 8} y={yScale(v) + 4} textAnchor="end" fontSize={10} fill="#7b88a0">{v}</text>
+            <line x1={padding.left} y1={yScale(v)} x2={width - padding.right} y2={yScale(v)} stroke="#FADDE8" strokeWidth={1} />
+            <text x={padding.left - 8} y={yScale(v) + 4} textAnchor="end" fontSize={10} fill="#B07AAF">{v}</text>
           </g>
         ))}
         {/* Optimal line (gray) + fill */}
-        <path d={optimalFill} fill="rgba(200,201,196,0.2)" />
-        <path d={optimalPath} fill="none" stroke="#d8dee9" strokeWidth={2} />
+        <path d={optimalFill} fill="rgba(245,198,224,0.2)" />
+        <path d={optimalPath} fill="none" stroke="#F5C6E0" strokeWidth={2} />
         {ms.map((_, i) => (
-          <circle key={`opt-${i}`} cx={xScale(i)} cy={yScale(ms[i].optimal)} r={4} fill="#fff" stroke="#d8dee9" strokeWidth={2} />
+          <circle key={`opt-${i}`} cx={xScale(i)} cy={yScale(ms[i].optimal)} r={4} fill="#fff" stroke="#F5C6E0" strokeWidth={2} />
         ))}
         {/* Evolution line (green) + fill */}
         {evolutions.length > 0 && (
           <>
-            <path d={evolutionFill} fill="rgba(147,196,0,0.2)" />
-            <path d={evolutionPath} fill="none" stroke="#a8e440" strokeWidth={2} />
+            <path d={evolutionFill} fill="rgba(233,30,140,0.15)" />
+            <path d={evolutionPath} fill="none" stroke="#E91E8C" strokeWidth={2} />
             {evolutions.map((m) => {
               const idx = ms.indexOf(m);
-              return <circle key={`evo-${idx}`} cx={xScale(idx)} cy={yScale(m.evolution!)} r={4} fill="#fff" stroke="#a8e440" strokeWidth={2} />;
+              return <circle key={`evo-${idx}`} cx={xScale(idx)} cy={yScale(m.evolution!)} r={4} fill="#fff" stroke="#E91E8C" strokeWidth={2} />;
             })}
           </>
         )}
         {/* X axis label */}
-        <text x={width / 2} y={height - 5} textAnchor="middle" fontSize={11} fill="#7b88a0">Sprints</text>
+        <text x={width / 2} y={height - 5} textAnchor="middle" fontSize={11} fill="#B07AAF">Sprints</text>
         {/* Y axis label */}
-        <text x={12} y={height / 2} textAnchor="middle" fontSize={11} fill="#7b88a0" transform={`rotate(-90, 12, ${height / 2})`}>Points</text>
+        <text x={12} y={height / 2} textAnchor="middle" fontSize={11} fill="#B07AAF" transform={`rotate(-90, 12, ${height / 2})`}>Points</text>
       </svg>
     </div>
   );
@@ -120,7 +120,7 @@ function StoryRow({ story, project, showTags }: { story: UserStory; project: Pro
         {showTags && story.tags?.length > 0 && (
           <span className="inline-tags">
             {story.tags.map(([tag, color]) => (
-              <span key={tag} className="tag-badge" style={{ backgroundColor: color || '#a9aabc' }}>{tag}</span>
+              <span key={tag} className="tag-badge" style={{ backgroundColor: color || '#E8A4C8' }}>{tag}</span>
             ))}
           </span>
         )}
