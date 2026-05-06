@@ -15,6 +15,7 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
 import HomePage from './pages/HomePage';
 import ProjectsListPage from './pages/ProjectsListPage';
+import CreateProjectPage from './pages/CreateProjectPage';
 import ProjectRouterPage from './pages/ProjectRouterPage';
 import ProjectTimelinePage from './pages/ProjectTimelinePage';
 import DetailRouterPage from './pages/DetailRouterPage';
@@ -40,6 +41,9 @@ import RegisterPage from './pages/RegisterPage';
 import InvitationPage from './pages/InvitationPage';
 import ExternalAppsPage from './pages/ExternalAppsPage';
 import BlockedProjectPage from './pages/BlockedProjectPage';
+import TransferProjectPage from './pages/TransferProjectPage';
+import ChangeEmailPage from './pages/ChangeEmailPage';
+import CancelAccountPage from './pages/CancelAccountPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 import './styles/main.css';
@@ -63,6 +67,9 @@ function AppRoutes() {
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/change-password/:token" element={<ChangePasswordPage />} />
       <Route path="/invitation/:token" element={<InvitationPage />} />
+      <Route path="/change-email/:email_token" element={<ChangeEmailPage />} />
+      <Route path="/verify-email/:email_token" element={<ChangeEmailPage />} />
+      <Route path="/cancel-account/:cancel_token" element={<CancelAccountPage />} />
 
       {/* Main layout with header */}
       <Route element={<AppLayout />}>
@@ -75,9 +82,8 @@ function AppRoutes() {
 
         {/* Projects */}
         <Route path="/projects/" element={<RequireAuth><ProjectsListPage /></RequireAuth>} />
-        <Route path="/project/new" element={<RequireAuth><div className="page"><h1>Create Project</h1><p>Project creation form</p></div></RequireAuth>} />
-        <Route path="/project/new/scrum" element={<RequireAuth><div className="page"><h1>Create Scrum Project</h1></div></RequireAuth>} />
-        <Route path="/project/new/kanban" element={<RequireAuth><div className="page"><h1>Create Kanban Project</h1></div></RequireAuth>} />
+        <Route path="/project/new" element={<RequireAuth><CreateProjectPage /></RequireAuth>} />
+        <Route path="/project/new/:type" element={<RequireAuth><CreateProjectPage /></RequireAuth>} />
 
         {/* Profile / Notifications / Settings */}
         <Route path="/profile" element={<RequireAuth><ProfilePage /></RequireAuth>} />
@@ -106,6 +112,7 @@ function AppRoutes() {
           <Route path="team" element={<TeamPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="admin/*" element={<AdminPage />} />
+          <Route path="transfer/:token" element={<TransferProjectPage />} />
         </Route>
 
         {/* Blocked project */}
