@@ -8,8 +8,8 @@ vi.mock('../api/resources', () => ({
   projects: {
     list: vi.fn().mockResolvedValue({
       data: [
-        { id: 1, name: 'Project Example 1', slug: 'project-1', description: 'Project example 1 description', total_fans: 11, total_activity_last_month: 42, is_private: false, logo_small_url: null },
-        { id: 2, name: 'Project Example 2', slug: 'project-2', description: 'Project example 2 description', total_fans: 5, total_activity_last_month: 30, is_private: false, logo_small_url: null },
+        { id: 1, name: 'Project Example 1', slug: 'project-1', description: 'Project example 1 description', total_fans: 11, total_watchers: 15, total_activity_last_month: 42, is_private: false, logo_small_url: null, members: [] },
+        { id: 2, name: 'Project Example 2', slug: 'project-2', description: 'Project example 2 description', total_fans: 5, total_watchers: 10, total_activity_last_month: 30, is_private: false, logo_small_url: null, members: [] },
       ],
     }),
   },
@@ -29,19 +29,19 @@ function renderPage() {
 describe('DiscoverPage', () => {
   it('renders Discover heading', () => {
     renderPage();
-    expect(screen.getByText('Discover')).toBeInTheDocument();
+    expect(screen.getByText('Discover projects')).toBeInTheDocument();
   });
 
   it('renders search input', () => {
     renderPage();
-    expect(screen.getByPlaceholderText('Search projects...')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Type something...')).toBeInTheDocument();
   });
 
   it('renders featured projects', async () => {
     renderPage();
     await waitFor(() => {
-      expect(screen.getByText('Project Example 1')).toBeInTheDocument();
-      expect(screen.getByText('Project Example 2')).toBeInTheDocument();
+      expect(screen.getAllByText('Project Example 1').length).toBeGreaterThan(0);
+      expect(screen.getAllByText('Project Example 2').length).toBeGreaterThan(0);
     });
   });
 
