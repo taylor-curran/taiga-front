@@ -7,6 +7,7 @@ import DetailHeader from '../components/detail/DetailHeader';
 import HistoryPanel from '../components/detail/HistoryPanel';
 import AttachmentsPanel from '../components/detail/AttachmentsPanel';
 import { useState } from 'react';
+import { sanitizeHtml } from '../utils/sanitize';
 
 export default function UserStoryDetailPage() {
   const { project } = useOutletContext<{ project: Project }>();
@@ -48,7 +49,7 @@ export default function UserStoryDetailPage() {
   const updateMutation = useMutation({
     mutationFn: async (data: Partial<UserStory>) => {
       if (!story) return;
-      return userstories.update(story.id, data, story.version);
+      return userstories.update(story.id, data);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['userstory', usId] });
@@ -112,7 +113,7 @@ export default function UserStoryDetailPage() {
             <>
               <div className="detail-description">
                 {story.description_html ? (
-                  <div dangerouslySetInnerHTML={{ __html: story.description_html }} />
+                  <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(story.description_html) }} />
                 ) : (
                   <p className="empty-description">No description provided</p>
                 )}

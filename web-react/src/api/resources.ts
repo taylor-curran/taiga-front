@@ -85,9 +85,8 @@ export const userstories = {
   list: (params?: Record<string, unknown>) => api.get<UserStory[]>('/userstories', { params }),
   getById: (id: number) => api.get<UserStory>(`/userstories/${id}`),
   create: (data: Record<string, unknown>) => api.post<UserStory>('/userstories', data),
-  update: (id: number, data: Partial<UserStory>, version?: number) => {
-    const headers = version ? { 'x-disable-pagination': 'True' } : {};
-    return api.patch<UserStory>(`/userstories/${id}`, data, { headers });
+  update: (id: number, data: Partial<UserStory>) => {
+    return api.patch<UserStory>(`/userstories/${id}`, data);
   },
   delete: (id: number) => api.delete(`/userstories/${id}`),
   getFiltersData: (projectId: number) => api.get('/userstories/filters_data', { params: { project: projectId } }),

@@ -7,6 +7,7 @@ import DetailHeader from '../components/detail/DetailHeader';
 import HistoryPanel from '../components/detail/HistoryPanel';
 import AttachmentsPanel from '../components/detail/AttachmentsPanel';
 import { useState } from 'react';
+import { sanitizeHtml } from '../utils/sanitize';
 
 export default function IssueDetailPage() {
   const { project } = useOutletContext<{ project: Project }>();
@@ -86,7 +87,7 @@ export default function IssueDetailPage() {
           ) : (
             <div className="detail-description">
               {issue.description_html ? (
-                <div dangerouslySetInnerHTML={{ __html: issue.description_html }} />
+                <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(issue.description_html) }} />
               ) : (
                 <p className="empty-description">No description provided</p>
               )}

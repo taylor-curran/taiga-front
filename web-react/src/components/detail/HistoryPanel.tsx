@@ -3,6 +3,7 @@ import type { History } from '../../types';
 import { formatDistanceToNow } from 'date-fns';
 import { useState } from 'react';
 import api from '../../api/client';
+import { sanitizeHtml } from '../../utils/sanitize';
 
 interface Props {
   type: 'userstory' | 'task' | 'issue' | 'epic' | 'wiki';
@@ -74,7 +75,7 @@ export default function HistoryPanel({ type, objectId, version }: Props) {
                 {formatDistanceToNow(new Date(entry.created_at), { addSuffix: true })}
               </span>
             </div>
-            <div className="comment-body" dangerouslySetInnerHTML={{ __html: entry.comment_html }} />
+            <div className="comment-body" dangerouslySetInnerHTML={{ __html: sanitizeHtml(entry.comment_html) }} />
           </div>
         ))}
         <h3>Activity ({activities.length})</h3>

@@ -6,6 +6,7 @@ import Loader from '../components/common/Loader';
 import HistoryPanel from '../components/detail/HistoryPanel';
 import AttachmentsPanel from '../components/detail/AttachmentsPanel';
 import { useState } from 'react';
+import { sanitizeHtml } from '../utils/sanitize';
 
 export default function WikiPageView() {
   const { project } = useOutletContext<{ project: Project }>();
@@ -113,7 +114,7 @@ export default function WikiPageView() {
           ) : (
             <div className="wiki-content">
               {page?.html ? (
-                <div dangerouslySetInnerHTML={{ __html: page.html }} />
+                <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(page.html) }} />
               ) : (
                 <div className="empty-state">
                   <p>This page doesn't exist yet.</p>

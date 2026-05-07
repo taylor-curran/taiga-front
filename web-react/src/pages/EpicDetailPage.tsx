@@ -7,6 +7,7 @@ import DetailHeader from '../components/detail/DetailHeader';
 import HistoryPanel from '../components/detail/HistoryPanel';
 import AttachmentsPanel from '../components/detail/AttachmentsPanel';
 import { useState } from 'react';
+import { sanitizeHtml } from '../utils/sanitize';
 
 export default function EpicDetailPage() {
   const { project } = useOutletContext<{ project: Project }>();
@@ -90,7 +91,7 @@ export default function EpicDetailPage() {
           ) : (
             <div className="detail-description">
               {epic.description_html ? (
-                <div dangerouslySetInnerHTML={{ __html: epic.description_html }} />
+                <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(epic.description_html) }} />
               ) : (
                 <p className="empty-description">No description provided</p>
               )}

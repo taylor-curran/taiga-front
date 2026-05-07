@@ -133,15 +133,20 @@ export default function App() {
   const token = useAuthStore((s) => s.token);
 
   useEffect(() => {
-    loadConfig().then(() => {
-      setConfigLoaded(true);
-      eventsService.initialize();
-    });
+    loadConfig()
+      .then(() => {
+        setConfigLoaded(true);
+        eventsService.initialize();
+      })
+      .catch(() => {
+        setConfigLoaded(true);
+      });
   }, []);
 
   useEffect(() => {
     if (configLoaded && token) {
       eventsService.setupConnection();
+      return () => eventsService.disconnect();
     }
   }, [configLoaded, token]);
 
