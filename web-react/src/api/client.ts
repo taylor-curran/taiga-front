@@ -97,12 +97,20 @@ function createApiClient(): AxiosInstance {
     async (error: AxiosError) => {
       const originalRequest = error.config as RetryConfig | undefined;
 
+      // Skip refresh for the auth endpoints themselves so we don't loop on them,
+      // but use exact-segment matching — substring matching would also match
+      // unrelated URLs like `/importers/trello/auth_url`, silently logging the
+      // user out instead of refreshing their token. Mirrors the behaviour of
+      // `authHttpIntercept` in `app/coffee/app.coffee`, which only excludes
+      // `/auth/refresh`.
+      const url = originalRequest?.url ?? "";
+      const isAuthEndpoint =
+        url.endsWith("/auth") || url.includes("/auth/");
       if (
         error.response?.status === 401 &&
         originalRequest &&
         !originalRequest._retry &&
-        !originalRequest.url?.includes("/auth/refresh") &&
-        !originalRequest.url?.includes("/auth")
+        !isAuthEndpoint
       ) {
         originalRequest._retry = true;
         try {
