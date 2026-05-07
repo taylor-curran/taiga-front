@@ -105,10 +105,19 @@ export function ProjectProvider({ children }: ProjectProviderProps) {
     if (!current) return null;
     try {
       const fresh = await projectsResource.getBySlug(current.slug);
-      setProjectState(fresh);
+      // The 10-minute auto-refresh below kicks off a fetch for whatever
+      // project is loaded *now*; if the user navigates away before it
+      // resolves, the slow response would otherwise overwrite the new
+      // project with stale data. Only commit if we're still on the same
+      // project as when the fetch started.
+      if (projectRef.current?.slug === current.slug) {
+        setProjectState(fresh);
+      }
       return fresh;
     } catch (err) {
-      setError(err);
+      if (projectRef.current?.slug === current.slug) {
+        setError(err);
+      }
       return null;
     }
   }, []);
