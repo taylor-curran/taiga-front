@@ -9,7 +9,7 @@ function TaskCard({ task, project }: { task: Task; project: Project }) {
     <div
       className={`taskboard-card ${task.is_iocaine ? 'iocaine' : ''}`}
       draggable
-      onDragStart={(e) => e.dataTransfer.setData('text/plain', String(task.id))}
+      onDragStart={(e) => e.dataTransfer.setData('application/json', JSON.stringify({ taskId: task.id, version: task.version }))}
     >
       <Link to={`/project/${project.slug}/task/${task.ref}`} className="ref-link">
         #{task.ref}
@@ -60,8 +60,8 @@ export default function TaskboardPage() {
   });
 
   const updateTaskMutation = useMutation({
-    mutationFn: async ({ taskId, statusId }: { taskId: number; statusId: number }) => {
-      await tasksApi.update(taskId, { status: statusId });
+    mutationFn: async ({ taskId, statusId, version }: { taskId: number; statusId: number; version: number }) => {
+      await tasksApi.update(taskId, { status: statusId, version });
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sprint-tasks'] });
@@ -91,9 +91,13 @@ export default function TaskboardPage() {
 
   const handleDrop = (e: React.DragEvent, statusId: number) => {
     e.preventDefault();
-    const taskId = parseInt(e.dataTransfer.getData('text/plain'), 10);
-    if (taskId) {
-      updateTaskMutation.mutate({ taskId, statusId });
+    try {
+      const data = JSON.parse(e.dataTransfer.getData('application/json'));
+      if (data.taskId) {
+        updateTaskMutation.mutate({ taskId: data.taskId, statusId, version: data.version });
+      }
+    } catch {
+      // ignore malformed drag data
     }
   };
 

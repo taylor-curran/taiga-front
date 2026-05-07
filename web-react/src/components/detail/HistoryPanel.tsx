@@ -11,7 +11,7 @@ interface Props {
   version: number;
 }
 
-export default function HistoryPanel({ type, objectId, projectId, version }: Props) {
+export default function HistoryPanel({ type, objectId, version }: Props) {
   const queryClient = useQueryClient();
   const [comment, setComment] = useState('');
 
@@ -33,11 +33,12 @@ export default function HistoryPanel({ type, objectId, projectId, version }: Pro
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['history', type, objectId] });
+      const entityKey = type === 'userstory' ? 'userstory' : type;
+      queryClient.invalidateQueries({ queryKey: [entityKey, objectId] });
+      if (type === 'wiki') {
+        queryClient.invalidateQueries({ queryKey: ['wiki-page'] });
+      }
       setComment('');
-    },
-    onError: async (err: unknown) => {
-      void err;
-      void projectId;
     },
   });
 
