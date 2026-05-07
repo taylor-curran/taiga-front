@@ -68,6 +68,9 @@ export function ProjectProvider({ children }: ProjectProviderProps) {
 
   const refreshTimerRef = useRef<number | null>(null);
   const projectRef = useRef<Project | null>(null);
+  // Tracks the most recently requested slug so we can drop stale fetch
+  // responses if the user navigates rapidly between projects.
+  const latestSlugRef = useRef<string | null>(null);
 
   useEffect(() => {
     projectRef.current = project;
@@ -114,19 +117,29 @@ export function ProjectProvider({ children }: ProjectProviderProps) {
     async (slug: string): Promise<Project> => {
       const current = projectRef.current;
       if (current && current.slug === slug) {
+        latestSlugRef.current = slug;
         return current;
       }
+      // Mark this as the most recent request. Any earlier in-flight call that
+      // resolves after we've moved on must not commit its (now-stale) result.
+      latestSlugRef.current = slug;
       setIsLoading(true);
       setError(null);
       try {
         const fresh = await projectsResource.getBySlug(slug);
-        setProjectState(fresh);
+        if (latestSlugRef.current === slug) {
+          setProjectState(fresh);
+        }
         return fresh;
       } catch (err) {
-        setError(err);
+        if (latestSlugRef.current === slug) {
+          setError(err);
+        }
         throw err;
       } finally {
-        setIsLoading(false);
+        if (latestSlugRef.current === slug) {
+          setIsLoading(false);
+        }
       }
     },
     [],
