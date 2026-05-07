@@ -29,7 +29,14 @@ export default function Header() {
       <div className="header-left">
         <Link to="/" className="logo-link">
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <rect width="28" height="28" rx="6" fill="#4c566a" />
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FFB6C1" />
+                <stop offset="50%" stopColor="#FF69B4" />
+                <stop offset="100%" stopColor="#E91E90" />
+              </linearGradient>
+            </defs>
+            <rect width="28" height="28" rx="6" fill="url(#logoGrad)" />
             <text x="14" y="20" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold">T</text>
           </svg>
         </Link>
