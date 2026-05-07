@@ -18,8 +18,8 @@ import { resolveUrl } from "./urls";
 export const authResource = {
   login(payload: LoginPayload): Promise<AuthenticatedUser> {
     return postJson<AuthenticatedUser, LoginPayload>(resolveUrl("auth"), {
-      type: payload.type ?? "normal",
       ...payload,
+      type: payload.type ?? "normal",
     });
   },
 

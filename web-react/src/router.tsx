@@ -9,12 +9,12 @@ import { lazy, ReactNode, Suspense } from "react";
 import {
   createBrowserRouter,
   Navigate,
-  Outlet,
   useLocation,
 } from "react-router-dom";
 
 import AppShell from "./layouts/AppShell";
 import AuthShell from "./layouts/AuthShell";
+import ProjectShell from "./layouts/ProjectShell";
 import { useAuth } from "./contexts/auth";
 import Placeholder from "./pages/Placeholder";
 
@@ -109,10 +109,12 @@ export const router = createBrowserRouter([
         element: placeholder("Import project"),
       },
 
-      /* Project pages — all under /:pslug/* */
+      /* Project pages — all under /:pslug/*. ProjectShell loads the project
+         from the URL slug and renders the project menu alongside the
+         per-route content. */
       {
         path: "project/:pslug",
-        element: <Outlet />,
+        element: <ProjectShell />,
         children: [
           { index: true, element: placeholder("Project router") },
           { path: "timeline", element: placeholder("Project timeline") },
