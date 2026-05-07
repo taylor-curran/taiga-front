@@ -122,7 +122,7 @@ export default function EpicDetailPage() {
             deleteFn={epicsApi.deleteAttachment}
           />
 
-          <HistoryPanel type="epic" objectId={epic.id} projectId={project.id} />
+          <HistoryPanel type="epic" objectId={epic.id} projectId={project.id} version={epic.version} />
         </div>
 
         <div className="detail-sidebar">

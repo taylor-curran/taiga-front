@@ -117,7 +117,7 @@ export default function TaskDetailPage() {
             deleteFn={tasksApi.deleteAttachment}
           />
 
-          <HistoryPanel type="task" objectId={task.id} projectId={project.id} />
+          <HistoryPanel type="task" objectId={task.id} projectId={project.id} version={task.version} />
         </div>
 
         <div className="detail-sidebar">

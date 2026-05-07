@@ -8,9 +8,10 @@ interface Props {
   type: 'userstory' | 'task' | 'issue' | 'epic' | 'wiki';
   objectId: number;
   projectId: number;
+  version: number;
 }
 
-export default function HistoryPanel({ type, objectId, projectId }: Props) {
+export default function HistoryPanel({ type, objectId, projectId, version }: Props) {
   const queryClient = useQueryClient();
   const [comment, setComment] = useState('');
 
@@ -27,7 +28,7 @@ export default function HistoryPanel({ type, objectId, projectId }: Props) {
       const contentType = type === 'userstory' ? 'userstories' : type === 'wiki' ? 'wiki' : `${type}s`;
       await api.patch(`/${contentType}/${objectId}`, {
         comment: text,
-        version: 1,
+        version,
       });
     },
     onSuccess: () => {

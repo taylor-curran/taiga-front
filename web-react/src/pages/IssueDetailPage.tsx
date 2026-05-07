@@ -111,7 +111,7 @@ export default function IssueDetailPage() {
             deleteFn={issuesApi.deleteAttachment}
           />
 
-          <HistoryPanel type="issue" objectId={issue.id} projectId={project.id} />
+          <HistoryPanel type="issue" objectId={issue.id} projectId={project.id} version={issue.version} />
         </div>
 
         <div className="detail-sidebar">

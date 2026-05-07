@@ -156,7 +156,7 @@ export default function UserStoryDetailPage() {
             deleteFn={userstories.deleteAttachment}
           />
 
-          <HistoryPanel type="userstory" objectId={story.id} projectId={project.id} />
+          <HistoryPanel type="userstory" objectId={story.id} projectId={project.id} version={story.version} />
         </div>
 
         <div className="detail-sidebar">

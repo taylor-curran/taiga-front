@@ -133,7 +133,7 @@ export default function WikiPageView() {
                 createFn={wikiApi.createAttachment}
                 deleteFn={wikiApi.deleteAttachment}
               />
-              <HistoryPanel type="wiki" objectId={page.id} projectId={project.id} />
+              <HistoryPanel type="wiki" objectId={page.id} projectId={project.id} version={page.version} />
             </>
           )}
         </div>
