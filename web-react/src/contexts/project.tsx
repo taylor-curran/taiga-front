@@ -67,6 +67,11 @@ export function ProjectProvider({ children }: ProjectProviderProps) {
   const [error, setError] = useState<unknown>(null);
 
   const refreshTimerRef = useRef<number | null>(null);
+  const projectRef = useRef<Project | null>(null);
+
+  useEffect(() => {
+    projectRef.current = project;
+  }, [project]);
 
   const activeMembers = useMemo<ProjectMember[]>(() => {
     if (!project?.members) return [];
@@ -88,22 +93,28 @@ export function ProjectProvider({ children }: ProjectProviderProps) {
     setSectionsBreadcrumb((prev) => (next ? [...prev, next] : []));
   }, []);
 
+  // Both `fetchProject` and `setProjectBySlug` read the latest project from
+  // `projectRef` instead of closing over `project`, so their identities stay
+  // stable across renders. Otherwise consumers (e.g. `ProjectShell`) would
+  // see them as new functions on every project change and re-fire effects.
   const fetchProject = useCallback(async (): Promise<Project | null> => {
-    if (!project) return null;
+    const current = projectRef.current;
+    if (!current) return null;
     try {
-      const fresh = await projectsResource.getBySlug(project.slug);
+      const fresh = await projectsResource.getBySlug(current.slug);
       setProjectState(fresh);
       return fresh;
     } catch (err) {
       setError(err);
       return null;
     }
-  }, [project]);
+  }, []);
 
   const setProjectBySlug = useCallback(
     async (slug: string): Promise<Project> => {
-      if (project && project.slug === slug) {
-        return project;
+      const current = projectRef.current;
+      if (current && current.slug === slug) {
+        return current;
       }
       setIsLoading(true);
       setError(null);
@@ -118,10 +129,12 @@ export function ProjectProvider({ children }: ProjectProviderProps) {
         setIsLoading(false);
       }
     },
-    [project],
+    [],
   );
 
   // Auto-refresh every 10 minutes while a project is loaded — mirrors AngularJS.
+  // Depend on `project?.id` (not the whole `project` reference) so a refresh
+  // that simply replaces the object doesn't tear down and re-create the timer.
   useEffect(() => {
     if (!project) return;
     if (refreshTimerRef.current !== null) {
@@ -136,7 +149,7 @@ export function ProjectProvider({ children }: ProjectProviderProps) {
         refreshTimerRef.current = null;
       }
     };
-  }, [project, fetchProject]);
+  }, [project?.id, fetchProject]);
 
   const hasPermission = useCallback(
     (permission: string): boolean => {
