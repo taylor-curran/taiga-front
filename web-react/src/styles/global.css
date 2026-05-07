@@ -1,0 +1,348 @@
+/*
+ * Minimal global styles for the React migration foundation.
+ *
+ * The colour palette mirrors the Angular SCSS tokens (see
+ * `app/styles/_variables.scss`):
+ *   - primary teal:    #25A28C
+ *   - secondary green: #A7CB23
+ *   - link primary:    #008AA8
+ *   - greys:           #F9F9FB (100) -> #2E3440 (900)
+ *
+ * Page teams will replace these styles with the full design system as part
+ * of their respective phases. Keep this file small and theme-only.
+ */
+
+:root {
+  --color-primary: #25a28c;
+  --color-primary-dark: #1d7d6c;
+  --color-secondary: #a7cb23;
+  --color-link: #008aa8;
+  --color-error: #cf3a47;
+  --color-grey-100: #f9f9fb;
+  --color-grey-200: #eef0f2;
+  --color-grey-300: #d8dde2;
+  --color-grey-500: #8d96a0;
+  --color-grey-700: #4d5867;
+  --color-grey-900: #2e3440;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-grey-900);
+  background: var(--color-grey-100);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ----- App shell ----- */
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app-body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.app-content {
+  flex: 1 1 auto;
+  padding: 1.5rem;
+  min-width: 0;
+}
+
+/* ----- Navigation bar ----- */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 56px;
+  background: var(--color-grey-900);
+  color: #fff;
+}
+
+.navbar a,
+.navbar .user-name {
+  color: #fff;
+}
+
+.navbar .nav-left,
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar .logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.navbar a.active,
+.navbar a[aria-current="page"] {
+  color: var(--color-secondary);
+}
+
+.navbar .logout-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.navbar .logout-btn:hover {
+  border-color: var(--color-secondary);
+}
+
+/* ----- Project menu ----- */
+
+.project-menu {
+  width: 240px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid var(--color-grey-200);
+  padding: 1rem;
+}
+
+.project-menu-header {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-grey-200);
+  margin-bottom: 0.75rem;
+}
+
+.project-name {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--color-grey-900);
+}
+
+.project-description {
+  font-size: 0.85rem;
+  color: var(--color-grey-500);
+  margin: 0.25rem 0 0;
+}
+
+.project-menu-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-menu-links li + li {
+  margin-top: 0.25rem;
+}
+
+.project-menu-links a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-grey-700);
+}
+
+.project-menu-links a:hover {
+  background: var(--color-grey-100);
+  text-decoration: none;
+}
+
+.project-menu-links a.active,
+.project-menu-links a[aria-current="page"] {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ----- Auth shell ----- */
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--color-grey-100);
+}
+
+.auth {
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-container {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(46, 52, 64, 0.08);
+}
+
+.auth-container .logo {
+  text-align: center;
+  font-size: 1.75rem;
+  margin: 0 0 0.25rem;
+  color: var(--color-primary);
+}
+
+.auth-container .tagline {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-grey-500);
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* ----- Forms ----- */
+
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+}
+
+input:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.btn-small.full {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-small.full:hover:not([disabled]) {
+  background: var(--color-primary-dark);
+}
+
+.btn-small.full[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.forgot-pass {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.form-error {
+  background: rgba(207, 58, 71, 0.08);
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+}
+
+.register-cta,
+.register-text,
+.register-text-top {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.forgot-text {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-grey-700);
+}
+
+/* ----- Placeholder pages ----- */
+
+.placeholder-page {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: 1px dashed var(--color-grey-300);
+}
+
+.placeholder-page h1 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.placeholder-params {
+  background: var(--color-grey-100);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+.placeholder-params dt {
+  font-weight: 600;
+  color: var(--color-grey-700);
+}
+
+.placeholder-params dd {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+
+.placeholder-note {
+  color: var(--color-grey-500);
+  font-size: 0.85rem;
+  margin: 1rem 0 0;
+}
+
+.page-loading {
+  padding: 1.5rem;
+  color: var(--color-grey-500);
+}
