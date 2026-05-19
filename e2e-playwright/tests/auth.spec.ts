@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import * as common from '../utils/common';
 import * as notifications from '../utils/notifications';
 import * as lightbox from '../utils/lightbox';
+import { ADMIN_USERNAME, ADMIN_PASSWORD } from '../utils/config';
 
 // Auth tests must NOT use stored auth state — they test login/logout explicitly
 test.use({ storageState: { cookies: [], origins: [] } });
@@ -10,8 +11,8 @@ test.describe('auth', () => {
   test('login', async ({ page }) => {
     await page.goto('/login');
     await common.waitLoader(page);
-    await page.locator('input[name="username"]').fill('admin');
-    await page.locator('input[name="password"]').fill('adminpass');
+    await page.locator('input[name="username"]').fill(ADMIN_USERNAME);
+    await page.locator('input[name="password"]').fill(ADMIN_PASSWORD);
     await page.locator('button[type="submit"]').click();
     await page.waitForURL('**/', { timeout: 15000 });
     await common.waitLoader(page);
@@ -42,7 +43,7 @@ test.describe('auth', () => {
     };
 
     test('logout', async ({ page }) => {
-      await common.login(page, 'admin', 'adminpass');
+      await common.login(page, ADMIN_USERNAME, ADMIN_PASSWORD);
       const dropdown = page.locator('div[tg-dropdown-user]');
       await dropdown.hover();
       await page.waitForTimeout(300);

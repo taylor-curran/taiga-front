@@ -1,5 +1,6 @@
 import { test as setup } from '@playwright/test';
 import * as common from '../utils/common';
+import { ADMIN_USERNAME, ADMIN_PASSWORD, ADMIN_PASSWORD_ALT } from '../utils/config';
 
 setup('authenticate', async ({ page }) => {
   await page.goto('/');
@@ -10,16 +11,15 @@ setup('authenticate', async ({ page }) => {
   });
 
   await page.goto('/login');
-  await page.locator('input[name="username"]').fill('admin');
-  await page.locator('input[name="password"]').fill('123123');
+  await page.locator('input[name="username"]').fill(ADMIN_USERNAME);
+  await page.locator('input[name="password"]').fill(ADMIN_PASSWORD);
   await page.locator('button[type="submit"]').click();
 
-  // Wait for redirect to home
+  // Wait for redirect to home — fall back to alt password if primary fails
   await page.waitForURL('**/', { timeout: 15000 }).catch(async () => {
-    // Try alternative password
     await page.goto('/login');
-    await page.locator('input[name="username"]').fill('admin');
-    await page.locator('input[name="password"]').fill('adminpass');
+    await page.locator('input[name="username"]').fill(ADMIN_USERNAME);
+    await page.locator('input[name="password"]').fill(ADMIN_PASSWORD_ALT);
     await page.locator('button[type="submit"]').click();
     await page.waitForURL('**/', { timeout: 15000 });
   });
