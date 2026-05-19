@@ -13,7 +13,7 @@ export function getColumns(page: Page) {
 }
 
 export async function getColumnUssTitles(page: Page, column: number) {
-  return getColumns(page).locator('.e2e-title').allTextContents();
+  return getColumns(page).nth(column).locator('.e2e-title').allTextContents();
 }
 
 export function getBoxUss(page: Page, column: number) {

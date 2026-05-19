@@ -28,6 +28,12 @@ async function issuesAction(page: Page) {
   await common.waitLoader(page);
 }
 
+async function issueAction(page: Page, index: number) {
+  const issue = page.locator('section.issues-table .row.table-main .subject a').nth(index);
+  await common.link(page, issue);
+  await common.waitLoader(page);
+}
+
 async function epicAction(page: Page, index: number) {
   const epic = page.locator('.e2e-epic-row .name a').nth(index);
   await common.link(page, epic);
@@ -106,7 +112,7 @@ export function init(): NavBuilder {
       return this;
     },
     issue(index: number) {
-      this.actions.push((page: Page) => epicAction(page, index));
+      this.actions.push((page: Page) => issueAction(page, index));
       return this;
     },
     epics() {
