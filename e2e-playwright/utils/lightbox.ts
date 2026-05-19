@@ -1,39 +1,21 @@
-import { Page, Locator } from '@playwright/test';
-import { hasClass } from './common';
+import { Page, Locator, expect } from '@playwright/test';
 
 const TRANSITION = 400;
 
 export async function open(page: Page, elOrSelector: Locator | string): Promise<boolean> {
   const el = typeof elOrSelector === 'string' ? page.locator(elOrSelector) : elOrSelector;
   try {
-    await page.waitForFunction(
-      (selector) => {
-        const el = typeof selector === 'string'
-          ? document.querySelector(selector)
-          : null;
-        return el ? el.classList.contains('open') : false;
-      },
-      typeof elOrSelector === 'string' ? elOrSelector : null,
-      { timeout: 4000 }
-    ).catch(async () => {
-      // Fallback: wait for the locator to have 'open' class
-      await el.waitFor({ state: 'visible', timeout: 4000 });
-    });
-
-    // Wait for the class directly on the locator
-    const classes = await el.getAttribute('class');
-    if (!classes?.includes('open')) {
+    if (typeof elOrSelector === 'string') {
       await page.waitForFunction(
-        (sel) => {
-          const elements = document.querySelectorAll('.lightbox');
-          for (const e of elements) {
-            if (e.classList.contains('open')) return true;
-          }
-          return false;
+        (selector) => {
+          const el = document.querySelector(selector as string);
+          return el ? el.classList.contains('open') : false;
         },
-        null,
+        elOrSelector,
         { timeout: 4000 }
       );
+    } else {
+      await expect(el).toHaveClass(/open/, { timeout: 4000 });
     }
     await page.waitForTimeout(TRANSITION + 100);
     return true;

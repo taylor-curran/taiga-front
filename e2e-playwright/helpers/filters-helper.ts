@@ -25,7 +25,7 @@ export async function clearFilters(page: Page) {
   const filters = page.locator('.e2e-remove-filter');
   const filtersSize = await filters.count();
   for (let i = 0; i < filtersSize; i++) {
-    await filters.nth(i).click();
+    await filters.first().click();
   }
   await clearByTextInput(page);
   const isPresent = await page.locator('.e2e-category.selected').isVisible().catch(() => false);
