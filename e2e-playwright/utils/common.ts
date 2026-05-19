@@ -57,6 +57,10 @@ export async function link(page: Page, locator: Locator) {
 }
 
 export async function drag(page: Page, source: Locator, target: Locator, extraX = 0, extraY = 0) {
+  // Scroll elements into view before computing coordinates
+  await source.scrollIntoViewIfNeeded();
+  await target.scrollIntoViewIfNeeded();
+
   const srcBox = await source.boundingBox();
   const tgtBox = await target.boundingBox();
   if (!srcBox || !tgtBox) throw new Error('Cannot get bounding boxes for drag');
@@ -82,7 +86,6 @@ export async function drag(page: Page, source: Locator, target: Locator, extraX 
 
     const srcEl = document.elementFromPoint(sx, sy);
     if (!srcEl) return;
-    srcEl.scrollIntoView({ block: 'center' });
 
     triggerMouseEvent(srcEl, 'mousedown', { x: sx, y: sy });
 
