@@ -37,32 +37,18 @@ function buildHeaders(): Record<string, string> {
   return headers;
 }
 
-let refreshInProgress: Promise<Response> | null = null;
+let refreshInProgress: Promise<boolean> | null = null;
 
-async function handleRefresh(): Promise<boolean> {
+async function doRefresh(): Promise<boolean> {
   const refreshToken = localStorage.getItem("refresh");
   if (!refreshToken) return false;
 
-  if (refreshInProgress) {
-    try {
-      const res = await refreshInProgress;
-      return res.ok;
-    } catch {
-      return false;
-    }
-  }
-
-  const promise = fetch("/api/v1/auth/refresh", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ refresh: refreshToken }),
-  });
-
-  refreshInProgress = promise;
-
   try {
-    const res = await promise;
-    refreshInProgress = null;
+    const res = await fetch("/api/v1/auth/refresh", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ refresh: refreshToken }),
+    });
 
     if (res.ok) {
       const data = await res.json();
@@ -72,9 +58,20 @@ async function handleRefresh(): Promise<boolean> {
     }
     return false;
   } catch {
-    refreshInProgress = null;
     return false;
   }
+}
+
+async function handleRefresh(): Promise<boolean> {
+  if (refreshInProgress) {
+    return refreshInProgress;
+  }
+
+  refreshInProgress = doRefresh().finally(() => {
+    refreshInProgress = null;
+  });
+
+  return refreshInProgress;
 }
 
 function clearAuthAndRedirect(): void {

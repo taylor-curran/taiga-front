@@ -26,7 +26,8 @@ export async function login(
   const { setTokens, setUser } = useAuthStore.getState();
   setTokens(data.auth_token, data.refresh);
 
-  const user: User = { ...data };
+  const { auth_token: _t, refresh: _r, ...userFields } = data;
+  const user: User = { ...userFields };
   setUser(user);
   return user;
 }
@@ -46,7 +47,8 @@ export async function register(
   const { setTokens, setUser } = useAuthStore.getState();
   setTokens(response.auth_token, response.refresh);
 
-  const user: User = { ...response };
+  const { auth_token: _t, refresh: _r, ...userFields } = response;
+  const user: User = { ...userFields };
   setUser(user);
   return user;
 }

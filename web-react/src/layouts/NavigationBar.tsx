@@ -13,7 +13,7 @@ function getActiveSection(pathname: string): ActiveSection {
       return "discover";
     case "/notifications":
       return "notifications";
-    case "/projects/":
+    case "/projects":
       return "projects";
     default:
       if (pathname.startsWith("/project")) return "project";
