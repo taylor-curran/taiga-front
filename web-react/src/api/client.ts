@@ -1,4 +1,5 @@
 import { getConfig } from "../config";
+import { useAuthStore } from "../auth/auth-store";
 
 const sessionId = generateSessionId();
 
@@ -52,8 +53,7 @@ async function doRefresh(): Promise<boolean> {
 
     if (res.ok) {
       const data = await res.json();
-      localStorage.setItem("token", data.auth_token);
-      localStorage.setItem("refresh", data.refresh);
+      useAuthStore.getState().setTokens(data.auth_token, data.refresh);
       return true;
     }
     return false;
