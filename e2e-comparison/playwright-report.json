@@ -1,0 +1,832 @@
+{
+  "config": {
+    "configFile": "/workspace/e2e-comparison/playwright.config.ts",
+    "rootDir": "/workspace/e2e-comparison/specs",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/workspace/e2e-comparison/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/e2e-comparison/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "angular",
+        "name": "angular",
+        "testDir": "/workspace/e2e-comparison/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/workspace/e2e-comparison/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "react",
+        "name": "react",
+        "testDir": "/workspace/e2e-comparison/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "test-results/html-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/workspace/e2e-comparison/playwright-report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "login-and-shell-parity.spec.ts",
+      "file": "login-and-shell-parity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Angular reference vs React shell",
+          "file": "login-and-shell-parity.spec.ts",
+          "line": 17,
+          "column": 6,
+          "specs": [
+            {
+              "title": "login: top-level document title matches translated LOGIN.PAGE_TITLE",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "angular",
+                  "projectName": "angular",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 726,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:43.627Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-f2bc0d22a8432cbf2de4",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "login: top-level meta description matches translated LOGIN.PAGE_DESCRIPTION",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "angular",
+                  "projectName": "angular",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 714,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:43.629Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-5c4de3c3357d1c43aca9",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "login: top-level og:title meta matches page title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "angular",
+                  "projectName": "angular",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 664,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:44.423Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-d8e45d8011d671496b88",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "login: no full-viewport legacy iframe wrapper at top level",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "angular",
+                  "projectName": "angular",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 391,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:44.424Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-efee2f1d899631f112c2",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "login: tg-legacy host element present in top-level document",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "angular",
+                  "projectName": "angular",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 169,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:44.835Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-577e226109e0764b7590",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "forgot-password: top-level document title matches translated FORGOT_PASSWORD.PAGE_TITLE",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "angular",
+                  "projectName": "angular",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 629,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:45.012Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-5fe9fe02d720cef0f8a4",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 61,
+              "column": 3
+            },
+            {
+              "title": "discover: top-level document title matches translated DISCOVER.PAGE_TITLE",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "angular",
+                  "projectName": "angular",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 647,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:45.096Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-f3c5eda8d099b6dbfef3",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 70,
+              "column": 3
+            },
+            {
+              "title": "login: top-level document title matches translated LOGIN.PAGE_TITLE",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "react",
+                  "projectName": "react",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 30288,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Login - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Login - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:22:24",
+                        "location": {
+                          "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                          "column": 24,
+                          "line": 22
+                        },
+                        "snippet": "  20 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  21 |     await capture(page, `login-document-title-${suffix}.png`);\n> 22 |     await expect(page).toHaveTitle('Login - Taiga', { timeout: titleTimeout });\n     |                        ^\n  23 |   });\n  24 |\n  25 |   test('login: top-level meta description matches translated LOGIN.PAGE_DESCRIPTION', async ({ page }, testInfo) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                            "column": 24,
+                            "line": 22
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Login - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n\n\n  20 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  21 |     await capture(page, `login-document-title-${suffix}.png`);\n> 22 |     await expect(page).toHaveTitle('Login - Taiga', { timeout: titleTimeout });\n     |                        ^\n  23 |   });\n  24 |\n  25 |   test('login: top-level meta description matches translated LOGIN.PAGE_DESCRIPTION', async ({ page }, testInfo) => {\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:22:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:46.100Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-cd290-translated-LOGIN-PAGE-TITLE-react/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-cd290-translated-LOGIN-PAGE-TITLE-react/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                        "column": 24,
+                        "line": 22
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-c5fe7f34c675022f8c12",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "login: top-level meta description matches translated LOGIN.PAGE_DESCRIPTION",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "react",
+                  "projectName": "react",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30288,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('head meta[name=\"description\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('head meta[name=\"description\"]')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('head meta[name=\"description\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('head meta[name=\"description\"]')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:30:24",
+                        "location": {
+                          "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                          "column": 24,
+                          "line": 30
+                        },
+                        "snippet": "  28 |     await capture(page, `login-meta-description-${suffix}.png`);\n  29 |     const meta = page.locator('head meta[name=\"description\"]');\n> 30 |     await expect(meta).toHaveCount(1, { timeout: titleTimeout });\n     |                        ^\n  31 |     await expect(meta).toHaveAttribute(\n  32 |       'content',\n  33 |       /Logging in to Taiga, a project management platform/,"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                            "column": 24,
+                            "line": 30
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('head meta[name=\"description\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('head meta[name=\"description\"]')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  28 |     await capture(page, `login-meta-description-${suffix}.png`);\n  29 |     const meta = page.locator('head meta[name=\"description\"]');\n> 30 |     await expect(meta).toHaveCount(1, { timeout: titleTimeout });\n     |                        ^\n  31 |     await expect(meta).toHaveAttribute(\n  32 |       'content',\n  33 |       /Logging in to Taiga, a project management platform/,\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:30:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:35:46.195Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-88204-ated-LOGIN-PAGE-DESCRIPTION-react/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-88204-ated-LOGIN-PAGE-DESCRIPTION-react/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                        "column": 24,
+                        "line": 30
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-29dd428c54998bcb18b1",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 25,
+              "column": 3
+            },
+            {
+              "title": "login: top-level og:title meta matches page title",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "react",
+                  "projectName": "react",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 30296,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('head meta[property=\"og:title\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('head meta[property=\"og:title\"]')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('head meta[property=\"og:title\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('head meta[property=\"og:title\"]')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:43:22",
+                        "location": {
+                          "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                          "column": 22,
+                          "line": 43
+                        },
+                        "snippet": "  41 |     await capture(page, `login-og-title-${suffix}.png`);\n  42 |     const og = page.locator('head meta[property=\"og:title\"]');\n> 43 |     await expect(og).toHaveCount(1, { timeout: titleTimeout });\n     |                      ^\n  44 |     await expect(og).toHaveAttribute('content', 'Login - Taiga', { timeout: titleTimeout });\n  45 |   });\n  46 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                            "column": 22,
+                            "line": 43
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('head meta[property=\"og:title\"]')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('head meta[property=\"og:title\"]')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  41 |     await capture(page, `login-og-title-${suffix}.png`);\n  42 |     const og = page.locator('head meta[property=\"og:title\"]');\n> 43 |     await expect(og).toHaveCount(1, { timeout: titleTimeout });\n     |                      ^\n  44 |     await expect(og).toHaveAttribute('content', 'Login - Taiga', { timeout: titleTimeout });\n  45 |   });\n  46 |\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:43:22"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:36:16.935Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-f888a-tle-meta-matches-page-title-react/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-f888a-tle-meta-matches-page-title-react/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                        "column": 22,
+                        "line": 43
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-bc37ba0dd69fc5c88470",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "login: no full-viewport legacy iframe wrapper at top level",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "react",
+                  "projectName": "react",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30270,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe.legacy-frame')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe.legacy-frame')\u001b[22m\n\u001b[2m    34 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe.legacy-frame')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe.legacy-frame')\u001b[22m\n\u001b[2m    34 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:51:55",
+                        "location": {
+                          "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                          "column": 55,
+                          "line": 51
+                        },
+                        "snippet": "  49 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  50 |     await capture(page, `login-top-layout-${suffix}.png`);\n> 51 |     await expect(page.locator('iframe.legacy-frame')).toHaveCount(0, { timeout: titleTimeout });\n     |                                                       ^\n  52 |   });\n  53 |\n  54 |   test('login: tg-legacy host element present in top-level document', async ({ page }, testInfo) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                            "column": 55,
+                            "line": 51
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('iframe.legacy-frame')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('iframe.legacy-frame')\u001b[22m\n\u001b[2m    34 × locator resolved to 1 element\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  49 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  50 |     await capture(page, `login-top-layout-${suffix}.png`);\n> 51 |     await expect(page.locator('iframe.legacy-frame')).toHaveCount(0, { timeout: titleTimeout });\n     |                                                       ^\n  52 |   });\n  53 |\n  54 |   test('login: tg-legacy host element present in top-level document', async ({ page }, testInfo) => {\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:51:55"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:36:17.074Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-e6581-iframe-wrapper-at-top-level-react/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-e6581-iframe-wrapper-at-top-level-react/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                        "column": 55,
+                        "line": 51
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-abf3b345795e0be584d0",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "login: tg-legacy host element present in top-level document",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "react",
+                  "projectName": "react",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 30276,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('body tg-legacy')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('body tg-legacy')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('body tg-legacy')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('body tg-legacy')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:58:50",
+                        "location": {
+                          "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                          "column": 50,
+                          "line": 58
+                        },
+                        "snippet": "  56 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  57 |     await capture(page, `login-tg-legacy-host-${suffix}.png`);\n> 58 |     await expect(page.locator('body tg-legacy')).toHaveCount(1, { timeout: titleTimeout });\n     |                                                  ^\n  59 |   });\n  60 |\n  61 |   test('forgot-password: top-level document title matches translated FORGOT_PASSWORD.PAGE_TITLE', async ({"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                            "column": 50,
+                            "line": 58
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('body tg-legacy')\nExpected: \u001b[32m1\u001b[39m\nReceived: \u001b[31m0\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('body tg-legacy')\u001b[22m\n\u001b[2m    34 × locator resolved to 0 elements\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  56 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  57 |     await capture(page, `login-tg-legacy-host-${suffix}.png`);\n> 58 |     await expect(page.locator('body tg-legacy')).toHaveCount(1, { timeout: titleTimeout });\n     |                                                  ^\n  59 |   });\n  60 |\n  61 |   test('forgot-password: top-level document title matches translated FORGOT_PASSWORD.PAGE_TITLE', async ({\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:58:50"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:36:47.759Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-d5950-esent-in-top-level-document-react/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-d5950-esent-in-top-level-document-react/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                        "column": 50,
+                        "line": 58
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-eae43903af06b2a389ed",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 54,
+              "column": 3
+            },
+            {
+              "title": "forgot-password: top-level document title matches translated FORGOT_PASSWORD.PAGE_TITLE",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "react",
+                  "projectName": "react",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 30255,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Forgot password - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Forgot password - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:67:24",
+                        "location": {
+                          "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                          "column": 24,
+                          "line": 67
+                        },
+                        "snippet": "  65 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  66 |     await capture(page, `forgot-password-title-${suffix}.png`);\n> 67 |     await expect(page).toHaveTitle('Forgot password - Taiga', { timeout: titleTimeout });\n     |                        ^\n  68 |   });\n  69 |\n  70 |   test('discover: top-level document title matches translated DISCOVER.PAGE_TITLE', async ({ page }, testInfo) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                            "column": 24,
+                            "line": 67
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Forgot password - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n\n\n  65 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  66 |     await capture(page, `forgot-password-title-${suffix}.png`);\n> 67 |     await expect(page).toHaveTitle('Forgot password - Taiga', { timeout: titleTimeout });\n     |                        ^\n  68 |   });\n  69 |\n  70 |   test('discover: top-level document title matches translated DISCOVER.PAGE_TITLE', async ({ page }, testInfo) => {\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:67:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:36:47.883Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-4348d--FORGOT-PASSWORD-PAGE-TITLE-react/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-4348d--FORGOT-PASSWORD-PAGE-TITLE-react/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                        "column": 24,
+                        "line": 67
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-6186db6a5260462641d2",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 61,
+              "column": 3
+            },
+            {
+              "title": "discover: top-level document title matches translated DISCOVER.PAGE_TITLE",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "react",
+                  "projectName": "react",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 30244,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Discover projects - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Discover projects - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:74:24",
+                        "location": {
+                          "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                          "column": 24,
+                          "line": 74
+                        },
+                        "snippet": "  72 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  73 |     await capture(page, `discover-title-${suffix}.png`);\n> 74 |     await expect(page).toHaveTitle('Discover projects - Taiga', { timeout: titleTimeout });\n     |                        ^\n  75 |   });\n  76 | });\n  77 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                            "column": 24,
+                            "line": 74
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveTitle\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: \u001b[32m\"Discover projects - Taiga\"\u001b[39m\nReceived: \u001b[31m\"Taiga (React port)\"\u001b[39m\nTimeout:  30000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveTitle\" with timeout 30000ms\u001b[22m\n\u001b[2m    34 × unexpected value \"Taiga (React port)\"\u001b[22m\n\n\n  72 |     const suffix = testInfo.project.name === 'angular' ? 'angular' : 'react';\n  73 |     await capture(page, `discover-title-${suffix}.png`);\n> 74 |     await expect(page).toHaveTitle('Discover projects - Taiga', { timeout: titleTimeout });\n     |                        ^\n  75 |   });\n  76 | });\n  77 |\n    at /workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts:74:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-26T22:37:18.538Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-303ea-nslated-DISCOVER-PAGE-TITLE-react/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/workspace/e2e-comparison/test-results/login-and-shell-parity-Ang-303ea-nslated-DISCOVER-PAGE-TITLE-react/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/workspace/e2e-comparison/specs/login-and-shell-parity.spec.ts",
+                        "column": 24,
+                        "line": 74
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "df7ddd727ae58cf35613-fc8f3e717377ae51bdce",
+              "file": "login-and-shell-parity.spec.ts",
+              "line": 70,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-26T22:35:37.771Z",
+    "duration": 131161.617,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}

@@ -15,6 +15,9 @@ app/config/main.coffee
 scss-lint.log
 e2e/screenshots/
 e2e/reports/
+e2e-comparison/node_modules/
+e2e-comparison/test-results/html-report/
+e2e-comparison/test-results/*
 /screenshots/
 /conf/conf.json
 app/modules/compile-modules/
