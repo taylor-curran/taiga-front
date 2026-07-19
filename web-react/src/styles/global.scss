@@ -1,0 +1,181 @@
+@import 'variables';
+
+// ─── Base Reset ─────────────────────────────────────────────────────
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  color: $grey-80;
+  background: $color-gray100;
+  line-height: 1.5;
+}
+
+a {
+  color: $color-link-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// ─── Typography ─────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: $grey-80;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.1rem; }
+
+// ─── Buttons ────────────────────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+
+  &-primary {
+    background: $primary;
+    color: #fff;
+
+    &:hover {
+      background: darken($primary, 8%);
+    }
+  }
+
+  &-secondary {
+    background: $grey-10;
+    color: $grey-70;
+
+    &:hover {
+      background: darken($grey-10, 5%);
+    }
+  }
+
+  &-link {
+    background: transparent;
+    color: $color-link-primary;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ─── Forms ──────────────────────────────────────────────────────────
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='search'],
+textarea,
+select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid $grey-20;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  color: $grey-80;
+  background: #fff;
+  transition: border-color 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: $color-link-primary;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $grey-60;
+}
+
+// ─── Utilities ──────────────────────────────────────────────────────
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.flex { display: flex; }
+.flex-1 { flex: 1; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-8 { gap: 8px; }
+.gap-16 { gap: 16px; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.p-16 { padding: 16px; }
+.p-24 { padding: 24px; }
+
+// ─── Loading Spinner ────────────────────────────────────────────────
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+
+  &-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid $grey-10;
+    border-top-color: $primary;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
