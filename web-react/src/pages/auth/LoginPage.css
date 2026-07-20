@@ -1,0 +1,160 @@
+@import '../../styles/taiga-theme.css';
+
+.tg-auth {
+  align-items: center;
+  background: var(--tg-color-white) url('/auth-bg.svg') no-repeat center center;
+  background-size: cover;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999;
+}
+
+.tg-auth-container {
+  flex-basis: 400px;
+}
+
+.tg-auth .logo-svg {
+  text-align: center;
+  width: 100%;
+}
+
+.tg-auth .logo-svg svg {
+  height: 8rem;
+  width: 8rem;
+}
+
+.tg-auth .logo {
+  color: var(--tg-color-black900);
+  display: block;
+  font-size: var(--tg-font-xxlarge);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tg-auth .tagline {
+  color: var(--tg-color-black900);
+  font-size: var(--tg-font-xlarge);
+  line-height: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tg-login-form-container {
+  padding-top: 1rem;
+}
+
+.tg-login-form fieldset {
+  border: 0;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.tg-login-form fieldset.end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tg-login-password {
+  position: relative;
+}
+
+.tg-login-form input[type='text'],
+.tg-login-form input[type='password'] {
+  background: var(--tg-color-white);
+  border: 2px solid var(--tg-color-gray400);
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: var(--tg-color-black600);
+  margin: 0;
+  padding: 0.3rem 1rem 0.3rem 0.95rem;
+  width: 100%;
+}
+
+.tg-login-form input::placeholder {
+  color: rgba(76, 86, 106, 0.5);
+  font-size: var(--tg-font-small);
+}
+
+.tg-login-form input:focus {
+  border: 2px solid var(--tg-color-link-primary);
+  outline: none;
+  transition: border 0.2s linear;
+}
+
+.tg-login-form input.tg-input-error {
+  border: 2px solid var(--tg-color-solid-red);
+}
+
+.tg-login-form input:focus + .tg-forgot-pass {
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+.tg-forgot-pass {
+  color: var(--tg-color-black600);
+  font-size: var(--tg-font-small);
+  opacity: 1;
+  position: absolute;
+  right: 1rem;
+  text-decoration: none;
+  top: 0.6rem;
+  transition: all 0.3s linear;
+}
+
+.tg-forgot-pass:hover {
+  color: var(--tg-color-black800);
+}
+
+.tg-btn-primary {
+  background: var(--tg-color-primary);
+  border: 0;
+  border-radius: 4px;
+  color: var(--tg-color-white);
+  cursor: pointer;
+  display: block;
+  margin: 0 0 0 auto;
+  padding: 0.45rem 1.25rem;
+  text-align: center;
+  width: 100%;
+}
+
+.tg-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.tg-capslock-hint {
+  color: var(--tg-color-black600);
+  font-size: var(--tg-font-small);
+  margin-top: 0.35rem;
+}
+
+.tg-notify-light-error {
+  background: #fff0f0;
+  border: 1px solid #ffc9c9;
+  border-radius: 4px;
+  color: var(--tg-color-link-red);
+  font-size: var(--tg-font-small);
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.tg-field-error {
+  color: #ff6363;
+  font-size: var(--tg-font-small);
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  text-align: left;
+}
