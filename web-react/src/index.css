@@ -1,0 +1,170 @@
+/**
+ * Design tokens from Taiga (see app/themes/taiga/variables.scss in the main repo).
+ * Hard-coded for pixel-consistent port work; extend rather than restyling ad hoc.
+ */
+:root {
+  /* Primary (legacy palette) */
+  --color-primary: #25a28c;
+  --color-primary-75: #5cbaa9;
+  --color-primary-50: #92d1c5;
+  --color-primary-25: #c9e8e2;
+  --color-primary-10: #e9f6f3;
+
+  /* Taiga 6 text / links in admin (navigation, many labels) */
+  --color-link-primary: #008aa8;
+  --color-solid-primary: #83eede;
+  --color-link-tertiary: #70728f;
+
+  /* Neutrals (grey scale from variables.scss) */
+  --color-gray100: #f9f9fb;
+  --color-gray200: #eceff4;
+  --color-gray300: #e5e9f0;
+  --color-gray400: #d8dee9;
+  --color-whitish: #e2e3e9;
+  --color-grayer: #434456;
+  --color-mass-white: #f1f1f4;
+
+  /* Surfaces & chrome */
+  --color-page-bg: var(--color-gray100);
+  --color-surface: #fff;
+  --color-border: var(--color-whitish);
+  --color-text: #2d2d39;
+  --color-text-muted: #70728f;
+
+  /* Typography: Ubuntu (Taiga) */
+  --font-sans: 'Ubuntu', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  --font-mono: 'courier new', monospace;
+
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --font-size-title: 1.5rem;
+  --line-height-body: 1.45;
+
+  /* Spacing & layout (aligned with main.scss / admin sidebars) */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --admin-sidebar-width: 240px;
+  --header-height: 56px;
+
+  /* Elevation (admin tables / cards) */
+  --shadow-card: 0 1px 2px rgba(16, 23, 29, 0.08);
+  --radius-button: 4px;
+  --radius-panel: 6px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background: var(--color-page-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-link-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons (matches Taiga .button / primary interaction weight) */
+.taiga-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 0.5rem 1.25rem;
+  font: inherit;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.taiga-btn--primary {
+  background: var(--color-link-primary);
+  color: #fff;
+  border-color: var(--color-link-primary);
+}
+.taiga-btn--primary:hover {
+  filter: brightness(0.95);
+  text-decoration: none;
+}
+.taiga-btn--ghost {
+  background: #fff;
+  color: var(--color-link-primary);
+  border-color: var(--color-gray300);
+}
+.taiga-btn--ghost:hover {
+  background: var(--color-mass-white);
+  text-decoration: none;
+}
+
+/* Table primitives (for future port of .basic-table) */
+.taiga-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.taiga-table th,
+.taiga-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+.taiga-table th {
+  background: #fafbfd;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Placeholder strip */
+.port-pending {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: #fff7ed;
+  border: 1px dashed #f59e0b;
+  border-radius: var(--radius-panel);
+  color: #92400e;
+}
+.port-pending__title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0;
+}
+.port-pending__path {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-small);
+  word-break: break-all;
+  margin: 0;
+  color: #b45309;
+}
