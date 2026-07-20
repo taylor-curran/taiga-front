@@ -1,0 +1,15 @@
+{
+  "name": "taiga-angular-react-e2e-comparison",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "start:angular": "node angular-static-server.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "compression": "^1.7.4",
+    "express": "^4.22.1"
+  }
+}
