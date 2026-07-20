@@ -1,16 +1,38 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
+const API_TARGET = 'http://127.0.0.1:3000';
+const LEGACY_WEB_TARGET = 'http://127.0.0.1:9000';
 
 export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
+    strictPort: true,
     proxy: {
-      '/api':       'http://localhost:9000',
-      '/events':    { target: 'ws://localhost:9000', ws: true },
-      '/media':     'http://localhost:9000',
-      '/static':    'http://localhost:9000',
-      '/conf.json': 'http://localhost:9000',
+      // Taiga API (json-server / mock in cloud env)
+      '/api': {
+        target: API_TARGET,
+        changeOrigin: true,
+      },
+      // Real-time (reference stack); keep on legacy dev server when present
+      '/events': {
+        target: LEGACY_WEB_TARGET,
+        ws: true,
+        changeOrigin: true,
+      },
+      '/media': {
+        target: LEGACY_WEB_TARGET,
+        changeOrigin: true,
+      },
+      '/static': {
+        target: LEGACY_WEB_TARGET,
+        changeOrigin: true,
+      },
+      '/conf.json': {
+        target: LEGACY_WEB_TARGET,
+        changeOrigin: true,
+      },
     },
   },
 });
