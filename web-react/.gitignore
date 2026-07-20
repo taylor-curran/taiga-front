@@ -1,5 +1,5 @@
-node_modules
-dist
+# Copied from repo-root `dist/` by `scripts/sync-legacy-dist.mjs` (run `gulp deploy` first).
+public/legacy/
 dist-ssr
 *.local
 .vite
