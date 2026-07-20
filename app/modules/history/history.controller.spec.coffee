@@ -114,6 +114,18 @@ describe "HistorySection", ->
             expect(historyCtrl.comments).to.be.eql(['comment1', 'comment2', 'comment3'])
             expect(historyCtrl.commentsNum).to.be.equal(3)
 
+    it "filters empty string comments", () ->
+        historyCtrl = controller "HistorySection"
+        historyCtrl.name = 'us'
+        historyCtrl.id = 1
+        historyCtrl.reverse = false
+        comments = [{id: 1, comment: 'a'}, {id: 2, comment: ''}, {id: 3, comment: 'b'}]
+        mocks.tgResources.history.get.withArgs('us', 1, 'comment').promise().resolve(comments)
+
+        historyCtrl._loadComments().then () ->
+            expect(historyCtrl.comments.length).to.be.equal(2)
+            expect(historyCtrl.comments.map((c) -> c.id)).to.be.eql([1, 3])
+
     it "get activities", () ->
         historyCtrl = controller "HistorySection"
 
