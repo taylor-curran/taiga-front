@@ -1,0 +1,15 @@
+{
+  "name": "e2e-comparison",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:angular": "playwright test --project=angular",
+    "test:react": "playwright test --project=react",
+    "install:browsers": "playwright install --with-deps chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
+  }
+}
