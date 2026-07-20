@@ -16,6 +16,7 @@
     "url": "https://github.com/taigaio/taiga-front.git"
   },
   "scripts": {
+    "ng": "ng",
     "scss-lint": "gulp scss-lint --fail",
     "test": "./node_modules/karma/bin/karma start",
     "e2e": "./node_modules/.bin/babel-node run-e2e.js",
@@ -28,6 +29,9 @@
     "taiga-seed": "node scripts/taiga-seed.mjs",
     "taiga-logs": "(cd taiga-docker && docker compose logs -f taiga-back taiga-events)",
     "react": "npm --prefix web-react run dev -- --host 0.0.0.0 --port 5173"
+  },
+  "optionalDependencies": {
+    "ng": "file:tools/ng-shim"
   },
   "devDependencies": {
     "angular-mocks": "1.5.5",
@@ -91,7 +95,7 @@
     "merge-stream": "^1.0.0",
     "minimist": "^1.1.1",
     "mocha": "^2.2.4",
-    "node-sass": "8.0.0",
+    "sass": "^1.77.0",
     "photoswipe": "^4.1.0",
     "pre-commit": "^1.0.5",
     "readable-stream": "~2.1.2",
