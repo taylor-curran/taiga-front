@@ -1,0 +1,248 @@
+/**
+ * Project context.
+ *
+ * Ports `app/modules/services/project.service.coffee` to React. Tracks the
+ * currently-loaded project, computed `activeMembers`, and the current
+ * "section" of the UI (used for breadcrumbs).
+ */
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import { projectsResource } from "../api/projects-resource";
+import { Project, ProjectMember } from "../api/types";
+
+const REFRESH_INTERVAL_MS = 60 * 10 * 1000; // 10 minutes — matches AngularJS
+
+export type ProjectSection =
+  | "project-timeline"
+  | "epics"
+  | "backlog"
+  | "kanban"
+  | "backlog-kanban"
+  | "issues"
+  | "wiki"
+  | "team"
+  | "search"
+  | "admin"
+  | null;
+
+export interface ProjectContextValue {
+  project: Project | null;
+  activeMembers: ProjectMember[];
+  section: ProjectSection;
+  sectionsBreadcrumb: ProjectSection[];
+  isLoading: boolean;
+  error: unknown;
+  setProject: (project: Project | null) => void;
+  setProjectBySlug: (slug: string) => Promise<Project>;
+  setSection: (section: ProjectSection) => void;
+  fetchProject: () => Promise<Project | null>;
+  cleanProject: () => void;
+  hasPermission: (permission: string) => boolean;
+  isArchived: () => boolean;
+  canEdit: (permission: string) => boolean;
+  isEpicsDashboardEnabled: () => boolean;
+}
+
+const ProjectContext = createContext<ProjectContextValue | undefined>(undefined);
+
+interface ProjectProviderProps {
+  children: ReactNode;
+}
+
+export function ProjectProvider({ children }: ProjectProviderProps) {
+  const [project, setProjectState] = useState<Project | null>(null);
+  const [section, setSectionState] = useState<ProjectSection>(null);
+  const [sectionsBreadcrumb, setSectionsBreadcrumb] = useState<ProjectSection[]>(
+    [],
+  );
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<unknown>(null);
+
+  const refreshTimerRef = useRef<number | null>(null);
+  const projectRef = useRef<Project | null>(null);
+  // Tracks the most recently requested slug so we can drop stale fetch
+  // responses if the user navigates rapidly between projects.
+  const latestSlugRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    projectRef.current = project;
+  }, [project]);
+
+  const activeMembers = useMemo<ProjectMember[]>(() => {
+    if (!project?.members) return [];
+    return project.members.filter((m) => m.is_active);
+  }, [project]);
+
+  const setProject = useCallback((next: Project | null) => {
+    setProjectState(next);
+  }, []);
+
+  const cleanProject = useCallback(() => {
+    setProjectState(null);
+    setSectionState(null);
+    setSectionsBreadcrumb([]);
+  }, []);
+
+  const setSection = useCallback((next: ProjectSection) => {
+    setSectionState(next);
+    setSectionsBreadcrumb((prev) => (next ? [...prev, next] : []));
+  }, []);
+
+  // Both `fetchProject` and `setProjectBySlug` read the latest project from
+  // `projectRef` instead of closing over `project`, so their identities stay
+  // stable across renders. Otherwise consumers (e.g. `ProjectShell`) would
+  // see them as new functions on every project change and re-fire effects.
+  const fetchProject = useCallback(async (): Promise<Project | null> => {
+    const current = projectRef.current;
+    if (!current) return null;
+    try {
+      const fresh = await projectsResource.getBySlug(current.slug);
+      // The 10-minute auto-refresh below kicks off a fetch for whatever
+      // project is loaded *now*; if the user navigates away before it
+      // resolves, the slow response would otherwise overwrite the new
+      // project with stale data. Only commit if we're still on the same
+      // project as when the fetch started.
+      if (projectRef.current?.slug === current.slug) {
+        setProjectState(fresh);
+      }
+      return fresh;
+    } catch (err) {
+      if (projectRef.current?.slug === current.slug) {
+        setError(err);
+      }
+      return null;
+    }
+  }, []);
+
+  const setProjectBySlug = useCallback(
+    async (slug: string): Promise<Project> => {
+      const current = projectRef.current;
+      if (current && current.slug === slug) {
+        latestSlugRef.current = slug;
+        return current;
+      }
+      // Mark this as the most recent request. Any earlier in-flight call that
+      // resolves after we've moved on must not commit its (now-stale) result.
+      latestSlugRef.current = slug;
+      setIsLoading(true);
+      setError(null);
+      try {
+        const fresh = await projectsResource.getBySlug(slug);
+        if (latestSlugRef.current === slug) {
+          setProjectState(fresh);
+        }
+        return fresh;
+      } catch (err) {
+        if (latestSlugRef.current === slug) {
+          setError(err);
+        }
+        throw err;
+      } finally {
+        if (latestSlugRef.current === slug) {
+          setIsLoading(false);
+        }
+      }
+    },
+    [],
+  );
+
+  // Auto-refresh every 10 minutes while a project is loaded — mirrors AngularJS.
+  // Depend on `project?.id` (not the whole `project` reference) so a refresh
+  // that simply replaces the object doesn't tear down and re-create the timer.
+  useEffect(() => {
+    if (!project) return;
+    if (refreshTimerRef.current !== null) {
+      window.clearInterval(refreshTimerRef.current);
+    }
+    refreshTimerRef.current = window.setInterval(() => {
+      void fetchProject();
+    }, REFRESH_INTERVAL_MS);
+    return () => {
+      if (refreshTimerRef.current !== null) {
+        window.clearInterval(refreshTimerRef.current);
+        refreshTimerRef.current = null;
+      }
+    };
+  }, [project?.id, fetchProject]);
+
+  const hasPermission = useCallback(
+    (permission: string): boolean => {
+      if (!project?.my_permissions) return false;
+      return project.my_permissions.includes(permission);
+    },
+    [project],
+  );
+
+  const isArchived = useCallback((): boolean => {
+    return Boolean(project?.archived_code);
+  }, [project]);
+
+  const canEdit = useCallback(
+    (permission: string): boolean => {
+      if (isArchived()) return false;
+      return hasPermission(permission);
+    },
+    [isArchived, hasPermission],
+  );
+
+  const isEpicsDashboardEnabled = useCallback((): boolean => {
+    return Boolean(project?.is_epics_activated);
+  }, [project]);
+
+  const value = useMemo<ProjectContextValue>(
+    () => ({
+      project,
+      activeMembers,
+      section,
+      sectionsBreadcrumb,
+      isLoading,
+      error,
+      setProject,
+      setProjectBySlug,
+      setSection,
+      fetchProject,
+      cleanProject,
+      hasPermission,
+      isArchived,
+      canEdit,
+      isEpicsDashboardEnabled,
+    }),
+    [
+      project,
+      activeMembers,
+      section,
+      sectionsBreadcrumb,
+      isLoading,
+      error,
+      setProject,
+      setProjectBySlug,
+      setSection,
+      fetchProject,
+      cleanProject,
+      hasPermission,
+      isArchived,
+      canEdit,
+      isEpicsDashboardEnabled,
+    ],
+  );
+
+  return (
+    <ProjectContext.Provider value={value}>{children}</ProjectContext.Provider>
+  );
+}
+
+export function useProject(): ProjectContextValue {
+  const ctx = useContext(ProjectContext);
+  if (!ctx) {
+    throw new Error("useProject must be used within a <ProjectProvider>");
+  }
+  return ctx;
+}
