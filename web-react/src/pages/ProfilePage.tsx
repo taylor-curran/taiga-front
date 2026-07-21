@@ -1,0 +1,113 @@
+import { useQuery } from '@tanstack/react-query';
+import { useParams, Link } from 'react-router-dom';
+import { users, timeline } from '../api/resources';
+import { useAuthStore } from '../stores/auth';
+import type { TimelineEntry } from '../types';
+import Loader from '../components/common/Loader';
+import { getAvatarUrl } from '../utils/gravatar';
+import { formatDistanceToNow } from 'date-fns';
+import { useState } from 'react';
+
+export default function ProfilePage() {
+  const { slug } = useParams<{ slug: string }>();
+  const currentUser = useAuthStore((s) => s.user);
+  const [tab, setTab] = useState<'timeline' | 'contacts' | 'liked' | 'voted' | 'watched'>('timeline');
+
+  const isNumericSlug = slug ? /^\d+$/.test(slug) : false;
+
+  const { data: profileUser, isLoading: userLoading } = useQuery({
+    queryKey: ['user', slug ?? currentUser?.id],
+    queryFn: async () => {
+      if (slug) {
+        const res = isNumericSlug
+          ? await users.getById(Number(slug))
+          : await users.getByUsername(slug);
+        return res.data;
+      }
+      if (!currentUser?.id) throw new Error('No user');
+      const res = await users.getById(currentUser.id);
+      return res.data;
+    },
+    enabled: !!slug || !!currentUser?.id,
+  });
+
+  const profileUserId = profileUser?.id;
+
+  const { data: stats } = useQuery({
+    queryKey: ['user-stats', profileUserId],
+    queryFn: async () => {
+      if (!profileUserId) return null;
+      const res = await users.getStats(profileUserId);
+      return res.data;
+    },
+    enabled: !!profileUserId,
+  });
+
+  const { data: timelineData } = useQuery({
+    queryKey: ['profile-timeline', profileUserId],
+    queryFn: async () => {
+      if (!profileUserId) return [];
+      const res = await timeline.getProfileTimeline(profileUserId, { page_size: 20 });
+      return res.data;
+    },
+    enabled: !!profileUserId && tab === 'timeline',
+  });
+
+  if (userLoading) return <Loader />;
+  if (!profileUser) return <div className="error-page"><h1>User not found</h1></div>;
+
+  return (
+    <div className="profile-page">
+      <div className="profile-header">
+        <img src={getAvatarUrl(profileUser)} alt={profileUser.full_name_display} className="profile-avatar" />
+        <div className="profile-info">
+          <h1>{profileUser.full_name_display}</h1>
+          <span className="profile-username">@{profileUser.username}</span>
+          {profileUser.bio && <p className="profile-bio">{profileUser.bio}</p>}
+        </div>
+      </div>
+
+      {stats && (
+        <div className="profile-stats">
+          <div className="stat-item">
+            <span className="stat-value">{(stats as Record<string, unknown>).total_num_projects as number || 0}</span>
+            <span className="stat-label">Projects</span>
+          </div>
+          <div className="stat-item">
+            <span className="stat-value">{(stats as Record<string, unknown>).total_num_contacts as number || 0}</span>
+            <span className="stat-label">Contacts</span>
+          </div>
+        </div>
+      )}
+
+      <div className="profile-tabs">
+        <button className={tab === 'timeline' ? 'active' : ''} onClick={() => setTab('timeline')}>Timeline</button>
+        <button className={tab === 'contacts' ? 'active' : ''} onClick={() => setTab('contacts')}>Contacts</button>
+        <button className={tab === 'liked' ? 'active' : ''} onClick={() => setTab('liked')}>Liked</button>
+        <button className={tab === 'voted' ? 'active' : ''} onClick={() => setTab('voted')}>Voted</button>
+        <button className={tab === 'watched' ? 'active' : ''} onClick={() => setTab('watched')}>Watched</button>
+      </div>
+
+      <div className="profile-content">
+        {tab === 'timeline' && (
+          <div className="timeline-list">
+            {timelineData?.map((entry: TimelineEntry) => (
+              <div key={entry.id} className="timeline-item">
+                <span className="timeline-type">{entry.event_type.replace(/\./g, ' ')}</span>
+                <span className="timeline-date">
+                  {formatDistanceToNow(new Date(entry.created), { addSuffix: true })}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {currentUser?.id === profileUser.id && (
+        <div className="profile-actions">
+          <Link to="/user-settings/user-profile" className="btn btn-secondary">Edit profile</Link>
+        </div>
+      )}
+    </div>
+  );
+}
