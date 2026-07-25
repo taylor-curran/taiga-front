@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background-color: #f7f8fa;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded px-4 py-2 text-sm font-semibold transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-taiga-600 text-white hover:bg-taiga-700 disabled:bg-slate-300;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-taiga-700 border border-taiga-300 hover:bg-taiga-50;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  .input {
+    @apply w-full rounded border border-slate-300 px-3 py-2 text-sm shadow-sm focus:border-taiga-500 focus:ring-taiga-500;
+  }
+  .card {
+    @apply rounded bg-white shadow-sm ring-1 ring-slate-200;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-1;
+  }
+}
+
+/* Utility for sortable drag interactions */
+.dragging {
+  opacity: 0.5;
+}
+.drag-over {
+  outline: 2px dashed theme('colors.taiga.400');
+  outline-offset: 2px;
+}

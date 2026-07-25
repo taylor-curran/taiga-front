@@ -1,0 +1,167 @@
+URL: http://localhost:5173/project/project-1/kanban
+TITLE: Taiga (React port)
+
+body.bg-slate-50.text-slate-800.antialiased 
+div#root 
+div.flex.min-h-screen.flex-col 
+header.sticky.top-0.z-40.flex.h-14.items-center.justify-between.border-b.border-slate-2 
+div.flex.items-center.gap-6 
+a.flex.items-center.gap-2.font-bold.text-taiga-700 
+svg 
+path 
+span › Taiga
+nav.flex.items-center.gap-4.text-sm 
+a.text-slate-600.hover:text-taiga-700 › Home
+a.text-slate-600.hover:text-taiga-700 › Discover
+a.text-slate-600.hover:text-taiga-700 › My Projects
+div.flex.items-center.gap-3 
+a.rounded.p-2.text-slate-500.hover:bg-slate-100 
+svg 
+path 
+button.flex.items-center.gap-2.rounded.p-1.hover:bg-slate-100 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+span.hidden.text-sm.font-medium.text-slate-700.md:inline › admin
+div.flex.min-h-[calc(100vh-3.5rem)] 
+aside.hidden.w-56.shrink-0.border-r.border-slate-200.bg-white.md:block 
+div.border-b.border-slate-200.px-4.py-3 
+a.block.text-base.font-semibold.text-taiga-800.hover:underline.active › Project Example 1
+div.mt-1.text-xs.text-slate-500 › Public project
+nav.flex.flex-col.p-2.text-sm 
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Timeline
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Epics
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Backlog
+a.rounded.px-3.py-2.bg-taiga-100.text-taiga-800.font-semibold › Kanban
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Issues
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Wiki
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Team
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Search
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Admin
+main.flex-1.p-6 
+div 
+header.flex.items-center.justify-between 
+h1.text-xl.font-semibold.text-slate-800 › Kanban
+span.text-sm.text-slate-500 › 14 stories
+div.mt-5.flex.gap-4.overflow-x-auto.pb-4 
+section.w-72.shrink-0.rounded.bg-slate-100. 
+header.flex.items-center.justify-between.rounded-t.px-3.py-2.text-sm.font-semibold.text 
+span › New
+span.rounded.bg-black/20.px-2.py-0.5.text-xs › 4
+ul.space-y-2.p-3 
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #12 Support for bulk actions
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › vel
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #13 Feature/improved image admin
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › quia
+span.rounded.px-2.py-0.5.text-xs › molestiae
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #20 Feature/improved image admin
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › incidunt
+span.rounded.px-2.py-0.5.text-xs › eligendi
+span.rounded.px-2.py-0.5.text-xs › neque
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #21 Add setting to allow regular users to create folders at the root level.
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › distinctio
+span.rounded.px-2.py-0.5.text-xs › incidunt
+span.rounded.px-2.py-0.5.text-xs › corporis
+li 
+form.flex.gap-1 
+input.input.text-xs 
+section.w-72.shrink-0.rounded.bg-slate-100. 
+header.flex.items-center.justify-between.rounded-t.px-3.py-2.text-sm.font-semibold.text 
+span › Ready
+span.rounded.bg-black/20.px-2.py-0.5.text-xs › 3
+ul.space-y-2.p-3 
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #1 Exception is thrown if trying to add a folder with existing name
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › odio
+span.rounded.px-2.py-0.5.text-xs › exercitationem
+span.rounded.px-2.py-0.5.text-xs › quisquam
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #5 Add tests for bulk operations
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › ratione
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #15 Add setting to allow regular users to create folders at the root level.
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › sunt
+span.rounded.px-2.py-0.5.text-xs › eveniet
+span.rounded.px-2.py-0.5.text-xs › inventore
+li 
+form.flex.gap-1 
+input.input.text-xs 
+section.w-72.shrink-0.rounded.bg-slate-100. 
+header.flex.items-center.justify-between.rounded-t.px-3.py-2.text-sm.font-semibold.text 
+span › In progress
+span.rounded.bg-black/20.px-2.py-0.5.text-xs › 1
+ul.space-y-2.p-3 
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #16 Support for bulk actions
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › illum
+span.rounded.px-2.py-0.5.text-xs › praesentium
+li 
+form.flex.gap-1 
+input.input.text-xs 
+section.w-72.shrink-0.rounded.bg-slate-100. 
+header.flex.items-center.justify-between.rounded-t.px-3.py-2.text-sm.font-semibold.text 
+span › Ready for test
+span.rounded.bg-black/20.px-2.py-0.5.text-xs › 6
+ul.space-y-2.p-3 
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #9 get_actions() does not check for 'delete_selected' in actions
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › unde
+span.rounded.px-2.py-0.5.text-xs › neque
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #14 Added file copying and processing of images (resizing)
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › officia
+span.rounded.px-2.py-0.5.text-xs › velit
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #17 Support for bulk actions
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › ullam
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #18 Migrate to Python 3 and milk a beautiful cow
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › doloremque
+span.rounded.px-2.py-0.5.text-xs › quis
+span.rounded.px-2.py-0.5.text-xs › quibusdam
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #19 Added file copying and processing of images (resizing)
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › neque
+span.rounded.px-2.py-0.5.text-xs › harum
+span.rounded.px-2.py-0.5.text-xs › enim
+li.rounded.bg-white.p-3.shadow-sm.ring-1.ring-slate-200 
+a.text-sm.font-medium.text-slate-800.hover:text-taiga-700 › #22 Migrate to Python 3 and milk a beautiful cow
+div.mt-2.flex.flex-wrap.gap-1 
+span.rounded.px-2.py-0.5.text-xs › natus
+span.rounded.px-2.py-0.5.text-xs › laboriosam
+li 
+form.flex.gap-1 
+input.input.text-xs 
+section.w-72.shrink-0.rounded.bg-slate-100. 
+header.flex.items-center.justify-between.rounded-t.px-3.py-2.text-sm.font-semibold.text 
+span › Done
+span.rounded.bg-black/20.px-2.py-0.5.text-xs › 0
+ul.space-y-2.p-3 
+li 
+form.flex.gap-1 
+input.input.text-xs 
+section.w-72.shrink-0.rounded.bg-slate-100. 
+header.flex.items-center.justify-between.rounded-t.px-3.py-2.text-sm.font-semibold.text 
+span › Archived
+span.rounded.bg-black/20.px-2.py-0.5.text-xs › 0
+ul.space-y-2.p-3 
+li 
+form.flex.gap-1 
+input.input.text-xs 
+div.pointer-events-none.fixed.right-4.top-4.z-50.flex.w-80.flex-col.gap-2 
+script 

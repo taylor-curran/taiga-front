@@ -1,0 +1,298 @@
+URL: http://localhost:5173/project/project-1/issues
+TITLE: Taiga (React port)
+
+body.bg-slate-50.text-slate-800.antialiased 
+div#root 
+div.flex.min-h-screen.flex-col 
+header.sticky.top-0.z-40.flex.h-14.items-center.justify-between.border-b.border-slate-2 
+div.flex.items-center.gap-6 
+a.flex.items-center.gap-2.font-bold.text-taiga-700 
+svg 
+path 
+span › Taiga
+nav.flex.items-center.gap-4.text-sm 
+a.text-slate-600.hover:text-taiga-700 › Home
+a.text-slate-600.hover:text-taiga-700 › Discover
+a.text-slate-600.hover:text-taiga-700 › My Projects
+div.flex.items-center.gap-3 
+a.rounded.p-2.text-slate-500.hover:bg-slate-100 
+svg 
+path 
+button.flex.items-center.gap-2.rounded.p-1.hover:bg-slate-100 
+span.inline-flex.items-center.justify-center.rounded-full.text-white.font-semibold. › A
+span.hidden.text-sm.font-medium.text-slate-700.md:inline › admin
+div.flex.min-h-[calc(100vh-3.5rem)] 
+aside.hidden.w-56.shrink-0.border-r.border-slate-200.bg-white.md:block 
+div.border-b.border-slate-200.px-4.py-3 
+a.block.text-base.font-semibold.text-taiga-800.hover:underline.active › Project Example 1
+div.mt-1.text-xs.text-slate-500 › Public project
+nav.flex.flex-col.p-2.text-sm 
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Timeline
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Epics
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Backlog
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Kanban
+a.rounded.px-3.py-2.bg-taiga-100.text-taiga-800.font-semibold › Issues
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Wiki
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Team
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Search
+a.rounded.px-3.py-2.text-slate-600.hover:bg-slate-50 › Admin
+main.flex-1.p-6 
+div 
+header.flex.flex-wrap.items-center.justify-between.gap-3 
+div 
+h1.text-xl.font-semibold.text-slate-800 › Issues
+p.text-sm.text-slate-500 › 16 total · 12 open · 4 closed
+button.btn-primary › + New issue
+div.mt-4.flex.flex-wrap.items-center.gap-3 
+input.input.max-w-xs 
+select.input.max-w-[180px] 
+option › All statuses
+option › New
+option › In progress
+option › Ready for test
+option › Closed
+option › Needs Info
+option › Rejected
+option › Postponed
+select.input.max-w-[180px] 
+option › Sort: newest
+option › Sort: priority
+option › Sort: severity
+div.mt-5.card.overflow-hidden 
+table.min-w-full.divide-y.divide-slate-100 
+thead.bg-slate-50.text-left.text-xs.uppercase.text-slate-500 
+tr 
+th.px-4.py-2 › #
+th.px-4.py-2 › Subject
+th.px-4.py-2 › Status
+th.px-4.py-2 › Type
+th.px-4.py-2 › Priority
+th.px-4.py-2 › Severity
+th.px-4.py-2 
+tbody.divide-y.divide-slate-100.text-sm 
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #38
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Create the user model
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Closed
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #37
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Support for bulk actions
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › In progress
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #36
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Support for bulk actions
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › New
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #35
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › get_actions() does not check for 'delete_selected' in actions
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Ready for test
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #34
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Migrate to Python 3 and milk a beautiful cow
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Closed
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #33
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Added file copying and processing of images (resizing)
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › In progress
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #32
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Create the html template
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Postponed
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #31
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Add setting to allow regular users to create folders at the root level.
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › New
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #30
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Create the html template
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › New
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #29
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Add setting to allow regular users to create folders at the root level.
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Needs Info
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #28
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Added file copying and processing of images (resizing)
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Rejected
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #27
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Create testsuite with matrix builds
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › In progress
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #26
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Create the html template
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Postponed
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #25
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Lighttpd x-sendfile support
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Postponed
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #24
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Create the user model
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Rejected
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+tr.hover:bg-slate-50 
+td.px-4.py-2.text-slate-400 › #23
+td.px-4.py-2 
+a.font-medium.text-slate-800.hover:text-taiga-700 › Fixing templates for Django 1.6.
+td.px-4.py-2 
+span.inline-block.rounded.px-2.py-0.5.text-xs › Ready for test
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2 
+span.text-slate-400 › —
+td.px-4.py-2.text-right 
+button.text-slate-400.hover:text-red-600 › ×
+div.pointer-events-none.fixed.right-4.top-4.z-50.flex.w-80.flex-col.gap-2 
+script 

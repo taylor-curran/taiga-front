@@ -1,0 +1,779 @@
+URL: http://localhost:9000/projects/
+TITLE: My projects - Taiga
+
+body 
+tg-legacy 
+div 
+nav.navbar 
+div.nav-left 
+a.logo 
+svg#logo-svg 
+style › #logo-svg path {}
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+div.topnav-dropdown-wrapper 
+div.dropdown-project-list.active 
+a.dropdown-project-list-projects 
+tg-svg.icon-folder 
+svg 
+use 
+span › Projects
+div.navbar-dropdown 
+div 
+ul.dropdown-project-list-ul 
+li 
+a.dropdown-project-list-link.secondary.blocked-project 
+img 
+span › Project Example 7
+tg-svg 
+svg 
+use 
+title › PROJECT.BLOCKED_PROJECT.BLOCKED
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 6
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 5
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 3
+a.see-more-projects-btn › View all projects
+div.create-options 
+a.create-project-btn.button-primary 
+tg-svg 
+svg 
+use 
+span › New project
+div.nav-right 
+a 
+tg-svg 
+svg 
+use 
+div.topnav-dropdown-wrapper.nav-bar-support 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.navigation-help 
+ul 
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Taiga Community
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Ask a question
+div.topnav-dropdown-wrapper 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown-notifications.ng-hide 
+div.header 
+a.action.disabled › Dismiss all
+div.notifications-wrapper 
+div.empty 
+span › No new events
+tg-notifications-list#my-notifications.dropdown-notifications-list 
+section.notifications-list 
+div 
+div.notifications-bottom 
+a.action › View all notifications
+div 
+div.dropdown-user-inner 
+div.dropdown-user-navbar 
+a.user-avatar 
+img 
+button.chevron 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.dropdown-user 
+div.dropdown-user-profile 
+a.profile-link.avatar 
+img 
+div.dropdown-user-data 
+a.profile-link.full-name › admin
+div.profile-link.email › admin@example.com
+p 
+a.edit-profile › Edit profile
+ul 
+li.user-profile-option 
+a.secondary › Account settings
+li.user-profile-option 
+a.secondary › Notifications
+li.user-profile-option 
+a › Logout
+div 
+div.master 
+div.project-list-wrapper.centered 
+div.project-list-title 
+h1 › My projects
+div.create-options 
+a.create-project-btn.btn-small › New project
+section.project-list-section 
+div.project-list 
+ul 
+li.list-itemtype-project.tg-scope.blocked-project 
+div.list-itemtype-project-left 
+div.list-itemtype-project-data-wrapper 
+a.list-itemtype-project-image 
+img 
+div.list-itemtype-project-data 
+div.list-itemtype-data-title 
+a.project-title › Project Example 7
+tg-svg 
+svg 
+use 
+title › Project Owner
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-meta.project-description › Project example 7 description
+tg-svg.drag 
+svg 
+use 
+li.list-itemtype-project.tg-scope 
+div.list-itemtype-project-left 
+div.list-itemtype-project-data-wrapper 
+a.list-itemtype-project-image 
+img 
+div.list-itemtype-project-data 
+div.list-itemtype-data-title 
+a.project-title › Project Example 6
+div.list-itemtype-data-meta.project-description › Project example 6 description
+tg-svg.drag 
+svg 
+use 
+li.list-itemtype-project.tg-scope 
+div.list-itemtype-project-left 
+div.list-itemtype-project-data-wrapper 
+a.list-itemtype-project-image 
+img 
+div.list-itemtype-project-data 
+div.list-itemtype-data-title 
+a.project-title › Project Example 5
+tg-svg 
+svg 
+use 
+title › Private project
+div.list-itemtype-data-meta.project-description › Project example 5 description
+tg-svg.drag 
+svg 
+use 
+li.list-itemtype-project.tg-scope 
+div.list-itemtype-project-left 
+div.list-itemtype-project-data-wrapper 
+a.list-itemtype-project-image 
+img 
+div.list-itemtype-project-data 
+div.list-itemtype-data-title 
+a.project-title › Project Example 3
+tg-svg 
+svg 
+use 
+title › Private project
+div.list-itemtype-data-meta.project-description › Project example 3 description
+tg-svg.drag 
+svg 
+use 
+li.list-itemtype-project.tg-scope 
+div.list-itemtype-project-left 
+div.list-itemtype-project-data-wrapper 
+a.list-itemtype-project-image 
+img 
+div.list-itemtype-project-data 
+div.list-itemtype-data-title 
+a.project-title › Project Example 2
+div.list-itemtype-data-meta.project-description › Project example 2 description
+tg-svg.drag 
+svg 
+use 
+li.list-itemtype-project.tg-scope 
+div.list-itemtype-project-left 
+div.list-itemtype-project-data-wrapper 
+a.list-itemtype-project-image 
+img 
+div.list-itemtype-project-data 
+div.list-itemtype-data-title 
+a.project-title › Project Example 1
+div.list-itemtype-data-meta.project-description › Project example 1 description
+tg-svg.drag 
+svg 
+use 
+aside.help-area 
+p 
+br 
+div.lightbox.lightbox-generic-ask 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p 
+span.subtitle 
+span.message 
+div.options 
+button.btn-link.btn-cancel.js-cancel 
+span › Cancel
+button.btn-small.js-confirm 
+span › Accept
+div.lightbox.lightbox-ask-choice 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p.question 
+p.subtitle 
+p.replacement 
+select.choices 
+p.warning 
+div.options 
+button.btn-link.btn-cancel.js-cancel-ask 
+span › Cancel
+button.btn-small.btn-confirm.js-confirm-ask 
+tg-svg 
+svg 
+use 
+span › Delete
+div.lightbox.lightbox-generic-success 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+section 
+h2.title 
+p.message 
+div.options 
+button.btn-small.js-confirm 
+span › Accept
+div.lightbox.lightbox-generic-error 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+section 
+h2.title 
+div.options 
+a.button-green 
+span › Accept
+div.lightbox.lightbox-generic-loading 
+section 
+div.spin.hidden 
+img 
+div.progress-bar-wrapper.hidden 
+div.bar 
+span.progress 
+h2.title 
+p.message 
+div.lightbox.lightbox-generic-delete 
+tg-lightbox-close 
+a.close 
+tg-svg 
+svg 
+use 
+form.ng-pristine.ng-valid 
+h2.title 
+p 
+span.subtitle 
+span.message 
+div.options 
+button.btn-link.btn-cancel.js-cancel 
+span › Cancel
+button.btn-small.btn-confirm.js-confirm 
+tg-svg 
+svg 
+use 
+span › Delete
+div.loader 
+div.loading-bar 
+span.item.item-1 
+span.item.item-2 
+span.item.item-3 
+span.item.item-4 
+span.item.item-5 
+div.container 
+p › Loading...
+div.notification-message.notification-message-success 
+div.text 
+h4.warning 
+p 
+div.notification-message.notification-message-error 
+tg-svg 
+svg 
+use 
+div.text 
+h4.warning 
+p 
+a.close 
+tg-svg 
+svg 
+use 
+div.notification-light.notification-message-light-error 
+div.text 
+h4.warning 
+p 
+a.close 
+tg-svg 
+svg 
+use 
+div 
+div.live-announcement 
+div.live-announcement-inner 
+img.anouncement-decoration 
+div.text 
+h2.title 
+p.warning 
+a.close 
+tg-svg 
+svg 
+use 
+script 
+svg 
+defs 
+symbol#icon-private 
+title › private
+path 
+symbol#icon-project 
+title › project
+path 
+symbol#icon-scrum 
+title › scrum
+path 
+symbol#icon-dashboard 
+title › dashboard
+path 
+symbol#icon-discover 
+title › discover
+path 
+symbol#icon-drag 
+title › drag
+path 
+symbol#icon-exclamation 
+title › exclamation
+path 
+symbol#icon-flag 
+title › flag
+path 
+symbol#icon-fold-row 
+title › fold-row
+path 
+symbol#icon-graph 
+title › graph
+path 
+symbol#icon-kanban 
+title › kanban
+path 
+symbol#icon-kanban 
+path 
+symbol#icon-like-empty 
+title › like-empty
+path 
+symbol#icon-like 
+title › like
+path 
+symbol#icon-activity 
+title › activity
+path 
+symbol#icon-question 
+title › question
+path 
+symbol#icon-settings 
+title › settings
+path 
+symbol#icon-team 
+title › team
+path 
+symbol#icon-timeline 
+title › timeline
+path 
+symbol#icon-unfold-row 
+title › unfold-row
+path 
+symbol#icon-unwatch 
+title › unwatch
+path 
+symbol#icon-user 
+title › user
+path 
+symbol#icon-wiki 
+title › wiki
+path 
+symbol#icon-archive 
+title › archive
+path 
+symbol#icon-arrow-left 
+title › arrow-left
+path 
+symbol#icon-move-to-top 
+title › move-to-top
+path 
+symbol#icon-arrow-up 
+title › arrow-up
+path 
+symbol#icon-attachment 
+title › attachment
+path 
+symbol#icon-briefcase 
+title › briefcase
+path 
+symbol#icon-meetup 
+path 
+symbol#icon-bug 
+title › bug
+path 
+symbol#icon-capslock 
+title › capslock
+path 
+symbol#icon-check 
+title › check
+path 
+symbol#icon-clipboard 
+title › clipboard
+path 
+symbol#icon-document 
+title › document
+path 
+symbol#icon-documents 
+title › documents
+path 
+symbol#icon-downvote 
+title › downvote
+path 
+symbol#icon-error 
+title › error
+path 
+symbol#icon-filters-empty 
+title › filters-empty
+path 
+symbol#icon-github 
+title › github
+path 
+symbol#icon-maximize 
+title › maximize
+path 
+symbol#icon-minimize 
+title › minimize
+path 
+symbol#icon-move 
+title › move
+path 
+symbol#icon-reload 
+title › reload
+path 
+symbol#icon-save 
+title › save
+path 
+symbol#icon-upload 
+title › upload
+path 
+symbol#icon-upvote 
+title › upvote
+path 
+symbol#icon-writer 
+title › writer
+path 
+symbol#icon-watch 
+title › watch
+path 
+symbol#icon-task 
+title › task
+path 
+symbol#icon-api 
+title › api
+path 
+symbol#icon-customize 
+title › customize
+path 
+symbol#icon-feel-love 
+title › feel-love
+path 
+symbol#icon-highly-designed 
+title › highly-designed
+path 
+symbol#icon-integration 
+title › integration
+path 
+symbol#icon-lend-hand 
+title › lend-hand
+path 
+symbol#icon-powerful 
+title › powerful
+path 
+symbol#icon-smiley 
+title › smiley
+path 
+symbol#icon-social-management 
+title › social-management
+path 
+symbol#icon-speak-up 
+title › speak-up
+path 
+symbol#icon-gallery 
+title › gallery
+path 
+symbol#icon-list 
+title › list
+path 
+symbol#icon-recruit 
+title › Looking for people
+path 
+symbol#icon-badge 
+title › Owner Badge
+path 
+symbol#icon-exclamation 
+title › Exclamation
+path 
+symbol#icon-blocked-project 
+title › Blocked Project
+path 
+path 
+symbol#icon-add-user 
+title › Add user
+path 
+symbol#icon-view-more 
+title › View more
+path 
+symbol#icon-merge 
+title › Merge
+path 
+symbol#icon-fill 
+title › Fill
+path 
+symbol#icon-epics 
+path 
+symbol#icon-broken-link 
+title › Broken Link
+path 
+symbol#icon-duplicate 
+title › Duplicate
+path 
+symbol#icon-detach 
+g 
+path 
+defs 
+clippath#clip0 
+path 
+symbol#icon-activity 
+path 
+symbol#icon-agile 
+path 
+path 
+path 
+path 
+symbol#icon-folder 
+path 
+symbol#icon-plus-1 
+path 
+path 
+symbol#icon-compass 
+path 
+path 
+symbol#icon-bell 
+path 
+path 
+symbol#icon-chevron-down 
+path 
+symbol#icon-life-buoy 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+symbol#icon-message-square 
+path 
+symbol#icon-slash 
+path 
+path 
+symbol#icon-filters 
+path 
+symbol#icon-arrow-down 
+title › arrow-down
+path 
+symbol#icon-arrow-right 
+title › arrow-right
+path 
+symbol#icon-trash 
+title › trash
+path 
+symbol#icon-close 
+path 
+symbol#icon-search 
+path 
+symbol#icon-filter 
+title › filter
+path 
+symbol#icon-more-vertical 
+path 
+path 
+path 
+symbol#icon-draggable 
+path 
+symbol#icon-edit 
+title › edit
+path 
+symbol#icon-unfold-column 
+title › unfold-column
+path 
+symbol#icon-fold-column 
+title › fold-column
+path 
+symbol#icon-add 
+title › add
+path 
+symbol#icon-bulk 
+title › bulk
+path 
+symbol#icon-check-empty 
+path 
+symbol#icon-assign-to 
+path 
+symbol#icon-clock 
+path 
+symbol#icon-lock 
+path 
+symbol#icon-paperclip 
+path 
+symbol#icon-eye 
+path 
+path 
+symbol#icon-unfolded-swimlane 
+path 
+symbol#icon-folded-swimlane 
+path 
+symbol#icon-help-circle 
+path 
+symbol#icon-iocaine 
+path 
+path 
+path 
+path 
+path 
+path 
+symbol#icon-add-to-sprint 
+path 
+symbol#icon-star 
+path 
+symbol#icon-issues 
+path 
+symbol#icon-client-requirement 
+title › client-requirement
+path 
+symbol#icon-team-requirement 
+title › team-requirement
+path 
+symbol#icon-unlock 
+title › unlock
+path 
+symbol#icon-attach 
+path 
+symbol#icon-promote 
+title › promote
+path 
+symbol#icon-resources 
+title › promote
+path 
+symbol#icon-module-epic 
+title › epic
+path 
+symbol#icon-module-scrum 
+title › scrum
+path 
+symbol#icon-module-kanban 
+title › kanban
+path 
+symbol#icon-module-issues 
+title › issues
+path 
+symbol#icon-module-wiki 
+title › wiki
+path 
+symbol#icon-module-meet 
+title › team
+path 
+symbol#icon-mail 
+path 
+symbol#icon-lifeguard 
+path 
+symbol#icon-alert 
+g 
+path 
+path 
+defs 
+clippath#clip0 
+path 
+svg 
+defs 
+symbol#editor-list-o 
+title › editor-list-o
+path 
+symbol#editor-rtl 
+title › editor-rtl
+path 
+symbol#editor-quote 
+title › editor-quote
+path 
+symbol#editor-list-n 
+title › editor-list-n
+path 
+symbol#editor-no-format 
+title › editor-no-format
+path 
+symbol#editor-link 
+title › editor-link
+path 
+symbol#editor-italic 
+title › editor-italic
+path 
+symbol#editor-image 
+title › editor-image
+path 
+symbol#editor-h3 
+title › editor-h3
+path 
+symbol#editor-h1 
+title › editor-h1
+path 
+symbol#editor-h2 
+title › editor-h2
+path 
+symbol#editor-cross-out 
+title › editor-cross-out
+path 
+symbol#editor-code 
+title › editor-code
+path 
+symbol#editor-bold 
+title › editor-bold
+path 
+script 
+script 
+script 
+script 

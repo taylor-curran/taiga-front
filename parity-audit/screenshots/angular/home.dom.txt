@@ -1,0 +1,1503 @@
+URL: http://localhost:9000/
+TITLE: Home - Taiga
+
+body 
+tg-legacy 
+div 
+nav.navbar 
+div.nav-left 
+a.logo 
+svg#logo-svg 
+style › #logo-svg path {}
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+path 
+div.topnav-dropdown-wrapper 
+div.dropdown-project-list 
+a.dropdown-project-list-projects 
+tg-svg.icon-folder 
+svg 
+use 
+span › Projects
+div.navbar-dropdown 
+div 
+ul.dropdown-project-list-ul 
+li 
+a.dropdown-project-list-link.secondary.blocked-project 
+img 
+span › Project Example 7
+tg-svg 
+svg 
+use 
+title › PROJECT.BLOCKED_PROJECT.BLOCKED
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 6
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 5
+li 
+a.dropdown-project-list-link.secondary 
+img 
+span › Project Example 3
+a.see-more-projects-btn › View all projects
+div.create-options 
+a.create-project-btn.button-primary 
+tg-svg 
+svg 
+use 
+span › New project
+div.nav-right 
+a 
+tg-svg 
+svg 
+use 
+div.topnav-dropdown-wrapper.nav-bar-support 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.navigation-help 
+ul 
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Taiga Community
+li 
+a.secondary 
+tg-svg 
+svg 
+use 
+span › Ask a question
+div.topnav-dropdown-wrapper 
+a 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown-notifications.ng-hide 
+div.header 
+a.action.disabled › Dismiss all
+div.notifications-wrapper 
+div.empty 
+span › No new events
+tg-notifications-list#my-notifications.dropdown-notifications-list 
+section.notifications-list 
+div 
+div.notifications-bottom 
+a.action › View all notifications
+div 
+div.dropdown-user-inner 
+div.dropdown-user-navbar 
+a.user-avatar 
+img 
+button.chevron 
+tg-svg 
+svg 
+use 
+div.navbar-dropdown.dropdown-user 
+div.dropdown-user-profile 
+a.profile-link.avatar 
+img 
+div.dropdown-user-data 
+a.profile-link.full-name › admin
+div.profile-link.email › admin@example.com
+p 
+a.edit-profile › Edit profile
+ul 
+li.user-profile-option 
+a.secondary › Account settings
+li.user-profile-option 
+a.secondary › Notifications
+li.user-profile-option 
+a › Logout
+div 
+div.master 
+div.home-wrapper.centered 
+div.duty-summary 
+h1 › Projects Dashboard
+tg-working-on.dashboard-container 
+section.working-on-container 
+header 
+h1.title-bar.working-on-title › Working on
+div.working-on 
+div.visible-duties 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › Epic
+span.ticket-status › Ready for test
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #40
+span.ticket-title 
+span › Create the user model
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › Epic
+span.ticket-status › In progress
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #38
+span.ticket-title 
+span › Fixing templates for Django 1.6.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › Issue
+span.ticket-status › In progress
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #37
+span.ticket-title 
+span › Lighttpd x-sendfile support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › User story
+span.ticket-status › Ready for test
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #19
+span.ticket-title 
+span › Create the user model
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › Task
+span.ticket-status › Needs Info
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #10
+span.ticket-title 
+span › get_actions() does not check for 'delete_selected' in actions
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #4
+span.ticket-title 
+span › Added file copying and processing of images (resizing)
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #80
+span.ticket-title 
+span › Add setting to allow regular users to create folders at the root level.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #55
+span.ticket-title 
+span › Add setting to allow regular users to create folders at the root level.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #45
+span.ticket-title 
+span › Create testsuite with matrix builds
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #31
+span.ticket-title 
+span › Migrate to Python 3 and milk a beautiful cow
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #22
+span.ticket-title 
+span › Exception is thrown if trying to add a folder with existing name
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #13
+span.ticket-title 
+span › Create the html template
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #4
+span.ticket-title 
+span › Create the user model
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Epic
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #67
+span.ticket-title 
+span › Lighttpd x-sendfile support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Issue
+span.ticket-status › Needs Info
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #53
+span.ticket-title 
+span › Add setting to allow regular users to create folders at the root level.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #37
+span.ticket-title 
+span › Experimental: modular file types
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #34
+span.ticket-title 
+span › Experimental: modular file types
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #29
+span.ticket-title 
+span › Add tests for bulk operations
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #28
+span.ticket-title 
+span › Migrate to Python 3 and milk a beautiful cow
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #24
+span.ticket-title 
+span › Support for bulk actions
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Task
+span.ticket-status › Needs Info
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #8
+span.ticket-title 
+span › Lighttpd x-sendfile support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 1
+span.ticket-type › Epic
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #44
+span.ticket-title 
+span › get_actions() does not check for 'delete_selected' in actions
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 1
+span.ticket-type › Epic
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #42
+span.ticket-title 
+span › Support for bulk actions
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 1
+span.ticket-type › Issue
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #37
+span.ticket-title 
+span › Support for bulk actions
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 1
+span.ticket-type › User story
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #22
+span.ticket-title 
+span › Migrate to Python 3 and milk a beautiful cow
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 1
+span.ticket-type › Task
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #6
+span.ticket-title 
+span › Fixing templates for Django 1.6.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.toggle-hidden 
+span › You have no hidden items
+section.watching-container 
+header 
+h1.title-bar.watching-title › Watching
+div.watching 
+div.visible-duties 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › Epic
+span.ticket-status › Ready for test
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #44
+span.ticket-title 
+span › Create the user model
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › Issue
+span.ticket-status › Needs Info
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #36
+span.ticket-title 
+span › Add setting to allow regular users to create folders at the root level.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #20
+span.ticket-title 
+span › Feature/improved image admin
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › User story
+span.ticket-status › Ready for test
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #15
+span.ticket-title 
+span › Implement the form
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #14
+span.ticket-title 
+span › Added file copying and processing of images (resizing)
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #8
+span.ticket-title 
+span › Lighttpd x-sendfile support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › Task
+span.ticket-status › New
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #7
+span.ticket-title 
+span › Fixing templates for Django 1.6.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket.blocked-project 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 7
+span.ticket-type › Task
+span.ticket-status › Ready for test
+span.ticket-blocked 
+tg-svg 
+svg 
+use 
+title › Blocked project
+div.list-itemtype-data-title 
+span.ticket-id › #3
+span.ticket-title 
+span › Fixing templates for Django 1.6.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Epic
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #109
+span.ticket-title 
+span › Added file copying and processing of images (resizing)
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Issue
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #101
+span.ticket-title 
+span › Lighttpd x-sendfile support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Issue
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #100
+span.ticket-title 
+span › Added file copying and processing of images (resizing)
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Issue
+span.ticket-status › Postponed
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #96
+span.ticket-title 
+span › Add setting to allow regular users to create folders at the root level.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Issue
+span.ticket-status › Postponed
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #95
+span.ticket-title 
+span › Add setting to allow regular users to create folders at the root level.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Issue
+span.ticket-status › Needs Info
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #87
+span.ticket-title 
+span › Implement the form
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Issue
+span.ticket-status › Needs Info
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #85
+span.ticket-title 
+span › Create testsuite with matrix builds
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #80
+span.ticket-title 
+span › Add setting to allow regular users to create folders at the root level.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #78
+span.ticket-title 
+span › Experimental: modular file types
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #77
+span.ticket-title 
+span › Create the html template
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #75
+span.ticket-title 
+span › Feature/improved image admin
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #74
+span.ticket-title 
+span › Lighttpd support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #72
+span.ticket-title 
+span › Create testsuite with matrix builds
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #67
+span.ticket-title 
+span › Create the user model
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #64
+span.ticket-title 
+span › Create the html template
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #57
+span.ticket-title 
+span › Lighttpd support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › Needs Info
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #52
+span.ticket-title 
+span › Lighttpd support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #48
+span.ticket-title 
+span › Create the user model
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #33
+span.ticket-title 
+span › Fixing templates for Django 1.6.
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #22
+span.ticket-title 
+span › Exception is thrown if trying to add a folder with existing name
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › User story
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #7
+span.ticket-title 
+span › Support for bulk actions
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 3
+span.ticket-type › Task
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #4
+span.ticket-title 
+span › Create the user model
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Issue
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #56
+span.ticket-title 
+span › Lighttpd support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Issue
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #54
+span.ticket-title 
+span › Feature/improved image admin
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Issue
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #45
+span.ticket-title 
+span › get_actions() does not check for 'delete_selected' in actions
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Issue
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #43
+span.ticket-title 
+span › Create testsuite with matrix builds
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Issue
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #42
+span.ticket-title 
+span › Migrate to Python 3 and milk a beautiful cow
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #41
+span.ticket-title 
+span › Added file copying and processing of images (resizing)
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #40
+span.ticket-title 
+span › Exception is thrown if trying to add a folder with existing name
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › New
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #33
+span.ticket-title 
+span › Lighttpd support
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › Ready for test
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #26
+span.ticket-title 
+span › Migrate to Python 3 and milk a beautiful cow
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › Ready
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #25
+span.ticket-title 
+span › Added file copying and processing of images (resizing)
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #19
+span.ticket-title 
+span › Implement the form
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › User story
+span.ticket-status › In progress
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #3
+span.ticket-title 
+span › Added file copying and processing of images (resizing)
+div 
+button.btn-link.button-hide 
+tg-svg 
+svg 
+use 
+div.duty-single 
+a.list-itemtype-ticket 
+div.list-itemtype-avatar 
+img 
+div.list-itemtype-ticket-data 
+div.list-itemtype-data-meta 
+span.ticket-project › Project Example 2
+span.ticket-type › Task
+span.ticket-status › Needs Info
+span.ticket-blocked 
+div.list-itemtype-data-title 
+span.ticket-id › #2
+span.ticket-title 
+span › Added file copying and processing of images (resizing)

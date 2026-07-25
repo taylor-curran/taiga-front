@@ -1,0 +1,17 @@
+{
+  "name": "taiga-parity-audit",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Playwright tests asserting AngularJS taiga-front behavior; React port (web-react) is expected to fail many of them — the failures document the parity gaps.",
+  "scripts": {
+    "explore": "node explore.mjs",
+    "test": "playwright test",
+    "test:angular": "PARITY_TARGET=angular playwright test",
+    "test:react":   "PARITY_TARGET=react playwright test",
+    "report": "node build-report.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
+}
