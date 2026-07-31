@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply font-sans antialiased;
+  }
+  a {
+    @apply text-taiga-link hover:underline;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded font-semibold text-sm transition-colors;
+  }
+  .btn-primary {
+    @apply btn bg-taiga-green-dark text-white hover:bg-taiga-green-darker disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-taiga-text hover:bg-taiga-grey-lighter/40;
+  }
+  .card {
+    @apply bg-taiga-card rounded shadow-sm border border-taiga-grey-lighter/50;
+  }
+  .input {
+    @apply w-full rounded border border-taiga-grey-lighter px-3 py-2 text-sm focus:outline-none focus:border-taiga-green-dark;
+  }
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-taiga-grey-lighter text-taiga-text;
+  }
+  .nav-link {
+    @apply block px-3 py-2 rounded text-sm hover:bg-taiga-grey-lighter/40;
+  }
+  .nav-link-active {
+    @apply bg-taiga-green-dark text-white hover:bg-taiga-green-darker hover:text-white;
+  }
+}
