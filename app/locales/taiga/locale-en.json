@@ -1441,6 +1441,9 @@
             "INCREMENT_TEAM": "Incremented points by team requirements for sprint \"{{sprintName}}\" is {{value}}",
             "INCREMENT_CLIENT": "Incremented points by client requirements for sprint \"{{sprintName}}\" is {{value}}"
         },
+        "STATUS_DISTRIBUTION": {
+            "TITLE": "User story status distribution"
+        },
         "TAGS": {
             "TOGGLE": "Toggle tags visibility",
             "SHOW": "tags",

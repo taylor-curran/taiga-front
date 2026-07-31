@@ -29,6 +29,28 @@ div.wrapper(tg-backlog, ng-controller="BacklogController as ctrl",
                 div.graphics-container.js-burndown-graph
                     div.burndown(tg-burndown-backlog-graph)
 
+            section.backlog-status-distribution(tg-backlog-status-distribution)
+                div(ng-if="userstories.length && statusDistribution.length")
+                    h3.backlog-status-distribution-title(
+                        translate="BACKLOG.STATUS_DISTRIBUTION.TITLE"
+                    )
+                    .backlog-status-distribution-bar
+                        .backlog-status-distribution-segment(
+                            ng-repeat="entry in statusDistribution track by entry.id"
+                            ng-style="{'width': entry.percentage + '%', 'background-color': entry.color}"
+                            title="{{entry.name}}: {{entry.count}} ({{entry.percentage}}%)"
+                        )
+                    ul.backlog-status-distribution-legend
+                        li.backlog-status-distribution-legend-item(
+                            ng-repeat="entry in statusDistribution track by entry.id"
+                        )
+                            span.backlog-status-distribution-legend-color(
+                                ng-style="{'background-color': entry.color}"
+                            )
+                            span.backlog-status-distribution-legend-label {{entry.name}}
+                            span.backlog-status-distribution-legend-count {{entry.count}}
+                            span.backlog-status-distribution-legend-percentage ({{entry.percentage}}%)
+
             .backlog-table
                 .backlog-top
                     .backlog-menu

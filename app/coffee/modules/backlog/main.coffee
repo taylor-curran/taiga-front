@@ -1383,3 +1383,53 @@ TgBacklogProgressBarDirective = ($template, $compile) ->
     return {link: link}
 
 module.directive("tgBacklogProgressBar", ["$tgTemplate", "$compile", TgBacklogProgressBarDirective])
+
+
+#############################################################################
+## Backlog status distribution directive
+#############################################################################
+
+BacklogStatusDistributionDirective = ->
+    computeDistribution = (userstories, statusList, statusById) ->
+        return [] if not userstories? or not statusList? or not statusById?
+
+        total = userstories.length
+        return [] if total == 0
+
+        counts = {}
+        for us in userstories
+            statusId = us.status
+            continue if not statusId?
+            counts[statusId] = (counts[statusId] or 0) + 1
+
+        distribution = []
+        for status in statusList
+            count = counts[status.id] or 0
+            continue if count == 0
+            distribution.push({
+                id: status.id
+                name: status.name
+                color: status.color
+                count: count
+                percentage: Math.round(1000 * count / total) / 10
+            })
+
+        return distribution
+
+    link = ($scope, $el, $attrs) ->
+        recompute = ->
+            $scope.statusDistribution = computeDistribution(
+                $scope.userstories,
+                $scope.usStatusList,
+                $scope.usStatusById
+            )
+
+        $scope.$watchCollection "userstories", recompute
+        $scope.$watchCollection "usStatusList", recompute
+
+        $scope.$on "$destroy", ->
+            $el.off()
+
+    return {link: link}
+
+module.directive("tgBacklogStatusDistribution", BacklogStatusDistributionDirective)
